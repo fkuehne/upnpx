@@ -1,0 +1,286 @@
+// ******************************************************************
+//
+// This file is part of upnpx.
+//
+// upnpx is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as 
+// published by the Free Software Foundation, either version 3 of the 
+// License, or (at your option) any later version.
+//
+// upnpx is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with upnpx.  If not, see <http://www.gnu.org/licenses/>.
+//
+// Copyright (C)2011, Bruno Keymolen, email: bruno.keymolen@gmail.com
+//
+// ******************************************************************
+
+#include "ssdpdb.h"
+
+SSDPDB::SSDPDB(){
+	int ret;
+	
+	ret = pthread_mutexattr_init(&mMutexAccessAttr);
+	STAT(ret);
+	ret = pthread_mutexattr_settype(&mMutexAccessAttr, PTHREAD_MUTEX_RECURSIVE);
+	STAT(ret);
+	ret = pthread_mutex_init(&mMutexAccess, &mMutexAccessAttr);
+ 	STAT(ret);
+		
+		
+
+EXIT:	
+	if(ret != 0){
+		printf("SSDPDB Error\n");
+	}	
+}
+
+SSDPDB::~SSDPDB(){
+	pthread_mutex_destroy(&mMutexAccess);
+	pthread_mutexattr_destroy(&mMutexAccessAttr);
+}
+					
+
+int SSDPDB::Start(){
+	int ret = 0;
+	pthread_attr_t  attr;
+	
+	//Start the cache control thread
+	ret = pthread_attr_init(&attr);
+	STAT(ret);
+	ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	STAT(ret);
+	ret = pthread_create(&mCacheControlThread, &attr, SSDPDB::sCacheControlLoop, (void*)this);		
+	pthread_attr_destroy(&attr);
+EXIT:
+	return ret;
+}
+
+int SSDPDB::Stop(){
+	mRun = 0;
+	return 0;
+}
+
+
+void SSDPDB::Lock(){
+	pthread_mutex_lock(&mMutexAccess);
+}
+
+void SSDPDB::Unlock(){
+	pthread_mutex_unlock(&mMutexAccess);
+}
+
+
+SSDPDBDevice* SSDPDB::InsertDevice(u8* usn, u32 usnlen){
+	SSDPDBDevice* thisdevice = new SSDPDBDevice();
+	thisdevice->usn.assign((const char*)usn, (size_t)usnlen);
+	
+	Lock();
+	mDevices.push_back(thisdevice);
+	Unlock();
+	
+	return thisdevice;
+}
+
+int SSDPDB::DeleteDevice(u8* usn, u32 usnlen){
+	int tel = 0;
+	SSDPDBDevice* thisdevice = NULL;
+	int updated = 0;
+	
+	Lock();
+	int i=0;
+	while(i<mDevices.size()){
+		thisdevice = mDevices[i];
+		if( (thisdevice->usn.length() == usnlen &&  memcmp(thisdevice->usn.c_str(), usn, usnlen) == 0) ){
+			mDevices.erase(mDevices.begin()+i);		
+			printf("remove %s\n", thisdevice->usn.c_str());
+			delete(thisdevice);
+			updated++;
+		}else{
+			i++;
+		}
+	}			
+	Unlock();
+
+	if(updated > 0){
+		DeviceUpdate(NULL);
+	}
+	
+	return tel;	
+}
+
+
+
+
+int SSDPDB::DeleteDevicesByUuid(u8* uuid, u32 uuidlen){
+	int tel = 0;
+	SSDPDBDevice* thisdevice = NULL;
+	int updated = 0;
+	
+	Lock();
+	int i=0;
+	while(i<mDevices.size()){
+		thisdevice = mDevices[i];
+		if( (thisdevice->uuid.length() == uuidlen &&  memcmp(thisdevice->uuid.c_str(), uuid, uuidlen) == 0) ){
+			mDevices.erase(mDevices.begin()+i);		
+			printf("remove %s\n", thisdevice->usn.c_str());
+			delete(thisdevice);
+			updated++;
+		}else{
+			i++;
+		}
+	}			
+	Unlock();
+	
+	if(updated > 0){
+		DeviceUpdate(NULL);
+	}
+	
+	return tel;	
+}
+
+
+SSDPDBDevice* SSDPDB::GetDevice(u8* usn, u32 usnlen){
+	SSDPDBDevice *result = NULL;
+	SSDPDBDevice *thisdevice = NULL;
+	
+	if(mDevices.size() <= 0){
+		return NULL;
+	}
+	
+	vector<SSDPDBDevice*>::const_iterator it;
+	it=mDevices.begin();
+	while(it < mDevices.end()){
+		thisdevice = *it; 
+		if( (thisdevice->usn.length() == usnlen &&  memcmp(thisdevice->usn.c_str(), usn, usnlen) == 0) ){
+			result = thisdevice;
+			break;
+		}
+		it++;
+	}
+	
+	return result;
+}
+
+
+
+
+vector<SSDPDBDevice*> SSDPDB::GetDevices(){
+	return mDevices;
+}
+
+
+
+int SSDPDB::AddObserver(SSDPDBObserver* observer){
+	RemoveObserver(observer);
+	mObservers.push_back(observer);
+	return 0;
+}
+
+int SSDPDB::RemoveObserver(SSDPDBObserver* observer){
+	u8 found = 0;
+	int tel = 0;
+	std::vector<SSDPDBObserver*>::iterator it;
+	for(it=mObservers.begin(); it<mObservers.end(); it++){
+		if(observer == *it){
+			//Remove this one and stop
+			found = 1;
+			break;
+		}
+		tel++;
+	}
+	if(found){
+		mObservers.erase(mObservers.begin()+tel);
+	}
+	return 0;
+	
+}
+
+
+void SSDPDB::DeviceUpdate(SSDPDBDevice* device){
+	SSDPDBMsg msg;
+	std::vector<SSDPDBObserver*>::iterator it;
+	msg.type = SSDPDBMsg_DeviceUpdate;
+	for(it=mObservers.begin(); it<mObservers.end(); it++){
+		((SSDPDBObserver*)*it)->SSDPDBMessage(&msg);
+	}
+}
+
+void SSDPDB::ServiceUpdate(SSDPDBDevice* service){
+	SSDPDBMsg msg;
+	std::vector<SSDPDBObserver*>::iterator it;
+	msg.type = SSDPDBMsg_ServiceUpdate;
+	for(it=mObservers.begin(); it<mObservers.end(); it++){
+		((SSDPDBObserver*)*it)->SSDPDBMessage(&msg);
+	}
+}
+
+
+int SSDPDB::UpdateCacheControl(u8* uuid, u32 uuidlen, int cachecontrol){
+	int tel = 0;
+	SSDPDBDevice* thisdevice = NULL;
+
+	Lock();
+	vector<SSDPDBDevice*>::const_iterator it;
+	it=mDevices.begin();
+	while(it < mDevices.end()){
+		thisdevice = *it; 
+		if( (thisdevice->uuid.length() == uuidlen &&  memcmp(thisdevice->uuid.c_str(), uuid, uuidlen) == 0) ){
+			thisdevice->cachecontrol = cachecontrol;
+			thisdevice->lastupdate = systimeinseconds;
+			tel++;
+		}
+		it++;
+	}
+	Unlock();
+
+	return tel;
+}
+
+	
+int SSDPDB::CacheControlLoop(){
+	mRun = 1;
+	SSDPDBDevice* thisdevice = NULL;
+	vector<SSDPDBDevice*>::iterator it;
+	int nows;
+	u8 updated;
+	while(mRun){		
+		sleep(CACHE_CONTROL_TIMEOUT);
+		
+		Lock();
+		updated = 0;
+		nows = time(NULL);
+		int i=0;
+		while(i<mDevices.size()){
+			thisdevice = mDevices[i];
+			if(thisdevice->lastupdate + thisdevice->cachecontrol <= nows){
+				mDevices.erase(mDevices.begin()+i);		
+				printf("remove %s\n", thisdevice->usn.c_str());
+				delete(thisdevice);
+				updated++;
+			}else{
+				i++;
+			}
+		}				
+		Unlock();
+		
+		if(updated > 0){
+			DeviceUpdate(NULL);
+		}
+	}
+	
+	return 0;
+}
+	
+	
+	
+void* SSDPDB::sCacheControlLoop(void* data){
+	SSDPDB* pthis = (SSDPDB*)data;
+	pthis->CacheControlLoop();
+	return NULL;
+}
+
