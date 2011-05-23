@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface upnpxdemoAppDelegate : NSObject <UIApplicationDelegate> {
-    
+
     UIWindow *window;
     UINavigationController *navigationController;
 }

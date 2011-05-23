@@ -9,8 +9,6 @@
 #import "upnpxdemoAppDelegate.h"
 #import "RootViewController.h"
 
-#import "UPnPManager.h"
-#import "UPnPDB.h"
 
 @implementation upnpxdemoAppDelegate
 
@@ -28,8 +26,6 @@
     [window makeKeyAndVisible];
     
     
-    UPnPDB* db = [[UPnPManager GetInstance] DB];
-//    [db addObserver:(UPnPDBObserver*)self];
     
     
 	return YES;

@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController {
+#import "UPnPDB.h"
+
+@interface RootViewController : UITableViewController <UPnPDBObserver>{
+    UITableView *menuView;
+
+	NSArray *mDevices; //BasicUPnPDevice*
 }
+
+@property (assign) IBOutlet UITableView *menuView;
+
+//protocol UPnPDBObserver
+-(void)UPnPDBWillUpdate:(UPnPDB*)sender;
+-(void)UPnPDBUpdated:(UPnPDB*)sender;
+
 
 @end

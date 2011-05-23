@@ -8,6 +8,8 @@
 
 #import "RootViewController.h"
 
+#import "UPnPManager.h"
+
 
 @implementation RootViewController
 
@@ -15,14 +17,23 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UPnPDB* db = [[UPnPManager GetInstance] DB];
+    
+    mDevices = [db rootDevices]; //BasicUPnPDevice
+	[mDevices retain];
+
+    [db addObserver:(UPnPDBObserver*)self];
+    
+    [[[UPnPManager GetInstance] SSDP] searchSSDP]; 	
+    
+    self.title = @"upnpx demo";
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,7 +76,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [mDevices count];
 }
 
 
@@ -81,6 +92,11 @@
     
 	// Configure the cell.
 
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    [cell setText:[device friendlyName]];
+    
+    NSLog(@"%d %@", indexPath.row, [device friendlyName]);
+    
     return cell;
 }
 
@@ -158,6 +174,18 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+
+//protocol UPnPDBObserver
+-(void)UPnPDBWillUpdate:(UPnPDB*)sender{
+    NSLog(@"UPnPDBWillUpdate %d", [mDevices count]);
+}
+
+-(void)UPnPDBUpdated:(UPnPDB*)sender{
+    NSLog(@"UPnPDBUpdated %d", [mDevices count]);
+    [menuView performSelectorOnMainThread : @ selector(reloadData) withObject:nil waitUntilDone:YES];
+
 }
 
 
