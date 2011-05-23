@@ -36,7 +36,7 @@
 #import "BasicParserAsset.h"
 
 
-@interface BasicParser : NSObject <NSXMLParserDelegate>{
+@interface BasicParser : NSObject /*<NSXMLParserDelegate>*/{
 @public
 	NSMutableArray *mElementStack; //NSString
 	NSMutableArray *mAssets; //BasicParserAssets
