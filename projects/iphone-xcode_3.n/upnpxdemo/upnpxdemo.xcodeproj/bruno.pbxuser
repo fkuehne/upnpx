@@ -1,0 +1,142 @@
+// !$*UTF8*$!
+{
+	15401D7F1389F108001BABB8 /* upnpxdemo */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = upnpxdemo;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	15401D971389F118001BABB8 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	15401D981389F118001BABB8 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	15401E161389F24E001BABB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* upnpxdemoAppDelegate.h */;
+		name = "upnpxdemoAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 466;
+		vrLoc = 0;
+	};
+	15401E2C1389F5B3001BABB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* upnpxdemoAppDelegate.m */;
+		name = "upnpxdemoAppDelegate.m: 33";
+		rLen = 0;
+		rLoc = 773;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 296;
+	};
+	15401E391389F5DF001BABB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* upnpxdemoAppDelegate.m */;
+		name = "upnpxdemoAppDelegate.m: 33";
+		rLen = 0;
+		rLoc = 773;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 296;
+	};
+	1D3623240D0F684500981E51 /* upnpxdemoAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {600, 286}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 466}";
+		};
+	};
+	1D3623250D0F684500981E51 /* upnpxdemoAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {815, 676}}";
+			sepNavSelRange = "{773, 0}";
+			sepNavVisRange = "{296, 593}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* upnpxdemo */ = {
+		activeExec = 0;
+		executables = (
+			15401D7F1389F108001BABB8 /* upnpxdemo */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 15401D7F1389F108001BABB8 /* upnpxdemo */;
+		activeSDKPreference = iphonesimulator3.1.3;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* upnpxdemo */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* upnpxdemo */,
+		);
+		codeSenseManager = 15401D981389F118001BABB8 /* Code sense */;
+		executables = (
+			15401D7F1389F108001BABB8 /* upnpxdemo */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					637,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 327808468;
+			PBXWorkspaceStateSaveDate = 327808468;
+		};
+		perUserProjectItems = {
+			15401E161389F24E001BABB8 /* PBXTextBookmark */ = 15401E161389F24E001BABB8 /* PBXTextBookmark */;
+			15401E2C1389F5B3001BABB8 /* PBXTextBookmark */ = 15401E2C1389F5B3001BABB8 /* PBXTextBookmark */;
+			15401E391389F5DF001BABB8 /* PBXTextBookmark */ = 15401E391389F5DF001BABB8 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 15401D971389F118001BABB8 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+}

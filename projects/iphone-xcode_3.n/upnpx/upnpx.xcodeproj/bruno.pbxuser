@@ -2,6 +2,7 @@
 {
 	0867D690FE84028FC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
+		activeSDKPreference = iphonesimulator3.2;
 		activeTarget = D2AAC07D0554694100DB518D /* upnpx */;
 		addToTargets = (
 			D2AAC07D0554694100DB518D /* upnpx */,
@@ -15,7 +16,7 @@
 					20,
 					215,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -30,14 +31,15 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 327806052;
-			PBXWorkspaceStateSaveDate = 327806052;
+			PBXPerProjectTemplateStateSaveDate = 327808784;
+			PBXWorkspaceStateSaveDate = 327808784;
 		};
 		perUserProjectItems = {
 			15401D691389EFEB001BABB8 /* PBXTextBookmark */ = 15401D691389EFEB001BABB8 /* PBXTextBookmark */;
 			15401D6A1389EFEB001BABB8 /* PBXTextBookmark */ = 15401D6A1389EFEB001BABB8 /* PBXTextBookmark */;
-			15401D6B1389EFEB001BABB8 /* XCBuildMessageTextBookmark */ = 15401D6B1389EFEB001BABB8 /* XCBuildMessageTextBookmark */;
-			15401D751389F024001BABB8 /* PBXTextBookmark */ = 15401D751389F024001BABB8 /* PBXTextBookmark */;
+			15401EA01389F719001BABB8 /* PBXTextBookmark */ = 15401EA01389F719001BABB8 /* PBXTextBookmark */;
+			15401EA11389F719001BABB8 /* PBXTextBookmark */ = 15401EA11389F719001BABB8 /* PBXTextBookmark */;
+			15401EA31389F719001BABB8 /* PBXTextBookmark */ = 15401EA31389F719001BABB8 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 15401B931389EC77001BABB8 /* Source Control */;
 		userBuildSettings = {
@@ -73,9 +75,9 @@
 	};
 	15401BBF1389ECFB001BABB8 /* BasicParser.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1097, 754}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1097, 767}}";
 			sepNavSelRange = "{1926, 0}";
-			sepNavVisRange = "{939, 1311}";
+			sepNavVisRange = "{1023, 1227}";
 			sepNavWindowFrame = "{{236, 95}, {813, 677}}";
 		};
 	};
@@ -106,24 +108,52 @@
 		vrLen = 1737;
 		vrLoc = 0;
 	};
-	15401D6B1389EFEB001BABB8 /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "Cannot find protocol declaration for 'NSXMLParserDelegate'";
-		fRef = 15401BBF1389ECFB001BABB8 /* BasicParser.h */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 38;
-		rType = 1;
-	};
-	15401D751389F024001BABB8 /* PBXTextBookmark */ = {
+	15401EA01389F719001BABB8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 15401BBF1389ECFB001BABB8 /* BasicParser.h */;
 		name = "BasicParser.h: 39";
 		rLen = 0;
 		rLoc = 1926;
 		rType = 0;
-		vrLen = 1311;
-		vrLoc = 939;
+		vrLen = 1227;
+		vrLoc = 1023;
+	};
+	15401EA11389F719001BABB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15401EA21389F719001BABB8 /* FoundationErrors.h */;
+		name = "FoundationErrors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2136;
+		vrLoc = 0;
+	};
+	15401EA21389F719001BABB8 /* FoundationErrors.h */ = {
+		isa = PBXFileReference;
+		name = FoundationErrors.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationErrors.h;
+		sourceTree = "<absolute>";
+	};
+	15401EA31389F719001BABB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15401EA41389F719001BABB8 /* FoundationErrors.h */;
+		name = "FoundationErrors.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2136;
+		vrLoc = 0;
+	};
+	15401EA41389F719001BABB8 /* FoundationErrors.h */ = {
+		isa = PBXFileReference;
+		name = FoundationErrors.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationErrors.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 806}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2136}";
+		};
 	};
 	D2AAC07D0554694100DB518D /* upnpx */ = {
 		activeExec = 0;
