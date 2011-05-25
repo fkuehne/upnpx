@@ -49,15 +49,21 @@
     NSMutableString *outUpdateID = [[NSMutableString alloc] init];
     
     [[m_device contentDirectory] BrowseWithObjectID:m_rootId BrowseFlag:@"BrowseDirectChildren" Filter:@"*" StartingIndex:@"0" RequestedCount:@"0" SortCriteria:@"+dc:title" OutResult:outResult OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];  
-    
-    [m_playList removeAllObjects];
-    
+        
+    //The collections are returned as DIDL Xml in the string 'outResult'
+    //upnpx provide a helper class to parse the DIDL Xml in usable MediaServer1BasicObject object
+    //(MediaServer1ContainerObject and MediaServer1ItemObject)
     //Parse the return DIDL and store all entries as objects in the 'mediaObjects' array
+    [m_playList removeAllObjects];
     NSData *didl = [outResult dataUsingEncoding:NSUTF8StringEncoding]; 
     MediaServerBasicObjectParser *parser = [[MediaServerBasicObjectParser alloc] initWithMediaObjectArray:m_playList itemsOnly:NO];
     [parser parseFromData:didl];
     [parser release];
     
+    [outResult release];
+    [outNumberReturned release];
+    [outTotalMatches release];
+    [outUpdateID release];
     
     self.title = m_title;
 }
