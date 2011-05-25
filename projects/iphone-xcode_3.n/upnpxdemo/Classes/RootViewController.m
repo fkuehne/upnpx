@@ -9,10 +9,12 @@
 #import "RootViewController.h"
 
 #import "UPnPManager.h"
-
+#import "MediaServer1Device.h"
+#import "FolderView.h"
 
 @implementation RootViewController
 
+@synthesize menuView;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -91,7 +93,6 @@
     }
     
 	// Configure the cell.
-
     BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
     [cell setText:[device friendlyName]];
     
@@ -146,13 +147,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
+        MediaServer1Device *server = (MediaServer1Device*)device;
+        
+        FolderView *targetViewController = [[[FolderView alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ] autorelease];
+        
+        [[self navigationController] pushViewController:targetViewController animated:YES];
+    }
+	
+}
+
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
+
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
+        return UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    return UITableViewCellAccessoryNone;
 }
 
 

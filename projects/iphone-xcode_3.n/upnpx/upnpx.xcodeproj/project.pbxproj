@@ -112,7 +112,6 @@
 		15401C921389EDED001BABB8 /* SoapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C5E1389EDED001BABB8 /* SoapAction.m */; };
 		15401C931389EDED001BABB8 /* ServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C5F1389EDED001BABB8 /* ServiceFactory.m */; };
 		15401C941389EDED001BABB8 /* MediaServerBasicObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C601389EDED001BABB8 /* MediaServerBasicObjectParser.m */; };
-		15401C951389EDED001BABB8 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C611389EDED001BABB8 /* MediaServerBasicObjectParser.h */; };
 		15401C961389EDED001BABB8 /* MediaServer1ItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C621389EDED001BABB8 /* MediaServer1ItemObject.m */; };
 		15401C971389EDED001BABB8 /* MediaServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C631389EDED001BABB8 /* MediaServer1Device.m */; };
 		15401C981389EDED001BABB8 /* MediaServer1ContainerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C641389EDED001BABB8 /* MediaServer1ContainerObject.m */; };
@@ -137,6 +136,7 @@
 		15401CAB1389EDED001BABB8 /* BasicDeviceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C771389EDED001BABB8 /* BasicDeviceParser.h */; };
 		15401CAD1389EE27001BABB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15401CAC1389EE27001BABB8 /* UIKit.framework */; };
 		15401CB51389EE58001BABB8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15401CB41389EE58001BABB8 /* CoreData.framework */; };
+		15402081138C9CC1001BABB8 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */; };
 		AA747D9F0F9514B9006C5449 /* upnpx_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* upnpx_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -247,7 +247,6 @@
 		15401C5E1389EDED001BABB8 /* SoapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapAction.m; path = ../../../src/upnp/SoapAction.m; sourceTree = SOURCE_ROOT; };
 		15401C5F1389EDED001BABB8 /* ServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceFactory.m; path = ../../../src/upnp/ServiceFactory.m; sourceTree = SOURCE_ROOT; };
 		15401C601389EDED001BABB8 /* MediaServerBasicObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServerBasicObjectParser.m; path = ../../../src/upnp/MediaServerBasicObjectParser.m; sourceTree = SOURCE_ROOT; };
-		15401C611389EDED001BABB8 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../src/upnp/MediaServerBasicObjectParser.h; sourceTree = SOURCE_ROOT; };
 		15401C621389EDED001BABB8 /* MediaServer1ItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ItemObject.m; path = ../../../src/upnp/MediaServer1ItemObject.m; sourceTree = SOURCE_ROOT; };
 		15401C631389EDED001BABB8 /* MediaServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1Device.m; path = ../../../src/upnp/MediaServer1Device.m; sourceTree = SOURCE_ROOT; };
 		15401C641389EDED001BABB8 /* MediaServer1ContainerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ContainerObject.m; path = ../../../src/upnp/MediaServer1ContainerObject.m; sourceTree = SOURCE_ROOT; };
@@ -272,6 +271,7 @@
 		15401C771389EDED001BABB8 /* BasicDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicDeviceParser.h; path = ../../../src/upnp/BasicDeviceParser.h; sourceTree = SOURCE_ROOT; };
 		15401CAC1389EE27001BABB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15401CB41389EE58001BABB8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../src/api/MediaServerBasicObjectParser.h; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* upnpx_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upnpx_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libupnpx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libupnpx.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,6 +336,7 @@
 		15401BA61389ECBD001BABB8 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */,
 				15401BA71389ECFB001BABB8 /* UPnPManager.h */,
 				15401BA81389ECFB001BABB8 /* UPnPEvents.h */,
 				15401BA91389ECFB001BABB8 /* UPnPEventParser.h */,
@@ -476,7 +477,6 @@
 				15401C5E1389EDED001BABB8 /* SoapAction.m */,
 				15401C5F1389EDED001BABB8 /* ServiceFactory.m */,
 				15401C601389EDED001BABB8 /* MediaServerBasicObjectParser.m */,
-				15401C611389EDED001BABB8 /* MediaServerBasicObjectParser.h */,
 				15401C621389EDED001BABB8 /* MediaServer1ItemObject.m */,
 				15401C631389EDED001BABB8 /* MediaServer1Device.m */,
 				15401C641389EDED001BABB8 /* MediaServer1ContainerObject.m */,
@@ -580,12 +580,12 @@
 				15401C881389EDED001BABB8 /* SoapActionsSwitchPower1.h in Headers */,
 				15401C8B1389EDED001BABB8 /* SoapActionsRendering.h in Headers */,
 				15401C8D1389EDED001BABB8 /* SoapActionsDimming1.h in Headers */,
-				15401C951389EDED001BABB8 /* MediaServerBasicObjectParser.h in Headers */,
 				15401C9D1389EDED001BABB8 /* DimmableLight1Device.h in Headers */,
 				15401CA11389EDED001BABB8 /* CocoaTools.h in Headers */,
 				15401CA31389EDED001BABB8 /* BinaryLight1Device.h in Headers */,
 				15401CA71389EDED001BABB8 /* BasicServiceParser.h in Headers */,
 				15401CAB1389EDED001BABB8 /* BasicDeviceParser.h in Headers */,
+				15402081138C9CC1001BABB8 /* MediaServerBasicObjectParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
