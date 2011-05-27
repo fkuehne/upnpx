@@ -1,0 +1,481 @@
+<!--============================================================
+TITLE: UPnP AV Scheduled Recording Service (SRS) Template
+
+Purpose:
+To identify the required/optional actions and state variables
+and the required allowed values defined by this service type.
+
+Note:
+This file uses tabs (not spaces) for block indentation.
+Any updates to this file should maintain this convention.
+This includes disabling any automatic tab-to-space conversion
+feature provided by your editor. 
+================================================================-->
+<scpd>
+	<serviceStateTable>
+		<stateVariable>
+			<name>SortCapabilities</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>SortLevelCapability</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>ui4</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>StateUpdateID</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>ui4</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>LastChange</name>
+			<sendEventsAttribute>yes</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_PropertyList</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_DataTypeID</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+			<allowedValueList>
+				<allowedValue>A_ARG_TYPE_RecordSchedule</allowedValue>
+				<allowedValue>A_ARG_TYPE_RecordTask</allowedValue>
+				<allowedValue>A_ARG_TYPE_RecordScheduleParts</allowedValue>
+			</allowedValueList>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_ObjectID</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<Optional/>
+			<name>A_ARG_TYPE_ObjectIDList</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_PropertyInfo</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_Index</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>ui4</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_Count</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>ui4</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_SortCriteria</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_RecordSchedule</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_RecordTask</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+
+		<stateVariable>
+			<name>A_ARG_TYPE_RecordScheduleParts</name>
+			<sendEventsAttribute>no</sendEventsAttribute>
+			<dataType>string</dataType>
+		</stateVariable>
+	</serviceStateTable>
+	
+	<actionList>
+		<action>
+			<name>GetSortCapabilities</name>
+			<argumentList>
+				<argument>
+					<name>SortCaps</name>
+					<direction>out</direction>
+					<relatedStateVariable>SortCapabilities</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>SortLevelCap</name>
+					<direction>out</direction>
+					<relatedStateVariable>SortLevelCapability</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>GetPropertyList</name>
+			<argumentList>
+				<argument>
+					<name>DataTypeID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_DataTypeID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>PropertyList</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>GetAllowedValues</name>
+			<argumentList>
+				<argument>
+					<name>DataTypeID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_DataTypeID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Filter</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>PropertyInfo</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyInfo</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>GetStateUpdateID</name>
+			<argumentList>
+				<argument>
+					<name>Id</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>BrowseRecordSchedules</name>
+			<argumentList>
+				<argument>
+					<name>Filter</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>StartingIndex</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>RequestedCount</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>SortCriteria</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Result</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordSchedule</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NumberReturned</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>TotalMatches</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>BrowseRecordTasks</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Filter</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>StartingIndex</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>RequestedCount</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>SortCriteria</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Result</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordTask</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>NumberReturned</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>TotalMatches</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>CreateRecordSchedule</name>
+			<argumentList>
+				<argument>
+					<name>Elements</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordScheduleParts</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Result</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordSchedule</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>DeleteRecordSchedule</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>GetRecordSchedule</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Filter</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Result</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordSchedule</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>EnableRecordSchedule</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>DisableRecordSchedule</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>DeleteRecordTask</name>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>GetRecordTask</name>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Filter</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_PropertyList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>Result</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_RecordTask</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>EnableRecordTask</name>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>DisableRecordTask</name>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<name>ResetRecordTask</name>
+			<Optional/>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>GetRecordScheduleConflicts</name>
+			<argumentList>
+				<argument>
+					<name>RecordScheduleID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>RecordScheduleConflictIDList</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectIDList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+
+		<action>
+			<Optional/>
+			<name>GetRecordTaskConflicts</name>
+			<argumentList>
+				<argument>
+					<name>RecordTaskID</name>
+					<direction>in</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>RecordTaskConflictIDList</name>
+					<direction>out</direction>
+					<relatedStateVariable>A_ARG_TYPE_ObjectIDList</relatedStateVariable>
+				</argument>
+				<argument>
+					<name>UpdateID</name>
+					<direction>out</direction>
+					<relatedStateVariable>StateUpdateID
+					</relatedStateVariable>
+				</argument>
+			</argumentList>
+		</action>
+	</actionList>
+</scpd>

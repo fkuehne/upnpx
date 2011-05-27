@@ -1,0 +1,616 @@
+<scpd>
+    <serviceStateTable>
+        <stateVariable>
+          <name>ConnectionType</name>
+          <sendEventsAttribute>no</sendEventsAttribute>
+          <dataType>string</dataType>
+        </stateVariable>
+
+    <stateVariable>
+      <name>PossibleConnectionTypes</name>
+      <dataType>string</dataType>
+      <allowedValueList>
+        <allowedValue>Unconfigured</allowedValue>
+        <allowedValue>IP_Routed</allowedValue>
+        <allowedValue>DHCP_Spoofed</allowedValue>
+        <allowedValue>PPPoE_Bridged</allowedValue>
+        <allowedValue>PPTP_Relay</allowedValue>
+        <allowedValue>L2TP_Relay</allowedValue>
+        <allowedValue>PPPoE_Relay</allowedValue>
+      </allowedValueList>      
+    </stateVariable>
+
+    <stateVariable>
+        <name>ConnectionStatus</name>
+        <dataType>string</dataType>
+        <allowedValueList>
+            <allowedValue>Unconfigured</allowedValue>
+            <allowedValue>Connected</allowedValue>
+            <allowedValue>Disconnected</allowedValue>
+        </allowedValueList>
+    </stateVariable>
+
+
+    <stateVariable>
+        <name>Uptime</name>
+        <sendEventsAttribute>no</sendEventsAttribute>
+        <dataType>ui4</dataType>
+    </stateVariable>
+
+
+    <stateVariable>
+      <name>UpstreamMaxBitRate</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>DownstreamMaxBitRate</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+
+    <stateVariable>
+      <name>LastConnectionError</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+      <allowedValueList>
+        <allowedValue>ERROR_NONE</allowedValue>
+      </allowedValueList>
+    </stateVariable>
+
+
+     <stateVariable>
+     <Optional/>
+      <name>AutoDisconnectTime</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+    <stateVariable>
+    <Optional/>
+      <name>IdleDisconnectTime</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+    <stateVariable>
+    <Optional/>
+      <name>WarnDisconnectDelay</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+
+    <stateVariable>
+      <name>RSIPAvailable</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>boolean</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>NATEnabled</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>boolean</dataType>
+    </stateVariable>
+        
+    <stateVariable>
+    <Optional/>
+      <name>UserName</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+    <Optional/>
+      <name>Password</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+        
+    <stateVariable>
+    <Optional/>
+      <name>PPPEncryptionProtocol</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+    <Optional/>
+      <name>PPPCompressionProtocol</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+    <Optional/>
+      <name>PPPAuthenticationProtocol</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>ExternalIPAddress</name>
+      <dataType>string</dataType>
+    </stateVariable>
+
+
+    <stateVariable>
+      <name>PortMappingNumberOfEntries</name>
+      <dataType>ui2</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>PortMappingEnabled</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>boolean</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>PortMappingLeaseDuration</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui4</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>RemoteHost</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>ExternalPort</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui2</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>InternalPort</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>ui2</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>PortMappingProtocol</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+      <allowedValueList>
+        <allowedValue>TCP</allowedValue>
+	    <allowedValue>UDP</allowedValue>
+      </allowedValueList>
+    </stateVariable>
+
+    <stateVariable>
+      <name>InternalClient</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+
+    <stateVariable>
+      <name>PortMappingDescription</name>
+      <sendEventsAttribute>no</sendEventsAttribute>
+      <dataType>string</dataType>
+    </stateVariable>
+  </serviceStateTable>
+
+  <actionList>
+   <action>
+    <name>SetConnectionType</name>
+      <argumentList>
+        <argument>
+          <name>NewConnectionType</name>
+          <direction>in</direction>
+          <relatedStateVariable>ConnectionType</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+     
+    <action>
+    <name>GetConnectionTypeInfo</name>
+      <argumentList>
+        <argument>
+          <name>NewConnectionType</name>
+          <direction>out</direction>
+          <relatedStateVariable>ConnectionType</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewPossibleConnectionTypes</name>
+          <direction>out</direction>
+          <relatedStateVariable>PossibleConnectionTypes</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>ConfigureConnection</name>
+      <argumentList>
+        <argument>
+          <name>NewUserName</name>
+          <direction>in</direction>
+          <relatedStateVariable>UserName</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewPassword</name>
+          <direction>in</direction>
+          <relatedStateVariable>Password</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>RequestConnection</name>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>RequestTermination</name>
+    </action>
+
+    <action>
+    <name>ForceTermination</name>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>SetAutoDisconnectTime</name>
+      <argumentList>
+        <argument>
+          <name>NewAutoDisconnectTime</name>
+          <direction>in</direction>
+         <relatedStateVariable>AutoDisconnectTime</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>SetIdleDisconnectTime</name>
+      <argumentList>
+        <argument>
+          <name>NewIdleDisconnectTime</name>
+          <direction>in</direction>
+         <relatedStateVariable>IdleDisconnectTime</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>SetWarnDisconnectDelay</name>
+      <argumentList>
+        <argument>
+          <name>NewWarnDisconnectDelay</name>
+          <direction>in</direction>
+        <relatedStateVariable>WarnDisconnectDelay</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>GetStatusInfo</name>
+      <argumentList>
+        <argument>
+          <name>NewConnectionStatus</name>
+          <direction>out</direction>
+          <relatedStateVariable>ConnectionStatus</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewLastConnectionError</name>
+          <direction>out</direction>
+        <relatedStateVariable>LastConnectionError</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewUptime</name>
+          <direction>out</direction>
+          <relatedStateVariable>Uptime</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>GetLinkLayerMaxBitRates</name>
+      <argumentList>
+        <argument>
+          <name>NewUpstreamMaxBitRate</name>
+          <direction>out</direction>
+          <relatedStateVariable>UpstreamMaxBitRate</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewDownstreamMaxBitRate</name>
+          <direction>out</direction>
+          <relatedStateVariable>DownstreamMaxBitRate</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetPPPEncryptionProtocol</name>
+      <argumentList>
+        <argument>
+          <name>NewPPPEncryptionProtocol</name>
+          <direction>out</direction>
+          <relatedStateVariable>PPPEncryptionProtocol</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetPPPCompressionProtocol</name>
+      <argumentList>
+        <argument>
+          <name>NewPPPCompressionProtocol</name>
+          <direction>out</direction>
+          <relatedStateVariable>PPPCompressionProtocol</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetPPPAuthenticationProtocol</name>
+      <argumentList>
+        <argument>
+          <name>NewPPPAuthenticationProtocol</name>
+          <direction>out</direction>
+          <relatedStateVariable>PPPAuthenticationProtocol</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetUserName</name>
+      <argumentList>
+        <argument>
+          <name>NewUserName</name>
+          <direction>out</direction>
+          <relatedStateVariable>UserName</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetPassword</name>
+      <argumentList>
+        <argument>
+          <name>NewPassword</name>
+          <direction>out</direction>
+          <relatedStateVariable>Password</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetAutoDisconnectTime</name>
+      <argumentList>
+        <argument>
+          <name>NewAutoDisconnectTime</name>
+          <direction>out</direction>
+         <relatedStateVariable>AutoDisconnectTime</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetIdleDisconnectTime</name>
+      <argumentList>
+        <argument>
+          <name>NewIdleDisconnectTime</name>
+          <direction>out</direction>
+         <relatedStateVariable>IdleDisconnectTime</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <Optional/>
+    <name>GetWarnDisconnectDelay</name>
+      <argumentList>
+        <argument>
+          <name>NewWarnDisconnectDelay</name>
+          <direction>out</direction>
+        <relatedStateVariable>WarnDisconnectDelay</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>GetNATRSIPStatus</name>
+      <argumentList>
+        <argument>
+          <name>NewRSIPAvailable</name>
+          <direction>out</direction>
+          <relatedStateVariable>RSIPAvailable</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewNATEnabled</name>
+          <direction>out</direction>
+          <relatedStateVariable>NATEnabled</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>GetGenericPortMappingEntry</name>
+      <argumentList>
+        <argument>
+          <name>NewPortMappingIndex</name>
+          <direction>in</direction>
+          <relatedStateVariable>PortMappingNumberOfEntries</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewRemoteHost</name>
+          <direction>out</direction>
+          <relatedStateVariable>RemoteHost</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewExternalPort</name>
+          <direction>out</direction>
+          <relatedStateVariable>ExternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewProtocol</name>
+          <direction>out</direction>
+        <relatedStateVariable>PortMappingProtocol</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalPort</name>
+          <direction>out</direction>
+          <relatedStateVariable>InternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalClient</name>
+          <direction>out</direction>
+          <relatedStateVariable>InternalClient</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewEnabled</name>
+          <direction>out</direction>
+          <relatedStateVariable>PortMappingEnabled</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewPortMappingDescription</name>
+          <direction>out</direction>
+          <relatedStateVariable>PortMappingDescription</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewLeaseDuration</name>
+          <direction>out</direction>
+          <relatedStateVariable>PortMappingLeaseDuration</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>GetSpecificPortMappingEntry </name>
+      <argumentList>
+        <argument>
+          <name>NewRemoteHost</name>
+          <direction>in</direction>
+          <relatedStateVariable>RemoteHost</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewExternalPort</name>
+          <direction>in</direction>
+          <relatedStateVariable>ExternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewProtocol</name>
+          <direction>in</direction>
+        <relatedStateVariable>PortMappingProtocol</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalPort</name>
+          <direction>out</direction>
+          <relatedStateVariable>InternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalClient</name>
+          <direction>out</direction>
+          <relatedStateVariable>InternalClient</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewEnabled</name>
+          <direction>out</direction>
+         <relatedStateVariable>PortMappingEnabled</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewPortMappingDescription</name>
+          <direction>out</direction>      
+          <relatedStateVariable>PortMappingDescription</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewLeaseDuration</name>
+          <direction>out</direction>        
+          <relatedStateVariable>PortMappingLeaseDuration</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>AddPortMapping </name>
+      <argumentList>
+        <argument>
+          <name>NewRemoteHost</name>
+          <direction>in</direction>
+          <relatedStateVariable>RemoteHost</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewExternalPort</name>
+          <direction>in</direction>
+          <relatedStateVariable>ExternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewProtocol</name>
+          <direction>in</direction>
+        <relatedStateVariable>PortMappingProtocol</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalPort</name>
+          <direction>in</direction>
+          <relatedStateVariable>InternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewInternalClient</name>
+          <direction>in</direction>
+          <relatedStateVariable>InternalClient</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewEnabled</name>
+          <direction>in</direction>
+          <relatedStateVariable>PortMappingEnabled</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewPortMappingDescription</name>
+          <direction>in</direction>
+          <relatedStateVariable>PortMappingDescription</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewLeaseDuration</name>
+          <direction>in</direction>      
+          <relatedStateVariable>PortMappingLeaseDuration</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+    <action>
+    <name>DeletePortMapping</name>
+      <argumentList>
+         <argument>
+          <name>NewRemoteHost</name>
+          <direction>in</direction>
+          <relatedStateVariable>RemoteHost</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewExternalPort</name>
+          <direction>in</direction>
+          <relatedStateVariable>ExternalPort</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewProtocol</name>
+          <direction>in</direction>
+        <relatedStateVariable>PortMappingProtocol</relatedStateVariable>
+        </argument> 
+     </argumentList>
+    </action>
+
+    <action>
+    <name>GetExternalIPAddress</name>
+      <argumentList>
+        <argument>
+          <name>NewExternalIPAddress</name>
+          <direction>out</direction>
+          <relatedStateVariable>ExternalIPAddress</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+
+  </actionList>
+</scpd>

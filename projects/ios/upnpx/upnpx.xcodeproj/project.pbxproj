@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15583F2F138F448E00A734E7 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */; };
 		15BAC4F8132C22BA00F5C41A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BAC4F7132C22BA00F5C41A /* Foundation.framework */; };
 		15C44D9F132C30000013D453 /* basichttpobserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44D91132C30000013D453 /* basichttpobserver.h */; };
 		15C44DA1132C30000013D453 /* BasicHTTPServer_ObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15C44D93132C30000013D453 /* BasicHTTPServer_ObjC.mm */; };
@@ -80,7 +81,6 @@
 		15C44E64132C30490013D453 /* MediaServer1ContainerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E17132C30490013D453 /* MediaServer1ContainerObject.m */; };
 		15C44E66132C30490013D453 /* MediaServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E19132C30490013D453 /* MediaServer1Device.m */; };
 		15C44E68132C30490013D453 /* MediaServer1ItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */; };
-		15C44E69132C30490013D453 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E1C132C30490013D453 /* MediaServerBasicObjectParser.h */; };
 		15C44E6A132C30490013D453 /* MediaServerBasicObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */; };
 		15C44E6C132C30490013D453 /* ServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1F132C30490013D453 /* ServiceFactory.m */; };
 		15C44E6E132C30490013D453 /* SoapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E21132C30490013D453 /* SoapAction.m */; };
@@ -140,6 +140,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../../src/api/MediaServerBasicObjectParser.h; sourceTree = "<group>"; };
 		15BAC4F4132C22BA00F5C41A /* libupnpx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libupnpx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15BAC4F7132C22BA00F5C41A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15BAC4FB132C22BA00F5C41A /* upnpx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "upnpx-Prefix.pch"; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		15C44E17132C30490013D453 /* MediaServer1ContainerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ContainerObject.m; path = ../../../../src/upnp/MediaServer1ContainerObject.m; sourceTree = "<group>"; };
 		15C44E19132C30490013D453 /* MediaServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1Device.m; path = ../../../../src/upnp/MediaServer1Device.m; sourceTree = "<group>"; };
 		15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ItemObject.m; path = ../../../../src/upnp/MediaServer1ItemObject.m; sourceTree = "<group>"; };
-		15C44E1C132C30490013D453 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../../src/upnp/MediaServerBasicObjectParser.h; sourceTree = "<group>"; };
 		15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServerBasicObjectParser.m; path = ../../../../src/upnp/MediaServerBasicObjectParser.m; sourceTree = "<group>"; };
 		15C44E1F132C30490013D453 /* ServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceFactory.m; path = ../../../../src/upnp/ServiceFactory.m; sourceTree = "<group>"; };
 		15C44E21132C30490013D453 /* SoapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapAction.m; path = ../../../../src/upnp/SoapAction.m; sourceTree = "<group>"; };
@@ -272,8 +272,6 @@
 		15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsContentDirectory1.h; path = ../../../../src/api/SoapActionsContentDirectory1.h; sourceTree = "<group>"; };
 		15C44F39132C45B60013D453 /* SoapActionsRenderingControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRenderingControl1.h; path = ../../../../src/api/SoapActionsRenderingControl1.h; sourceTree = "<group>"; };
 		15C44F3A132C45B60013D453 /* UPnPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPManager.h; path = ../../../../src/api/UPnPManager.h; sourceTree = "<group>"; };
-		15C44F8E132D32C40013D453 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = COPYING; path = ../../../COPYING; sourceTree = "<group>"; };
-		15C44F8F132D32C40013D453 /* COPYING.LESSER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = COPYING.LESSER; path = ../../../COPYING.LESSER; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,8 +289,6 @@
 		15BAC4E9132C22BA00F5C41A = {
 			isa = PBXGroup;
 			children = (
-				15C44F8E132D32C40013D453 /* COPYING */,
-				15C44F8F132D32C40013D453 /* COPYING.LESSER */,
 				15BAC4F9132C22BA00F5C41A /* upnpx */,
 				15BAC4F6132C22BA00F5C41A /* Frameworks */,
 				15BAC4F5132C22BA00F5C41A /* Products */,
@@ -437,6 +433,7 @@
 				15C44F01132C3AF80013D453 /* UPnPDB.h */,
 				15C44F02132C3AF80013D453 /* UPnPEventParser.h */,
 				15C44F03132C3AF80013D453 /* UPnPEvents.h */,
+				15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */,
 			);
 			name = api;
 			sourceTree = "<group>";
@@ -474,7 +471,6 @@
 				15C44E17132C30490013D453 /* MediaServer1ContainerObject.m */,
 				15C44E19132C30490013D453 /* MediaServer1Device.m */,
 				15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */,
-				15C44E1C132C30490013D453 /* MediaServerBasicObjectParser.h */,
 				15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */,
 				15C44E1F132C30490013D453 /* ServiceFactory.m */,
 				15C44E21132C30490013D453 /* SoapAction.m */,
@@ -546,7 +542,6 @@
 				15C44E53132C30490013D453 /* BinaryLight1Device.h in Headers */,
 				15C44E55132C30490013D453 /* CocoaTools.h in Headers */,
 				15C44E5A132C30490013D453 /* DimmableLight1Device.h in Headers */,
-				15C44E69132C30490013D453 /* MediaServerBasicObjectParser.h in Headers */,
 				15C44E77132C30490013D453 /* SoapActionsDimming1.h in Headers */,
 				15C44E79132C30490013D453 /* SoapActionsRendering.h in Headers */,
 				15C44E7D132C30490013D453 /* SoapActionsSwitchPower1.h in Headers */,
@@ -582,6 +577,7 @@
 				15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */,
 				15C44F47132C45B60013D453 /* SoapActionsRenderingControl1.h in Headers */,
 				15C44F48132C45B60013D453 /* UPnPManager.h in Headers */,
+				15583F2F138F448E00A734E7 /* MediaServerBasicObjectParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
