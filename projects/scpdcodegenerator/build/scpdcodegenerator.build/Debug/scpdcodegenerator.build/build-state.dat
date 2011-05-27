@@ -1,342 +1,0 @@
-Tscpdcodegenerator
-v3
-r1
-cCheck dependencies
-cCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm normal i386 objective-c++ com.apple.compilers.llvmgcc42
-cCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-cCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-cCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m normal i386 objective-c com.apple.compilers.llvmgcc42
-cLd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator normal i386
-
-N/Developer/SDKs/MacOSX10.6.sdk
-c000000004DD9B17100000000000000EE
-t1306112369
-s238
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004CC401D100000000000013E6
-t1287913937
-s5094
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000004A1F2D63000000000000A5E0
-t1243557219
-s42464
-
-N/Users/bruno/Projects/scpdcodegenerator/BasicParser.h
-c000000004B8B9D6E0000000000000304
-t1267441006
-s772
-i<Foundation/Foundation.h>
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/scpdcodegenerator/BasicParser.m
-c000000004B8D06600000000000001570
-t1267533408
-s5488
-i"BasicParser.h"
-
-N/Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.h
-c000000004B829A8D0000000000000334
-t1266850445
-s820
-i<Foundation/Foundation.h>
-
-N/Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m
-c000000004B829CD40000000000000361
-t1266851028
-s865
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.h
-c000000004B8FB1E3000000000000046B
-t1267708387
-s1131
-i<Foundation/Foundation.h>
-i<Cocoa/Cocoa.h>
-i"BasicParser.h"
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m
-c000000004DDF0B9700000000000021C9
-t1306463127
-s8649
-i"SCDPPArser.h"
-
-N/Users/bruno/Projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-t1306462991
-s37292
-
-N/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-t1306462990
-s19016
-
-N/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-t1306462991
-s10392
-
-N/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-t1306462990
-s30556
-
-N/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-t1306462990
-s25860
-
-N/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/scpdcodegenerator.LinkFileList
-c000000004B8FB1790000000000000215
-t1267708281
-s533
-
-N/Users/bruno/Projects/scpdcodegenerator/main.mm
-c000000004B8FB22E00000000000002CE
-t1267708462
-s718
-i<iostream>
-i"SCDPPArser.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.h
-c000000004DDF0D790000000000000996
-t1306463609
-s2454
-i<Foundation/Foundation.h>
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m
-c000000004DDF0DB90000000000001C02
-t1306463673
-s7170
-i"BasicParser.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.h
-c000000004DDF0DB800000000000009C1
-t1306463672
-s2497
-i<Foundation/Foundation.h>
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m
-c000000004DDF0DB700000000000009EE
-t1306463671
-s2542
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.h
-c000000004DDF0DB50000000000000AFE
-t1306463669
-s2814
-i<Foundation/Foundation.h>
-i<Cocoa/Cocoa.h>
-i"BasicParser.h"
-i"BasicParserAsset.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m
-c000000004DDF0D9B000000000000285C
-t1306463643
-s10332
-i"SCDPPArser.h"
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-t1306463131
-s41388
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-t1306462990
-s19016
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-t1306462991
-s10392
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-t1306463131
-s30832
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-t1306462990
-s25860
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/scpdcodegenerator.LinkFileList
-c000000004DDF0DCD0000000000000251
-t1306463693
-s593
-
-N/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm
-c000000004DDF0DB600000000000009EF
-t1306463670
-s2543
-i<iostream>
-i"SCDPPArser.h"
-
-CBuild AST from /Users/bruno/Projects/scpdcodegenerator/BasicParser.m
-r0
-
-CBuild AST from /Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m
-r0
-
-CBuild AST from /Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m
-r0
-
-CBuild AST from /Users/bruno/Projects/scpdcodegenerator/main.mm
-r0
-
-CBuild AST from /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m
-r0
-
-CBuild AST from /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m
-r0
-
-CBuild AST from /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m
-r0
-
-CBuild AST from /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm
-r0
-
-CCheck dependencies
-r0
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies5532804d458fb341^97e58f4d458fb341^---0#1#0#--18"Check dependencies
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o /Users/bruno/Projects/scpdcodegenerator/BasicParser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328155790.086021
-e328155790.626175
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-x/Users/bruno/Projects/scpdcodegenerator/BasicParser.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/scpdcodegenerator/BasicParser.m: In function '-[BasicParser startParser:]':
-o/Users/bruno/Projects/scpdcodegenerator/BasicParser.m:102: warning: class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/bruno/Projects/scpdcodegenerator/BasicParser.m1c26168e428fb341^c076a08e428fb341^-240"/Users/bruno/Projects/scpdcodegenerator/BasicParser.m: In function '-[BasicParser startParser:]':/Users/bruno/Projects/scpdcodegenerator/BasicParser.m:102: warning: class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol1(21%IDEActivityLogMessage2@73"Class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol-328155790#98#142#-1#-23%DVTTextDocumentLocation3@69"file://localhost/Users/bruno/Projects/scpdcodegenerator/BasicParser.m0000000000000000^101#18446744073709551615#101#18446744073709551615#18446744073709551615#0#45"Class '*' does not implement the '*' protocol--0#0#0#-19%DVTDocumentLocation4@69"file://localhost/Users/bruno/Projects/scpdcodegenerator/BasicParser.m0000000000000000^1701"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o BasicParser.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/scpdcodegenerator/BasicParser.m -o /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328156494.214269
-e328156494.718355
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-x/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m: In function '-[BasicParser startParser:]':
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m:128: warning: class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Compile /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m45f1364e458fb341^8813b84e458fb341^-270"/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m: In function '-[BasicParser startParser:]':/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m:128: warning: class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol1(21%IDEActivityLogMessage2@73"Class 'BasicParser' does not implement the 'NSXMLParserDelegate' protocol-328156494#113#157#-1#-23%DVTTextDocumentLocation3@84"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m0000000000000000^127#18446744073709551615#127#18446744073709551615#18446744073709551615#0#45"Class '*' does not implement the '*' protocol--0#0#0#-19%DVTDocumentLocation4@84"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m0000000000000000^1866"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o BasicParser.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParser.m -o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParser.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o /Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328155790.626315
-e328155791.124638
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-x/Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m446ca08e428fb341^9be81f8f428fb341^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m0000000000000000^1721"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o BasicParserAsset.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/scpdcodegenerator/BasicParserAsset.m -o /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328156494.718496
-e328156495.308893
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-x/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m280ab84e458fb341^59134f4f458fb341^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m0000000000000000^1886"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o BasicParserAsset.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/BasicParserAsset.m -o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/BasicParserAsset.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o /Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328155930.567520
-e328155931.132306
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-x/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m: In function '-[SCDPPArser parse]':
-o/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m:130: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)
-o/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m:131: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Compile /Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m185e911a438fb341^11df211b438fb341^-533"/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m: In function '-[SCDPPArser parse]':/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m:130: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m:131: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)2(21%IDEActivityLogMessage2@154"'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)-328155931#89#222#-1#-23%DVTTextDocumentLocation3@68"file://localhost/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m0000000000000000^129#18446744073709551615#129#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--2@154"'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)-328155931#311#222#-1#-3@68"file://localhost/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m0000000000000000^130#18446744073709551615#130#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--0#0#0#-19%DVTDocumentLocation4@68"file://localhost/Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m0000000000000000^1697"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o SCDPPArser.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/scpdcodegenerator/SCDPPArser.m -o /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m normal i386 objective-c com.apple.compilers.llvmgcc42
-s328156493.562057
-e328156494.214003
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-x/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m: In function '-[SCDPPArser parse]':
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m:156: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m:157: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m6af78f4d458fb341^60c8364e458fb341^-578"/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m: In function '-[SCDPPArser parse]':/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m:156: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m:157: warning: 'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)2(21%IDEActivityLogMessage2@154"'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)-328156494#104#237#-1#-23%DVTTextDocumentLocation3@83"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m0000000000000000^155#18446744073709551615#155#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--2@154"'writeToFile:atomically:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:374)-328156494#341#237#-1#-3@83"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m0000000000000000^156#18446744073709551615#156#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--0#0#0#-19%DVTDocumentLocation4@83"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m0000000000000000^1862"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o SCDPPArser.m normal i386 objective-c com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/SCDPPArser.m -o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/SCDPPArser.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o /Users/bruno/Projects/scpdcodegenerator/main.mm normal i386 objective-c++ com.apple.compilers.llvmgcc42
-s328155786.568658
-e328155790.924098
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-x/Users/bruno/Projects/scpdcodegenerator/main.mm
-xnormal
-xi386
-xobjective-c++
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/scpdcodegenerator/main.mm: In function 'int main(int, char* const*)':
-o/Users/bruno/Projects/scpdcodegenerator/main.mm:13: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)
-o/Users/bruno/Projects/scpdcodegenerator/main.mm:14: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Compile /Users/bruno/Projects/scpdcodegenerator/main.mmbbb8918a428fb341^289dec8e428fb341^-514"/Users/bruno/Projects/scpdcodegenerator/main.mm: In function 'int main(int, char* const*)':/Users/bruno/Projects/scpdcodegenerator/main.mm:13: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)/Users/bruno/Projects/scpdcodegenerator/main.mm:14: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)2(21%IDEActivityLogMessage2@149"'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)-328155790#92#211#-1#-23%DVTTextDocumentLocation3@63"file://localhost/Users/bruno/Projects/scpdcodegenerator/main.mm0000000000000000^12#18446744073709551615#12#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--2@149"'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)-328155790#303#211#-1#-3@63"file://localhost/Users/bruno/Projects/scpdcodegenerator/main.mm0000000000000000^13#18446744073709551615#13#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--0#0#0#-19%DVTDocumentLocation4@63"file://localhost/Users/bruno/Projects/scpdcodegenerator/main.mm0000000000000000^1698"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o main.mm normal i386 objective-c++ com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/scpdcodegenerator/main.mm -o /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-
-CCompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm normal i386 objective-c++ com.apple.compilers.llvmgcc42
-s328156493.561581
-e328156495.055798
-r1
-xCompileC
-xbuild/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-x/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm
-xnormal
-xi386
-xobjective-c++
-xcom.apple.compilers.llvmgcc42
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm: In function 'int main(int, char* const*)':
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm:47: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)
-o/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm:48: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mma9d98f4d458fb341^cf4e0e4f458fb341^-559"/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm: In function 'int main(int, char* const*)':/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm:47: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm:48: warning: 'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)2(21%IDEActivityLogMessage2@149"'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)-328156494#107#226#-1#-23%DVTTextDocumentLocation3@78"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm0000000000000000^46#18446744073709551615#46#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--2@149"'stringWithCString:' is deprecated (declared at /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:386)-328156494#333#226#-1#-3@78"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm0000000000000000^47#18446744073709551615#47#18446744073709551615#18446744073709551615#0#33"'*' is deprecated (declared at *)--0#0#0#-19%DVTDocumentLocation4@78"file://localhost/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm0000000000000000^1863"CompileC build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o main.mm normal i386 objective-c++ com.apple.compilers.llvmgcc42    cd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x objective-c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -D_GLIBCXX_DEBUG=1 -D_GLIBCXX_DEBUG_PEDANTIC=1 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -fvisibility-inlines-hidden -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-generated-files.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-own-target-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-all-target-headers.hmap -iquote /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/scpdcodegenerator-project-headers.hmap -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/include -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources/i386 -I/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/DerivedSources -F/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -c /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/main.mm -o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/main.o
-
-CLd /Users/bruno/Projects/scpdcodegenerator/build/Debug/scpdcodegenerator normal i386
-s328155931.132472
-e328155931.177747
-r1
-xLd
-x/Users/bruno/Projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-xnormal
-xi386
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Link /Users/bruno/Projects/scpdcodegenerator/build/Debug/scpdcodegenerator6af9211b438fb341^6b812d1b438fb341^---0#0#0#--606"Ld build/Debug/scpdcodegenerator normal i386    cd /Users/bruno/Projects/scpdcodegenerator    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/llvm-g++-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/bruno/Projects/scpdcodegenerator/build/Debug -F/Users/bruno/Projects/scpdcodegenerator/build/Debug -filelist /Users/bruno/Projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/scpdcodegenerator.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -o /Users/bruno/Projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-
-CLd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator normal i386
-s328156495.309263
-e328156495.355435
-r1
-xLd
-x/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-xnormal
-xi386
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Link /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator8e3d4f4f458fb341^50fe5a4f458fb341^---0#0#0#--681"Ld build/Debug/scpdcodegenerator normal i386    cd /Users/bruno/Projects/upnpx/projects/scpdcodegenerator    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/llvm-g++-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -F/Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug -filelist /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/scpdcodegenerator.build/Debug/scpdcodegenerator.build/Objects-normal/i386/scpdcodegenerator.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -o /Users/bruno/Projects/upnpx/projects/scpdcodegenerator/build/Debug/scpdcodegenerator
-
