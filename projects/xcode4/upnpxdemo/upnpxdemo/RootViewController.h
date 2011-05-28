@@ -11,8 +11,11 @@
 #import "UPnPDB.h"
 
 @interface RootViewController : UITableViewController <UPnPDBObserver>{
+    UITableView *menuView;
     NSArray *mDevices; //BasicUPnPDevice*
 }
+
+@property (assign) IBOutlet UITableView *menuView;
 
 
 //protocol UPnPDBObserver

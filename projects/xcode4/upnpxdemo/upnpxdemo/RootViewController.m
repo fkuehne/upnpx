@@ -11,6 +11,8 @@
 
 @implementation RootViewController
 
+@synthesize menuView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,7 +65,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [mDevices count];
 }
 
 // Customize the appearance of table view cells.
@@ -77,8 +79,25 @@
     }
 
     // Configure the cell.
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    [cell setText:[device friendlyName]];
+    
+    NSLog(@"%d %@", indexPath.row, [device friendlyName]);
+    
     return cell;
 }
+
+
+-(UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
+    
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
+        return UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    return UITableViewCellAccessoryNone;
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -130,6 +149,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 	*/
+        
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,6 +180,7 @@
 
 -(void)UPnPDBUpdated:(UPnPDB*)sender{
     NSLog(@"UPnPDBUpdated %d", [mDevices count]);
+    [menuView performSelectorOnMainThread : @ selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
 @end
