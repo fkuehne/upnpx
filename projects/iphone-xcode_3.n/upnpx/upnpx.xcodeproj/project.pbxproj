@@ -7,6 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153B063A13909262003AA393 /* SoapActionsWANPPPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */; };
+		153B063B13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */; };
+		153B063C13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */; };
+		153B063D13909262003AA393 /* SoapActionsWANIPConnection2.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062F13909262003AA393 /* SoapActionsWANIPConnection2.h */; };
+		153B063E13909262003AA393 /* SoapActionsWANIPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063013909262003AA393 /* SoapActionsWANIPConnection1.h */; };
+		153B063F13909262003AA393 /* SoapActionsWANEthernetLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063113909262003AA393 /* SoapActionsWANEthernetLinkConfig1.h */; };
+		153B064013909262003AA393 /* SoapActionsWANDSLLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063213909262003AA393 /* SoapActionsWANDSLLinkConfig1.h */; };
+		153B064113909262003AA393 /* SoapActionsWANCableLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063313909262003AA393 /* SoapActionsWANCableLinkConfig1.h */; };
+		153B064213909262003AA393 /* SoapActionsLayer3Forwarding1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063413909262003AA393 /* SoapActionsLayer3Forwarding1.h */; };
+		153B064313909262003AA393 /* SoapActionsLANHostConfigManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063513909262003AA393 /* SoapActionsLANHostConfigManagement1.h */; };
+		153B064413909262003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063613909262003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.h */; };
+		153B064513909262003AA393 /* SoapActionsDigitalSecurityCameraSettings1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063713909262003AA393 /* SoapActionsDigitalSecurityCameraSettings1.h */; };
+		153B064613909262003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063813909262003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.h */; };
+		153B064713909262003AA393 /* DigitalSecurityCamera1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B063913909262003AA393 /* DigitalSecurityCamera1Device.h */; };
+		153B065413909291003AA393 /* SoapActionsWANPOTSLinkConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064813909291003AA393 /* SoapActionsWANPOTSLinkConfig1.m */; };
+		153B065513909291003AA393 /* SoapActionsWANIPv6FirewallControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064913909291003AA393 /* SoapActionsWANIPv6FirewallControl1.m */; };
+		153B065613909291003AA393 /* SoapActionsWANIPConnection2.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064A13909291003AA393 /* SoapActionsWANIPConnection2.m */; };
+		153B065713909291003AA393 /* SoapActionsWANEthernetLinkConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064B13909291003AA393 /* SoapActionsWANEthernetLinkConfig1.m */; };
+		153B065813909291003AA393 /* SoapActionsWANDSLLinkConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064C13909291003AA393 /* SoapActionsWANDSLLinkConfig1.m */; };
+		153B065913909291003AA393 /* SoapActionsWANCableLinkConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064D13909291003AA393 /* SoapActionsWANCableLinkConfig1.m */; };
+		153B065A13909291003AA393 /* SoapActionsLayer3Forwarding1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064E13909291003AA393 /* SoapActionsLayer3Forwarding1.m */; };
+		153B065B13909291003AA393 /* SoapActionsLANHostConfigManagement1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B064F13909291003AA393 /* SoapActionsLANHostConfigManagement1.m */; };
+		153B065C13909291003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B065013909291003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.m */; };
+		153B065D13909291003AA393 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B065113909291003AA393 /* SoapActionsDigitalSecurityCameraSettings1.m */; };
+		153B065E13909291003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B065213909291003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.m */; };
+		153B065F13909291003AA393 /* DigitalSecurityCamera1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B065313909291003AA393 /* DigitalSecurityCamera1Device.m */; };
+		153B0688139095AC003AA393 /* WANConnection2Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B0687139095AC003AA393 /* WANConnection2Device.m */; };
+		153B068B139095C9003AA393 /* WANConnection2Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B0689139095C9003AA393 /* WANConnection2Device.h */; };
+		153B068C139095C9003AA393 /* WANConnection1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B068A139095C9003AA393 /* WANConnection1Device.h */; };
+		153B06B61390A185003AA393 /* InternetGateway2Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B06B51390A185003AA393 /* InternetGateway2Device.m */; };
+		153B06B81390A1A6003AA393 /* InternetGateway2Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B06B71390A1A6003AA393 /* InternetGateway2Device.h */; };
+		153B06D31390A4BF003AA393 /* WAN2Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B06D21390A4BF003AA393 /* WAN2Device.m */; };
+		153B06D51390A4D9003AA393 /* WAN2Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B06D41390A4D9003AA393 /* WAN2Device.h */; };
+		153B06D71390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B06D61390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m */; };
+		153B06D91390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B06D81390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h */; };
+		153B06E91390AAE0003AA393 /* LAN1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B06E81390AAE0003AA393 /* LAN1Device.m */; };
+		153B06EB1390AAF7003AA393 /* LAN1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B06EA1390AAF7003AA393 /* LAN1Device.h */; };
 		15401BC11389ECFB001BABB8 /* UPnPManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401BA71389ECFB001BABB8 /* UPnPManager.h */; };
 		15401BC21389ECFB001BABB8 /* UPnPEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401BA81389ECFB001BABB8 /* UPnPEvents.h */; };
 		15401BC31389ECFB001BABB8 /* UPnPEventParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401BA91389ECFB001BABB8 /* UPnPEventParser.h */; };
@@ -84,7 +121,6 @@
 		15401C411389EDBD001BABB8 /* ssdp.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C201389EDBD001BABB8 /* ssdp.h */; };
 		15401C421389EDBD001BABB8 /* ssdp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15401C211389EDBD001BABB8 /* ssdp.cpp */; };
 		15401C781389EDED001BABB8 /* WANConnection1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C441389EDED001BABB8 /* WANConnection1Device.m */; };
-		15401C791389EDED001BABB8 /* WANConnection1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C451389EDED001BABB8 /* WANConnection1Device.h */; };
 		15401C7A1389EDED001BABB8 /* UPnPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C461389EDED001BABB8 /* UPnPManager.m */; };
 		15401C7B1389EDED001BABB8 /* UPnPEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C471389EDED001BABB8 /* UPnPEvents.m */; };
 		15401C7C1389EDED001BABB8 /* UPnPEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C481389EDED001BABB8 /* UPnPEventParser.m */; };
@@ -142,6 +178,43 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPPPConnection1.h; path = ../../../src/api/SoapActionsWANPPPConnection1.h; sourceTree = SOURCE_ROOT; };
+		153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPOTSLinkConfig1.h; path = ../../../src/api/SoapActionsWANPOTSLinkConfig1.h; sourceTree = SOURCE_ROOT; };
+		153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPv6FirewallControl1.h; path = ../../../src/api/SoapActionsWANIPv6FirewallControl1.h; sourceTree = SOURCE_ROOT; };
+		153B062F13909262003AA393 /* SoapActionsWANIPConnection2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPConnection2.h; path = ../../../src/api/SoapActionsWANIPConnection2.h; sourceTree = SOURCE_ROOT; };
+		153B063013909262003AA393 /* SoapActionsWANIPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPConnection1.h; path = ../../../src/api/SoapActionsWANIPConnection1.h; sourceTree = SOURCE_ROOT; };
+		153B063113909262003AA393 /* SoapActionsWANEthernetLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANEthernetLinkConfig1.h; path = ../../../src/api/SoapActionsWANEthernetLinkConfig1.h; sourceTree = SOURCE_ROOT; };
+		153B063213909262003AA393 /* SoapActionsWANDSLLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANDSLLinkConfig1.h; path = ../../../src/api/SoapActionsWANDSLLinkConfig1.h; sourceTree = SOURCE_ROOT; };
+		153B063313909262003AA393 /* SoapActionsWANCableLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANCableLinkConfig1.h; path = ../../../src/api/SoapActionsWANCableLinkConfig1.h; sourceTree = SOURCE_ROOT; };
+		153B063413909262003AA393 /* SoapActionsLayer3Forwarding1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsLayer3Forwarding1.h; path = ../../../src/api/SoapActionsLayer3Forwarding1.h; sourceTree = SOURCE_ROOT; };
+		153B063513909262003AA393 /* SoapActionsLANHostConfigManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsLANHostConfigManagement1.h; path = ../../../src/api/SoapActionsLANHostConfigManagement1.h; sourceTree = SOURCE_ROOT; };
+		153B063613909262003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDigitalSecurityCameraStillImage1.h; path = ../../../src/api/SoapActionsDigitalSecurityCameraStillImage1.h; sourceTree = SOURCE_ROOT; };
+		153B063713909262003AA393 /* SoapActionsDigitalSecurityCameraSettings1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDigitalSecurityCameraSettings1.h; path = ../../../src/api/SoapActionsDigitalSecurityCameraSettings1.h; sourceTree = SOURCE_ROOT; };
+		153B063813909262003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDigitalSecurityCameraMotionImage1.h; path = ../../../src/api/SoapActionsDigitalSecurityCameraMotionImage1.h; sourceTree = SOURCE_ROOT; };
+		153B063913909262003AA393 /* DigitalSecurityCamera1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DigitalSecurityCamera1Device.h; path = ../../../src/api/DigitalSecurityCamera1Device.h; sourceTree = SOURCE_ROOT; };
+		153B064813909291003AA393 /* SoapActionsWANPOTSLinkConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANPOTSLinkConfig1.m; path = ../../../src/upnp/SoapActionsWANPOTSLinkConfig1.m; sourceTree = SOURCE_ROOT; };
+		153B064913909291003AA393 /* SoapActionsWANIPv6FirewallControl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANIPv6FirewallControl1.m; path = ../../../src/upnp/SoapActionsWANIPv6FirewallControl1.m; sourceTree = SOURCE_ROOT; };
+		153B064A13909291003AA393 /* SoapActionsWANIPConnection2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANIPConnection2.m; path = ../../../src/upnp/SoapActionsWANIPConnection2.m; sourceTree = SOURCE_ROOT; };
+		153B064B13909291003AA393 /* SoapActionsWANEthernetLinkConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANEthernetLinkConfig1.m; path = ../../../src/upnp/SoapActionsWANEthernetLinkConfig1.m; sourceTree = SOURCE_ROOT; };
+		153B064C13909291003AA393 /* SoapActionsWANDSLLinkConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANDSLLinkConfig1.m; path = ../../../src/upnp/SoapActionsWANDSLLinkConfig1.m; sourceTree = SOURCE_ROOT; };
+		153B064D13909291003AA393 /* SoapActionsWANCableLinkConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANCableLinkConfig1.m; path = ../../../src/upnp/SoapActionsWANCableLinkConfig1.m; sourceTree = SOURCE_ROOT; };
+		153B064E13909291003AA393 /* SoapActionsLayer3Forwarding1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsLayer3Forwarding1.m; path = ../../../src/upnp/SoapActionsLayer3Forwarding1.m; sourceTree = SOURCE_ROOT; };
+		153B064F13909291003AA393 /* SoapActionsLANHostConfigManagement1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsLANHostConfigManagement1.m; path = ../../../src/upnp/SoapActionsLANHostConfigManagement1.m; sourceTree = SOURCE_ROOT; };
+		153B065013909291003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsDigitalSecurityCameraStillImage1.m; path = ../../../src/upnp/SoapActionsDigitalSecurityCameraStillImage1.m; sourceTree = SOURCE_ROOT; };
+		153B065113909291003AA393 /* SoapActionsDigitalSecurityCameraSettings1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsDigitalSecurityCameraSettings1.m; path = ../../../src/upnp/SoapActionsDigitalSecurityCameraSettings1.m; sourceTree = SOURCE_ROOT; };
+		153B065213909291003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsDigitalSecurityCameraMotionImage1.m; path = ../../../src/upnp/SoapActionsDigitalSecurityCameraMotionImage1.m; sourceTree = SOURCE_ROOT; };
+		153B065313909291003AA393 /* DigitalSecurityCamera1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DigitalSecurityCamera1Device.m; path = ../../../src/upnp/DigitalSecurityCamera1Device.m; sourceTree = SOURCE_ROOT; };
+		153B0687139095AC003AA393 /* WANConnection2Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WANConnection2Device.m; path = ../../../src/upnp/WANConnection2Device.m; sourceTree = SOURCE_ROOT; };
+		153B0689139095C9003AA393 /* WANConnection2Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WANConnection2Device.h; path = ../../../src/api/WANConnection2Device.h; sourceTree = SOURCE_ROOT; };
+		153B068A139095C9003AA393 /* WANConnection1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WANConnection1Device.h; path = ../../../src/api/WANConnection1Device.h; sourceTree = SOURCE_ROOT; };
+		153B06B51390A185003AA393 /* InternetGateway2Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InternetGateway2Device.m; path = ../../../src/upnp/InternetGateway2Device.m; sourceTree = SOURCE_ROOT; };
+		153B06B71390A1A6003AA393 /* InternetGateway2Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternetGateway2Device.h; path = ../../../src/api/InternetGateway2Device.h; sourceTree = SOURCE_ROOT; };
+		153B06D21390A4BF003AA393 /* WAN2Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAN2Device.m; path = ../../../src/upnp/WAN2Device.m; sourceTree = SOURCE_ROOT; };
+		153B06D41390A4D9003AA393 /* WAN2Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAN2Device.h; path = ../../../src/api/WAN2Device.h; sourceTree = SOURCE_ROOT; };
+		153B06D61390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANCommonInterfaceConfig1.m; path = ../../../src/upnp/SoapActionsWANCommonInterfaceConfig1.m; sourceTree = SOURCE_ROOT; };
+		153B06D81390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANCommonInterfaceConfig1.h; path = ../../../src/api/SoapActionsWANCommonInterfaceConfig1.h; sourceTree = SOURCE_ROOT; };
+		153B06E81390AAE0003AA393 /* LAN1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LAN1Device.m; path = ../../../src/upnp/LAN1Device.m; sourceTree = SOURCE_ROOT; };
+		153B06EA1390AAF7003AA393 /* LAN1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAN1Device.h; path = ../../../src/api/LAN1Device.h; sourceTree = SOURCE_ROOT; };
 		15401BA71389ECFB001BABB8 /* UPnPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPManager.h; path = ../../../src/api/UPnPManager.h; sourceTree = SOURCE_ROOT; };
 		15401BA81389ECFB001BABB8 /* UPnPEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPEvents.h; path = ../../../src/api/UPnPEvents.h; sourceTree = SOURCE_ROOT; };
 		15401BA91389ECFB001BABB8 /* UPnPEventParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPEventParser.h; path = ../../../src/api/UPnPEventParser.h; sourceTree = SOURCE_ROOT; };
@@ -219,7 +292,6 @@
 		15401C201389EDBD001BABB8 /* ssdp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ssdp.h; path = ../../../src/ssdp/ssdp.h; sourceTree = SOURCE_ROOT; };
 		15401C211389EDBD001BABB8 /* ssdp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ssdp.cpp; path = ../../../src/ssdp/ssdp.cpp; sourceTree = SOURCE_ROOT; };
 		15401C441389EDED001BABB8 /* WANConnection1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WANConnection1Device.m; path = ../../../src/upnp/WANConnection1Device.m; sourceTree = SOURCE_ROOT; };
-		15401C451389EDED001BABB8 /* WANConnection1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WANConnection1Device.h; path = ../../../src/upnp/WANConnection1Device.h; sourceTree = SOURCE_ROOT; };
 		15401C461389EDED001BABB8 /* UPnPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPManager.m; path = ../../../src/upnp/UPnPManager.m; sourceTree = SOURCE_ROOT; };
 		15401C471389EDED001BABB8 /* UPnPEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPEvents.m; path = ../../../src/upnp/UPnPEvents.m; sourceTree = SOURCE_ROOT; };
 		15401C481389EDED001BABB8 /* UPnPEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPEventParser.m; path = ../../../src/upnp/UPnPEventParser.m; sourceTree = SOURCE_ROOT; };
@@ -336,6 +408,12 @@
 		15401BA61389ECBD001BABB8 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				153B06EA1390AAF7003AA393 /* LAN1Device.h */,
+				153B06D41390A4D9003AA393 /* WAN2Device.h */,
+				153B06B71390A1A6003AA393 /* InternetGateway2Device.h */,
+				153B0689139095C9003AA393 /* WANConnection2Device.h */,
+				153B068A139095C9003AA393 /* WANConnection1Device.h */,
+				153B063913909262003AA393 /* DigitalSecurityCamera1Device.h */,
 				15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */,
 				15401BA71389ECFB001BABB8 /* UPnPManager.h */,
 				15401BA81389ECFB001BABB8 /* UPnPEvents.h */,
@@ -347,6 +425,20 @@
 				15401BAE1389ECFB001BABB8 /* SoapActionsContentDirectory1.h */,
 				15401BAF1389ECFB001BABB8 /* SoapActionsConnectionManager1.h */,
 				15401BB01389ECFB001BABB8 /* SoapActionsAVTransport1.h */,
+				153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */,
+				153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */,
+				153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */,
+				153B062F13909262003AA393 /* SoapActionsWANIPConnection2.h */,
+				153B063013909262003AA393 /* SoapActionsWANIPConnection1.h */,
+				153B063113909262003AA393 /* SoapActionsWANEthernetLinkConfig1.h */,
+				153B063213909262003AA393 /* SoapActionsWANDSLLinkConfig1.h */,
+				153B063313909262003AA393 /* SoapActionsWANCableLinkConfig1.h */,
+				153B063413909262003AA393 /* SoapActionsLayer3Forwarding1.h */,
+				153B063513909262003AA393 /* SoapActionsLANHostConfigManagement1.h */,
+				153B063613909262003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.h */,
+				153B063713909262003AA393 /* SoapActionsDigitalSecurityCameraSettings1.h */,
+				153B063813909262003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.h */,
+				153B06D81390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h */,
 				15401BB11389ECFB001BABB8 /* SoapActionFactory.h */,
 				15401BB21389ECFB001BABB8 /* SoapAction.h */,
 				15401BB31389ECFB001BABB8 /* ServiceFactory.h */,
@@ -448,8 +540,12 @@
 		15401C431389EDD1001BABB8 /* upnp */ = {
 			isa = PBXGroup;
 			children = (
+				153B06E81390AAE0003AA393 /* LAN1Device.m */,
+				153B06D21390A4BF003AA393 /* WAN2Device.m */,
+				153B06B51390A185003AA393 /* InternetGateway2Device.m */,
+				153B0687139095AC003AA393 /* WANConnection2Device.m */,
+				153B065313909291003AA393 /* DigitalSecurityCamera1Device.m */,
 				15401C441389EDED001BABB8 /* WANConnection1Device.m */,
-				15401C451389EDED001BABB8 /* WANConnection1Device.h */,
 				15401C461389EDED001BABB8 /* UPnPManager.m */,
 				15401C471389EDED001BABB8 /* UPnPEvents.m */,
 				15401C481389EDED001BABB8 /* UPnPEventParser.m */,
@@ -472,6 +568,18 @@
 				15401C591389EDED001BABB8 /* SoapActionsDimming1.h */,
 				15401C5A1389EDED001BABB8 /* SoapActionsContentDirectory1.m */,
 				15401C5B1389EDED001BABB8 /* SoapActionsConnectionManager1.m */,
+				153B064813909291003AA393 /* SoapActionsWANPOTSLinkConfig1.m */,
+				153B064913909291003AA393 /* SoapActionsWANIPv6FirewallControl1.m */,
+				153B064A13909291003AA393 /* SoapActionsWANIPConnection2.m */,
+				153B064B13909291003AA393 /* SoapActionsWANEthernetLinkConfig1.m */,
+				153B064C13909291003AA393 /* SoapActionsWANDSLLinkConfig1.m */,
+				153B064D13909291003AA393 /* SoapActionsWANCableLinkConfig1.m */,
+				153B064E13909291003AA393 /* SoapActionsLayer3Forwarding1.m */,
+				153B064F13909291003AA393 /* SoapActionsLANHostConfigManagement1.m */,
+				153B065013909291003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.m */,
+				153B065113909291003AA393 /* SoapActionsDigitalSecurityCameraSettings1.m */,
+				153B065213909291003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.m */,
+				153B06D61390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m */,
 				15401C5C1389EDED001BABB8 /* SoapActionsAVTransport1.m */,
 				15401C5D1389EDED001BABB8 /* SoapActionFactory.m */,
 				15401C5E1389EDED001BABB8 /* SoapAction.m */,
@@ -572,7 +680,6 @@
 				15401C3C1389EDBD001BABB8 /* ssdpdbdevice.h in Headers */,
 				15401C3E1389EDBD001BABB8 /* ssdpdb.h in Headers */,
 				15401C411389EDBD001BABB8 /* ssdp.h in Headers */,
-				15401C791389EDED001BABB8 /* WANConnection1Device.h in Headers */,
 				15401C7F1389EDED001BABB8 /* StateVariableRange.h in Headers */,
 				15401C811389EDED001BABB8 /* StateVariableList.h in Headers */,
 				15401C841389EDED001BABB8 /* SoapActionsWANPPPConnection1.h in Headers */,
@@ -586,6 +693,26 @@
 				15401CA71389EDED001BABB8 /* BasicServiceParser.h in Headers */,
 				15401CAB1389EDED001BABB8 /* BasicDeviceParser.h in Headers */,
 				15402081138C9CC1001BABB8 /* MediaServerBasicObjectParser.h in Headers */,
+				153B063A13909262003AA393 /* SoapActionsWANPPPConnection1.h in Headers */,
+				153B063B13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
+				153B063C13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h in Headers */,
+				153B063D13909262003AA393 /* SoapActionsWANIPConnection2.h in Headers */,
+				153B063E13909262003AA393 /* SoapActionsWANIPConnection1.h in Headers */,
+				153B063F13909262003AA393 /* SoapActionsWANEthernetLinkConfig1.h in Headers */,
+				153B064013909262003AA393 /* SoapActionsWANDSLLinkConfig1.h in Headers */,
+				153B064113909262003AA393 /* SoapActionsWANCableLinkConfig1.h in Headers */,
+				153B064213909262003AA393 /* SoapActionsLayer3Forwarding1.h in Headers */,
+				153B064313909262003AA393 /* SoapActionsLANHostConfigManagement1.h in Headers */,
+				153B064413909262003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.h in Headers */,
+				153B064513909262003AA393 /* SoapActionsDigitalSecurityCameraSettings1.h in Headers */,
+				153B064613909262003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.h in Headers */,
+				153B064713909262003AA393 /* DigitalSecurityCamera1Device.h in Headers */,
+				153B068B139095C9003AA393 /* WANConnection2Device.h in Headers */,
+				153B068C139095C9003AA393 /* WANConnection1Device.h in Headers */,
+				153B06B81390A1A6003AA393 /* InternetGateway2Device.h in Headers */,
+				153B06D51390A4D9003AA393 /* WAN2Device.h in Headers */,
+				153B06D91390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h in Headers */,
+				153B06EB1390AAF7003AA393 /* LAN1Device.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +820,23 @@
 				15401CA81389EDED001BABB8 /* BasicParserAsset.m in Sources */,
 				15401CA91389EDED001BABB8 /* BasicParser.m in Sources */,
 				15401CAA1389EDED001BABB8 /* BasicDeviceParser.m in Sources */,
+				153B065413909291003AA393 /* SoapActionsWANPOTSLinkConfig1.m in Sources */,
+				153B065513909291003AA393 /* SoapActionsWANIPv6FirewallControl1.m in Sources */,
+				153B065613909291003AA393 /* SoapActionsWANIPConnection2.m in Sources */,
+				153B065713909291003AA393 /* SoapActionsWANEthernetLinkConfig1.m in Sources */,
+				153B065813909291003AA393 /* SoapActionsWANDSLLinkConfig1.m in Sources */,
+				153B065913909291003AA393 /* SoapActionsWANCableLinkConfig1.m in Sources */,
+				153B065A13909291003AA393 /* SoapActionsLayer3Forwarding1.m in Sources */,
+				153B065B13909291003AA393 /* SoapActionsLANHostConfigManagement1.m in Sources */,
+				153B065C13909291003AA393 /* SoapActionsDigitalSecurityCameraStillImage1.m in Sources */,
+				153B065D13909291003AA393 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */,
+				153B065E13909291003AA393 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */,
+				153B065F13909291003AA393 /* DigitalSecurityCamera1Device.m in Sources */,
+				153B0688139095AC003AA393 /* WANConnection2Device.m in Sources */,
+				153B06B61390A185003AA393 /* InternetGateway2Device.m in Sources */,
+				153B06D31390A4BF003AA393 /* WAN2Device.m in Sources */,
+				153B06D71390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m in Sources */,
+				153B06E91390AAE0003AA393 /* LAN1Device.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
