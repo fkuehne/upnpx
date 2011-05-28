@@ -2,9 +2,9 @@
 //This file is part of the upnox project.
 //Copyright 2010 - 2011 Bruno Keymolen, all rights reserved.
 
-#import "SoapActionsWANIPConnection1.h"
+#import "SoapActionsWANIPConnection2.h"
 
-@implementation SoapActionsWANIPConnection1
+@implementation SoapActionsWANIPConnection2
 
 
 -(int)SetConnectionTypeWithNewConnectionType:(NSString*)newconnectiontype{
@@ -219,7 +219,7 @@
 }
 
 
--(int)GetSpecificPortMappingEntry WithNewRemoteHost:(NSString*)newremotehost NewExternalPort:(NSString*)newexternalport NewProtocol:(NSString*)newprotocol OutNewInternalPort:(NSMutableString*)newinternalport OutNewInternalClient:(NSMutableString*)newinternalclient OutNewEnabled:(NSMutableString*)newenabled OutNewPortMappingDescription:(NSMutableString*)newportmappingdescription OutNewLeaseDuration:(NSMutableString*)newleaseduration{
+-(int)GetSpecificPortMappingEntryWithNewRemoteHost:(NSString*)newremotehost NewExternalPort:(NSString*)newexternalport NewProtocol:(NSString*)newprotocol OutNewInternalPort:(NSMutableString*)newinternalport OutNewInternalClient:(NSMutableString*)newinternalclient OutNewEnabled:(NSMutableString*)newenabled OutNewPortMappingDescription:(NSMutableString*)newportmappingdescription OutNewLeaseDuration:(NSMutableString*)newleaseduration{
     int ret = 0;
 
     NSDictionary *parameters = nil;
@@ -236,12 +236,12 @@
     outputObjects = [NSArray arrayWithObjects:newinternalport, newinternalclient, newenabled, newportmappingdescription, newleaseduration, nil];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
-    ret = [self action:@"GetSpecificPortMappingEntry " parameters:parameters returnValues:output];
+    ret = [self action:@"GetSpecificPortMappingEntry" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)AddPortMapping WithNewRemoteHost:(NSString*)newremotehost NewExternalPort:(NSString*)newexternalport NewProtocol:(NSString*)newprotocol NewInternalPort:(NSString*)newinternalport NewInternalClient:(NSString*)newinternalclient NewEnabled:(NSString*)newenabled NewPortMappingDescription:(NSString*)newportmappingdescription NewLeaseDuration:(NSString*)newleaseduration{
+-(int)AddPortMappingWithNewRemoteHost:(NSString*)newremotehost NewExternalPort:(NSString*)newexternalport NewProtocol:(NSString*)newprotocol NewInternalPort:(NSString*)newinternalport NewInternalClient:(NSString*)newinternalclient NewEnabled:(NSString*)newenabled NewPortMappingDescription:(NSString*)newportmappingdescription NewLeaseDuration:(NSString*)newleaseduration{
     int ret = 0;
 
     NSDictionary *parameters = nil;
@@ -252,7 +252,7 @@
     parameterObjects = [NSArray arrayWithObjects:newremotehost, newexternalport, newprotocol, newinternalport, newinternalclient, newenabled, newportmappingdescription, newleaseduration, nil];
     parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
-    ret = [self action:@"AddPortMapping " parameters:parameters returnValues:output];
+    ret = [self action:@"AddPortMapping" parameters:parameters returnValues:output];
     return ret;
 }
 
@@ -273,6 +273,22 @@
 }
 
 
+-(int)DeletePortMappingRangeWithNewStartPort:(NSString*)newstartport NewEndPort:(NSString*)newendport NewProtocol:(NSString*)newprotocol NewManage:(NSString*)newmanage{
+    int ret = 0;
+
+    NSDictionary *parameters = nil;
+    NSDictionary *output = nil;
+    NSArray *parameterKeys = nil;
+    NSArray *parameterObjects = nil;
+    parameterKeys = [NSArray arrayWithObjects:@"NewStartPort", @"NewEndPort", @"NewProtocol", @"NewManage", nil];
+    parameterObjects = [NSArray arrayWithObjects:newstartport, newendport, newprotocol, newmanage, nil];
+    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+
+    ret = [self action:@"DeletePortMappingRange" parameters:parameters returnValues:output];
+    return ret;
+}
+
+
 -(int)GetExternalIPAddressWithOutNewExternalIPAddress:(NSMutableString*)newexternalipaddress{
     int ret = 0;
 
@@ -285,6 +301,50 @@
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetExternalIPAddress" parameters:parameters returnValues:output];
+    return ret;
+}
+
+
+-(int)GetListOfPortMappingsWithNewStartPort:(NSString*)newstartport NewEndPort:(NSString*)newendport NewProtocol:(NSString*)newprotocol NewManage:(NSString*)newmanage NewNumberOfPorts:(NSString*)newnumberofports OutNewPortListing:(NSMutableString*)newportlisting{
+    int ret = 0;
+
+    NSDictionary *parameters = nil;
+    NSDictionary *output = nil;
+    NSArray *parameterKeys = nil;
+    NSArray *parameterObjects = nil;
+    parameterKeys = [NSArray arrayWithObjects:@"NewStartPort", @"NewEndPort", @"NewProtocol", @"NewManage", @"NewNumberOfPorts", nil];
+    parameterObjects = [NSArray arrayWithObjects:newstartport, newendport, newprotocol, newmanage, newnumberofports, nil];
+    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+
+    NSArray *outputObjects = nil;
+    NSArray *outputKeys = nil;
+    outputKeys = [NSArray arrayWithObjects:@"NewPortListing", nil];
+    outputObjects = [NSArray arrayWithObjects:newportlisting, nil];
+    output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
+
+    ret = [self action:@"GetListOfPortMappings" parameters:parameters returnValues:output];
+    return ret;
+}
+
+
+-(int)AddAnyPortMappingWithNewRemoteHost:(NSString*)newremotehost NewExternalPort:(NSString*)newexternalport NewProtocol:(NSString*)newprotocol NewInternalPort:(NSString*)newinternalport NewInternalClient:(NSString*)newinternalclient NewEnabled:(NSString*)newenabled NewPortMappingDescription:(NSString*)newportmappingdescription NewLeaseDuration:(NSString*)newleaseduration OutNewReservedPort:(NSMutableString*)newreservedport{
+    int ret = 0;
+
+    NSDictionary *parameters = nil;
+    NSDictionary *output = nil;
+    NSArray *parameterKeys = nil;
+    NSArray *parameterObjects = nil;
+    parameterKeys = [NSArray arrayWithObjects:@"NewRemoteHost", @"NewExternalPort", @"NewProtocol", @"NewInternalPort", @"NewInternalClient", @"NewEnabled", @"NewPortMappingDescription", @"NewLeaseDuration", nil];
+    parameterObjects = [NSArray arrayWithObjects:newremotehost, newexternalport, newprotocol, newinternalport, newinternalclient, newenabled, newportmappingdescription, newleaseduration, nil];
+    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+
+    NSArray *outputObjects = nil;
+    NSArray *outputKeys = nil;
+    outputKeys = [NSArray arrayWithObjects:@"NewReservedPort", nil];
+    outputObjects = [NSArray arrayWithObjects:newreservedport, nil];
+    output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
+
+    ret = [self action:@"AddAnyPortMapping" parameters:parameters returnValues:output];
     return ret;
 }
 
