@@ -85,12 +85,17 @@
 	[urlRequest setHTTPMethod:@"SUBSCRIBE"];	
 	
 	NSHTTPURLResponse *urlResponse;
-	NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
 	
+#if 0
+	NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
+
 	NSString *o = [[NSString alloc] initWithData:resp encoding: NSUTF8StringEncoding];
 	NSLog( o );
 	[o release];
-	
+#else
+	[NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
+#endif
+    
 	if([urlResponse statusCode] == 200){
 		NSDictionary *allReturnedHeaders = [urlResponse allHeaderFields];
 		for(NSString* key in allReturnedHeaders){
@@ -108,7 +113,7 @@
 	if(retUUID){
 		[mEventSubscribers setObject:subscriber forKey:retUUID];
 	}else{
-		NSLog(@"Cannot subscribe for events, server return code : %ld", [urlResponse statusCode]);
+		NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
 	}
 	[mMutex unlock];
 	
