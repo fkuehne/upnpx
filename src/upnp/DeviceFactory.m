@@ -45,6 +45,8 @@
 #import "WANConnection2Device.h"
 #import "WAN2Device.h"   
 #import "LAN1Device.h"   
+#import "TelephonyClient1Device.h"
+#import "TelephonyServer1Device.h"
 
 @implementation DeviceFactory
 
@@ -84,6 +86,10 @@
 		device =  [[WAN2Device alloc] initWithSSDPDevice:ssdp];        
 	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:LANDevice:1"]){
 		device =  [[LAN1Device alloc] initWithSSDPDevice:ssdp];        
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyClient:1"]){
+		device =  [[TelephonyClient1Device alloc] initWithSSDPDevice:ssdp];        
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyServer:1"]){
+		device =  [[TelephonyServer1Device alloc] initWithSSDPDevice:ssdp];        
 	}else{
 		device =  [[BasicUPnPDevice alloc] initWithSSDPDevice:ssdp];
 	}

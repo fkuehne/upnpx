@@ -70,13 +70,13 @@
 -(int)GetValuesWithParameters:(NSString*)parameters OutParameterValueList:(NSMutableString*)parametervaluelist{
     int ret = 0;
 
-    NSDictionary *parameters = nil;
+    NSDictionary *parametersd = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"Parameters", nil];
     parameterObjects = [NSArray arrayWithObjects:parameters, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parametersd = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -84,7 +84,7 @@
     outputObjects = [NSArray arrayWithObjects:parametervaluelist, nil];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
-    ret = [self action:@"GetValues" parameters:parameters returnValues:output];
+    ret = [self action:@"GetValues" parameters:parametersd returnValues:output];
     return ret;
 }
 
@@ -180,13 +180,13 @@
 -(int)GetAttributesWithParameters:(NSString*)parameters OutNodeAttributeValueList:(NSMutableString*)nodeattributevaluelist{
     int ret = 0;
 
-    NSDictionary *parameters = nil;
+    NSDictionary *parametersd = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"Parameters", nil];
     parameterObjects = [NSArray arrayWithObjects:parameters, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parametersd = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -194,7 +194,7 @@
     outputObjects = [NSArray arrayWithObjects:nodeattributevaluelist, nil];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
-    ret = [self action:@"GetAttributes" parameters:parameters returnValues:output];
+    ret = [self action:@"GetAttributes" parameters:parametersd returnValues:output];
     return ret;
 }
 
