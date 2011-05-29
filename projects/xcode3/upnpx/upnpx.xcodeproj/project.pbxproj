@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150A87481391D06B00019C05 /* SoapActionsMessaging1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87421391D06B00019C05 /* SoapActionsMessaging1.m */; };
+		150A87491391D06B00019C05 /* SoapActionsMediaManagement1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87431391D06B00019C05 /* SoapActionsMediaManagement1.m */; };
+		150A874A1391D06B00019C05 /* SoapActionsInputConfig1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87441391D06B00019C05 /* SoapActionsInputConfig1.m */; };
+		150A874B1391D06B00019C05 /* SoapActionsDeviceProtection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87451391D06B00019C05 /* SoapActionsDeviceProtection1.m */; };
+		150A874C1391D06B00019C05 /* SoapActionsConfigurationManagement1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87461391D06B00019C05 /* SoapActionsConfigurationManagement1.m */; };
+		150A874D1391D06B00019C05 /* SoapActionsCallManagement1.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87471391D06B00019C05 /* SoapActionsCallManagement1.m */; };
+		150A87541391D0B600019C05 /* SoapActionsMessaging1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A874E1391D0B600019C05 /* SoapActionsMessaging1.h */; };
+		150A87551391D0B600019C05 /* SoapActionsMediaManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A874F1391D0B600019C05 /* SoapActionsMediaManagement1.h */; };
+		150A87561391D0B600019C05 /* SoapActionsInputConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87501391D0B600019C05 /* SoapActionsInputConfig1.h */; };
+		150A87571391D0B600019C05 /* SoapActionsDeviceProtection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87511391D0B600019C05 /* SoapActionsDeviceProtection1.h */; };
+		150A87581391D0B600019C05 /* SoapActionsConfigurationManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87521391D0B600019C05 /* SoapActionsConfigurationManagement1.h */; };
+		150A87591391D0B600019C05 /* SoapActionsCallManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87531391D0B600019C05 /* SoapActionsCallManagement1.h */; };
+		150A87831391D77A00019C05 /* TelephonyClient1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87821391D77A00019C05 /* TelephonyClient1Device.h */; };
+		150A87851391D78F00019C05 /* TelephonyClient1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87841391D78F00019C05 /* TelephonyClient1Device.m */; };
+		150A879D1391DD5300019C05 /* TelephonyServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A879C1391DD5300019C05 /* TelephonyServer1Device.m */; };
+		150A879F1391DD6900019C05 /* TelephonyServer1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A879E1391DD6900019C05 /* TelephonyServer1Device.h */; };
 		153B063A13909262003AA393 /* SoapActionsWANPPPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */; };
 		153B063B13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */; };
 		153B063C13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */; };
@@ -178,6 +194,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		150A87421391D06B00019C05 /* SoapActionsMessaging1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsMessaging1.m; path = ../../../src/upnp/SoapActionsMessaging1.m; sourceTree = SOURCE_ROOT; };
+		150A87431391D06B00019C05 /* SoapActionsMediaManagement1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsMediaManagement1.m; path = ../../../src/upnp/SoapActionsMediaManagement1.m; sourceTree = SOURCE_ROOT; };
+		150A87441391D06B00019C05 /* SoapActionsInputConfig1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsInputConfig1.m; path = ../../../src/upnp/SoapActionsInputConfig1.m; sourceTree = SOURCE_ROOT; };
+		150A87451391D06B00019C05 /* SoapActionsDeviceProtection1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsDeviceProtection1.m; path = ../../../src/upnp/SoapActionsDeviceProtection1.m; sourceTree = SOURCE_ROOT; };
+		150A87461391D06B00019C05 /* SoapActionsConfigurationManagement1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsConfigurationManagement1.m; path = ../../../src/upnp/SoapActionsConfigurationManagement1.m; sourceTree = SOURCE_ROOT; };
+		150A87471391D06B00019C05 /* SoapActionsCallManagement1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsCallManagement1.m; path = ../../../src/upnp/SoapActionsCallManagement1.m; sourceTree = SOURCE_ROOT; };
+		150A874E1391D0B600019C05 /* SoapActionsMessaging1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsMessaging1.h; path = ../../../src/api/SoapActionsMessaging1.h; sourceTree = SOURCE_ROOT; };
+		150A874F1391D0B600019C05 /* SoapActionsMediaManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsMediaManagement1.h; path = ../../../src/api/SoapActionsMediaManagement1.h; sourceTree = SOURCE_ROOT; };
+		150A87501391D0B600019C05 /* SoapActionsInputConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsInputConfig1.h; path = ../../../src/api/SoapActionsInputConfig1.h; sourceTree = SOURCE_ROOT; };
+		150A87511391D0B600019C05 /* SoapActionsDeviceProtection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDeviceProtection1.h; path = ../../../src/api/SoapActionsDeviceProtection1.h; sourceTree = SOURCE_ROOT; };
+		150A87521391D0B600019C05 /* SoapActionsConfigurationManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsConfigurationManagement1.h; path = ../../../src/api/SoapActionsConfigurationManagement1.h; sourceTree = SOURCE_ROOT; };
+		150A87531391D0B600019C05 /* SoapActionsCallManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsCallManagement1.h; path = ../../../src/api/SoapActionsCallManagement1.h; sourceTree = SOURCE_ROOT; };
+		150A87821391D77A00019C05 /* TelephonyClient1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TelephonyClient1Device.h; path = ../../../src/api/TelephonyClient1Device.h; sourceTree = SOURCE_ROOT; };
+		150A87841391D78F00019C05 /* TelephonyClient1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyClient1Device.m; path = ../../../src/upnp/TelephonyClient1Device.m; sourceTree = SOURCE_ROOT; };
+		150A879C1391DD5300019C05 /* TelephonyServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyServer1Device.m; path = ../../../src/upnp/TelephonyServer1Device.m; sourceTree = SOURCE_ROOT; };
+		150A879E1391DD6900019C05 /* TelephonyServer1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TelephonyServer1Device.h; path = ../../../src/api/TelephonyServer1Device.h; sourceTree = SOURCE_ROOT; };
 		153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPPPConnection1.h; path = ../../../src/api/SoapActionsWANPPPConnection1.h; sourceTree = SOURCE_ROOT; };
 		153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPOTSLinkConfig1.h; path = ../../../src/api/SoapActionsWANPOTSLinkConfig1.h; sourceTree = SOURCE_ROOT; };
 		153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPv6FirewallControl1.h; path = ../../../src/api/SoapActionsWANIPv6FirewallControl1.h; sourceTree = SOURCE_ROOT; };
@@ -408,6 +440,14 @@
 		15401BA61389ECBD001BABB8 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				150A879E1391DD6900019C05 /* TelephonyServer1Device.h */,
+				150A87821391D77A00019C05 /* TelephonyClient1Device.h */,
+				150A874E1391D0B600019C05 /* SoapActionsMessaging1.h */,
+				150A874F1391D0B600019C05 /* SoapActionsMediaManagement1.h */,
+				150A87501391D0B600019C05 /* SoapActionsInputConfig1.h */,
+				150A87511391D0B600019C05 /* SoapActionsDeviceProtection1.h */,
+				150A87521391D0B600019C05 /* SoapActionsConfigurationManagement1.h */,
+				150A87531391D0B600019C05 /* SoapActionsCallManagement1.h */,
 				153B06EA1390AAF7003AA393 /* LAN1Device.h */,
 				153B06D41390A4D9003AA393 /* WAN2Device.h */,
 				153B06B71390A1A6003AA393 /* InternetGateway2Device.h */,
@@ -540,6 +580,14 @@
 		15401C431389EDD1001BABB8 /* upnp */ = {
 			isa = PBXGroup;
 			children = (
+				150A879C1391DD5300019C05 /* TelephonyServer1Device.m */,
+				150A87841391D78F00019C05 /* TelephonyClient1Device.m */,
+				150A87421391D06B00019C05 /* SoapActionsMessaging1.m */,
+				150A87431391D06B00019C05 /* SoapActionsMediaManagement1.m */,
+				150A87441391D06B00019C05 /* SoapActionsInputConfig1.m */,
+				150A87451391D06B00019C05 /* SoapActionsDeviceProtection1.m */,
+				150A87461391D06B00019C05 /* SoapActionsConfigurationManagement1.m */,
+				150A87471391D06B00019C05 /* SoapActionsCallManagement1.m */,
 				153B06E81390AAE0003AA393 /* LAN1Device.m */,
 				153B06D21390A4BF003AA393 /* WAN2Device.m */,
 				153B06B51390A185003AA393 /* InternetGateway2Device.m */,
@@ -713,6 +761,14 @@
 				153B06D51390A4D9003AA393 /* WAN2Device.h in Headers */,
 				153B06D91390A7A7003AA393 /* SoapActionsWANCommonInterfaceConfig1.h in Headers */,
 				153B06EB1390AAF7003AA393 /* LAN1Device.h in Headers */,
+				150A87541391D0B600019C05 /* SoapActionsMessaging1.h in Headers */,
+				150A87551391D0B600019C05 /* SoapActionsMediaManagement1.h in Headers */,
+				150A87561391D0B600019C05 /* SoapActionsInputConfig1.h in Headers */,
+				150A87571391D0B600019C05 /* SoapActionsDeviceProtection1.h in Headers */,
+				150A87581391D0B600019C05 /* SoapActionsConfigurationManagement1.h in Headers */,
+				150A87591391D0B600019C05 /* SoapActionsCallManagement1.h in Headers */,
+				150A87831391D77A00019C05 /* TelephonyClient1Device.h in Headers */,
+				150A879F1391DD6900019C05 /* TelephonyServer1Device.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +893,14 @@
 				153B06D31390A4BF003AA393 /* WAN2Device.m in Sources */,
 				153B06D71390A792003AA393 /* SoapActionsWANCommonInterfaceConfig1.m in Sources */,
 				153B06E91390AAE0003AA393 /* LAN1Device.m in Sources */,
+				150A87481391D06B00019C05 /* SoapActionsMessaging1.m in Sources */,
+				150A87491391D06B00019C05 /* SoapActionsMediaManagement1.m in Sources */,
+				150A874A1391D06B00019C05 /* SoapActionsInputConfig1.m in Sources */,
+				150A874B1391D06B00019C05 /* SoapActionsDeviceProtection1.m in Sources */,
+				150A874C1391D06B00019C05 /* SoapActionsConfigurationManagement1.m in Sources */,
+				150A874D1391D06B00019C05 /* SoapActionsCallManagement1.m in Sources */,
+				150A87851391D78F00019C05 /* TelephonyClient1Device.m in Sources */,
+				150A879D1391DD5300019C05 /* TelephonyServer1Device.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
