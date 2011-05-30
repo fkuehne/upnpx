@@ -23,6 +23,8 @@
 		150A87851391D78F00019C05 /* TelephonyClient1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A87841391D78F00019C05 /* TelephonyClient1Device.m */; };
 		150A879D1391DD5300019C05 /* TelephonyServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 150A879C1391DD5300019C05 /* TelephonyServer1Device.m */; };
 		150A879F1391DD6900019C05 /* TelephonyServer1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A879E1391DD6900019C05 /* TelephonyServer1Device.h */; };
+		150A87D61393D60900019C05 /* BinaryLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87D41393D60900019C05 /* BinaryLight1Device.h */; };
+		150A87D71393D60900019C05 /* DimmableLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87D51393D60900019C05 /* DimmableLight1Device.h */; };
 		153B063A13909262003AA393 /* SoapActionsWANPPPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */; };
 		153B063B13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */; };
 		153B063C13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */; };
@@ -171,13 +173,11 @@
 		15401C9A1389EDED001BABB8 /* MediaRenderer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C661389EDED001BABB8 /* MediaRenderer1Device.m */; };
 		15401C9B1389EDED001BABB8 /* MediaPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C671389EDED001BABB8 /* MediaPlaylist.m */; };
 		15401C9C1389EDED001BABB8 /* LastChangeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C681389EDED001BABB8 /* LastChangeParser.m */; };
-		15401C9D1389EDED001BABB8 /* DimmableLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C691389EDED001BABB8 /* DimmableLight1Device.h */; };
 		15401C9E1389EDED001BABB8 /* DimmableLigh1tDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C6A1389EDED001BABB8 /* DimmableLigh1tDevice.m */; };
 		15401C9F1389EDED001BABB8 /* DeviceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C6B1389EDED001BABB8 /* DeviceFactory.m */; };
 		15401CA01389EDED001BABB8 /* CocoaTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C6C1389EDED001BABB8 /* CocoaTools.m */; };
 		15401CA11389EDED001BABB8 /* CocoaTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C6D1389EDED001BABB8 /* CocoaTools.h */; };
 		15401CA21389EDED001BABB8 /* BinaryLight1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C6E1389EDED001BABB8 /* BinaryLight1Device.m */; };
-		15401CA31389EDED001BABB8 /* BinaryLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 15401C6F1389EDED001BABB8 /* BinaryLight1Device.h */; };
 		15401CA41389EDED001BABB8 /* BasicUPnPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C701389EDED001BABB8 /* BasicUPnPService.m */; };
 		15401CA51389EDED001BABB8 /* BasicUPnPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C711389EDED001BABB8 /* BasicUPnPDevice.m */; };
 		15401CA61389EDED001BABB8 /* BasicServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15401C721389EDED001BABB8 /* BasicServiceParser.m */; };
@@ -210,6 +210,8 @@
 		150A87841391D78F00019C05 /* TelephonyClient1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyClient1Device.m; path = ../../../src/upnp/TelephonyClient1Device.m; sourceTree = SOURCE_ROOT; };
 		150A879C1391DD5300019C05 /* TelephonyServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyServer1Device.m; path = ../../../src/upnp/TelephonyServer1Device.m; sourceTree = SOURCE_ROOT; };
 		150A879E1391DD6900019C05 /* TelephonyServer1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TelephonyServer1Device.h; path = ../../../src/api/TelephonyServer1Device.h; sourceTree = SOURCE_ROOT; };
+		150A87D41393D60900019C05 /* BinaryLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryLight1Device.h; path = ../../../src/api/BinaryLight1Device.h; sourceTree = SOURCE_ROOT; };
+		150A87D51393D60900019C05 /* DimmableLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DimmableLight1Device.h; path = ../../../src/api/DimmableLight1Device.h; sourceTree = SOURCE_ROOT; };
 		153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPPPConnection1.h; path = ../../../src/api/SoapActionsWANPPPConnection1.h; sourceTree = SOURCE_ROOT; };
 		153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPOTSLinkConfig1.h; path = ../../../src/api/SoapActionsWANPOTSLinkConfig1.h; sourceTree = SOURCE_ROOT; };
 		153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPv6FirewallControl1.h; path = ../../../src/api/SoapActionsWANIPv6FirewallControl1.h; sourceTree = SOURCE_ROOT; };
@@ -358,13 +360,11 @@
 		15401C661389EDED001BABB8 /* MediaRenderer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaRenderer1Device.m; path = ../../../src/upnp/MediaRenderer1Device.m; sourceTree = SOURCE_ROOT; };
 		15401C671389EDED001BABB8 /* MediaPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaPlaylist.m; path = ../../../src/upnp/MediaPlaylist.m; sourceTree = SOURCE_ROOT; };
 		15401C681389EDED001BABB8 /* LastChangeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LastChangeParser.m; path = ../../../src/upnp/LastChangeParser.m; sourceTree = SOURCE_ROOT; };
-		15401C691389EDED001BABB8 /* DimmableLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DimmableLight1Device.h; path = ../../../src/upnp/DimmableLight1Device.h; sourceTree = SOURCE_ROOT; };
 		15401C6A1389EDED001BABB8 /* DimmableLigh1tDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DimmableLigh1tDevice.m; path = ../../../src/upnp/DimmableLigh1tDevice.m; sourceTree = SOURCE_ROOT; };
 		15401C6B1389EDED001BABB8 /* DeviceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceFactory.m; path = ../../../src/upnp/DeviceFactory.m; sourceTree = SOURCE_ROOT; };
 		15401C6C1389EDED001BABB8 /* CocoaTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaTools.m; path = ../../../src/upnp/CocoaTools.m; sourceTree = SOURCE_ROOT; };
 		15401C6D1389EDED001BABB8 /* CocoaTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaTools.h; path = ../../../src/upnp/CocoaTools.h; sourceTree = SOURCE_ROOT; };
 		15401C6E1389EDED001BABB8 /* BinaryLight1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BinaryLight1Device.m; path = ../../../src/upnp/BinaryLight1Device.m; sourceTree = SOURCE_ROOT; };
-		15401C6F1389EDED001BABB8 /* BinaryLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryLight1Device.h; path = ../../../src/upnp/BinaryLight1Device.h; sourceTree = SOURCE_ROOT; };
 		15401C701389EDED001BABB8 /* BasicUPnPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicUPnPService.m; path = ../../../src/upnp/BasicUPnPService.m; sourceTree = SOURCE_ROOT; };
 		15401C711389EDED001BABB8 /* BasicUPnPDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicUPnPDevice.m; path = ../../../src/upnp/BasicUPnPDevice.m; sourceTree = SOURCE_ROOT; };
 		15401C721389EDED001BABB8 /* BasicServiceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicServiceParser.m; path = ../../../src/upnp/BasicServiceParser.m; sourceTree = SOURCE_ROOT; };
@@ -440,6 +440,8 @@
 		15401BA61389ECBD001BABB8 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				150A87D41393D60900019C05 /* BinaryLight1Device.h */,
+				150A87D51393D60900019C05 /* DimmableLight1Device.h */,
 				150A879E1391DD6900019C05 /* TelephonyServer1Device.h */,
 				150A87821391D77A00019C05 /* TelephonyClient1Device.h */,
 				150A874E1391D0B600019C05 /* SoapActionsMessaging1.h */,
@@ -640,13 +642,11 @@
 				15401C661389EDED001BABB8 /* MediaRenderer1Device.m */,
 				15401C671389EDED001BABB8 /* MediaPlaylist.m */,
 				15401C681389EDED001BABB8 /* LastChangeParser.m */,
-				15401C691389EDED001BABB8 /* DimmableLight1Device.h */,
 				15401C6A1389EDED001BABB8 /* DimmableLigh1tDevice.m */,
 				15401C6B1389EDED001BABB8 /* DeviceFactory.m */,
 				15401C6C1389EDED001BABB8 /* CocoaTools.m */,
 				15401C6D1389EDED001BABB8 /* CocoaTools.h */,
 				15401C6E1389EDED001BABB8 /* BinaryLight1Device.m */,
-				15401C6F1389EDED001BABB8 /* BinaryLight1Device.h */,
 				15401C701389EDED001BABB8 /* BasicUPnPService.m */,
 				15401C711389EDED001BABB8 /* BasicUPnPDevice.m */,
 				15401C721389EDED001BABB8 /* BasicServiceParser.m */,
@@ -735,9 +735,7 @@
 				15401C881389EDED001BABB8 /* SoapActionsSwitchPower1.h in Headers */,
 				15401C8B1389EDED001BABB8 /* SoapActionsRendering.h in Headers */,
 				15401C8D1389EDED001BABB8 /* SoapActionsDimming1.h in Headers */,
-				15401C9D1389EDED001BABB8 /* DimmableLight1Device.h in Headers */,
 				15401CA11389EDED001BABB8 /* CocoaTools.h in Headers */,
-				15401CA31389EDED001BABB8 /* BinaryLight1Device.h in Headers */,
 				15401CA71389EDED001BABB8 /* BasicServiceParser.h in Headers */,
 				15401CAB1389EDED001BABB8 /* BasicDeviceParser.h in Headers */,
 				15402081138C9CC1001BABB8 /* MediaServerBasicObjectParser.h in Headers */,
@@ -769,6 +767,8 @@
 				150A87591391D0B600019C05 /* SoapActionsCallManagement1.h in Headers */,
 				150A87831391D77A00019C05 /* TelephonyClient1Device.h in Headers */,
 				150A879F1391DD6900019C05 /* TelephonyServer1Device.h in Headers */,
+				150A87D61393D60900019C05 /* BinaryLight1Device.h in Headers */,
+				150A87D71393D60900019C05 /* DimmableLight1Device.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

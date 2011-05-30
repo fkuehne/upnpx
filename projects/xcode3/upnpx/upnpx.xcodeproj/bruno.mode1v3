@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>150A87B51391E09900019C05</string>
+						<string>150A87E31393D63600019C05</string>
 						<key>history</key>
 						<array>
-							<string>150A87B41391E09900019C05</string>
+							<string>150A87CC1391E13200019C05</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -317,14 +317,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>122</integer>
-									<integer>59</integer>
+									<integer>61</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1726}, {286, 608}}</string>
+							<string>{{0, 1898}, {286, 608}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -359,7 +358,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TelephonyServer1Device.m</string>
+								<string>TelephonyServer1Device.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -367,11 +366,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TelephonyServer1Device.m</string>
+										<string>TelephonyServer1Device.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>150A87B31391E09900019C05</string>
+										<string>150A87E01393D63600019C05</string>
 										<key>history</key>
 										<array>
 											<string>15401D691389EFEB001BABB8</string>
@@ -433,11 +432,12 @@
 											<string>150A878F1391DCAA00019C05</string>
 											<string>150A87901391DCAA00019C05</string>
 											<string>150A87911391DCAA00019C05</string>
-											<string>150A87921391DCAA00019C05</string>
 											<string>150A87AF1391E09900019C05</string>
 											<string>150A87B01391E09900019C05</string>
-											<string>150A87B11391E09900019C05</string>
-											<string>150A87B21391E09900019C05</string>
+											<string>150A87C61391E13200019C05</string>
+											<string>150A87C71391E13200019C05</string>
+											<string>150A87C81391E13200019C05</string>
+											<string>150A87C91391E13200019C05</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -449,14 +449,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {972, 582}}</string>
+								<string>{{0, 0}, {972, 580}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 111 1280 667 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>582pt</string>
+							<string>580pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -469,14 +469,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 587}, {972, 39}}</string>
+								<string>{{0, 585}, {972, 41}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 111 1280 667 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>39pt</string>
+							<string>41pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -495,9 +495,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>150A87951391DCAA00019C05</string>
+				<string>150A87E11393D63600019C05</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>150A87961391DCAA00019C05</string>
+				<string>150A87E21393D63600019C05</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -656,14 +656,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TelephonyClient1Device.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -719,7 +717,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>15401B911389EC77001BABB8</string>
-				<string>150A87801391D58000019C05</string>
+				<string>150A87E41393D63600019C05</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
