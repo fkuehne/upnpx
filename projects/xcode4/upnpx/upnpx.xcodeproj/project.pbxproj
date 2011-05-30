@@ -25,6 +25,14 @@
 		15055EA31391E2C1003DE49F /* TelephonyServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */; };
 		154978C71393D863008A5BD4 /* BinaryLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C51393D863008A5BD4 /* BinaryLight1Device.h */; };
 		154978C81393D863008A5BD4 /* DimmableLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C61393D863008A5BD4 /* DimmableLight1Device.h */; };
+		1556AB241393DC480059635A /* BasicDeviceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB1C1393DC480059635A /* BasicDeviceParser.h */; };
+		1556AB251393DC480059635A /* BasicServiceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB1D1393DC480059635A /* BasicServiceParser.h */; };
+		1556AB261393DC480059635A /* CocoaTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB1E1393DC480059635A /* CocoaTools.h */; };
+		1556AB271393DC480059635A /* SoapActionsDimming1.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB1F1393DC480059635A /* SoapActionsDimming1.h */; };
+		1556AB281393DC480059635A /* SoapActionsRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB201393DC480059635A /* SoapActionsRendering.h */; };
+		1556AB291393DC480059635A /* SoapActionsSwitchPower1.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB211393DC480059635A /* SoapActionsSwitchPower1.h */; };
+		1556AB2A1393DC480059635A /* StateVariableList.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB221393DC480059635A /* StateVariableList.h */; };
+		1556AB2B1393DC480059635A /* StateVariableRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB231393DC480059635A /* StateVariableRange.h */; };
 		15583F2F138F448E00A734E7 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */; };
 		155840321391349900A734E7 /* DigitalSecurityCamera1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 1558401E1391349900A734E7 /* DigitalSecurityCamera1Device.h */; };
 		155840331391349900A734E7 /* InternetGateway2Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 1558401F1391349900A734E7 /* InternetGateway2Device.h */; };
@@ -114,16 +122,13 @@
 		15C44DF7132C302D0013D453 /* ssdptools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44DD4132C302D0013D453 /* ssdptools.h */; };
 		15C44DF8132C302D0013D453 /* upnp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C44DD5132C302D0013D453 /* upnp.cpp */; };
 		15C44DF9132C302D0013D453 /* upnp.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44DD6132C302D0013D453 /* upnp.h */; };
-		15C44E47132C30490013D453 /* BasicDeviceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44DFA132C30490013D453 /* BasicDeviceParser.h */; };
 		15C44E48132C30490013D453 /* BasicDeviceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44DFB132C30490013D453 /* BasicDeviceParser.m */; };
 		15C44E4A132C30490013D453 /* BasicParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44DFD132C30490013D453 /* BasicParser.m */; };
 		15C44E4C132C30490013D453 /* BasicParserAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44DFF132C30490013D453 /* BasicParserAsset.m */; };
-		15C44E4D132C30490013D453 /* BasicServiceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E00132C30490013D453 /* BasicServiceParser.h */; };
 		15C44E4E132C30490013D453 /* BasicServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E01132C30490013D453 /* BasicServiceParser.m */; };
 		15C44E50132C30490013D453 /* BasicUPnPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E03132C30490013D453 /* BasicUPnPDevice.m */; };
 		15C44E52132C30490013D453 /* BasicUPnPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E05132C30490013D453 /* BasicUPnPService.m */; };
 		15C44E54132C30490013D453 /* BinaryLight1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E07132C30490013D453 /* BinaryLight1Device.m */; };
-		15C44E55132C30490013D453 /* CocoaTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E08132C30490013D453 /* CocoaTools.h */; };
 		15C44E56132C30490013D453 /* CocoaTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E09132C30490013D453 /* CocoaTools.m */; };
 		15C44E58132C30490013D453 /* DeviceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E0B132C30490013D453 /* DeviceFactory.m */; };
 		15C44E59132C30490013D453 /* DimmableLigh1tDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E0C132C30490013D453 /* DimmableLigh1tDevice.m */; };
@@ -141,21 +146,14 @@
 		15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */; };
 		15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */; };
 		15C44E76132C30490013D453 /* SoapActionsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */; };
-		15C44E77132C30490013D453 /* SoapActionsDimming1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E2A132C30490013D453 /* SoapActionsDimming1.h */; };
 		15C44E78132C30490013D453 /* SoapActionsDimming1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E2B132C30490013D453 /* SoapActionsDimming1.m */; };
-		15C44E79132C30490013D453 /* SoapActionsRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E2C132C30490013D453 /* SoapActionsRendering.h */; };
 		15C44E7A132C30490013D453 /* SoapActionsRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E2D132C30490013D453 /* SoapActionsRendering.m */; };
 		15C44E7C132C30490013D453 /* SoapActionsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E2F132C30490013D453 /* SoapActionsRenderingControl1.m */; };
-		15C44E7D132C30490013D453 /* SoapActionsSwitchPower1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E30132C30490013D453 /* SoapActionsSwitchPower1.h */; };
 		15C44E7E132C30490013D453 /* SoapActionsSwitchPower1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E31132C30490013D453 /* SoapActionsSwitchPower1.m */; };
-		15C44E7F132C30490013D453 /* SoapActionsWANIPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E32132C30490013D453 /* SoapActionsWANIPConnection1.h */; };
 		15C44E80132C30490013D453 /* SoapActionsWANIPConnection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E33132C30490013D453 /* SoapActionsWANIPConnection1.m */; };
-		15C44E81132C30490013D453 /* SoapActionsWANPPPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E34132C30490013D453 /* SoapActionsWANPPPConnection1.h */; };
 		15C44E82132C30490013D453 /* SoapActionsWANPPPConnection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E35132C30490013D453 /* SoapActionsWANPPPConnection1.m */; };
 		15C44E84132C30490013D453 /* StateVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E37132C30490013D453 /* StateVariable.m */; };
-		15C44E85132C30490013D453 /* StateVariableList.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E38132C30490013D453 /* StateVariableList.h */; };
 		15C44E86132C30490013D453 /* StateVariableList.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E39132C30490013D453 /* StateVariableList.m */; };
-		15C44E87132C30490013D453 /* StateVariableRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44E3A132C30490013D453 /* StateVariableRange.h */; };
 		15C44E88132C30490013D453 /* StateVariableRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E3B132C30490013D453 /* StateVariableRange.m */; };
 		15C44E8A132C30490013D453 /* UPnPDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E3E132C30490013D453 /* UPnPDB.m */; };
 		15C44E8C132C30490013D453 /* UPnPEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E40132C30490013D453 /* UPnPEventParser.m */; };
@@ -210,6 +208,14 @@
 		15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyServer1Device.m; path = ../../../../src/upnp/TelephonyServer1Device.m; sourceTree = "<group>"; };
 		154978C51393D863008A5BD4 /* BinaryLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryLight1Device.h; path = ../../../../src/api/BinaryLight1Device.h; sourceTree = "<group>"; };
 		154978C61393D863008A5BD4 /* DimmableLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DimmableLight1Device.h; path = ../../../../src/api/DimmableLight1Device.h; sourceTree = "<group>"; };
+		1556AB1C1393DC480059635A /* BasicDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicDeviceParser.h; path = ../../../../src/api/BasicDeviceParser.h; sourceTree = "<group>"; };
+		1556AB1D1393DC480059635A /* BasicServiceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicServiceParser.h; path = ../../../../src/api/BasicServiceParser.h; sourceTree = "<group>"; };
+		1556AB1E1393DC480059635A /* CocoaTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaTools.h; path = ../../../../src/api/CocoaTools.h; sourceTree = "<group>"; };
+		1556AB1F1393DC480059635A /* SoapActionsDimming1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDimming1.h; path = ../../../../src/api/SoapActionsDimming1.h; sourceTree = "<group>"; };
+		1556AB201393DC480059635A /* SoapActionsRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRendering.h; path = ../../../../src/api/SoapActionsRendering.h; sourceTree = "<group>"; };
+		1556AB211393DC480059635A /* SoapActionsSwitchPower1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsSwitchPower1.h; path = ../../../../src/api/SoapActionsSwitchPower1.h; sourceTree = "<group>"; };
+		1556AB221393DC480059635A /* StateVariableList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateVariableList.h; path = ../../../../src/api/StateVariableList.h; sourceTree = "<group>"; };
+		1556AB231393DC480059635A /* StateVariableRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateVariableRange.h; path = ../../../../src/api/StateVariableRange.h; sourceTree = "<group>"; };
 		15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../../src/api/MediaServerBasicObjectParser.h; sourceTree = "<group>"; };
 		1558401E1391349900A734E7 /* DigitalSecurityCamera1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DigitalSecurityCamera1Device.h; path = ../../../../src/api/DigitalSecurityCamera1Device.h; sourceTree = "<group>"; };
 		1558401F1391349900A734E7 /* InternetGateway2Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternetGateway2Device.h; path = ../../../../src/api/InternetGateway2Device.h; sourceTree = "<group>"; };
@@ -301,16 +307,13 @@
 		15C44DD4132C302D0013D453 /* ssdptools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ssdptools.h; path = ../../../../src/ssdp/ssdptools.h; sourceTree = "<group>"; };
 		15C44DD5132C302D0013D453 /* upnp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = upnp.cpp; path = ../../../../src/ssdp/upnp.cpp; sourceTree = "<group>"; };
 		15C44DD6132C302D0013D453 /* upnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = upnp.h; path = ../../../../src/ssdp/upnp.h; sourceTree = "<group>"; };
-		15C44DFA132C30490013D453 /* BasicDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicDeviceParser.h; path = ../../../../src/upnp/BasicDeviceParser.h; sourceTree = "<group>"; };
 		15C44DFB132C30490013D453 /* BasicDeviceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicDeviceParser.m; path = ../../../../src/upnp/BasicDeviceParser.m; sourceTree = "<group>"; };
 		15C44DFD132C30490013D453 /* BasicParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicParser.m; path = ../../../../src/upnp/BasicParser.m; sourceTree = "<group>"; };
 		15C44DFF132C30490013D453 /* BasicParserAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicParserAsset.m; path = ../../../../src/upnp/BasicParserAsset.m; sourceTree = "<group>"; };
-		15C44E00132C30490013D453 /* BasicServiceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicServiceParser.h; path = ../../../../src/upnp/BasicServiceParser.h; sourceTree = "<group>"; };
 		15C44E01132C30490013D453 /* BasicServiceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicServiceParser.m; path = ../../../../src/upnp/BasicServiceParser.m; sourceTree = "<group>"; };
 		15C44E03132C30490013D453 /* BasicUPnPDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicUPnPDevice.m; path = ../../../../src/upnp/BasicUPnPDevice.m; sourceTree = "<group>"; };
 		15C44E05132C30490013D453 /* BasicUPnPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicUPnPService.m; path = ../../../../src/upnp/BasicUPnPService.m; sourceTree = "<group>"; };
 		15C44E07132C30490013D453 /* BinaryLight1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BinaryLight1Device.m; path = ../../../../src/upnp/BinaryLight1Device.m; sourceTree = "<group>"; };
-		15C44E08132C30490013D453 /* CocoaTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaTools.h; path = ../../../../src/upnp/CocoaTools.h; sourceTree = "<group>"; };
 		15C44E09132C30490013D453 /* CocoaTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaTools.m; path = ../../../../src/upnp/CocoaTools.m; sourceTree = "<group>"; };
 		15C44E0B132C30490013D453 /* DeviceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceFactory.m; path = ../../../../src/upnp/DeviceFactory.m; sourceTree = "<group>"; };
 		15C44E0C132C30490013D453 /* DimmableLigh1tDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DimmableLigh1tDevice.m; path = ../../../../src/upnp/DimmableLigh1tDevice.m; sourceTree = "<group>"; };
@@ -328,21 +331,14 @@
 		15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsAVTransport1.m; path = ../../../../src/upnp/SoapActionsAVTransport1.m; sourceTree = "<group>"; };
 		15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsConnectionManager1.m; path = ../../../../src/upnp/SoapActionsConnectionManager1.m; sourceTree = "<group>"; };
 		15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsContentDirectory1.m; path = ../../../../src/upnp/SoapActionsContentDirectory1.m; sourceTree = "<group>"; };
-		15C44E2A132C30490013D453 /* SoapActionsDimming1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDimming1.h; path = ../../../../src/upnp/SoapActionsDimming1.h; sourceTree = "<group>"; };
 		15C44E2B132C30490013D453 /* SoapActionsDimming1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsDimming1.m; path = ../../../../src/upnp/SoapActionsDimming1.m; sourceTree = "<group>"; };
-		15C44E2C132C30490013D453 /* SoapActionsRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRendering.h; path = ../../../../src/upnp/SoapActionsRendering.h; sourceTree = "<group>"; };
 		15C44E2D132C30490013D453 /* SoapActionsRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsRendering.m; path = ../../../../src/upnp/SoapActionsRendering.m; sourceTree = "<group>"; };
 		15C44E2F132C30490013D453 /* SoapActionsRenderingControl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsRenderingControl1.m; path = ../../../../src/upnp/SoapActionsRenderingControl1.m; sourceTree = "<group>"; };
-		15C44E30132C30490013D453 /* SoapActionsSwitchPower1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsSwitchPower1.h; path = ../../../../src/upnp/SoapActionsSwitchPower1.h; sourceTree = "<group>"; };
 		15C44E31132C30490013D453 /* SoapActionsSwitchPower1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsSwitchPower1.m; path = ../../../../src/upnp/SoapActionsSwitchPower1.m; sourceTree = "<group>"; };
-		15C44E32132C30490013D453 /* SoapActionsWANIPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPConnection1.h; path = ../../../../src/upnp/SoapActionsWANIPConnection1.h; sourceTree = "<group>"; };
 		15C44E33132C30490013D453 /* SoapActionsWANIPConnection1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANIPConnection1.m; path = ../../../../src/upnp/SoapActionsWANIPConnection1.m; sourceTree = "<group>"; };
-		15C44E34132C30490013D453 /* SoapActionsWANPPPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPPPConnection1.h; path = ../../../../src/upnp/SoapActionsWANPPPConnection1.h; sourceTree = "<group>"; };
 		15C44E35132C30490013D453 /* SoapActionsWANPPPConnection1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsWANPPPConnection1.m; path = ../../../../src/upnp/SoapActionsWANPPPConnection1.m; sourceTree = "<group>"; };
 		15C44E37132C30490013D453 /* StateVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StateVariable.m; path = ../../../../src/upnp/StateVariable.m; sourceTree = "<group>"; };
-		15C44E38132C30490013D453 /* StateVariableList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateVariableList.h; path = ../../../../src/upnp/StateVariableList.h; sourceTree = "<group>"; };
 		15C44E39132C30490013D453 /* StateVariableList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StateVariableList.m; path = ../../../../src/upnp/StateVariableList.m; sourceTree = "<group>"; };
-		15C44E3A132C30490013D453 /* StateVariableRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateVariableRange.h; path = ../../../../src/upnp/StateVariableRange.h; sourceTree = "<group>"; };
 		15C44E3B132C30490013D453 /* StateVariableRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StateVariableRange.m; path = ../../../../src/upnp/StateVariableRange.m; sourceTree = "<group>"; };
 		15C44E3E132C30490013D453 /* UPnPDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPDB.m; path = ../../../../src/upnp/UPnPDB.m; sourceTree = "<group>"; };
 		15C44E40132C30490013D453 /* UPnPEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPEventParser.m; path = ../../../../src/upnp/UPnPEventParser.m; sourceTree = "<group>"; };
@@ -511,6 +507,14 @@
 		15BAC504132C2E7800F5C41A /* api */ = {
 			isa = PBXGroup;
 			children = (
+				1556AB1C1393DC480059635A /* BasicDeviceParser.h */,
+				1556AB1D1393DC480059635A /* BasicServiceParser.h */,
+				1556AB1E1393DC480059635A /* CocoaTools.h */,
+				1556AB1F1393DC480059635A /* SoapActionsDimming1.h */,
+				1556AB201393DC480059635A /* SoapActionsRendering.h */,
+				1556AB211393DC480059635A /* SoapActionsSwitchPower1.h */,
+				1556AB221393DC480059635A /* StateVariableList.h */,
+				1556AB231393DC480059635A /* StateVariableRange.h */,
 				154978C51393D863008A5BD4 /* BinaryLight1Device.h */,
 				154978C61393D863008A5BD4 /* DimmableLight1Device.h */,
 				15055E831391E2A4003DE49F /* SoapActionsCallManagement1.h */,
@@ -608,16 +612,13 @@
 				15584055139134E900A734E7 /* SoapActionsWANPOTSLinkConfig1.m */,
 				15584056139134E900A734E7 /* WAN2Device.m */,
 				15584057139134E900A734E7 /* WANConnection2Device.m */,
-				15C44DFA132C30490013D453 /* BasicDeviceParser.h */,
 				15C44DFB132C30490013D453 /* BasicDeviceParser.m */,
 				15C44DFD132C30490013D453 /* BasicParser.m */,
 				15C44DFF132C30490013D453 /* BasicParserAsset.m */,
-				15C44E00132C30490013D453 /* BasicServiceParser.h */,
 				15C44E01132C30490013D453 /* BasicServiceParser.m */,
 				15C44E03132C30490013D453 /* BasicUPnPDevice.m */,
 				15C44E05132C30490013D453 /* BasicUPnPService.m */,
 				15C44E07132C30490013D453 /* BinaryLight1Device.m */,
-				15C44E08132C30490013D453 /* CocoaTools.h */,
 				15C44E09132C30490013D453 /* CocoaTools.m */,
 				15C44E0B132C30490013D453 /* DeviceFactory.m */,
 				15C44E0C132C30490013D453 /* DimmableLigh1tDevice.m */,
@@ -635,21 +636,14 @@
 				15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */,
 				15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */,
 				15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */,
-				15C44E2A132C30490013D453 /* SoapActionsDimming1.h */,
 				15C44E2B132C30490013D453 /* SoapActionsDimming1.m */,
-				15C44E2C132C30490013D453 /* SoapActionsRendering.h */,
 				15C44E2D132C30490013D453 /* SoapActionsRendering.m */,
 				15C44E2F132C30490013D453 /* SoapActionsRenderingControl1.m */,
-				15C44E30132C30490013D453 /* SoapActionsSwitchPower1.h */,
 				15C44E31132C30490013D453 /* SoapActionsSwitchPower1.m */,
-				15C44E32132C30490013D453 /* SoapActionsWANIPConnection1.h */,
 				15C44E33132C30490013D453 /* SoapActionsWANIPConnection1.m */,
-				15C44E34132C30490013D453 /* SoapActionsWANPPPConnection1.h */,
 				15C44E35132C30490013D453 /* SoapActionsWANPPPConnection1.m */,
 				15C44E37132C30490013D453 /* StateVariable.m */,
-				15C44E38132C30490013D453 /* StateVariableList.h */,
 				15C44E39132C30490013D453 /* StateVariableList.m */,
-				15C44E3A132C30490013D453 /* StateVariableRange.h */,
 				15C44E3B132C30490013D453 /* StateVariableRange.m */,
 				15C44E3E132C30490013D453 /* UPnPDB.m */,
 				15C44E40132C30490013D453 /* UPnPEventParser.m */,
@@ -693,16 +687,6 @@
 				15C44DF5132C302D0013D453 /* ssdpsearchresp.h in Headers */,
 				15C44DF7132C302D0013D453 /* ssdptools.h in Headers */,
 				15C44DF9132C302D0013D453 /* upnp.h in Headers */,
-				15C44E47132C30490013D453 /* BasicDeviceParser.h in Headers */,
-				15C44E4D132C30490013D453 /* BasicServiceParser.h in Headers */,
-				15C44E55132C30490013D453 /* CocoaTools.h in Headers */,
-				15C44E77132C30490013D453 /* SoapActionsDimming1.h in Headers */,
-				15C44E79132C30490013D453 /* SoapActionsRendering.h in Headers */,
-				15C44E7D132C30490013D453 /* SoapActionsSwitchPower1.h in Headers */,
-				15C44E7F132C30490013D453 /* SoapActionsWANIPConnection1.h in Headers */,
-				15C44E81132C30490013D453 /* SoapActionsWANPPPConnection1.h in Headers */,
-				15C44E85132C30490013D453 /* StateVariableList.h in Headers */,
-				15C44E87132C30490013D453 /* StateVariableRange.h in Headers */,
 				15C44EA2132C332D0013D453 /* iphoneport.h in Headers */,
 				15C44F04132C3AF80013D453 /* BasicHTTPServer_ObjC.h in Headers */,
 				15C44F05132C3AF80013D453 /* BasicParser.h in Headers */,
@@ -761,6 +745,14 @@
 				15055E921391E2A4003DE49F /* TelephonyServer1Device.h in Headers */,
 				154978C71393D863008A5BD4 /* BinaryLight1Device.h in Headers */,
 				154978C81393D863008A5BD4 /* DimmableLight1Device.h in Headers */,
+				1556AB241393DC480059635A /* BasicDeviceParser.h in Headers */,
+				1556AB251393DC480059635A /* BasicServiceParser.h in Headers */,
+				1556AB261393DC480059635A /* CocoaTools.h in Headers */,
+				1556AB271393DC480059635A /* SoapActionsDimming1.h in Headers */,
+				1556AB281393DC480059635A /* SoapActionsRendering.h in Headers */,
+				1556AB291393DC480059635A /* SoapActionsSwitchPower1.h in Headers */,
+				1556AB2A1393DC480059635A /* StateVariableList.h in Headers */,
+				1556AB2B1393DC480059635A /* StateVariableRange.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
