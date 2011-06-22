@@ -148,8 +148,9 @@
  */
 -(int)parse{
 	int ret=0;
-	
+
 	NSURL *descurl = [NSURL URLWithString:device.xmlLocation];	
+    
 	ret = [super parseFromURL:descurl];
 	
 	
@@ -228,7 +229,10 @@
 
 -(void)rootDevice:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
-	}else{
+	}else{ 
+        NSLog(@"udn=%@", udn);
+        NSLog(@"[device uuid]=%@", [device uuid]);
+        
 		//Was this the device we are looking for ?
 		if([udn isEqualToString:[device uuid]]){
 			//this is our device, copy the collected info to the [device] instance
@@ -251,10 +255,11 @@
 				[device setUdn:udn];
 			}
 		}
-		friendlyName = [friendlyNameStack lastObject];
-		udn = [udnStack lastObject];
-		[friendlyNameStack removeLastObject];
-		[udnStack removeLastObject];
+        [self setUdn:[udnStack lastObject]];
+        [self setFriendlyName:[friendlyNameStack lastObject]];
+        
+        [friendlyNameStack removeLastObject];
+		[udnStack removeLastObject];        
 	}
 }
 

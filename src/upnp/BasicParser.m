@@ -231,7 +231,7 @@ static NSString *ElementStop = @"ElementStop";
 	
 	BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
 	if(asset != nil){
-		currentElementName = elementName; //make temprary available to derived classes
+		currentElementName = elementName; //make temporary available to derived classes
 		
 		//We where looking for this
 		//Set string (call function to set)
