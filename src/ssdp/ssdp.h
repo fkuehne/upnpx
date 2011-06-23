@@ -38,6 +38,7 @@
 
 #include <arpa/inet.h>
 #include <vector>
+#include <string>
 #include <pthread.h>
 #include <sys/select.h>
 
@@ -45,6 +46,7 @@
 #include "ssdpobserver.h"
 #include "ssdpparser.h"
 #include "ssdpdb.h"
+
 
 #define SSDP_MCAST_ADDRESS	"239.255.255.250"
 #define SSDP_MCAST_PORT		1900
@@ -60,6 +62,8 @@ public:
 	int RemoveObserver(SSDPObserver* observer);
 	int Advertise();
 	int Search();
+    void SetOS(const char* os);
+    void SetProduct(const char* product);    
 	SSDPDB* GetDB();
 private:
 	SOCKET mSocket;
@@ -72,6 +76,8 @@ private:
 	fd_set mExceptionFDS;
 	fd_set mReadFDS;
 	u16 mTTL;
+    std::string mOS;
+    std::string mProduct;
 	SSDPParser* mParser;
 	SSDPDB* mDB;
 private:

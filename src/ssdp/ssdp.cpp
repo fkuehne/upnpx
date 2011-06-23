@@ -41,7 +41,7 @@
 
 
 
-SSDP::SSDP():mSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2){
+SSDP::SSDP():mSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2), mOS("mac/1.0"), mProduct("upnpx/1.0"){
 	mDB = new SSDPDB();
 	mDB->Start();
 	mParser = new SSDPParser(mDB);
@@ -171,8 +171,8 @@ int SSDP::Stop(){
 int SSDP::Search(){
 	u32 seconds = 3;
 	char target[]="ssdp:all";
-	char os[]="OSX/10.6";
-	char product[]="Mediacloud/0.1";
+	const char *os=mOS.c_str();
+	const char *product=mProduct.c_str();
 	
 	char buf[20048]; 
 	
@@ -211,6 +211,21 @@ int SSDP::RemoveObserver(SSDPObserver* observer){
 	}
 	return 0;
 }
+
+
+void SSDP::SetOS(const char* os){
+    if(os)
+        mOS = os;
+}
+
+void SSDP::SetProduct(const char* product){
+    if(product)
+        mProduct = product;
+}
+
+
+std::string mOS;
+std::string mProcuct;
 
 
 

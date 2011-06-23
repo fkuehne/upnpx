@@ -69,6 +69,7 @@
 -(int)addObserver:(SSDPDB_ObjC_Observer*)obs;
 -(int)removeObserver:(SSDPDB_ObjC_Observer*)obs;
 -(void)SSDPDBUpdate;
+-(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os;
 
 @property(readonly, retain) NSMutableArray *SSDPObjCDevices;
 

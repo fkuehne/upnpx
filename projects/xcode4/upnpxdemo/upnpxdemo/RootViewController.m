@@ -24,6 +24,11 @@
     
     [db addObserver:(UPnPDBObserver*)self];
     
+    //Optional; set User Agent
+    [[[UPnPManager GetInstance] SSDP] setUserAgentProduct:@"upnpxdemo/1.0" andOS:@"OSX"];
+    
+    
+    //Search for UPnP Devices 
     [[[UPnPManager GetInstance] SSDP] searchSSDP];      
     
     self.title = @"upnpx demo - Xcode 4"; 

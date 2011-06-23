@@ -140,6 +140,17 @@ private:
 	return ret;
 }
 
+-(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os{    
+    if(os != nil){
+        const char *c_os = [os cStringUsingEncoding:NSASCIIStringEncoding];
+        UPNP::GetInstance()->GetSSDP()->SetOS(c_os);        
+    }
+    if(product != nil){
+        const char *c_product = [product cStringUsingEncoding:NSASCIIStringEncoding];
+        UPNP::GetInstance()->GetSSDP()->SetProduct(c_product);
+    }
+}
+
 -(void)SSDPDBUpdate{
 	[NSRunLoop currentRunLoop]; //Start our runloop
 	
