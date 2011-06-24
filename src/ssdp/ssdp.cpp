@@ -41,7 +41,7 @@
 
 
 
-SSDP::SSDP():mSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2), mOS("mac/1.0"), mProduct("upnpx/1.0"){
+SSDP::SSDP():mMulticastSocket(INVALID_SOCKET), mUnicastSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2), mOS("mac/1.0"), mProduct("upnpx/1.0"){
 	mDB = new SSDPDB();
 	mDB->Start();
 	mParser = new SSDPParser(mDB);
@@ -62,58 +62,59 @@ int SSDP::Start(){
 	int ret = 0;
 	u32 optval = 0;
 	
-	if(mSocket != INVALID_SOCKET){
+	if(mMulticastSocket != INVALID_SOCKET || mUnicastSocket != INVALID_SOCKET){
 		ret = -9;
 		goto EXIT;
 	}
-	
-	//Setup socket
-	mSocket = socket(PF_INET, SOCK_DGRAM, 0);
-	STATNVAL(mSocket, INVALID_SOCKET, EXIT);
+    
+    //
+	//Setup the Multicast Socket
+    //
+	mMulticastSocket = socket(PF_INET, SOCK_DGRAM, 0);
+	STATNVAL(mMulticastSocket, INVALID_SOCKET, EXIT);
 	
 	//Set nonblocking
-	optval = fcntl( mSocket, F_GETFL, 0 );
+	optval = fcntl( mMulticastSocket, F_GETFL, 0 );
 	STATNVAL(optval, -1,  CLEAN_AND_EXIT);
-	ret = fcntl(mSocket, F_SETFL, optval | O_NONBLOCK);
+	ret = fcntl(mMulticastSocket, F_SETFL, optval | O_NONBLOCK);
 	STATNVAL(ret, -1,  CLEAN_AND_EXIT);
 	
 	//Source address
 	mSrcaddr.sin_family = PF_INET;
-	mSrcaddr.sin_port = htons(SSDP_MCAST_PORT); //can be another (?)
+	mSrcaddr.sin_port = 0; //Let the IP stack decide 
 	mSrcaddr.sin_addr.s_addr = INADDR_ANY; //Default multicast nic 
 
 	//Reuse port
 	optval = 1;
-	ret = setsockopt(mSocket, SOL_SOCKET, SO_REUSEADDR, (char*)&optval, 4);
+	ret = setsockopt(mMulticastSocket, SOL_SOCKET, SO_REUSEADDR, (char*)&optval, 4);
 	STATVAL(ret, 0, CLEAN_AND_EXIT);
 	optval = 1;
-	ret = setsockopt(mSocket, SOL_SOCKET, SO_REUSEPORT, (char*)&optval, 4);
+	ret = setsockopt(mMulticastSocket, SOL_SOCKET, SO_REUSEPORT, (char*)&optval, 4);
 	STATVAL(ret, 0, CLEAN_AND_EXIT);
 	
 
 	//Disable loopback
 	optval = 0;
-	ret = setsockopt(mSocket, IPPROTO_IP, IP_MULTICAST_LOOP, (char*)&optval, sizeof(int));
+	ret = setsockopt(mMulticastSocket, IPPROTO_IP, IP_MULTICAST_LOOP, (char*)&optval, sizeof(int));
 	STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);	
 	
 	//TTL
 	optval = mTTL;
-	ret = setsockopt(mSocket, IPPROTO_IP, IP_MULTICAST_TTL, (char*)&optval, sizeof(int));
+	ret = setsockopt(mMulticastSocket, IPPROTO_IP, IP_MULTICAST_TTL, (char*)&optval, sizeof(int));
 	STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);	
 	
 	
 	//Add membership
 	mMreq.imr_multiaddr.s_addr = inet_addr(SSDP_MCAST_ADDRESS);
 	mMreq.imr_interface.s_addr = INADDR_ANY;
-	ret = setsockopt(mSocket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (char*)&mMreq, sizeof(struct ip_mreq));
+	ret = setsockopt(mMulticastSocket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (char*)&mMreq, sizeof(struct ip_mreq));
 	STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);	
 	
 	
 	//Bind to all interface(s)
-	ret = bind(mSocket, (struct sockaddr*)&mSrcaddr, sizeof(struct sockaddr));
-	if(ret < 0 && (errno == EACCES || errno == EADDRINUSE)){
+	ret = bind(mMulticastSocket, (struct sockaddr*)&mSrcaddr, sizeof(struct sockaddr));
+	if(ret < 0 && (errno == EACCES || errno == EADDRINUSE))
 		printf("address in use\n");
-	}
 	STATVAL(ret, 0, CLEAN_AND_EXIT);
 	
 	
@@ -122,6 +123,41 @@ int SSDP::Start(){
 	mDstaddr.sin_addr.s_addr = inet_addr(SSDP_MCAST_ADDRESS);
 	mDstaddr.sin_port = htons(SSDP_MCAST_PORT);
 	
+    
+    //
+    // Setup the Unicast Socket (We listen for Advertisements)
+    //
+	mUnicastSocket = socket(PF_INET, SOCK_DGRAM, 0);
+	STATNVAL(mUnicastSocket, INVALID_SOCKET, EXIT);
+	
+	//Set nonblocking
+	optval = fcntl( mUnicastSocket, F_GETFL, 0 );
+	STATNVAL(optval, -1,  CLEAN_AND_EXIT);
+	ret = fcntl(mUnicastSocket, F_SETFL, optval | O_NONBLOCK);
+	STATNVAL(ret, -1,  CLEAN_AND_EXIT);
+
+    //Source address
+	mUnicastSrcaddr.sin_family = PF_INET;
+	mUnicastSrcaddr.sin_port = htons(SSDP_MCAST_PORT); 
+	mUnicastSrcaddr.sin_addr.s_addr = INADDR_ANY; //Default nic 
+    
+	//Reuse port
+	optval = 1;
+	ret = setsockopt(mUnicastSocket, SOL_SOCKET, SO_REUSEADDR, (char*)&optval, 4);
+	STATVAL(ret, 0, CLEAN_AND_EXIT);
+	optval = 1;
+	ret = setsockopt(mUnicastSocket, SOL_SOCKET, SO_REUSEPORT, (char*)&optval, 4);
+	STATVAL(ret, 0, CLEAN_AND_EXIT);
+    
+	//Bind to all interface(s)
+	ret = bind(mUnicastSocket, (struct sockaddr*)&mUnicastSrcaddr, sizeof(struct sockaddr));
+	if(ret < 0 && (errno == EACCES || errno == EADDRINUSE))
+		printf("address in use\n");
+	STATVAL(ret, 0, CLEAN_AND_EXIT);
+    
+
+    
+    
 
 	//Start the read thread
 	pthread_attr_t  attr;
@@ -144,8 +180,10 @@ int SSDP::Start(){
 	
 	
 CLEAN_AND_EXIT:	
-	close(mSocket);
-	mSocket = INVALID_SOCKET;
+	close(mMulticastSocket);
+	mMulticastSocket = INVALID_SOCKET;
+	close(mUnicastSocket);
+	mUnicastSocket = INVALID_SOCKET;
 
 EXIT:	
 	printf("SSDP::Start %d\n", ret);
@@ -156,9 +194,11 @@ EXIT:
 int SSDP::Stop(){
 	mReadLoop = 0;
 	
-	if(mSocket > 0){
-		close(mSocket);
-		mSocket = INVALID_SOCKET;
+	if(mMulticastSocket > 0){
+		close(mMulticastSocket);
+		mMulticastSocket = INVALID_SOCKET;
+        close(mUnicastSocket);
+        mUnicastSocket = INVALID_SOCKET;
 	}
 	
 
@@ -178,8 +218,8 @@ int SSDP::Search(){
 	
 	sprintf(buf, "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: %d\r\nST: %s\r\nUSER-AGENT: %s UPnP/1.1 %s\r\n\r\n", seconds, target,os, product);
 	
-	if(mSocket != INVALID_SOCKET){
-		sendto(mSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+	if(mMulticastSocket != INVALID_SOCKET){
+		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
 	}else{
 		printf("invalid socket\n");
 	}
@@ -243,6 +283,8 @@ int SSDP::ReadLoop(){
 	struct sockaddr_in sender;
 	socklen_t senderlen = sizeof(struct sockaddr);
 	
+    int maxsock = mMulticastSocket>mUnicastSocket?mMulticastSocket:mUnicastSocket;
+    
 	//Read UDP answers
 	while(mReadLoop){
 		//printf("SSDP::ReadLoop, enter 'select'\n");
@@ -250,27 +292,41 @@ int SSDP::ReadLoop(){
 		//(Re)set file descriptor
 		FD_ZERO(&mReadFDS);
 		FD_ZERO(&mExceptionFDS);
-		FD_SET(mSocket, &mReadFDS);
-		FD_SET(mSocket, &mExceptionFDS);
-		
-		ret = select(mSocket+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
+		FD_SET(mMulticastSocket, &mReadFDS);
+		FD_SET(mMulticastSocket, &mExceptionFDS);
+		FD_SET(mUnicastSocket, &mReadFDS);
+		FD_SET(mUnicastSocket, &mExceptionFDS);
+		        
+		ret = select(maxsock+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
 		if(ret == SOCKET_ERROR){
 			printf("OOPS!");
 			break;
 		}else if(ret != 0){
-			//Exceptions ?
-			if(FD_ISSET(mSocket, &mExceptionFDS)){
-				printf("Error on socket, continue\n");
-			}else if(FD_ISSET(mSocket, &mReadFDS)){
+			//Multicast
+			if(FD_ISSET(mMulticastSocket, &mExceptionFDS)){
+				printf("Error on Multicast socket, continue\n");
+			}else if(FD_ISSET(mMulticastSocket, &mReadFDS)){
 				//Data
 				//printf("Data\n");
-				ret = recvfrom(mSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+				ret = recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
 				if(ret != SOCKET_ERROR){
 					//Be sure to only deliver full messages (!)
 					IncommingMessage((struct sockaddr*)&sender, buf, ret);
 				}
 			}
-			
+            //Unicast
+            if(FD_ISSET(mUnicastSocket, &mExceptionFDS)){
+				printf("Error on Unicast socket, continue\n");
+			}else if(FD_ISSET(mUnicastSocket, &mReadFDS)){
+				//Data
+				//printf("Data\n");
+				ret = recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+				if(ret != SOCKET_ERROR){
+					//Be sure to only deliver full messages (!)
+					IncommingMessage((struct sockaddr*)&sender, buf, ret);
+				}
+			}
+
 		}
 	}
 EXIT:

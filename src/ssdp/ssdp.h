@@ -66,9 +66,11 @@ public:
     void SetProduct(const char* product);    
 	SSDPDB* GetDB();
 private:
-	SOCKET mSocket;
+	SOCKET mMulticastSocket;
+	SOCKET mUnicastSocket;
 	struct sockaddr_in mSrcaddr;
 	struct sockaddr_in mDstaddr;
+	struct sockaddr_in mUnicastSrcaddr;
 	struct ip_mreq mMreq;
 	std::vector<SSDPObserver*> mObservers;
 	u8 mReadLoop;
