@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "UPnPManager.h"
+#import "FolderViewController.h"
 
 @implementation RootViewController
 
@@ -147,14 +148,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	*/
+    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
+        MediaServer1Device *server = (MediaServer1Device*)device;
         
+        FolderViewController *targetViewController = [[[FolderViewController alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ] autorelease];
+        
+        [[self navigationController] pushViewController:targetViewController animated:YES];
+    }        
 }
 
 - (void)didReceiveMemoryWarning

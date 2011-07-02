@@ -207,6 +207,7 @@
 		
 		[media setIsContainer:NO];
 		
+
 		[media setObjectID:mediaID];
 		[media setParentID:parentID];
 		[media setTitle:mediaTitle];	
@@ -221,7 +222,7 @@
 		[media setAudioChannels:audioChannels];	
 		[media setSize:size];
 		[media setDuration:duration];
-		[media setDurationInSeconds:[duration HMS2Seconds]];
+        [media setDurationInSeconds:[duration HMS2Seconds]];
 		[media setBitrate:bitrate];
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];

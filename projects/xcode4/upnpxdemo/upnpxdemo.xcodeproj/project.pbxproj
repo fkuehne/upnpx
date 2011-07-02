@@ -17,6 +17,8 @@
 		15055E5813913F0A003DE49F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E5713913F0A003DE49F /* RootViewController.m */; };
 		15055E5B13913F0A003DE49F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15055E5913913F0A003DE49F /* RootViewController.xib */; };
 		15055E6213914B2B003DE49F /* libupnpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15055E6113914B2B003DE49F /* libupnpx.a */; };
+		155126E613BF4AF90042DEBF /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 155126E413BF4AF90042DEBF /* FolderViewController.m */; };
+		155126E713BF4AF90042DEBF /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155126E513BF4AF90042DEBF /* FolderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		15055E5713913F0A003DE49F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		15055E5A13913F0A003DE49F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		15055E6113914B2B003DE49F /* libupnpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libupnpx.a; path = "../upnpx/build/Debug-iphonesimulator/libupnpx.a"; sourceTree = "<group>"; };
+		155126E313BF4AF90042DEBF /* FolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderViewController.h; sourceTree = "<group>"; };
+		155126E413BF4AF90042DEBF /* FolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderViewController.m; sourceTree = "<group>"; };
+		155126E513BF4AF90042DEBF /* FolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,9 @@
 				15055E5713913F0A003DE49F /* RootViewController.m */,
 				15055E5913913F0A003DE49F /* RootViewController.xib */,
 				15055E4813913F0A003DE49F /* Supporting Files */,
+				155126E313BF4AF90042DEBF /* FolderViewController.h */,
+				155126E413BF4AF90042DEBF /* FolderViewController.m */,
+				155126E513BF4AF90042DEBF /* FolderViewController.xib */,
 			);
 			path = upnpxdemo;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				15055E4C13913F0A003DE49F /* InfoPlist.strings in Resources */,
 				15055E5513913F0A003DE49F /* MainWindow.xib in Resources */,
 				15055E5B13913F0A003DE49F /* RootViewController.xib in Resources */,
+				155126E713BF4AF90042DEBF /* FolderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +180,7 @@
 				15055E4F13913F0A003DE49F /* main.m in Sources */,
 				15055E5213913F0A003DE49F /* upnpxdemoAppDelegate.m in Sources */,
 				15055E5813913F0A003DE49F /* RootViewController.m in Sources */,
+				155126E613BF4AF90042DEBF /* FolderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +259,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
 				);
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
 				WRAPPER_EXTENSION = app;
@@ -268,7 +281,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
 				);
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
 				VALIDATE_PRODUCT = YES;
@@ -295,6 +311,7 @@
 				15055E6013913F0A003DE49F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
