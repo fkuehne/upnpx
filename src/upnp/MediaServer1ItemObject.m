@@ -42,8 +42,8 @@
 @synthesize date;
 @synthesize genre;
 @synthesize originalTrackNumber;
-@synthesize uri;
-@synthesize protocolInfo;
+@synthesize uri; 
+@synthesize protocolInfo; 
 @synthesize frequency;
 @synthesize audioChannels;
 @synthesize size;
@@ -51,5 +51,7 @@
 @synthesize icon;
 @synthesize bitrate;
 @synthesize durationInSeconds;
+@synthesize uriCollection; 
+
 
 @end

@@ -36,6 +36,7 @@
 #import "MediaServer1ContainerObject.h"
 #import "MediaServer1ItemObject.h"
 #import "CocoaTools.h"
+#import "OrderedDictionary.h"
 
 @implementation MediaServerBasicObjectParser
 
@@ -94,6 +95,8 @@
 	
 	[super initWithNamespaceSupport:YES];
 	
+    uriCollection = [[OrderedDictionary alloc] init];
+    
 	mediaObjects = mediaObjectsArray;
 	[mediaObjects retain];
 
@@ -120,6 +123,7 @@
 
 	[self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"res",  nil] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setUri:) setStringValueObject:self];
 
+    
 	return self;
 }
 
@@ -146,6 +150,7 @@
 	[bitrate release];
 	[icon release];
 	[albumArt release];
+    [uriCollection release];
 	
 	[super dealloc];
 }
@@ -217,7 +222,7 @@
 		[media setGenre:genre];	
 		[media setOriginalTrackNumber:originalTrackNumber];	
 		[media setUri:uri];	
-		[media setProtocolInfo:protocolInfo];	
+		[media setProtocolInfo:protocolInfo]; 	
 		[media setFrequency:frequency];	
 		[media setAudioChannels:audioChannels];	
 		[media setSize:size];
@@ -226,7 +231,8 @@
 		[media setBitrate:bitrate];
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];
-	
+        [media setUriCollection:uriCollection];
+        
 		[mediaObjects addObject:media];
 		
 		[media release];
@@ -246,14 +252,18 @@
 		[self setBitrate:[elementAttributeDict objectForKey:@"bitrate"]];
 		
 		[self setIcon:[elementAttributeDict objectForKey:@"icon"]];
-		if(icon != nil){
-			NSLog(@"!!!!!!!!!!!!!!!!! ICON !!!!!!!!!!!!!!!!!!!!!");
-		}
-		
-		
 		
 	}else{
+        [uriCollection setObject:uri forKey:protocolInfo];
 	}
 }
+
+-(void)setUri:(NSString*)s{
+    [uri release];
+    uri = s;
+    [uri retain];
+}
+
+
 
 @end

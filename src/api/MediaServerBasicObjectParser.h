@@ -58,14 +58,15 @@
 	NSString *genre;
 	NSString *originalTrackNumber;
 	NSString *uri;
-	NSString *protocolInfo;
+	NSString *protocolInfo; 
 	NSString *frequency;
 	NSString *audioChannels;
 	NSString *size;
 	NSString *duration;
 	NSString *icon;
 	NSString *bitrate;
-	
+
+	NSMutableDictionary *uriCollection;  //key: NSString* protocolinfo -> value:NSString* uri
 	
 }
 
@@ -77,6 +78,8 @@
 -(void)item:(NSString*)startStop;
 -(void)empty;
 
+-(void)setUri:(NSString*)s;
+
 @property(retain, nonatomic) NSString *mediaTitle;
 @property(retain, nonatomic) NSString *mediaClass;
 @property(retain, nonatomic) NSString *mediaID;
@@ -87,7 +90,7 @@
 @property(retain, nonatomic) NSString *date;
 @property(retain, nonatomic) NSString *genre;
 @property(retain, nonatomic) NSString *originalTrackNumber;
-@property(retain, nonatomic) NSString *uri;
+@property(readonly, nonatomic) NSString *uri;
 @property(retain, nonatomic) NSString *protocolInfo;
 @property(retain, nonatomic) NSString *frequency;
 @property(retain, nonatomic) NSString *audioChannels;

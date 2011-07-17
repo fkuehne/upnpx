@@ -40,8 +40,8 @@
 	NSString *date;
 	NSString *genre;
 	NSString *originalTrackNumber;
-	NSString *uri;
-	NSString *protocolInfo;
+	NSString *uri; //Use uriCollection (uri contains the last element of uriCollection)
+	NSString *protocolInfo; //Use uriCollection (protocolInfo contains the last element of uriCollection)
 	NSString *frequency;
 	NSString *audioChannels;
 	NSString *size;
@@ -49,6 +49,7 @@
 	NSString *icon;
 	NSString *bitrate;
 	int durationInSeconds;
+    NSDictionary *uriCollection; //key: NSString* protocolinfo -> value:NSString* uri
 }
 
 @property(retain, nonatomic) NSString *artist;
@@ -65,5 +66,6 @@
 @property(retain, nonatomic) NSString *icon;
 @property(retain, nonatomic) NSString *bitrate;
 @property(readwrite) int durationInSeconds;
+@property(retain, nonatomic) NSDictionary *uriCollection;
 
 @end
