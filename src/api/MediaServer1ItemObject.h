@@ -52,6 +52,8 @@
     NSDictionary *uriCollection; //key: NSString* protocolinfo -> value:NSString* uri
 }
 
+-(void)dealloc;
+
 @property(retain, nonatomic) NSString *artist;
 @property(retain, nonatomic) NSString *album;
 @property(retain, nonatomic) NSString *date;

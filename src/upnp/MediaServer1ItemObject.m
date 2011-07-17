@@ -54,4 +54,22 @@
 @synthesize uriCollection; 
 
 
+-(void)dealloc{
+    [artist release];
+    [album release];
+    [date release];
+    [genre release];
+    [originalTrackNumber release];
+    [uri release];
+    [protocolInfo release];
+    [frequency release];
+    [audioChannels release];
+    [duration release];
+    [icon release];
+    [bitrate release];
+    [uriCollection release];
+    
+    [super dealloc];
+}
+
 @end
