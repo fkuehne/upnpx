@@ -4,6 +4,8 @@
 
 #import "SoapActionsMediaManagement1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsMediaManagement1
 
 
@@ -16,7 +18,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TSMediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:tsmediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -38,7 +40,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TargetMediaSessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:targetmediasessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -60,7 +62,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TargetMediaSessionID", @"NewMediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:targetmediasessionid, newmediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -82,7 +84,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TSMediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:tsmediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -104,7 +106,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TargetMediaSessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:targetmediasessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StopMediaSession" parameters:parameters returnValues:output];
     return ret;

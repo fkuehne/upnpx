@@ -35,6 +35,8 @@
 
 #import "SoapActionsWANIPv6FirewallControl1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANIPv6FirewallControl1
 
 
@@ -63,7 +65,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol", nil];
     parameterObjects = [NSArray arrayWithObjects:remotehost, remoteport, internalclient, internalport, protocol, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -85,7 +87,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol", @"LeaseTime", nil];
     parameterObjects = [NSArray arrayWithObjects:remotehost, remoteport, internalclient, internalport, protocol, leasetime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -107,7 +109,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"UniqueID", @"NewLeaseTime", nil];
     parameterObjects = [NSArray arrayWithObjects:uniqueid, newleasetime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"UpdatePinhole" parameters:parameters returnValues:output];
     return ret;
@@ -123,7 +125,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
     parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeletePinhole" parameters:parameters returnValues:output];
     return ret;
@@ -139,7 +141,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
     parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -161,7 +163,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
     parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;

@@ -4,6 +4,8 @@
 
 #import "SoapActionsInputConfig1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsInputConfig1
 
 
@@ -48,7 +50,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SelectedCapability", @"ReceiverInfo", @"PeerDeviceInfo", @"ConnectionInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:selectedcapability, receiverinfo, peerdeviceinfo, connectioninfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -70,7 +72,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StartInputSession" parameters:parameters returnValues:output];
     return ret;
@@ -86,7 +88,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StopInputsession" parameters:parameters returnValues:output];
     return ret;
@@ -102,7 +104,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SwitchInputSession" parameters:parameters returnValues:output];
     return ret;
@@ -118,7 +120,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewMultiInputMode", nil];
     parameterObjects = [NSArray arrayWithObjects:newmultiinputmode, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetMultiInputMode" parameters:parameters returnValues:output];
     return ret;
@@ -134,7 +136,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"OwnerDeviceInfo", @"OwnedSessionID", nil];
     parameterObjects = [NSArray arrayWithObjects:ownerdeviceinfo, ownedsessionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetMonopolizedSender" parameters:parameters returnValues:output];
     return ret;

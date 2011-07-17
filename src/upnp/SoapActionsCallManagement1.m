@@ -4,6 +4,8 @@
 
 #import "SoapActionsCallManagement1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsCallManagement1
 
 
@@ -16,7 +18,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", @"MediaCapabilityInfo", @"CallMode", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, mediacapabilityinfo, callmode, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"AcceptCall" parameters:parameters returnValues:output];
     return ret;
@@ -32,7 +34,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", @"MediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, mediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"AcceptModifyCall" parameters:parameters returnValues:output];
     return ret;
@@ -48,7 +50,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"CurrentMonopolizer", @"SecretKey", @"TargetCallID", @"NewMonopolizer", nil];
     parameterObjects = [NSArray arrayWithObjects:currentmonopolizer, secretkey, targetcallid, newmonopolizer, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ChangeMonopolizer" parameters:parameters returnValues:output];
     return ret;
@@ -64,7 +66,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"CurrentTelCPName", @"CurrentSecretKey", @"NewTelCPName", nil];
     parameterObjects = [NSArray arrayWithObjects:currenttelcpname, currentsecretkey, newtelcpname, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -86,7 +88,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"CallBackID", nil];
     parameterObjects = [NSArray arrayWithObjects:callbackid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ClearCallBack" parameters:parameters returnValues:output];
     return ret;
@@ -128,7 +130,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -166,7 +168,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TCMediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:tcmediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -220,7 +222,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"CalleeID", nil];
     parameterObjects = [NSArray arrayWithObjects:calleeid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -242,7 +244,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", @"MediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, mediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ModifyCall" parameters:parameters returnValues:output];
     return ret;
@@ -258,7 +260,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"CalleeID", nil];
     parameterObjects = [NSArray arrayWithObjects:calleeid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -280,7 +282,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"CurrentSecretKey", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, currentsecretkey, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -302,7 +304,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", @"RejectReason", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, rejectreason, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"RejectCall" parameters:parameters returnValues:output];
     return ret;
@@ -318,7 +320,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"CalleeID", @"CallPriority", @"MediaCapabilityInfo", @"CallMode", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, calleeid, callpriority, mediacapabilityinfo, callmode, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -340,7 +342,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"TargetCallID", @"TCList", @"MediaCapabilityInfo", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, targetcallid, tclist, mediacapabilityinfo, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StartMediaTransfer" parameters:parameters returnValues:output];
     return ret;
@@ -356,7 +358,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", @"CallID", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, callid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StopCall" parameters:parameters returnValues:output];
     return ret;
@@ -372,7 +374,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TelCPName", @"SecretKey", nil];
     parameterObjects = [NSArray arrayWithObjects:telcpname, secretkey, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"UnregisterTelCPName" parameters:parameters returnValues:output];
     return ret;

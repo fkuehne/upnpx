@@ -35,6 +35,8 @@
 
 #import "SoapActionsLANHostConfigManagement1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsLANHostConfigManagement1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDHCPServerConfigurable", nil];
     parameterObjects = [NSArray arrayWithObjects:newdhcpserverconfigurable, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDHCPServerConfigurable" parameters:parameters returnValues:output];
     return ret;
@@ -79,7 +81,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDHCPRelay", nil];
     parameterObjects = [NSArray arrayWithObjects:newdhcprelay, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDHCPRelay" parameters:parameters returnValues:output];
     return ret;
@@ -111,7 +113,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewSubnetMask", nil];
     parameterObjects = [NSArray arrayWithObjects:newsubnetmask, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetSubnetMask" parameters:parameters returnValues:output];
     return ret;
@@ -143,7 +145,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewIPRouters", nil];
     parameterObjects = [NSArray arrayWithObjects:newiprouters, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetIPRouter" parameters:parameters returnValues:output];
     return ret;
@@ -159,7 +161,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewIPRouters", nil];
     parameterObjects = [NSArray arrayWithObjects:newiprouters, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeleteIPRouter" parameters:parameters returnValues:output];
     return ret;
@@ -191,7 +193,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDomainName", nil];
     parameterObjects = [NSArray arrayWithObjects:newdomainname, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDomainName" parameters:parameters returnValues:output];
     return ret;
@@ -223,7 +225,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewMinAddress", @"NewMaxAddress", nil];
     parameterObjects = [NSArray arrayWithObjects:newminaddress, newmaxaddress, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAddressRange" parameters:parameters returnValues:output];
     return ret;
@@ -255,7 +257,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewReservedAddresses", nil];
     parameterObjects = [NSArray arrayWithObjects:newreservedaddresses, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetReservedAddress" parameters:parameters returnValues:output];
     return ret;
@@ -271,7 +273,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewReservedAddresses", nil];
     parameterObjects = [NSArray arrayWithObjects:newreservedaddresses, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeleteReservedAddress" parameters:parameters returnValues:output];
     return ret;
@@ -303,7 +305,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDNSServers", nil];
     parameterObjects = [NSArray arrayWithObjects:newdnsservers, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDNSServer" parameters:parameters returnValues:output];
     return ret;
@@ -319,7 +321,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDNSServers", nil];
     parameterObjects = [NSArray arrayWithObjects:newdnsservers, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeleteDNSServer" parameters:parameters returnValues:output];
     return ret;

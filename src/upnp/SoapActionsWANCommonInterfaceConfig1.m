@@ -4,6 +4,8 @@
 
 #import "SoapActionsWANCommonInterfaceConfig1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANCommonInterfaceConfig1
 
 
@@ -16,7 +18,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewEnabledForInternet", nil];
     parameterObjects = [NSArray arrayWithObjects:newenabledforinternet, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetEnabledForInternet" parameters:parameters returnValues:output];
     return ret;
@@ -160,7 +162,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewActiveConnectionIndex", nil];
     parameterObjects = [NSArray arrayWithObjects:newactiveconnectionindex, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;

@@ -35,6 +35,8 @@
 
 #import "SoapActionsDigitalSecurityCameraStillImage1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsDigitalSecurityCameraStillImage1
 
 
@@ -79,7 +81,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultEncoding" parameters:parameters returnValues:output];
     return ret;
@@ -127,7 +129,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqCompressionLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:reqcompressionlevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultCompressionLevel" parameters:parameters returnValues:output];
     return ret;
@@ -175,7 +177,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqResolution", nil];
     parameterObjects = [NSArray arrayWithObjects:reqresolution, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultResolution" parameters:parameters returnValues:output];
     return ret;
@@ -191,7 +193,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -229,7 +231,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;

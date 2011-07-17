@@ -35,6 +35,8 @@
 
 #import "SoapActionsWANIPConnection1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANIPConnection1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewConnectionType", nil];
     parameterObjects = [NSArray arrayWithObjects:newconnectiontype, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetConnectionType" parameters:parameters returnValues:output];
     return ret;
@@ -109,7 +111,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewAutoDisconnectTime", nil];
     parameterObjects = [NSArray arrayWithObjects:newautodisconnecttime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAutoDisconnectTime" parameters:parameters returnValues:output];
     return ret;
@@ -125,7 +127,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewIdleDisconnectTime", nil];
     parameterObjects = [NSArray arrayWithObjects:newidledisconnecttime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetIdleDisconnectTime" parameters:parameters returnValues:output];
     return ret;
@@ -141,7 +143,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewWarnDisconnectDelay", nil];
     parameterObjects = [NSArray arrayWithObjects:newwarndisconnectdelay, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetWarnDisconnectDelay" parameters:parameters returnValues:output];
     return ret;
@@ -237,7 +239,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewPortMappingIndex", nil];
     parameterObjects = [NSArray arrayWithObjects:newportmappingindex, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -259,7 +261,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewRemoteHost", @"NewExternalPort", @"NewProtocol", nil];
     parameterObjects = [NSArray arrayWithObjects:newremotehost, newexternalport, newprotocol, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -281,7 +283,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewRemoteHost", @"NewExternalPort", @"NewProtocol", @"NewInternalPort", @"NewInternalClient", @"NewEnabled", @"NewPortMappingDescription", @"NewLeaseDuration", nil];
     parameterObjects = [NSArray arrayWithObjects:newremotehost, newexternalport, newprotocol, newinternalport, newinternalclient, newenabled, newportmappingdescription, newleaseduration, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"AddPortMapping " parameters:parameters returnValues:output];
     return ret;
@@ -297,7 +299,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewRemoteHost", @"NewExternalPort", @"NewProtocol", nil];
     parameterObjects = [NSArray arrayWithObjects:newremotehost, newexternalport, newprotocol, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeletePortMapping" parameters:parameters returnValues:output];
     return ret;

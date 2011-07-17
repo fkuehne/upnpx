@@ -35,6 +35,8 @@
 
 #import "SoapActionsWANEthernetLinkConfig1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANEthernetLinkConfig1
 
 

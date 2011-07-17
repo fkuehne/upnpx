@@ -27,6 +27,8 @@
 
 #import "SoapActionsAVTransport1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsAVTransport1
 
 
@@ -39,7 +41,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"CurrentURI", @"CurrentURIMetaData", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, currenturi, currenturimetadata, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAVTransportURI" parameters:parameters returnValues:output];
     return ret;
@@ -55,7 +57,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NextURI", @"NextURIMetaData", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nexturi, nexturimetadata, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetNextAVTransportURI" parameters:parameters returnValues:output];
     return ret;
@@ -71,7 +73,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -93,7 +95,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -115,7 +117,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -137,7 +139,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -159,7 +161,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -181,7 +183,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Stop" parameters:parameters returnValues:output];
     return ret;
@@ -197,7 +199,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Speed", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, speed, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Play" parameters:parameters returnValues:output];
     return ret;
@@ -213,7 +215,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Pause" parameters:parameters returnValues:output];
     return ret;
@@ -229,7 +231,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Record" parameters:parameters returnValues:output];
     return ret;
@@ -245,7 +247,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Unit", @"Target", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, unit, target, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Seek" parameters:parameters returnValues:output];
     return ret;
@@ -261,7 +263,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Next" parameters:parameters returnValues:output];
     return ret;
@@ -277,7 +279,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Previous" parameters:parameters returnValues:output];
     return ret;
@@ -293,7 +295,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NewPlayMode", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, newplaymode, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetPlayMode" parameters:parameters returnValues:output];
     return ret;
@@ -309,7 +311,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NewRecordQualityMode", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, newrecordqualitymode, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRecordQualityMode" parameters:parameters returnValues:output];
     return ret;
@@ -325,7 +327,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;

@@ -35,6 +35,8 @@
 
 #import "SoapActionsWANDSLLinkConfig1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANDSLLinkConfig1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewLinkType", nil];
     parameterObjects = [NSArray arrayWithObjects:newlinktype, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDSLLinkType" parameters:parameters returnValues:output];
     return ret;
@@ -111,7 +113,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDestinationAddress", nil];
     parameterObjects = [NSArray arrayWithObjects:newdestinationaddress, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDestinationAddress" parameters:parameters returnValues:output];
     return ret;
@@ -143,7 +145,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewATMEncapsulation", nil];
     parameterObjects = [NSArray arrayWithObjects:newatmencapsulation, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetATMEncapsulation" parameters:parameters returnValues:output];
     return ret;
@@ -175,7 +177,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewFCSPreserved", nil];
     parameterObjects = [NSArray arrayWithObjects:newfcspreserved, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetFCSPreserved" parameters:parameters returnValues:output];
     return ret;

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15401E0A1389F1A7001BABB8 /* libupnpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15401E091389F1A7001BABB8 /* libupnpx.a */; };
+		150C576113D10BA200C886F0 /* libupnpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150C575E13D10B2E00C886F0 /* libupnpx.a */; };
 		1540207B138C9933001BABB8 /* FolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15402079138C9933001BABB8 /* FolderView.m */; };
 		1540207C138C9933001BABB8 /* FolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1540207A138C9933001BABB8 /* FolderView.xib */; };
 		1D3623260D0F684500981E51 /* upnpxdemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* upnpxdemoAppDelegate.m */; };
@@ -20,8 +20,25 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		150C575D13D10B2E00C886F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 150C575913D10B2E00C886F0 /* upnpx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = upnpx;
+		};
+		150C575F13D10B6200C886F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 150C575913D10B2E00C886F0 /* upnpx.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = upnpx;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		15401E091389F1A7001BABB8 /* libupnpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libupnpx.a; path = "../upnpx/build/Debug-iphonesimulator/libupnpx.a"; sourceTree = SOURCE_ROOT; };
+		150C575913D10B2E00C886F0 /* upnpx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = upnpx.xcodeproj; path = ../upnpx/upnpx.xcodeproj; sourceTree = SOURCE_ROOT; };
 		15402078138C9933001BABB8 /* FolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FolderView.h; path = ../FolderView.h; sourceTree = "<group>"; };
 		15402079138C9933001BABB8 /* FolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FolderView.m; path = ../FolderView.m; sourceTree = "<group>"; };
 		1540207A138C9933001BABB8 /* FolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderView.xib; sourceTree = "<group>"; };
@@ -45,10 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150C576113D10BA200C886F0 /* libupnpx.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				15401E0A1389F1A7001BABB8 /* libupnpx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +85,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		150C575A13D10B2E00C886F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				150C575E13D10B2E00C886F0 /* libupnpx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +104,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				150C575913D10B2E00C886F0 /* upnpx.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -111,7 +137,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15401E091389F1A7001BABB8 /* libupnpx.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
@@ -133,6 +158,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				150C576013D10B6200C886F0 /* PBXTargetDependency */,
 			);
 			name = upnpxdemo;
 			productName = upnpxdemo;
@@ -146,6 +172,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "upnpxdemo" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -156,12 +183,28 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 150C575A13D10B2E00C886F0 /* Products */;
+					ProjectRef = 150C575913D10B2E00C886F0 /* upnpx.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* upnpxdemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		150C575E13D10B2E00C886F0 /* libupnpx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libupnpx.a;
+			remoteRef = 150C575D13D10B2E00C886F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -189,6 +232,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		150C576013D10B6200C886F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = upnpx;
+			targetProxy = 150C575F13D10B6200C886F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -234,9 +285,13 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lstdc++",
+				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../../../src/port/ios ../../../src/api";
 			};
 			name = Debug;
@@ -250,9 +305,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lstdc++",
+				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../../../src/port/ios ../../../src/api";
 			};
 			name = Release;

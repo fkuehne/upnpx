@@ -35,6 +35,8 @@
 
 #import "SoapActionsLayer3Forwarding1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsLayer3Forwarding1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewDefaultConnectionService", nil];
     parameterObjects = [NSArray arrayWithObjects:newdefaultconnectionservice, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultConnectionService" parameters:parameters returnValues:output];
     return ret;

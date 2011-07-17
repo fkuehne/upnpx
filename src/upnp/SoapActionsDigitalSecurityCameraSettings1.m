@@ -35,6 +35,8 @@
 
 #import "SoapActionsDigitalSecurityCameraSettings1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsDigitalSecurityCameraSettings1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewAutomaticWhiteBalance", nil];
     parameterObjects = [NSArray arrayWithObjects:newautomaticwhitebalance, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAutomaticWhiteBalance" parameters:parameters returnValues:output];
     return ret;
@@ -79,7 +81,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewFixedWhiteBalance", nil];
     parameterObjects = [NSArray arrayWithObjects:newfixedwhitebalance, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetFixedWhiteBalance" parameters:parameters returnValues:output];
     return ret;
@@ -127,7 +129,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewRotation", nil];
     parameterObjects = [NSArray arrayWithObjects:newrotation, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultRotation" parameters:parameters returnValues:output];
     return ret;
@@ -159,7 +161,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewBrightness", nil];
     parameterObjects = [NSArray arrayWithObjects:newbrightness, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetBrightness" parameters:parameters returnValues:output];
     return ret;
@@ -211,7 +213,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewColorSaturation", nil];
     parameterObjects = [NSArray arrayWithObjects:newcolorsaturation, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetColorSaturation" parameters:parameters returnValues:output];
     return ret;

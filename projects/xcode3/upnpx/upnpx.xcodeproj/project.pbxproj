@@ -187,6 +187,8 @@
 		15401CAD1389EE27001BABB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15401CAC1389EE27001BABB8 /* UIKit.framework */; };
 		15401CB51389EE58001BABB8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15401CB41389EE58001BABB8 /* CoreData.framework */; };
 		15402081138C9CC1001BABB8 /* MediaServerBasicObjectParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */; };
+		156C398913D2105B0064321E /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 156C398713D2105B0064321E /* OrderedDictionary.m */; };
+		156C398A13D2105B0064321E /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 156C398813D2105B0064321E /* OrderedDictionary.h */; };
 		AA747D9F0F9514B9006C5449 /* upnpx_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* upnpx_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -372,6 +374,8 @@
 		15401CAC1389EE27001BABB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15401CB41389EE58001BABB8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		15402080138C9CC1001BABB8 /* MediaServerBasicObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServerBasicObjectParser.h; path = ../../../src/api/MediaServerBasicObjectParser.h; sourceTree = SOURCE_ROOT; };
+		156C398713D2105B0064321E /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = ../../../src/upnp/OrderedDictionary.m; sourceTree = SOURCE_ROOT; };
+		156C398813D2105B0064321E /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../src/upnp/OrderedDictionary.h; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* upnpx_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upnpx_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libupnpx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libupnpx.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -586,6 +590,8 @@
 		15401C431389EDD1001BABB8 /* upnp */ = {
 			isa = PBXGroup;
 			children = (
+				156C398713D2105B0064321E /* OrderedDictionary.m */,
+				156C398813D2105B0064321E /* OrderedDictionary.h */,
 				150A879C1391DD5300019C05 /* TelephonyServer1Device.m */,
 				150A87841391D78F00019C05 /* TelephonyClient1Device.m */,
 				150A87421391D06B00019C05 /* SoapActionsMessaging1.m */,
@@ -761,6 +767,7 @@
 				150A87F91393DAA100019C05 /* SoapActionsSwitchPower1.h in Headers */,
 				150A87FA1393DAA100019C05 /* SoapActionsRendering.h in Headers */,
 				150A87FB1393DAA100019C05 /* SoapActionsDimming1.h in Headers */,
+				156C398A13D2105B0064321E /* OrderedDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +798,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "upnpx" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* upnpx */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -893,6 +907,7 @@
 				150A874D1391D06B00019C05 /* SoapActionsCallManagement1.m in Sources */,
 				150A87851391D78F00019C05 /* TelephonyClient1Device.m in Sources */,
 				150A879D1391DD5300019C05 /* TelephonyServer1Device.m in Sources */,
+				156C398913D2105B0064321E /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,7 +956,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -954,7 +969,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

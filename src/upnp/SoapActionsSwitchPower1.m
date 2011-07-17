@@ -27,6 +27,8 @@
 
 #import "SoapActionsSwitchPower1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsSwitchPower1
 
 
@@ -39,7 +41,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newTargetValue", nil];
     parameterObjects = [NSArray arrayWithObjects:newtargetvalue, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetTarget" parameters:parameters returnValues:output];
     return ret;

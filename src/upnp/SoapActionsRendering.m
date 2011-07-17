@@ -34,6 +34,8 @@
 #import "SoapActionsRendering.h"
 
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsRendering
 
 
@@ -64,7 +66,7 @@
 	
 	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
 	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
 	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
@@ -94,7 +96,7 @@
 	
 	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
 	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
 	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
@@ -121,7 +123,7 @@
 	NSMutableString *currentPresetString = [[NSMutableString alloc] init]; 	
 	NSArray *parameterKeys		= [NSArray arrayWithObjects:@"InstanceID",									nil];
 	NSArray *parameterObjects	= [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID],  nil];		
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	
 	NSArray *outputKeys			= [NSArray arrayWithObjects:@"CurrentPresetNameList",	nil];
 	NSArray *outputObjects		= [NSArray arrayWithObjects:currentPresetString,		nil];	

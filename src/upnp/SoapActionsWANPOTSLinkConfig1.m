@@ -35,6 +35,8 @@
 
 #import "SoapActionsWANPOTSLinkConfig1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsWANPOTSLinkConfig1
 
 
@@ -47,7 +49,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewISPPhoneNumber", @"NewISPInfo", @"NewLinkType", nil];
     parameterObjects = [NSArray arrayWithObjects:newispphonenumber, newispinfo, newlinktype, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetISPInfo" parameters:parameters returnValues:output];
     return ret;
@@ -63,7 +65,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"NewNumberOfRetries", @"NewDelayBetweenRetries", nil];
     parameterObjects = [NSArray arrayWithObjects:newnumberofretries, newdelaybetweenretries, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetCallRetryInfo" parameters:parameters returnValues:output];
     return ret;

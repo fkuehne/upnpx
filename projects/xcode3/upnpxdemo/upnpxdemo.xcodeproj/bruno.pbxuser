@@ -1,5 +1,35 @@
 // !$*UTF8*$!
 {
+	1521A9E613D26209005C9701 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 16";
+		rLen = 0;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 891;
+		vrLoc = 1912;
+	};
+	1523DC2913D2749600F66705 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15402079138C9933001BABB8 /* FolderView.m */;
+		name = "FolderView.m: 196";
+		rLen = 0;
+		rLoc = 6053;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 355;
+	};
+	1523DC2A13D2749600F66705 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 16";
+		rLen = 0;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 1269;
+		vrLoc = 1739;
+	};
 	15401D7F1389F108001BABB8 /* upnpxdemo */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
@@ -46,23 +76,6 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	1540206F138C97C4001BABB8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 15402070138C97C4001BABB8 /* UITableViewCell.h */;
-		name = "UITableViewCell.h: 42";
-		rLen = 86;
-		rLoc = 1499;
-		rType = 0;
-		vrLen = 1362;
-		vrLoc = 956;
-	};
-	15402070138C97C4001BABB8 /* UITableViewCell.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = UITableViewCell.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
-		sourceTree = "<absolute>";
-	};
 	15402078138C9933001BABB8 /* FolderView.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {819, 465}}";
@@ -72,9 +85,9 @@
 	};
 	15402079138C9933001BABB8 /* FolderView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2028, 2886}}";
-			sepNavSelRange = "{745, 0}";
-			sepNavVisRange = "{646, 1508}";
+			sepNavIntBoundsRect = "{{0, 0}, {2028, 2899}}";
+			sepNavSelRange = "{6053, 0}";
+			sepNavVisRange = "{355, 1585}";
 			sepNavWindowFrame = "{{38, 75}, {813, 677}}";
 		};
 	};
@@ -108,16 +121,6 @@
 		vrLen = 499;
 		vrLoc = 0;
 	};
-	15402169138D288E001BABB8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
-		name = "RootViewController.m: 16";
-		rLen = 0;
-		rLoc = 294;
-		rType = 0;
-		vrLen = 1166;
-		vrLoc = 1688;
-	};
 	1540216A138D288E001BABB8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 15402078138C9933001BABB8 /* FolderView.h */;
@@ -127,26 +130,6 @@
 		rType = 0;
 		vrLen = 497;
 		vrLoc = 0;
-	};
-	1540216B138D288E001BABB8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 15402079138C9933001BABB8 /* FolderView.m */;
-		name = "FolderView.m: 132";
-		rLen = 172;
-		rLoc = 3914;
-		rType = 0;
-		vrLen = 1117;
-		vrLoc = 3742;
-	};
-	1540216C138D288E001BABB8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 15402079138C9933001BABB8 /* FolderView.m */;
-		name = "FolderView.m: 44";
-		rLen = 0;
-		rLoc = 745;
-		rType = 0;
-		vrLen = 1508;
-		vrLoc = 646;
 	};
 	1D3623240D0F684500981E51 /* upnpxdemoAppDelegate.h */ = {
 		uiCtxt = {
@@ -177,15 +160,15 @@
 	};
 	28C286E00D94DF7D0034E888 /* RootViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 2691}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1048, 2769}}";
 			sepNavSelRange = "{294, 0}";
-			sepNavVisRange = "{1688, 1166}";
+			sepNavVisRange = "{1739, 1269}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 15401D7F1389F108001BABB8 /* upnpxdemo */;
-		activeSDKPreference = iphonesimulator3.1.3;
+		activeSDKPreference = iphonesimulator4.3;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* upnpxdemo */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* upnpxdemo */,
@@ -202,7 +185,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					641,
+					765,
 					20,
 					48,
 					43,
@@ -219,18 +202,55 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 327986070;
-			PBXWorkspaceStateSaveDate = 327986070;
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					536.20849609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					605,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 332559432;
+			PBXWorkspaceStateSaveDate = 332559432;
 		};
 		perUserProjectItems = {
-			1540206F138C97C4001BABB8 /* PBXTextBookmark */ = 1540206F138C97C4001BABB8 /* PBXTextBookmark */;
+			1521A9E613D26209005C9701 /* PBXTextBookmark */ = 1521A9E613D26209005C9701 /* PBXTextBookmark */;
+			1523DC2913D2749600F66705 /* PBXTextBookmark */ = 1523DC2913D2749600F66705 /* PBXTextBookmark */;
+			1523DC2A13D2749600F66705 /* PBXTextBookmark */ = 1523DC2A13D2749600F66705 /* PBXTextBookmark */;
 			154020CA138CA270001BABB8 /* PBXTextBookmark */ = 154020CA138CA270001BABB8 /* PBXTextBookmark */;
 			15402130138CAA29001BABB8 /* PBXTextBookmark */ = 15402130138CAA29001BABB8 /* PBXTextBookmark */;
 			15402132138CAA29001BABB8 /* PBXTextBookmark */ = 15402132138CAA29001BABB8 /* PBXTextBookmark */;
-			15402169138D288E001BABB8 /* PBXTextBookmark */ = 15402169138D288E001BABB8 /* PBXTextBookmark */;
 			1540216A138D288E001BABB8 /* PBXTextBookmark */ = 1540216A138D288E001BABB8 /* PBXTextBookmark */;
-			1540216B138D288E001BABB8 /* PBXTextBookmark */ = 1540216B138D288E001BABB8 /* PBXTextBookmark */;
-			1540216C138D288E001BABB8 /* PBXTextBookmark */ = 1540216C138D288E001BABB8 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 15401D971389F118001BABB8 /* Source Control */;
 		userBuildSettings = {

@@ -34,7 +34,6 @@
 
 #import "UPnPManager.h"
 
-
 static UPnPManager *_upnpmanager = nil;
 
 @implementation UPnPManager

@@ -27,6 +27,8 @@
 
 #import "SoapActionsDimming1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsDimming1
 
 
@@ -39,7 +41,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newLoadlevelTarget", nil];
     parameterObjects = [NSArray arrayWithObjects:newloadleveltarget, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetLoadLevelTarget" parameters:parameters returnValues:output];
     return ret;
@@ -87,7 +89,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newOnEffectLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:newoneffectlevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetOnEffectLevel" parameters:parameters returnValues:output];
     return ret;
@@ -103,7 +105,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newOnEffect", nil];
     parameterObjects = [NSArray arrayWithObjects:newoneffect, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetOnEffect" parameters:parameters returnValues:output];
     return ret;
@@ -185,7 +187,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newLoadLevelTarget", @"newRampTime", nil];
     parameterObjects = [NSArray arrayWithObjects:newloadleveltarget, newramptime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StartRampToLevel" parameters:parameters returnValues:output];
     return ret;
@@ -201,7 +203,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newStepDelta", nil];
     parameterObjects = [NSArray arrayWithObjects:newstepdelta, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetStepDelta" parameters:parameters returnValues:output];
     return ret;
@@ -233,7 +235,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"newRampRate", nil];
     parameterObjects = [NSArray arrayWithObjects:newramprate, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRampRate" parameters:parameters returnValues:output];
     return ret;

@@ -27,6 +27,8 @@
 
 #import "SoapActionsConnectionManager1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsConnectionManager1
 
 
@@ -55,7 +57,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"RemoteProtocolInfo", @"PeerConnectionManager", @"PeerConnectionID", @"Direction", nil];
     parameterObjects = [NSArray arrayWithObjects:remoteprotocolinfo, peerconnectionmanager, peerconnectionid, direction, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -77,7 +79,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ConnectionID", nil];
     parameterObjects = [NSArray arrayWithObjects:connectionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ConnectionComplete" parameters:parameters returnValues:output];
     return ret;
@@ -109,7 +111,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ConnectionID", nil];
     parameterObjects = [NSArray arrayWithObjects:connectionid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;

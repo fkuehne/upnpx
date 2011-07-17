@@ -35,6 +35,8 @@
 
 #import "SoapActionsDigitalSecurityCameraMotionImage1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsDigitalSecurityCameraMotionImage1
 
 
@@ -79,7 +81,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultEncoding" parameters:parameters returnValues:output];
     return ret;
@@ -127,7 +129,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqCompressionLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:reqcompressionlevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultCompressionLevel" parameters:parameters returnValues:output];
     return ret;
@@ -175,7 +177,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqResolution", nil];
     parameterObjects = [NSArray arrayWithObjects:reqresolution, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultResolution" parameters:parameters returnValues:output];
     return ret;
@@ -191,7 +193,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", @"ReqMaxBandwidth", @"ReqTargetFrameRate", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, reqmaxbandwidth, reqtargetframerate, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -229,7 +231,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", @"ReqMaxBandwidth", @"ReqTargetFrameRate", nil];
     parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, reqmaxbandwidth, reqtargetframerate, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -267,7 +269,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqMaxBandwidth", nil];
     parameterObjects = [NSArray arrayWithObjects:reqmaxbandwidth, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetMaxBandwidth" parameters:parameters returnValues:output];
     return ret;
@@ -299,7 +301,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ReqTargetFrameRate", nil];
     parameterObjects = [NSArray arrayWithObjects:reqtargetframerate, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetTargetFrameRate" parameters:parameters returnValues:output];
     return ret;

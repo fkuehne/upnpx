@@ -27,6 +27,8 @@
 
 #import "SoapActionsRenderingControl1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsRenderingControl1
 
 
@@ -39,7 +41,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -61,7 +63,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"PresetName", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, presetname, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SelectPreset" parameters:parameters returnValues:output];
     return ret;
@@ -77,7 +79,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -99,7 +101,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredBrightness", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredbrightness, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetBrightness" parameters:parameters returnValues:output];
     return ret;
@@ -115,7 +117,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -137,7 +139,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredContrast", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredcontrast, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetContrast" parameters:parameters returnValues:output];
     return ret;
@@ -153,7 +155,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -175,7 +177,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredSharpness", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredsharpness, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetSharpness" parameters:parameters returnValues:output];
     return ret;
@@ -191,7 +193,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -213,7 +215,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredRedVideoGain", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredredvideogain, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRedVideoGain" parameters:parameters returnValues:output];
     return ret;
@@ -229,7 +231,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -251,7 +253,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredGreenVideoGain", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredgreenvideogain, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetGreenVideoGain" parameters:parameters returnValues:output];
     return ret;
@@ -267,7 +269,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -289,7 +291,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredBlueVideoGain", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredbluevideogain, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetBlueVideoGain" parameters:parameters returnValues:output];
     return ret;
@@ -305,7 +307,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -327,7 +329,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredRedVideoBlackLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredredvideoblacklevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRedVideoBlackLevel" parameters:parameters returnValues:output];
     return ret;
@@ -343,7 +345,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -365,7 +367,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredGreenVideoBlackLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredgreenvideoblacklevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetGreenVideoBlackLevel" parameters:parameters returnValues:output];
     return ret;
@@ -381,7 +383,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -403,7 +405,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredBlueVideoBlackLevel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredbluevideoblacklevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetBlueVideoBlackLevel" parameters:parameters returnValues:output];
     return ret;
@@ -419,7 +421,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -441,7 +443,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredColorTemperature", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredcolortemperature, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetColorTemperature" parameters:parameters returnValues:output];
     return ret;
@@ -457,7 +459,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -479,7 +481,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredHorizontalKeystone", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredhorizontalkeystone, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetHorizontalKeystone" parameters:parameters returnValues:output];
     return ret;
@@ -495,7 +497,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -517,7 +519,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"DesiredVerticalKeystone", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, desiredverticalkeystone, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetVerticalKeystone" parameters:parameters returnValues:output];
     return ret;
@@ -533,7 +535,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -555,7 +557,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", @"DesiredMute", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, desiredmute, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetMute" parameters:parameters returnValues:output];
     return ret;
@@ -571,7 +573,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -593,7 +595,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", @"DesiredVolume", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, desiredvolume, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetVolume" parameters:parameters returnValues:output];
     return ret;
@@ -609,7 +611,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -631,7 +633,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", @"DesiredVolume", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, desiredvolume, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetVolumeDB" parameters:parameters returnValues:output];
     return ret;
@@ -647,7 +649,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -669,7 +671,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -691,7 +693,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", @"DesiredLoudness", nil];
     parameterObjects = [NSArray arrayWithObjects:instanceid, channel, desiredloudness, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetLoudness" parameters:parameters returnValues:output];
     return ret;

@@ -121,7 +121,7 @@
 	[header appendString:@"//Auto Generated file.\r\n"];
 	[header appendString:@"//This file is part of the upnox project.\r\n"];
 	[header appendString:@"//Copyright 2010 - 2011 Bruno Keymolen, all rights reserved.\r\n\r\n"];
-	[header appendString:@"#import <Foundation/Foundation.h>\r\n#import \"SoapAction.h\"\r\n"];
+	[header appendString:@"#import <Foundation/Foundation.h>\r\n#import \"SoapAction.h\"\r\n#import \"OrderedDictionary.h\"\r\n"];
 
 	[header appendString:@"\r\n"];
 
@@ -243,7 +243,7 @@
 			[o appendFormat:@"%@, ",	[(NSString*)[actionArgumentListIn objectAtIndex:x] lowercaseString]];
 		}
 		[o appendString: @"nil];\r\n    "];
-		[o appendString: @"parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];\r\n\r\n    "];
+		[o appendString: @"parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];\r\n\r\n    "];
 	}		
 	
 	if([actionArgumentListOut count] > 0){
