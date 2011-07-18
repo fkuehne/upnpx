@@ -166,6 +166,10 @@
 	[self setGenre:@""];
 	[self setAlbumArt:nil];
 	[self setDuration:nil];
+    
+    //Empty uriCollection
+    [uriCollection release];
+    uriCollection = [[OrderedDictionary alloc] init];
 }
 
 
@@ -254,7 +258,8 @@
 		[self setIcon:[elementAttributeDict objectForKey:@"icon"]];
 		
 	}else{
-        [uriCollection setObject:uri forKey:protocolInfo];
+        //NSLog(@"%@ -> %@", protocolInfo, uri);
+        [uriCollection setObject:uri forKey:protocolInfo]; //@todo: we overwrite uri's with same protocol info
 	}
 }
 
