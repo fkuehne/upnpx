@@ -258,7 +258,7 @@
 		[self setIcon:[elementAttributeDict objectForKey:@"icon"]];
 		
 	}else{
-        //NSLog(@"%@ -> %@", protocolInfo, uri);
+//        NSLog(@"%@ -> %@", protocolInfo, uri);
         [uriCollection setObject:uri forKey:protocolInfo]; //@todo: we overwrite uri's with same protocol info
 	}
 }
