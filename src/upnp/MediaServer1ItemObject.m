@@ -52,6 +52,17 @@
 @synthesize bitrate;
 @synthesize durationInSeconds;
 @synthesize uriCollection; 
+@synthesize resources; 
+
+
+
+-(id)init{
+    self = [super init];
+    
+    resources = [[NSMutableArray alloc] init];
+    
+    return self;
+}
 
 
 -(void)dealloc{
@@ -69,7 +80,25 @@
     [bitrate release];
     [uriCollection release];
     
+    
+    //Delete all
+    MediaServer1ItemRes *resource = nil;		
+    NSEnumerator *e = [resources objectEnumerator];
+    while((resource = [e nextObject])){
+        [resource release];
+    }	    
+    [resources release];
+    
     [super dealloc];
 }
+
+
+-(void)addRes:(MediaServer1ItemRes*) resource{
+    if(resource != nil){
+        [resources addObject:resource];
+    }
+}
+
+
 
 @end

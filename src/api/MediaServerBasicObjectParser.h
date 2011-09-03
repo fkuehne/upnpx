@@ -67,7 +67,7 @@
 	NSString *bitrate;
 
 	NSMutableDictionary *uriCollection;  //key: NSString* protocolinfo -> value:NSString* uri
-	
+	NSMutableArray *resources;
 }
 
 -(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray;

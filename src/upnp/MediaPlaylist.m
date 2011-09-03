@@ -249,7 +249,7 @@
 	if(oldState != state){
 		MediaPlaylistObserver *obs = nil;		
 		NSEnumerator *listeners = [mObservers objectEnumerator];
-		while(obs = [listeners nextObject]){
+		while((obs = [listeners nextObject])){
 			[obs StateChanged:state];
 		}	
 	}

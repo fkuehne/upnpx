@@ -219,6 +219,15 @@
         MediaServer1ContainerObject *container = [m_playList objectAtIndex:indexPath.row];
         FolderViewController *targetViewController = [[[FolderViewController alloc] initWithMediaDevice:m_device andHeader:[container title] andRootId:[container objectID]] autorelease];
         [[self navigationController] pushViewController:targetViewController animated:YES];
+    }else{
+        MediaServer1ItemObject *item = [m_playList objectAtIndex:indexPath.row];
+
+        MediaServer1ItemRes *resource = nil;		
+        NSEnumerator *e = [[item resources] objectEnumerator];
+        while((resource = (MediaServer1ItemRes*)[e nextObject])){
+            NSLog(@"%@ - %d, %@, %d, %d, %d, %@", [item title], [resource bitrate], [resource duration], [resource nrAudioChannels], [resource size],  [resource durationInSeconds],  [resource protocolInfo] );
+        }	    
+
     }
 }
 

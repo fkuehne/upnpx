@@ -37,6 +37,7 @@
 #import "MediaServer1ItemObject.h"
 #import "CocoaTools.h"
 #import "OrderedDictionary.h"
+#import "MediaServer1ItemRes.h"
 
 @implementation MediaServerBasicObjectParser
 
@@ -96,6 +97,7 @@
 	[super initWithNamespaceSupport:YES];
 	
     uriCollection = [[OrderedDictionary alloc] init];
+    resources = [[NSMutableArray alloc] init];
     
 	mediaObjects = mediaObjectsArray;
 	[mediaObjects retain];
@@ -151,7 +153,10 @@
 	[icon release];
 	[albumArt release];
     [uriCollection release];
-	
+	[resources release];
+    
+    [mediaObjects release];
+   
 	[super dealloc];
 }
 
@@ -166,6 +171,9 @@
 	[self setGenre:@""];
 	[self setAlbumArt:nil];
 	[self setDuration:nil];
+    
+    [resources release];
+    resources = [[NSMutableArray alloc] init];
     
     //Empty uriCollection
     [uriCollection release];
@@ -236,7 +244,14 @@
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];
         [media setUriCollection:uriCollection];
-        
+                
+        MediaServer1ItemRes *resource = nil;		
+        NSEnumerator *e = [resources objectEnumerator];
+        while((resource = [e nextObject])){
+            [media addRes:resource];
+        }	    
+        [resources removeAllObjects];
+
 		[mediaObjects addObject:media];
 		
 		[media release];
@@ -257,6 +272,18 @@
 		
 		[self setIcon:[elementAttributeDict objectForKey:@"icon"]];
 		
+        
+        //Add to the recource connection, there can be multiple resources per media item 
+        MediaServer1ItemRes *r = [[MediaServer1ItemRes alloc] init];
+        [r setBitrate: [bitrate intValue]];
+        [r setDuration: duration];
+        [r setNrAudioChannels: [audioChannels intValue]];
+        [r setProtocolInfo: protocolInfo];
+        [r setSize: [size intValue]];
+        [r setDurationInSeconds:[duration HMS2Seconds]];
+        
+        [resources addObject:r];                
+        
 	}else{
 //        NSLog(@"%@ -> %@", protocolInfo, uri);
         [uriCollection setObject:uri forKey:protocolInfo]; //@todo: we overwrite uri's with same protocol info
