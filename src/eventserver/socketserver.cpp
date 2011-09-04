@@ -276,7 +276,6 @@ int SocketServer::ReadLoop(){
         timeout.tv_usec = 0;
 			
 		ret = select(highSocket+1, &mReadFDS, &mWriteFDS, &mExceptionFDS, &timeout);
-        printf("after select");
 
 		if(ret == SOCKET_ERROR){
             //Error
