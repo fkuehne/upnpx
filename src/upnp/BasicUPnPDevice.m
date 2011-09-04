@@ -95,7 +95,6 @@
 }
 
 -(void)dealloc{
-	NSLog(@"BasicUPnPDevice - dealloc");
 	[services release];
 	services = nil;
 	[uuid release];
@@ -145,6 +144,7 @@
 			upnpService = [[[UPnPManager GetInstance] serviceFactory] allocServiceForSSDPService:ssdpService];
 			//we delay initialization of the service until we need it [upnpService process];  
 			[toAdd setObject:upnpService forKey:[upnpService urn]];
+            [upnpService release];
 		}else{
 			//remove from toremove
 			[toRemove removeObjectForKey:[ssdpService urn]];

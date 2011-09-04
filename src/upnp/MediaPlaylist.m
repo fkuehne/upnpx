@@ -135,22 +135,14 @@
 	
 	
 	ret = [[server contentDirectory] BrowseWithObjectID:[selectedContainer objectID] BrowseFlag:@"BrowseDirectChildren" Filter:@"*" StartingIndex:@"0" RequestedCount:@"0" SortCriteria:@"+dc:title" OutResult:outResult OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];
-	if(ret != 0){
-		return ret;
+	if(ret == 0){	
+        //Fill mediaObjects	
+        //Parse the return DIDL and store all entries as objects in the 'mediaObjects' array
+        NSData *didl = [outResult dataUsingEncoding:NSUTF8StringEncoding]; // NSASCIIStringEncoding
+        MediaServerBasicObjectParser *parser = [[MediaServerBasicObjectParser alloc] initWithMediaObjectArray:playList itemsOnly:YES];
+        [parser parseFromData:didl];
+        [parser release];
 	}
-	
-	//Fill mediaObjects	
-	//NSLog(@"outResult=%@", outResult);
-	NSLog(@"outNumberReturned=%@", outNumberReturned);
-	NSLog(@"outTotalMatches=%@", outTotalMatches);
-	NSLog(@"outUpdateID=%@", outUpdateID);	
-
-	//Parse the return DIDL and store all entries as objects in the 'mediaObjects' array
-	NSData *didl = [outResult dataUsingEncoding:NSUTF8StringEncoding]; // NSASCIIStringEncoding
-	MediaServerBasicObjectParser *parser = [[MediaServerBasicObjectParser alloc] initWithMediaObjectArray:playList itemsOnly:YES];
-	[parser parseFromData:didl];
-	[parser release];
-	
 	
 	
 	[outResult release];

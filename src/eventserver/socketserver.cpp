@@ -189,7 +189,7 @@ CLEAN_AND_EXIT:
 	mServerSocket = INVALID_SOCKET;
 	
 EXIT:	
-	printf("SocketServer::Start %d, ip=%s, port=%d \n", ret,ipAddress,mPort );
+	//printf("SocketServer::Start %d, ip=%s, port=%d \n", ret,ipAddress,mPort );
 	return ret;
 	
  
@@ -291,7 +291,6 @@ int SocketServer::ReadLoop(){
 			}else if(FD_ISSET(mServerSocket, &mReadFDS)){
 				//New Connection 
                 if(mConnections.size() <= mMaxConnections){
-					printf("New Connection accepted\n");
 					senderlen = sizeof(struct sockaddr);
 					SOCKET newSocket = accept(mServerSocket, (sockaddr*)&sender, &senderlen);
 					SocketServerConnection* newConnection = new SocketServerConnection(newSocket, &sender);
@@ -348,7 +347,6 @@ int SocketServer::ReadLoop(){
 				for(int x=0; x<mConnections.size(); x++){
 					thisConnection = (SocketServerConnection*)mConnections[x];
 					if(thisConnection->isActive == false){				
-						printf("Connection removed\n");
 						mConnections.erase(mConnections.begin()+x);
 						delete( thisConnection );
 						found = true;

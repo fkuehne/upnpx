@@ -177,15 +177,13 @@
 		}		
 		
 		[rootDevices removeObjectsInArray:discardedItems];
-		[discardedItems release];
-		
+				
 		listeners = [mObservers objectEnumerator];
 		while((obs = [listeners nextObject])){
 			[obs UPnPDBUpdated:self];
 		}		
-		
-		
-	}	
+	}
+	[discardedItems release];
 	[self unlock];
 
 }

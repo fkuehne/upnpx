@@ -45,6 +45,5 @@ void SSDPSearchReq::ReInit(){
 
 int SSDPSearchReq::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADER*> msgheaders){
 	//At the moment we don't advertise ourselves
-	printf("SSDPSearchReq\n");
 	return 0;
 }

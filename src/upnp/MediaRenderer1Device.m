@@ -134,7 +134,7 @@
 	}
 	
 	//@TODO Implement the check ; See Intel PDF "Designing a UPnP av MediaRenderer, 5.3 Mime Types and File Extension Mappings
-	NSLog(@"@TODO Implement the check ; See Intel PDF 'Designing a UPnP av MediaRenderer, 5.3 Mime Types and File Extension Mappings'");
+	//NSLog(@"@TODO Implement the check ; See Intel PDF 'Designing a UPnP av MediaRenderer, 5.3 Mime Types and File Extension Mappings'");
 	ret = TRUE;
 	
 	return ret;
@@ -164,7 +164,6 @@
 	//Get the metadata, we need to supply it when playback
 	[[[playList mediaServer] contentDirectory] BrowseWithObjectID:[mediaItem objectID] BrowseFlag:@"BrowseMetadata" Filter:@"*" StartingIndex:@"0" RequestedCount:@"1" SortCriteria:@"+dc:title" OutResult:metaData OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];
 	
-	NSLog(@"metaData:%@",metaData);
 	
 	[outTotalMatches release];
 	[outUpdateID release];
@@ -178,13 +177,11 @@
 		
 
 //		[[self avTransport] StopWithInstanceID:@"0"]; //Causes the playlist to goto next	
-		
 //		[[self avTransport] SetNextAVTransportURIWithInstanceID:@"0" NextURI:[mediaItem uri] NextURIMetaData:[metaData XMLEscape] ]; 		
 		[[self avTransport] SetAVTransportURIWithInstanceID:@"0" CurrentURI:[mediaItem uri] CurrentURIMetaData:[metaData XMLEscape] ]; 
 		
 		
 		[[self avTransport] PlayWithInstanceID:@"0" Speed:@"1"];		
-		NSLog(@"metaData XMLEscape:%@", [metaData XMLEscape]);
 		
 		
 		
@@ -215,11 +212,9 @@
 
 //BasicUPnPServiceObserver
 -(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events{
-	NSLog(@"MediaRenderer1Device - BasicUPnPServiceObserver - UPnPEvent");
 	if(sender == [self avTransportService]){
 		NSString *newState = [events objectForKey:@"TransportState"];
 	
-		NSLog(@"newState=%@",newState);
 		if([newState isEqualToString:@"STOPPED"]){
 			int i = [playList nextTrack];
 			if(i >= 0){

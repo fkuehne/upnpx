@@ -57,9 +57,7 @@
 
 -(void)propertyName:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
-	}else{
-		NSLog(@"element:%@", currentElementName );
-		
+	}else{		
 		//Element name
 		NSString *name = [[NSString alloc] initWithString:currentElementName];
 		//Element value

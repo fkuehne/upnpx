@@ -82,11 +82,11 @@
     
     
     //Delete all
-    MediaServer1ItemRes *resource = nil;		
-    NSEnumerator *e = [resources objectEnumerator];
-    while((resource = [e nextObject])){
-        [resource release];
-    }	    
+//    MediaServer1ItemRes *resource = nil;		
+//    NSEnumerator *e = [resources objectEnumerator];
+//    while((resource = [e nextObject])){
+//        [resource release];
+//    }	    
     [resources release];
     
     [super dealloc];

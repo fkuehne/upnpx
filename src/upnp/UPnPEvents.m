@@ -86,15 +86,7 @@
 	
 	NSHTTPURLResponse *urlResponse;
 	
-#if 0
-	NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
-
-	NSString *o = [[NSString alloc] initWithData:resp encoding: NSUTF8StringEncoding];
-	NSLog( o );
-	[o release];
-#else
 	[NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
-#endif
     
 	if([urlResponse statusCode] == 200){
 		NSDictionary *allReturnedHeaders = [urlResponse allHeaderFields];
@@ -175,7 +167,6 @@
 	
 	
 	NSString *bs = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding ];
-	NSLog(@"body=%@", bs);
 	[bs release];
 	
 	int parserret;

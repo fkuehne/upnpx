@@ -75,7 +75,6 @@ int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
 	memset(sender, 0, sizeof(struct sockaddr_in));
 	
 	while(true){
-        printf("loop");
 		len = recv(mSocket, mBuffer, mBufferSize, 0);
 		*sender = &mSender;
 		

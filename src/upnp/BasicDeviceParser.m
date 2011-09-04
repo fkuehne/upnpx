@@ -230,8 +230,8 @@
 -(void)rootDevice:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
 	}else{ 
-        NSLog(@"udn=%@", udn);
-        NSLog(@"[device uuid]=%@", [device uuid]);
+        //NSLog(@"udn=%@", udn);
+        //NSLog(@"[device uuid]=%@", [device uuid]);
         
 		//Was this the device we are looking for ?
 		if([udn isEqualToString:[device uuid]]){

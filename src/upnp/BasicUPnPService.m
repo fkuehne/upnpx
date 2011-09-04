@@ -178,7 +178,7 @@
 	if(eventURL){
 		eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self]; 
 		if(eventUUID != nil){
-			NSLog(@"Service Subsrcibed for events; uuid:%@", eventUUID);
+	//		NSLog(@"Service Subsrcibed for events; uuid:%@", eventUUID);
 			[eventUUID retain];
 			isSupportForEvents = YES;
 		}

@@ -186,7 +186,6 @@ CLEAN_AND_EXIT:
 	mUnicastSocket = INVALID_SOCKET;
 
 EXIT:	
-	printf("SSDP::Start %d\n", ret);
 	return ret;
 }
 
@@ -299,7 +298,7 @@ int SSDP::ReadLoop(){
 		        
 		ret = select(maxsock+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
 		if(ret == SOCKET_ERROR){
-			printf("OOPS!");
+			printf("Socket error!");
 			break;
 		}else if(ret != 0){
 			//Multicast

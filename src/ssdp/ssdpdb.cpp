@@ -109,7 +109,6 @@ int SSDPDB::DeleteDevice(u8* usn, u32 usnlen){
 		thisdevice = mDevices[i];
 		if( (thisdevice->usn.length() == usnlen &&  memcmp(thisdevice->usn.c_str(), usn, usnlen) == 0) ){
 			mDevices.erase(mDevices.begin()+i);		
-			printf("remove %s\n", thisdevice->usn.c_str());
 			delete(thisdevice);
 			updated++;
 		}else{
@@ -139,7 +138,6 @@ int SSDPDB::DeleteDevicesByUuid(u8* uuid, u32 uuidlen){
 		thisdevice = mDevices[i];
 		if( (thisdevice->uuid.length() == uuidlen &&  memcmp(thisdevice->uuid.c_str(), uuid, uuidlen) == 0) ){
 			mDevices.erase(mDevices.begin()+i);		
-			printf("remove %s\n", thisdevice->usn.c_str());
 			delete(thisdevice);
 			updated++;
 		}else{
@@ -271,7 +269,6 @@ int SSDPDB::CacheControlLoop(){
 			thisdevice = mDevices[i];
 			if(thisdevice->lastupdate + thisdevice->cachecontrol <= nows){
 				mDevices.erase(mDevices.begin()+i);		
-				printf("remove %s\n", thisdevice->usn.c_str());
 				delete(thisdevice);
 				updated++;
 			}else{

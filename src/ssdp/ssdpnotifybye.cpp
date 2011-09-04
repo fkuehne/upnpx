@@ -71,7 +71,6 @@ int SSDPNotifyBye::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADER
 	//        services then the control point can assume that all are no longer available.
 	mDB->DeleteDevicesByUuid(uuid.uuid, uuid.uuidlen);
 	
-	printf("SSDPNotifyBey\n");
 	
 	
 EXIT:

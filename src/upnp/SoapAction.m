@@ -106,10 +106,7 @@
 	//Check the Server Return Code @TODO
 	if([urlResponse statusCode] != 200){
 		ret = 0-[urlResponse statusCode];	
-		NSLog(@"Server Staus Code=%d", [urlResponse statusCode]);
-		NSLog(@"Request=%@", body);
 		NSString *rsp = [[NSString  alloc] initWithData:resp encoding:NSUTF8StringEncoding];
-		NSLog(@"Response=%@", rsp);
 		[rsp release];
 	}else{
 		ret = 0;
@@ -129,6 +126,8 @@
 		
 	}	
 	
+    [body release];
+    
 	mOutput = nil;
 	
 	return ret;
