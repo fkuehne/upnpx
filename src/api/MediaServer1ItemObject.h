@@ -51,7 +51,7 @@
 	NSString *bitrate;
 	int durationInSeconds;
     NSDictionary *uriCollection; //key: NSString* protocolinfo -> value:NSString* uri
-    NSMutableArray *resources;
+    NSMutableArray *resources; //MediaServer1ItemRes[]
 }
 
 -(id)init;

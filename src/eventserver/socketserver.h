@@ -72,6 +72,7 @@ private:
 	pthread_t mReadThread;
 	fd_set mExceptionFDS;
 	fd_set mReadFDS;
+	fd_set mWriteFDS;
 	
 	int mMaxConnections;
 	

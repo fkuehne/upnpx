@@ -254,9 +254,11 @@ int SocketServer::ReadLoop(){
 		//(Re)set file descriptor
 		FD_ZERO(&mReadFDS);
 		FD_ZERO(&mExceptionFDS);
+		FD_ZERO(&mWriteFDS);
 		
 		//Set the ServerSocket
 		FD_SET(mServerSocket, &mReadFDS);
+		FD_SET(mServerSocket, &mWriteFDS);
 		FD_SET(mServerSocket, &mExceptionFDS);
 		
 		//Set the connections
@@ -266,21 +268,30 @@ int SocketServer::ReadLoop(){
 			thisSocket = ((SocketServerConnection*)*it)->GetSocket();
 			FD_SET(thisSocket, &mReadFDS);
 			FD_SET(thisSocket, &mExceptionFDS);
-
+            FD_SET(thisSocket, &mWriteFDS);
 		}
 			
+
+        timeout.tv_sec = 5;
+        timeout.tv_usec = 0;
 			
-		ret = select(highSocket+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
+		ret = select(highSocket+1, &mReadFDS, &mWriteFDS, &mExceptionFDS, &timeout);
+        printf("after select");
+
 		if(ret == SOCKET_ERROR){
-			printf("OOPS!");
+            //Error
 			break;
+        }else if(ret == 0){
+            //Timeout
 		}else if(ret != 0){
 			//Server socket 
 			if(FD_ISSET(mServerSocket, &mExceptionFDS)){
-				printf("Error on socket, continue\n");
+                printf("Error on socket, continue\n");
+            }else if(FD_ISSET(mServerSocket, &mWriteFDS)){
+                //Write
 			}else if(FD_ISSET(mServerSocket, &mReadFDS)){
 				//New Connection 
-				if(mConnections.size() <= mMaxConnections){
+                if(mConnections.size() <= mMaxConnections){
 					printf("New Connection accepted\n");
 					senderlen = sizeof(struct sockaddr);
 					SOCKET newSocket = accept(mServerSocket, (sockaddr*)&sender, &senderlen);

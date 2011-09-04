@@ -35,6 +35,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+
 
 #define SERVER_BUFFER_STEP 2048
 
@@ -49,6 +51,9 @@ SocketServerConnection::SocketServerConnection(SOCKET socket, struct sockaddr_in
 
 
 SocketServerConnection::~SocketServerConnection(){
+    if(mSocket)
+        close(mSocket);
+    
 	free(mBuffer);
 }
 
@@ -70,9 +75,8 @@ int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
 	memset(sender, 0, sizeof(struct sockaddr_in));
 	
 	while(true){
-		
+        printf("loop");
 		len = recv(mSocket, mBuffer, mBufferSize, 0);
-//		len = recvfrom(mSocket, mBuffer, mBufferSize, 0, (struct sockaddr*)sender, &senderlen);		
 		*sender = &mSender;
 		
 		if(len < 0 /* error */ || len == 0 /* closed */){
@@ -80,7 +84,6 @@ int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
 		}
 		if(len == mBufferSize){
 			//there is more to read (?)
-			printf("?????????????????\n");
 			return -1;
 		}else{
 			break;
