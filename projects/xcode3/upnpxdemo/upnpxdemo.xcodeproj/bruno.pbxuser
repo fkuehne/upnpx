@@ -1,15 +1,5 @@
 // !$*UTF8*$!
 {
-	1521A9E613D26209005C9701 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
-		name = "RootViewController.m: 16";
-		rLen = 0;
-		rLoc = 294;
-		rType = 0;
-		vrLen = 891;
-		vrLoc = 1912;
-	};
 	1523DC2913D2749600F66705 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 15402079138C9933001BABB8 /* FolderView.m */;
@@ -28,6 +18,16 @@
 		rLoc = 294;
 		rType = 0;
 		vrLen = 1269;
+		vrLoc = 1739;
+	};
+	15279BF41413C92600166E12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 16";
+		rLen = 0;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 1264;
 		vrLoc = 1739;
 	};
 	15401D7F1389F108001BABB8 /* upnpxdemo */ = {
@@ -162,7 +162,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1048, 2769}}";
 			sepNavSelRange = "{294, 0}";
-			sepNavVisRange = "{1739, 1269}";
+			sepNavVisRange = "{1739, 1264}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
@@ -240,13 +240,13 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 332559432;
-			PBXWorkspaceStateSaveDate = 332559432;
+			PBXPerProjectTemplateStateSaveDate = 336840948;
+			PBXWorkspaceStateSaveDate = 336840948;
 		};
 		perUserProjectItems = {
-			1521A9E613D26209005C9701 /* PBXTextBookmark */ = 1521A9E613D26209005C9701 /* PBXTextBookmark */;
 			1523DC2913D2749600F66705 /* PBXTextBookmark */ = 1523DC2913D2749600F66705 /* PBXTextBookmark */;
 			1523DC2A13D2749600F66705 /* PBXTextBookmark */ = 1523DC2A13D2749600F66705 /* PBXTextBookmark */;
+			15279BF41413C92600166E12 /* PBXTextBookmark */ = 15279BF41413C92600166E12 /* PBXTextBookmark */;
 			154020CA138CA270001BABB8 /* PBXTextBookmark */ = 154020CA138CA270001BABB8 /* PBXTextBookmark */;
 			15402130138CAA29001BABB8 /* PBXTextBookmark */ = 15402130138CAA29001BABB8 /* PBXTextBookmark */;
 			15402132138CAA29001BABB8 /* PBXTextBookmark */ = 15402132138CAA29001BABB8 /* PBXTextBookmark */;

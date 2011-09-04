@@ -33,6 +33,8 @@
 		150A87F91393DAA100019C05 /* SoapActionsSwitchPower1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87F11393DAA100019C05 /* SoapActionsSwitchPower1.h */; };
 		150A87FA1393DAA100019C05 /* SoapActionsRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87F21393DAA100019C05 /* SoapActionsRendering.h */; };
 		150A87FB1393DAA100019C05 /* SoapActionsDimming1.h in Headers */ = {isa = PBXBuildFile; fileRef = 150A87F31393DAA100019C05 /* SoapActionsDimming1.h */; };
+		15279BB31413C8BE00166E12 /* MediaServer1ItemRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 15279BB21413C8BE00166E12 /* MediaServer1ItemRes.m */; };
+		15279BB51413C8D700166E12 /* MediaServer1ItemRes.h in Headers */ = {isa = PBXBuildFile; fileRef = 15279BB41413C8D700166E12 /* MediaServer1ItemRes.h */; };
 		153B063A13909262003AA393 /* SoapActionsWANPPPConnection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */; };
 		153B063B13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */; };
 		153B063C13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */; };
@@ -220,6 +222,8 @@
 		150A87F11393DAA100019C05 /* SoapActionsSwitchPower1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsSwitchPower1.h; path = ../../../src/api/SoapActionsSwitchPower1.h; sourceTree = SOURCE_ROOT; };
 		150A87F21393DAA100019C05 /* SoapActionsRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRendering.h; path = ../../../src/api/SoapActionsRendering.h; sourceTree = SOURCE_ROOT; };
 		150A87F31393DAA100019C05 /* SoapActionsDimming1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDimming1.h; path = ../../../src/api/SoapActionsDimming1.h; sourceTree = SOURCE_ROOT; };
+		15279BB21413C8BE00166E12 /* MediaServer1ItemRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ItemRes.m; path = ../../../src/upnp/MediaServer1ItemRes.m; sourceTree = SOURCE_ROOT; };
+		15279BB41413C8D700166E12 /* MediaServer1ItemRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServer1ItemRes.h; path = ../../../src/api/MediaServer1ItemRes.h; sourceTree = SOURCE_ROOT; };
 		153B062C13909262003AA393 /* SoapActionsWANPPPConnection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPPPConnection1.h; path = ../../../src/api/SoapActionsWANPPPConnection1.h; sourceTree = SOURCE_ROOT; };
 		153B062D13909262003AA393 /* SoapActionsWANPOTSLinkConfig1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANPOTSLinkConfig1.h; path = ../../../src/api/SoapActionsWANPOTSLinkConfig1.h; sourceTree = SOURCE_ROOT; };
 		153B062E13909262003AA393 /* SoapActionsWANIPv6FirewallControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsWANIPv6FirewallControl1.h; path = ../../../src/api/SoapActionsWANIPv6FirewallControl1.h; sourceTree = SOURCE_ROOT; };
@@ -440,6 +444,7 @@
 		15401BA61389ECBD001BABB8 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				15279BB41413C8D700166E12 /* MediaServer1ItemRes.h */,
 				150A87EC1393DAA100019C05 /* StateVariableRange.h */,
 				150A87ED1393DAA100019C05 /* StateVariableList.h */,
 				150A87EE1393DAA100019C05 /* CocoaTools.h */,
@@ -590,6 +595,7 @@
 		15401C431389EDD1001BABB8 /* upnp */ = {
 			isa = PBXGroup;
 			children = (
+				15279BB21413C8BE00166E12 /* MediaServer1ItemRes.m */,
 				156C398713D2105B0064321E /* OrderedDictionary.m */,
 				156C398813D2105B0064321E /* OrderedDictionary.h */,
 				150A879C1391DD5300019C05 /* TelephonyServer1Device.m */,
@@ -768,6 +774,7 @@
 				150A87FA1393DAA100019C05 /* SoapActionsRendering.h in Headers */,
 				150A87FB1393DAA100019C05 /* SoapActionsDimming1.h in Headers */,
 				156C398A13D2105B0064321E /* OrderedDictionary.h in Headers */,
+				15279BB51413C8D700166E12 /* MediaServer1ItemRes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +915,7 @@
 				150A87851391D78F00019C05 /* TelephonyClient1Device.m in Sources */,
 				150A879D1391DD5300019C05 /* TelephonyServer1Device.m in Sources */,
 				156C398913D2105B0064321E /* OrderedDictionary.m in Sources */,
+				15279BB31413C8BE00166E12 /* MediaServer1ItemRes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
