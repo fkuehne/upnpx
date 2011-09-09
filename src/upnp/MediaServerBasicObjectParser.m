@@ -134,8 +134,8 @@
 
 
 -(void)dealloc{
-	[mediaClass release];
 	[mediaTitle release];
+	[mediaClass release];
 	[mediaID release];
 	[parentID release];
 	[childCount release];
@@ -145,16 +145,17 @@
 	[genre release];
 	[originalTrackNumber release];
 	[uri release];
+    [protocolInfo release];
 	[frequency release];
 	[audioChannels release];
 	[size release];
 	[duration release];
-	[bitrate release];
 	[icon release];
+	[bitrate release];
 	[albumArt release];
+
     [uriCollection release];
-	[resources release];
-    
+    [resources release];
     [mediaObjects release];
    
 	[super dealloc];
@@ -172,12 +173,9 @@
 	[self setAlbumArt:nil];
 	[self setDuration:nil];
     
-    [resources release];
-    resources = [[NSMutableArray alloc] init];
     
-    //Empty uriCollection
-    [uriCollection release];
-    uriCollection = [[OrderedDictionary alloc] init];
+    [resources removeAllObjects];
+    [uriCollection removeAllObjects];
 }
 
 

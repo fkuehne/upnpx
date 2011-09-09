@@ -80,25 +80,25 @@
 
 -(void)setUri:(NSString*)s;
 
-@property(retain, nonatomic) NSString *mediaTitle;
-@property(retain, nonatomic) NSString *mediaClass;
-@property(retain, nonatomic) NSString *mediaID;
-@property(retain, nonatomic) NSString *parentID;
-@property(retain, nonatomic) NSString *childCount;
-@property(retain, nonatomic) NSString *artist;
-@property(retain, nonatomic) NSString *album;
-@property(retain, nonatomic) NSString *date;
-@property(retain, nonatomic) NSString *genre;
-@property(retain, nonatomic) NSString *originalTrackNumber;
-@property(readonly, nonatomic) NSString *uri;
-@property(retain, nonatomic) NSString *protocolInfo;
-@property(retain, nonatomic) NSString *frequency;
-@property(retain, nonatomic) NSString *audioChannels;
-@property(retain, nonatomic) NSString *size;
-@property(retain, nonatomic) NSString *duration;
-@property(retain, nonatomic) NSString *icon;
-@property(retain, nonatomic) NSString *bitrate;
-@property(retain, nonatomic) NSString *albumArt;
+@property(readwrite, retain) NSString *mediaTitle;
+@property(readwrite, retain) NSString *mediaClass;
+@property(readwrite, retain) NSString *mediaID;
+@property(readwrite, retain) NSString *parentID;
+@property(readwrite, retain) NSString *childCount;
+@property(readwrite, retain) NSString *artist;
+@property(readwrite, retain) NSString *album;
+@property(readwrite, retain) NSString *date;
+@property(readwrite, retain) NSString *genre;
+@property(readwrite, retain) NSString *originalTrackNumber;
+@property(readonly) NSString *uri;
+@property(readwrite, retain) NSString *protocolInfo;
+@property(readwrite, retain) NSString *frequency;
+@property(readwrite, retain) NSString *audioChannels;
+@property(readwrite, retain) NSString *size;
+@property(readwrite, retain) NSString *duration;
+@property(readwrite, retain) NSString *icon;
+@property(readwrite, retain) NSString *bitrate;
+@property(readwrite, retain) NSString *albumArt;
 
 
 

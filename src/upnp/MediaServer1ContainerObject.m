@@ -39,5 +39,9 @@
 
 @synthesize childCount;
 
+-(void)dealloc{
+    [childCount release];
+    [super dealloc];
+}
 
 @end

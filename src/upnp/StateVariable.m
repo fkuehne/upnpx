@@ -45,7 +45,7 @@
 
 -(id)init{
 	[super init];
-	
+	    
 	variableType = StateVariable_Type_Simple;
 	[self empty];
 	

@@ -52,6 +52,10 @@
 
 -(void)dealloc{
 	
+    if(mContentDirectory)
+        NSLog(@"[mContentDirectory retainCount]=%d", [mContentDirectory retainCount] );
+    
+    
 	[mAvTransport release];
 	[mContentDirectory release];
 	[mConnectionManager release];

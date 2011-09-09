@@ -38,6 +38,7 @@
 @interface MediaServer1ContainerObject : MediaServer1BasicObject {
 	NSString *childCount;
 }
+-(void)dealloc;
 
 @property(retain, nonatomic) NSString *childCount;
 

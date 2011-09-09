@@ -75,18 +75,11 @@
     [protocolInfo release];
     [frequency release];
     [audioChannels release];
+    [size release];
     [duration release];
     [icon release];
     [bitrate release];
     [uriCollection release];
-    
-    
-    //Delete all
-//    MediaServer1ItemRes *resource = nil;		
-//    NSEnumerator *e = [resources objectEnumerator];
-//    while((resource = [e nextObject])){
-//        [resource release];
-//    }	    
     [resources release];
     
     [super dealloc];

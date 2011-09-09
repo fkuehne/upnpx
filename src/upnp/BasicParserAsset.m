@@ -55,9 +55,10 @@
 	function = theFunction;
 	functionObject = funcobj;
 	
-		
-	stringCache = [[NSMutableString alloc] init];
-	
+    NSMutableString *s = [[NSMutableString alloc] init] ;
+    [self setStringCache:s];
+    [s release];
+
 	return self;
 }
 

@@ -82,10 +82,8 @@
 	isRoot = ssdp.isroot;
 	uuid = ssdp.uuid;
 	[uuid retain];
-	usn = ssdp.usn;
-	[usn retain];
-	urn = ssdp.urn;
-	[urn retain];
+    [self setUsn:ssdp.usn];
+    [self setUrn:ssdp.urn];
 	type = [NSString stringWithFormat:@"%@:%@", ssdp.type, ssdp.version];
 	[type retain];
 	xmlLocation = ssdp.location;
@@ -95,8 +93,11 @@
 }
 
 -(void)dealloc{
+    
+    [services removeAllObjects];
 	[services release];
 	services = nil;
+    
 	[uuid release];
 	[xmlLocation release];
 	[baseURL release];
@@ -107,7 +108,8 @@
 	[urn release];
 	[smallIcon release];
 	[type release];
-	
+    [smallIconURL release];
+    
 	[super dealloc];
 }
 
@@ -128,7 +130,8 @@
 
 
 -(void)syncServices{
-	//Sync 'services'
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    //Sync 'services'
 	SSDPDBDevice_ObjC *ssdpService = nil;
 	BasicUPnPService *upnpService = nil;
 	NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid]; //SSDPDBDevice_ObjC[]
@@ -161,6 +164,7 @@
 	
 	[toRemove release];
 	[toAdd release];
+    [pool release];
 }
 
 -(NSMutableDictionary*)getServices{ //BasicUPnPService[]

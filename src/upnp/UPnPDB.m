@@ -309,7 +309,7 @@
 				
 			}				
 		}
-		[pool release];
+		[pool drain];
 		sleep(2); //Wait and get signalled @TODO
 	}	
 }

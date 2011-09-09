@@ -173,6 +173,9 @@ public:
 			}
 		}	
 		
+        [oHeaders release];
+        [oBody release];
+        
 		[pool release];
 		
 		return (ret==YES?true:false);

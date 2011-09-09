@@ -136,6 +136,10 @@
 	[iconWidth release];
 	[iconHeight release];
 	[iconMime release];
+    [iconDepth release];
+    [udn release];
+    [friendlyName release];
+    
 	[friendlyNameStack release];
 	[udnStack release];
 		
@@ -230,9 +234,6 @@
 -(void)rootDevice:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
 	}else{ 
-        //NSLog(@"udn=%@", udn);
-        //NSLog(@"[device uuid]=%@", [device uuid]);
-        
 		//Was this the device we are looking for ?
 		if([udn isEqualToString:[device uuid]]){
 			//this is our device, copy the collected info to the [device] instance

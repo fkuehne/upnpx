@@ -49,11 +49,11 @@
 -(void)dealloc;
 
 
-@property (retain, nonatomic)NSString *objectID;
-@property (retain, nonatomic)NSString *parentID;
-@property (retain, nonatomic)NSString *title;
-@property (retain, nonatomic)NSString *objectClass;
+@property (readwrite, retain)NSString *objectID;
+@property (readwrite, retain)NSString *parentID;
+@property (readwrite, retain)NSString *title;
+@property (readwrite, retain)NSString *objectClass;
 @property (readwrite)BOOL isContainer;
-@property(retain, nonatomic) NSString *albumArt;
+@property(readwrite, retain) NSString *albumArt;
 
 @end

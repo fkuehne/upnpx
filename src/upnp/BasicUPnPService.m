@@ -56,6 +56,9 @@
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
 	[super init];
 	
+    
+    NSLog(@"BasicUPnPService - initWithSSDPDevice - %@", [device urn] );
+    
 	mMutex = [[NSRecursiveLock alloc] init];
 
 	ssdpdevice = device;
@@ -87,6 +90,8 @@
 }
 
 -(void)dealloc{
+    NSLog(@"BasicUPnPService - dealloc - %@", [ssdpdevice urn]);
+
 	if(eventUUID != nil){
 		[[[UPnPManager GetInstance] upnpEvents] UnSubscribe:eventUUID ];
 	}
@@ -100,8 +105,10 @@
 	[controlURL release];		
 	[serviceType release];		
 	[baseURLString release];
+    
 	[stateVariables release];
-	[urn release];
+	
+    [urn release];
 	[soap release];
 	[mMutex release];
 	

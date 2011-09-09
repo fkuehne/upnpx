@@ -51,6 +51,12 @@
 }
 
 -(void)dealloc{
+    [objectID release];
+    [parentID release];
+    [title release];
+    [objectClass release];
+    [albumArt release];
+    
 	[super dealloc];
 }
 

@@ -70,6 +70,8 @@
     NSMutableString *outUpdateID = [[NSMutableString alloc] init];
     
     [[m_device contentDirectory] BrowseWithObjectID:m_rootId BrowseFlag:@"BrowseDirectChildren" Filter:@"*" StartingIndex:@"0" RequestedCount:@"0" SortCriteria:@"+dc:title" OutResult:outResult OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];  
+//    SoapActionsAVTransport1* _avTransport = [m_device avTransport];
+//    SoapActionsConnectionManager1* _connectionManager = [m_device connectionManager];
     
     //The collections are returned as DIDL Xml in the string 'outResult'
     //upnpx provide a helper class to parse the DIDL Xml in usable MediaServer1BasicObject object
@@ -133,7 +135,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [m_playList count];
 }
@@ -151,9 +152,8 @@
     
     // Configure the cell...
     MediaServer1BasicObject *item = [m_playList objectAtIndex:indexPath.row];
-    [cell setText:[item title]];
-    
-    
+   [[cell textLabel] setText:[item title]];
+    NSLog(@"[item title]:%@", [item title]);
     
     return cell;    
     

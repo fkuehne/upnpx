@@ -86,7 +86,7 @@
 
     // Configure the cell.
     BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
-    [cell setText:[device friendlyName]];
+     [[cell textLabel] setText:[device friendlyName]];
     
     NSLog(@"%d %@", indexPath.row, [device friendlyName]);
     

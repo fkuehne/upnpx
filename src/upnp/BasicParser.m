@@ -145,9 +145,14 @@ static NSString *ElementStop = @"ElementStop";
 -(int)parseFromData:(NSData*)data{
 	int ret=0;
 	
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
 	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
 	ret = [self startParser:parser];	
+	[parser release];
 	
+    [pool drain];
+    
 	return ret;
 }
 
@@ -156,8 +161,20 @@ static NSString *ElementStop = @"ElementStop";
 -(int)parseFromURL:(NSURL*)url{
 	int ret=0;
 
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    //Workaround for memory leak
+    //http://blog.filipekberg.se/2010/11/30/nsxmlparser-has-memory-leaks-in-ios-4/
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    
+    NSData *xml = [NSData dataWithContentsOfURL:url];
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xml];;
+
 	ret = [self startParser:parser];	
+    [parser release];
+
+    [pool drain];
 	
 	return ret;
 }
@@ -182,7 +199,7 @@ static NSString *ElementStop = @"ElementStop";
 		ret = -1;
 	}
 	
-	[parser release];
+    [parser setDelegate:nil];
 	
 	
 	return ret;
@@ -214,6 +231,7 @@ static NSString *ElementStop = @"ElementStop";
 		if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
 			//we are interested in a string and we are looking for this
 			[[asset stringCache] setString:@""];
+            //[asset setStringCache:[[[NSString alloc] init] autorelease]];
 		}
 		if([asset function] != nil && [asset functionObject] != nil){
 			if([[asset functionObject] respondsToSelector:[asset function]]){
@@ -227,8 +245,7 @@ static NSString *ElementStop = @"ElementStop";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
 	//NSLog(@"close=%@", elementName);
-
-	
+  	
 	BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
 	if(asset != nil){
 		currentElementName = elementName; //make temporary available to derived classes
@@ -236,8 +253,10 @@ static NSString *ElementStop = @"ElementStop";
 		//We where looking for this
 		//Set string (call function to set)
 		if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
-			if([[asset stringValueObject] respondsToSelector:[asset stringValueFunction]]){
-				[[asset stringValueObject] performSelector:[asset stringValueFunction] withObject:[NSString stringWithString:[asset stringCache]]];
+			if([[asset stringValueObject] respondsToSelector:[asset stringValueFunction]]){                
+                NSString *obj = [[NSString alloc] initWithString:[asset stringCache]];
+				[[asset stringValueObject] performSelector:[asset stringValueFunction] withObject:obj];
+                [obj release];
 			}else{
 				NSLog(@"Does not respond to selector @" );
 			}
@@ -268,8 +287,6 @@ static NSString *ElementStop = @"ElementStop";
 	//Check if we are looking for this asset
 	BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
 	if(asset != nil){
-		//we are looking for this
-//	NSLog(@"Append : %@", string);		
 		[[asset stringCache] appendString:string];
 	}
 }
