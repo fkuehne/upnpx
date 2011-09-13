@@ -148,14 +148,20 @@ int SSDP::Start(){
 	optval = 1;
 	ret = setsockopt(mUnicastSocket, SOL_SOCKET, SO_REUSEPORT, (char*)&optval, 4);
 	STATVAL(ret, 0, CLEAN_AND_EXIT);
+
+    //Join Multicast group
+    mMreqU.imr_multiaddr.s_addr = inet_addr(SSDP_MCAST_ADDRESS);
+	mMreqU.imr_interface.s_addr = INADDR_ANY;
+	ret = setsockopt(mUnicastSocket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (char*)&mMreqU, sizeof(struct ip_mreq));
+	STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);	
+
+    
     
 	//Bind to all interface(s)
 	ret = bind(mUnicastSocket, (struct sockaddr*)&mUnicastSrcaddr, sizeof(struct sockaddr));
 	if(ret < 0 && (errno == EACCES || errno == EADDRINUSE))
 		printf("address in use\n");
 	STATVAL(ret, 0, CLEAN_AND_EXIT);
-    
-
     
     
 
@@ -192,7 +198,7 @@ EXIT:
 
 int SSDP::Stop(){
 	mReadLoop = 0;
-	
+	//@TODO: leave multicast groups
 	if(mMulticastSocket > 0){
 		close(mMulticastSocket);
 		mMulticastSocket = INVALID_SOCKET;
@@ -290,13 +296,19 @@ int SSDP::ReadLoop(){
 		
 		//(Re)set file descriptor
 		FD_ZERO(&mReadFDS);
+        FD_ZERO(&mWriteFDS);
 		FD_ZERO(&mExceptionFDS);
 		FD_SET(mMulticastSocket, &mReadFDS);
+		FD_SET(mMulticastSocket, &mWriteFDS);
 		FD_SET(mMulticastSocket, &mExceptionFDS);
 		FD_SET(mUnicastSocket, &mReadFDS);
+		FD_SET(mUnicastSocket, &mWriteFDS);
 		FD_SET(mUnicastSocket, &mExceptionFDS);
 		        
-		ret = select(maxsock+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
+        timeout.tv_sec = 5;
+        timeout.tv_usec = 0;
+
+		ret = select(maxsock+1, &mReadFDS, 0, &mExceptionFDS, &timeout);
 		if(ret == SOCKET_ERROR){
 			printf("Socket error!");
 			break;
@@ -304,7 +316,8 @@ int SSDP::ReadLoop(){
 			//Multicast
 			if(FD_ISSET(mMulticastSocket, &mExceptionFDS)){
 				printf("Error on Multicast socket, continue\n");
-			}else if(FD_ISSET(mMulticastSocket, &mReadFDS)){
+			}
+            if(FD_ISSET(mMulticastSocket, &mReadFDS)){
 				//Data
 				//printf("Data\n");
 				ret = recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
@@ -316,7 +329,8 @@ int SSDP::ReadLoop(){
             //Unicast
             if(FD_ISSET(mUnicastSocket, &mExceptionFDS)){
 				printf("Error on Unicast socket, continue\n");
-			}else if(FD_ISSET(mUnicastSocket, &mReadFDS)){
+			}
+            if(FD_ISSET(mUnicastSocket, &mReadFDS)){
 				//Data
 				//printf("Data\n");
 				ret = recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);

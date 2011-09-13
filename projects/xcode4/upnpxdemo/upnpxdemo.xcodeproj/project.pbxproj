@@ -250,6 +250,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bruno Keymolen (KR5XJUP8M2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -258,12 +260,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../upnpx/build/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28C8A441-A31F-42C1-BCE9-C1B60F575ADE";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,6 +278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bruno Keymolen (KR5XJUP8M2)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpxdemo/upnpxdemo-Prefix.pch";
@@ -280,12 +287,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../upnpx/build/Release-iphoneos\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28C8A441-A31F-42C1-BCE9-C1B60F575ADE";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
