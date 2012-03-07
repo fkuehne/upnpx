@@ -46,18 +46,22 @@
 
 
 -(id)initWithSSDP:(SSDPDB_ObjC*)ssdp{ 
-	[super init];
-	mSSDP = ssdp;
-	mMutex = [[NSRecursiveLock alloc] init];
-	rootDevices = [[NSMutableArray alloc] init]; //BasicUPnPDevice
-	readyForDescription = [[NSMutableArray alloc] init]; //BasicUPnPDevice
-	mObservers = [[NSMutableArray alloc] init];
-	
-	[mSSDP addObserver:(SSDPDB_ObjC_Observer*)self];
-	
-	mHTTPThread = [[NSThread alloc] initWithTarget:self selector:@selector(httpThread:) object:nil];
-	[mHTTPThread start];
-	
+    self = [super init];
+    
+    if (self) {
+        /* TODO: SSDP property is not retained. Possible issue? */
+        mSSDP = ssdp;
+        mMutex = [[NSRecursiveLock alloc] init];
+        rootDevices = [[NSMutableArray alloc] init]; //BasicUPnPDevice
+        readyForDescription = [[NSMutableArray alloc] init]; //BasicUPnPDevice
+        mObservers = [[NSMutableArray alloc] init];
+        
+        [mSSDP addObserver:(SSDPDB_ObjC_Observer*)self];
+        
+        mHTTPThread = [[NSThread alloc] initWithTarget:self selector:@selector(httpThread:) object:nil];
+        [mHTTPThread start];
+	}
+
 	return self;
 }
 

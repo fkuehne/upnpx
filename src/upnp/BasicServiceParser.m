@@ -47,16 +47,20 @@
 
 
 -(id)initWithUPnPService:(BasicUPnPService*)upnpservice{
-	[super init];
-	service = upnpservice;
-	[service retain];
+    self = [super init];
+    
+    if (self) {
+        /* TODO: service -> retain property */
+        service = upnpservice;
+        [service retain];
 
-	mStatevarCache = [[StateVariable alloc] init];
-	mStatevarRangeCache = [[StateVariableRange alloc] init];
-	mStatevarListCache = [[StateVariableList alloc] init];
-	
-	mCollectingStateVar = NO;
-	
+        mStatevarCache = [[StateVariable alloc] init];
+        mStatevarRangeCache = [[StateVariableRange alloc] init];
+        mStatevarListCache = [[StateVariableList alloc] init];
+        
+        mCollectingStateVar = NO;
+	}
+    
 	return self;
 }
 
@@ -190,6 +194,9 @@
 					[new release];
 				}
 				break;
+            case StateVariable_Type_Unknown:
+                NSLog(@"Error: State is unknown!");
+                break;
 		}
 	}
 }

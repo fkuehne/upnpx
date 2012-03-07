@@ -38,11 +38,13 @@
 @implementation DimmableLight1Device
 
 -(id)init{
-	[super init];
-	
-	mSwitchPower = nil;
-	mDimming = nil;
-
+    self = [super init];
+    
+    if (self) {	
+        mSwitchPower = nil;
+        mDimming = nil;
+    }
+    
 	return self;
 }
 

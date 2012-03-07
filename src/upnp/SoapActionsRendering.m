@@ -40,12 +40,16 @@
 
 
 -(id)initWithService:(BasicUPnPService*)service{
-	[super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
-					eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
-			   upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];
-	upnpservice = service;
-	[upnpservice retain];
-	
+    self = [super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
+                           eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
+                      upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];
+    
+    if (self) {
+        /* TODO: set upnpservice as retain property */
+        upnpservice = service;
+        [upnpservice retain];
+	}
+    
 	return self;
 }
 

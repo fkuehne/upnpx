@@ -68,7 +68,7 @@ u8 SSDPMessage::CanProcess(std::vector<SSDP_HTTP_HEADER*> msgheaders){
 		for(itmsg=msgheaders.begin(); itmsg<msgheaders.end(); itmsg++){
 			hdrmsg = (SSDP_HTTP_HEADER*)*itmsg;
 			if(caseinstringcmp(hdrmsg->fieldname, hdrmsg->fieldnamelen, hdrsig->fieldname, hdrsig->fieldnamelen) == 0 &&
-			   ( hdrsig->fieldvaluelen == 0 || hdrmsg->fieldvaluelen == hdrsig->fieldvaluelen && memcmp(hdrmsg->fieldvalue, hdrsig->fieldvalue, hdrsig->fieldvaluelen) == 0))
+			   ( hdrsig->fieldvaluelen == 0 || (hdrmsg->fieldvaluelen == hdrsig->fieldvaluelen && memcmp(hdrmsg->fieldvalue, hdrsig->fieldvalue, hdrsig->fieldvaluelen) == 0) ))
 			{
 				found = 1;
 				break;

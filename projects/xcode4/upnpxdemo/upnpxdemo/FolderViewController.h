@@ -13,8 +13,11 @@
     NSString *m_rootId;
     NSString *m_title;
     MediaServer1Device *m_device;
-    NSMutableArray *m_playList; //
+    NSMutableArray *m_playList; //MediaServer1BasicObject (can be: MediaServer1ContainerObject, MediaServer1ItemObject)
+    UILabel *titleLabel;
 }
+
+@property (retain) UILabel *titleLabel;
 
 -(id)initWithMediaDevice:(MediaServer1Device*)device andHeader:(NSString*)header andRootId:(NSString*)rootId;
 -(void)dealloc;

@@ -43,12 +43,14 @@
 @implementation DigitalSecurityCamera1Device
 
 -(id)init{
-	[super init];
-	
-	mDigitalSecurityCameraSettings = nil;
-	mDigitalSecurityCameraStillImage = nil;
-	mDigitalSecurityCameraMotionImage = nil;
-	
+    self = [super init];
+    
+    if (self) {	
+        mDigitalSecurityCameraSettings = nil;
+        mDigitalSecurityCameraStillImage = nil;
+        mDigitalSecurityCameraMotionImage = nil;
+	}
+    
 	return self;
 }
 

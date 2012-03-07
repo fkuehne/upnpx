@@ -40,10 +40,12 @@
 
 
 -(id)init{
-	[super init];
-	
-	mCommonInterfaceConfig = nil;
-	
+    self = [super init];
+    
+    if (self) {
+        mCommonInterfaceConfig = nil;
+	}
+
 	return self;
 }
 

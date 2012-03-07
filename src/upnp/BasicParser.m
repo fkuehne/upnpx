@@ -50,11 +50,14 @@ static NSString *ElementStop = @"ElementStop";
 }
 
 -(id)initWithNamespaceSupport:(BOOL)namespaceSupport{
-	[super init];
-	mSupportNamespaces = namespaceSupport;
-	mElementStack = [[NSMutableArray alloc] init];
-	mAssets = [[NSMutableArray alloc] init];
-
+    self = [super init];
+    
+    if (self) {
+        mSupportNamespaces = namespaceSupport;
+        mElementStack = [[NSMutableArray alloc] init];
+        mAssets = [[NSMutableArray alloc] init];
+    }
+    
 	return self;	
 }
 

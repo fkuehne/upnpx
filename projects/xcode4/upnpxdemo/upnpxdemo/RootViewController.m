@@ -9,10 +9,12 @@
 #import "RootViewController.h"
 #import "UPnPManager.h"
 #import "FolderViewController.h"
+#import "PlayBack.h"
 
 @implementation RootViewController
 
 @synthesize menuView;
+@synthesize titleLabel;
 
 - (void)viewDidLoad
 {
@@ -33,6 +35,21 @@
     [[[UPnPManager GetInstance] SSDP] searchSSDP];      
     
     self.title = @"upnpx demo - Xcode 4"; 
+    self.navigationController.toolbarHidden = NO;
+
+
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 11.0f, self.navigationController.view.frame.size.width, 21.0f)];
+    [self.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
+    [self.titleLabel setBackgroundColor:[UIColor clearColor]];
+    [self.titleLabel setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:1.0]];
+    [self.titleLabel setText:@""];
+    [self.titleLabel setTextAlignment:UITextAlignmentLeft];
+
+    UIBarButtonItem *ttitle = [[UIBarButtonItem alloc] initWithCustomView:self.titleLabel];
+
+    NSArray *items = [NSArray arrayWithObjects:ttitle, nil]; 
+    self.toolbarItems = items; 
+    [ttitle release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -150,12 +167,15 @@
 {
     BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
     if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
-        MediaServer1Device *server = (MediaServer1Device*)device;
-        
+        MediaServer1Device *server = (MediaServer1Device*)device;        
         FolderViewController *targetViewController = [[[FolderViewController alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ] autorelease];
-        
         [[self navigationController] pushViewController:targetViewController animated:YES];
-    }        
+        [[PlayBack GetInstance] setServer:server];
+    }else if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
+        [self.titleLabel setText:[device friendlyName]];
+        MediaRenderer1Device *render = (MediaRenderer1Device*)device;
+        [[PlayBack GetInstance] setRenderer:render];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -178,6 +198,9 @@
 {
     [super dealloc];
 }
+
+
+
 
 //protocol UPnPDBObserver
 -(void)UPnPDBWillUpdate:(UPnPDB*)sender{

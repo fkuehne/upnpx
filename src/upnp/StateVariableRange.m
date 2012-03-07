@@ -40,11 +40,13 @@
 @synthesize max;
 
 -(id)init{
-	[super init];
-	
-	variableType = StateVariable_Type_Range;
-	[self empty];
-	
+    self = [super init];
+    
+    if (self) {		
+        variableType = StateVariable_Type_Range;
+        [self empty];
+	}
+
 	return self;
 }
 

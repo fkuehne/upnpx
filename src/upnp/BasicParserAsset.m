@@ -45,20 +45,23 @@
 @synthesize stringValueObject;
 
 -(id)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj{
-	[super init];
-	
-	path = thePath;
-	[path retain];
+    self = [super init];
+    
+    if (self) {
+        /* TODO: path -> retain property */
+        path = thePath;
+        [path retain];
 
-	stringValueFunction = theValueFunction;
-	stringValueObject = obj;
-	function = theFunction;
-	functionObject = funcobj;
-	
-    NSMutableString *s = [[NSMutableString alloc] init] ;
-    [self setStringCache:s];
-    [s release];
-
+        stringValueFunction = theValueFunction;
+        stringValueObject = obj;
+        function = theFunction;
+        functionObject = funcobj;
+        
+        NSMutableString *s = [[NSMutableString alloc] init] ;
+        [self setStringCache:s];
+        [s release];
+    }
+    
 	return self;
 }
 

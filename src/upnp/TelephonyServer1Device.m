@@ -40,14 +40,16 @@
 
 
 -(id)init{
-	[super init];
-	
-    mCallManagement = nil;
-	mMessaging = nil;
-	mInputConfig = nil;
-	mDeviceProtection = nil;
-    mConfigurationManagement = nil;
-        
+    self = [super init];
+    
+    if (self) {		
+        mCallManagement = nil;
+        mMessaging = nil;
+        mInputConfig = nil;
+        mDeviceProtection = nil;
+        mConfigurationManagement = nil;
+    }
+
 	return self;
 }
 

@@ -39,16 +39,18 @@
 
 
 -(id)init{
-	[super init];
-	    
-	mPOTSLinkConfig         = nil;
-	mDSLLinkConfig          = nil;
-	mCableLinkConfig        = nil;
-	mEthernetLinkConfig     = nil;
-	mPPPConnection          = nil;
-	mIPConnection           = nil;
-	mIPv6FirewallControl    = nil;
-	
+    self = [super init];
+    
+    if (self) {
+        mPOTSLinkConfig         = nil;
+        mDSLLinkConfig          = nil;
+        mCableLinkConfig        = nil;
+        mEthernetLinkConfig     = nil;
+        mPPPConnection          = nil;
+        mIPConnection           = nil;
+        mIPv6FirewallControl    = nil;
+	}
+
 	return self;
 }
 

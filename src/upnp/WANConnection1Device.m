@@ -39,11 +39,13 @@
 
 
 -(id)init{
-	[super init];
-	
-	mIPConnection = nil;
-	mPPPConnection = nil;
-	
+    self = [super init];
+    
+    if (self) {
+        mIPConnection = nil;
+        mPPPConnection = nil;
+	}
+
 	return self;
 }
 

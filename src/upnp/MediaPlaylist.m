@@ -61,14 +61,17 @@
 
 
 -(id)init{
-	[super init];
-	state = MediaPlaylistState_NotInitialized;
-	mObservers = [[NSMutableArray alloc] init];
-	currentTrack = 0;
-	playList = [[NSMutableArray alloc] init];
-	mediaServer = nil;
-	container = nil;
-	
+    self = [super init];
+    
+    if (self) {
+        state = MediaPlaylistState_NotInitialized;
+        mObservers = [[NSMutableArray alloc] init];
+        currentTrack = 0;
+        playList = [[NSMutableArray alloc] init];
+        mediaServer = nil;
+        container = nil;
+	}
+    
 	return self;
 }
 

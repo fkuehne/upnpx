@@ -76,20 +76,23 @@ private:
 
 -(id)init
 {
-	if(![super init]){	
-		return nil;
-	}
-	
-	mMutex = [[NSRecursiveLock alloc] init];
-	mObservers = [[NSMutableArray alloc] init];
-	SSDPObjCDevices = [[NSMutableArray alloc] init]; 
+    self = [super init];
+    
+    if (self) {		
+        mMutex = [[NSRecursiveLock alloc] init];
+        mObservers = [[NSMutableArray alloc] init];
+        SSDPObjCDevices = [[NSMutableArray alloc] init]; 
 
-	mWrapper = new SSDPDB_Observer_wrapper(self);
+        mWrapper = new SSDPDB_Observer_wrapper(self);
+    }
+
 	return self;
 }
 
 -(void)dealloc{
-	delete((SSDPDB_Observer_wrapper*)mWrapper);
+    if (mWrapper) {
+        delete((SSDPDB_Observer_wrapper*)mWrapper);
+    }
 	[mObservers removeAllObjects];
 	[mObservers release];
 	[SSDPObjCDevices removeAllObjects];
@@ -215,24 +218,25 @@ private:
 
 
 -(id)initWithCPPDevice:(void*)cppDevice{
-	if(![super init]){	
-		return nil;
+    self = [super init];
+    
+    if (self) {
+        SSDPDBDevice *dev = (SSDPDBDevice*)cppDevice;
+        
+        isdevice	= dev->isdevice==1?true:false;
+        isroot		= dev->isroot==1?true:false;
+        isservice	= dev->isservice==1?true:false;
+        uuid		= [[NSString alloc] initWithCString:dev->uuid.c_str() encoding:NSASCIIStringEncoding];
+        urn			= [[NSString alloc] initWithCString:dev->urn.c_str() encoding:NSASCIIStringEncoding];
+        usn			= [[NSString alloc] initWithCString:dev->usn.c_str() encoding:NSASCIIStringEncoding];
+        type		= [[NSString alloc] initWithCString:dev->type.c_str() encoding:NSASCIIStringEncoding];
+        version		= [[NSString alloc] initWithCString:dev->version.c_str() encoding:NSASCIIStringEncoding];
+        host		= [[NSString alloc] initWithCString:dev->host.c_str() encoding:NSASCIIStringEncoding];
+        location	= [[NSString alloc] initWithCString:dev->location.c_str() encoding:NSASCIIStringEncoding];	
+        ip			= dev->ip;
+        port		= dev->port;
 	}
-	SSDPDBDevice *dev = (SSDPDBDevice*)cppDevice;
-	
-	isdevice	= dev->isdevice==1?true:false;
-	isroot		= dev->isroot==1?true:false;
-	isservice	= dev->isservice==1?true:false;
-	uuid		= [[NSString alloc] initWithCString:dev->uuid.c_str()];
-	urn			= [[NSString alloc] initWithCString:dev->urn.c_str()];
-	usn			= [[NSString alloc] initWithCString:dev->usn.c_str()];
-	type		= [[NSString alloc] initWithCString:dev->type.c_str()];
-	version		= [[NSString alloc] initWithCString:dev->version.c_str()];
-	host		= [[NSString alloc] initWithCString:dev->host.c_str()];
-	location	= [[NSString alloc] initWithCString:dev->location.c_str()];	
-	ip			= dev->ip;
-	port		= dev->port;
-	
+    
 	return self;
 }
 

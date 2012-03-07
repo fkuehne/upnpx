@@ -42,8 +42,20 @@
 @protocol UPnPEvents_Observer
 -(void)UPnPEvent:(NSDictionary*)events;
 -(NSURL*)GetUPnPEventURL;
+-(void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed;
 @end
 
+
+@interface ObserverEntry : NSObject{
+    UPnPEvents_Observer* observer;
+    int timeout;
+    double subscriptiontime;
+}
+-(void)dealloc;
+@property (readwrite, retain) UPnPEvents_Observer* observer;
+@property (readwrite) int timeout;;
+@property (readwrite) double subscriptiontime;
+@end
 
 
 @interface UPnPEvents : NSObject <BasicHTTPServer_ObjC_Observer> {
@@ -51,13 +63,18 @@
 	BasicHTTPServer_ObjC *server;
 	UPnPEventParser *parser;
 	NSRecursiveLock *mMutex;
+    NSTimer *mTimeoutTimer;
 }
 
 -(id)init;
 -(void)dealloc;
+-(void)start;
+-(void)stop;
 
 -(NSString*)Subscribe:(UPnPEvents_Observer*)subscriber;
 -(void)UnSubscribe:(NSString*)uuid;
+
+-(void)ManageSubscriptionTimeouts:(NSTimer*)timer;
 
 
 //BasicHTTPServer_ObjC_Observer

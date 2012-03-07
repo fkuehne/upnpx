@@ -39,14 +39,17 @@
 
 
 -(id)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns{
-	[super initWithNamespaceSupport:YES];
-	actionURL = aUrl;
-	eventURL = eUrl;
-	upnpNameSpace = ns;
-	[actionURL retain];
-	[eventURL retain];
-	[upnpNameSpace retain];
-	
+    self = [super initWithNamespaceSupport:YES];
+    
+    if (self) {
+        /* TODO: All of the below -> retain properties */
+        actionURL = aUrl;
+        eventURL = eUrl;
+        upnpNameSpace = ns;
+        [actionURL retain];
+        [eventURL retain];
+        [upnpNameSpace retain];
+	}
 	
 	return self;
 }

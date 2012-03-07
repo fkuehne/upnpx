@@ -35,6 +35,8 @@
 #ifndef _IPHONE_PORT
 #define _IPHONE_PORT
 
+#ifndef __cplusplus
 #import "UIImage.h"
+#endif
 
 #endif

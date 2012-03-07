@@ -54,37 +54,37 @@
 
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
-	[super init];
-	
+    self = [super init];
     
-    NSLog(@"BasicUPnPService - initWithSSDPDevice - %@", [device urn] );
-    
-	mMutex = [[NSRecursiveLock alloc] init];
+    if (self) {	
+        NSLog(@"BasicUPnPService - initWithSSDPDevice - %@", [device urn] );
+        
+        mMutex = [[NSRecursiveLock alloc] init];
 
-	ssdpdevice = device;
-	[device retain];
+        /* TODO: device -> retain property */
+        ssdpdevice = device;
+        [device retain];
 
-	[self setUrn:[device urn]];
-	
-	baseURLString = nil;
-	baseURL = nil;	
-	descriptionURL = nil;
-	eventURL = nil;
-	controlURL = nil;
-	serviceType = nil;
-	eventUUID = nil;
-	
-	isProcessed = NO;
-	isSupportForEvents = NO;
-	
-	stateVariables = [[NSMutableDictionary alloc] init]; //StateVariable
-	
-	mObservers = [[NSMutableArray alloc] init];
-	
-	//We still need to initialze this class with information from the location URL given by the ssdp 'device'
-	//this is done in 'process'
-	
-	
+        [self setUrn:[device urn]];
+        
+        baseURLString = nil;
+        baseURL = nil;	
+        descriptionURL = nil;
+        eventURL = nil;
+        controlURL = nil;
+        serviceType = nil;
+        eventUUID = nil;
+        
+        isProcessed = NO;
+        isSupportForEvents = NO;
+        
+        stateVariables = [[NSMutableDictionary alloc] init]; //StateVariable
+        
+        mObservers = [[NSMutableArray alloc] init];
+        
+        //We still need to initialze this class with information from the location URL given by the ssdp 'device'
+        //this is done in 'process'
+    }
 	
 	return self;
 }
@@ -215,5 +215,20 @@
 	return ret;
 }
 
+-(void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed{
 
+	//Re-Subscribe
+	if(eventURL){
+        NSString *oldUUID = eventUUID;
+		eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self]; 		
+        if(eventUUID != nil){
+            //NSLog(@"Service Re-Subsrcibed for events; uuid:%@, old uuid:%@", eventUUID, oldUUID);
+            //Unsubscribe old
+            [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:oldUUID];
+            [oldUUID release];
+			[eventUUID retain];
+			isSupportForEvents = YES;
+		}
+	}
+}
 @end

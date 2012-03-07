@@ -64,7 +64,10 @@ int createUUID(char uuid[UUID_LEN]){
 	}
 	//Make repres
 	//Fix this
-	sprintf(uuid, "%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X", r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]);
+    /* IcY: there are 14 arguments specified in the printf format string
+     * but 16 arguments?
+     */
+	sprintf(uuid, "%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X", r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[0], r[1], r[2], r[3], r[4], r[5]/*, r[6], r[7]*/);
 
 	return 0;
 }

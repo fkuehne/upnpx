@@ -93,38 +93,40 @@
 
 
 -(id)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice{
-	[super init];
-	device = upnpdevice;
-	[device retain];
+    self = [super init];
+    
+    if (self) {
+        /* TODO: set device as retain property */
+        device = upnpdevice;
+        [device retain];
 
-	friendlyNameStack = [[NSMutableArray alloc] init];
-	udnStack = [[NSMutableArray alloc] init];
-	
-	[self setIconURL:nil];
-	[self setIconWidth:nil];
-	[self setIconHeight:nil];
-	[self setIconMime:nil];
-	
-	
-	//Device is the root device
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", nil] callfunction:@selector(rootDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"UDN", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"friendlyName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", nil] callfunction:@selector(iconFound:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"mimetype", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconMime:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"width", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconWidth:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"height", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconHeight:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"depth", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconDepth:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"url", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconURL:) setStringValueObject:self];
+        friendlyNameStack = [[NSMutableArray alloc] init];
+        udnStack = [[NSMutableArray alloc] init];
+        
+        [self setIconURL:nil];
+        [self setIconWidth:nil];
+        [self setIconHeight:nil];
+        [self setIconMime:nil];
+        
+        
+        //Device is the root device
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", nil] callfunction:@selector(rootDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"UDN", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"friendlyName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", nil] callfunction:@selector(iconFound:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"mimetype", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconMime:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"width", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconWidth:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"height", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconHeight:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"depth", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconDepth:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"url", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconURL:) setStringValueObject:self];
 
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"URLBase", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setBaseURLString:) setStringValueObject:device];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"URLBase", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setBaseURLString:) setStringValueObject:device];
 
-	//Device is an embedded device (embedded devices can include embedded devices)
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", nil] callfunction:@selector(embeddedDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", @"UDN", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", @"friendlyName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
-
-	
+        //Device is an embedded device (embedded devices can include embedded devices)
+        [self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", nil] callfunction:@selector(embeddedDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", @"UDN", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"deviceList", @"device", @"friendlyName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+    }
 	
 	return self;
 }

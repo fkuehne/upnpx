@@ -44,10 +44,12 @@
 
 
 -(id)init{
-	[super init];
-	    
-	variableType = StateVariable_Type_Simple;
-	[self empty];
+    self = [super init];
+    
+    if (self) {		    
+        variableType = StateVariable_Type_Simple;
+        [self empty];
+    }
 	
 	return self;
 }
@@ -63,7 +65,10 @@
 
 -(void)empty{
 	[self setDataTypeString:nil];
-	dataType: StateVariable_DataType_Unknown;
+    /* IcY: "dataType:" looks like a goto label but is never used
+     * should it be dataType = StateVariable_DataType_Unknown
+     */
+	//dataType: StateVariable_DataType_Unknown;
 }
 
 

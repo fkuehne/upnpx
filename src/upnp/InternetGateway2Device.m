@@ -40,10 +40,12 @@
 
 
 -(id)init{
-	[super init];
-	
-	mLayer3Forwarding = nil;
-	
+    self = [super init];
+    
+    if (self) {	
+        mLayer3Forwarding = nil;
+	}
+    
 	return self;
 }
 

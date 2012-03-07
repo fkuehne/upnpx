@@ -40,12 +40,14 @@
 
 
 -(id)init{
-	[super init];
-	
-	mAvTransport = nil;
-	mConnectionManager = nil;
-	mContentDirectory = nil;
-	
+    self = [super init];
+    
+    if (self) {	
+        mAvTransport = nil;
+        mConnectionManager = nil;
+        mContentDirectory = nil;
+	}
+    
 	return self;
 }
 

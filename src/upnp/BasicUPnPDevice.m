@@ -64,15 +64,18 @@
 
 
 -(id)init{
-	[super init];
-	//NSLog(@"BasicUPnPDevice - init");
-	services = [[NSMutableDictionary alloc] init]; //Key=urn string, Object=BasicUPnPService 
-	lastUpdated = [NSDate timeIntervalSinceReferenceDate];
-	smallIconWidth = 0;
-	smallIconHeight = 0;
-	baseURL = nil;
-	baseURLString = nil;
-	
+    self = [super init];
+    
+    if (self) {
+        //NSLog(@"BasicUPnPDevice - init");
+        services = [[NSMutableDictionary alloc] init]; //Key=urn string, Object=BasicUPnPService 
+        lastUpdated = [NSDate timeIntervalSinceReferenceDate];
+        smallIconWidth = 0;
+        smallIconHeight = 0;
+        baseURL = nil;
+        baseURLString = nil;
+	}
+    
 	return self;
 }
 

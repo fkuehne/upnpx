@@ -40,13 +40,15 @@
 
 
 -(id)init{
-	[super init];
-	
-    mMediaManagement = nil;
-	mMessaging = nil;
-	mInputConfig = nil;
-	mDeviceProtection = nil;
+    self = [super init];
     
+    if (self) {		
+        mMediaManagement = nil;
+        mMessaging = nil;
+        mInputConfig = nil;
+        mDeviceProtection = nil;
+    }
+
 	return self;
 }
 

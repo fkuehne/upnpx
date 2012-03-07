@@ -40,10 +40,12 @@
 
 
 -(id)init{
-	[super init];
-	
-	mLanHostConfigManagement = nil;
-	
+    self = [super init];
+    
+    if (self) {	
+        mLanHostConfigManagement = nil;
+	}
+    
 	return self;
 }
 

@@ -41,20 +41,22 @@
 
 
 -(id)init{
-	[super init];
-	
-	mAvTransport = nil;
-	mRenderingControl = nil;
-	mConnectionManager = nil;
-	mProtocolInfoSink = nil;
-	mProtocolInfoSource = nil;
-	
-	
-	playList = [[MediaPlaylist alloc] init];
-	
-		
-	//Try to load the playist (?)
-	
+    self = [super init];
+    
+    if (self) {	
+        mAvTransport = nil;
+        mRenderingControl = nil;
+        mConnectionManager = nil;
+        mProtocolInfoSink = nil;
+        mProtocolInfoSource = nil;
+        
+        
+        playList = [[MediaPlaylist alloc] init];
+        
+            
+        //Try to load the playist (?)
+	}
+    
 	return self;
 }
 

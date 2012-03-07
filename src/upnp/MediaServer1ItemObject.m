@@ -59,7 +59,9 @@
 -(id)init{
     self = [super init];
     
-    resources = [[NSMutableArray alloc] init];
+    if (self) {
+        resources = [[NSMutableArray alloc] init];
+    }
     
     return self;
 }

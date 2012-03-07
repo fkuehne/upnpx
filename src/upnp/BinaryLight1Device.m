@@ -39,10 +39,12 @@
 
 
 -(id)init{
-	[super init];
-	
-	mSwitchPower = nil;
-	
+    self = [super init];
+    
+    if (self) {	
+        mSwitchPower = nil;
+	}
+    
 	return self;
 }
 

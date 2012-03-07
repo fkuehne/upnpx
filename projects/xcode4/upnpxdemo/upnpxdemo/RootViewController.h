@@ -13,10 +13,11 @@
 @interface RootViewController : UITableViewController <UPnPDBObserver>{
     UITableView *menuView;
     NSArray *mDevices; //BasicUPnPDevice*
+    UILabel *titleLabel;
 }
 
 @property (assign) IBOutlet UITableView *menuView;
-
+@property (retain) UILabel *titleLabel;
 
 //protocol UPnPDBObserver
 -(void)UPnPDBWillUpdate:(UPnPDB*)sender;

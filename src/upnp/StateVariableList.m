@@ -39,12 +39,14 @@
 @synthesize list;
 
 -(id)init{
-	[super init];
+    self = [super init];
+    
+    if (self) {	
+        variableType = StateVariable_Type_List;
+        list = [[NSMutableArray alloc] init];
+        [self empty];
+	}
 
-	variableType = StateVariable_Type_List;
-	list = [[NSMutableArray alloc] init];
-	[self empty];
-	
 	return self;
 }
 

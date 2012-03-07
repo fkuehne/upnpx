@@ -19,10 +19,15 @@
 //
 // ******************************************************************
 
-
 #ifndef _IPHONE_PORT
 #define _IPHONE_PORT
 
+#ifndef __cplusplus
 #import <UIKit/UIKit.h>
+#endif 
+
+#define UPNPX_PREFFERED_IFACE "en"
+#define UPNPX_IPHONE
+
 
 #endif

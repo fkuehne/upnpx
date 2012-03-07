@@ -49,15 +49,17 @@
 @synthesize elementValue;
 
 -(id)init{
-	[super initWithNamespaceSupport:YES];
+    self = [super initWithNamespaceSupport:YES];
+    
+    if (self) {	
+        events = [[NSMutableDictionary alloc] init];	
 
-	events = [[NSMutableDictionary alloc] init];	
-
-	lastChangeParser = nil;
-	
-	//Device is the root device
-	[self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"LastChange", nil] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
+        lastChangeParser = nil;
+        
+        //Device is the root device
+        [self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"LastChange", nil] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
+    }
 
 	return self;
 }

@@ -35,25 +35,42 @@
 #import "UPnPEvents.h"
 
 
+@implementation ObserverEntry
+@synthesize observer;
+@synthesize timeout;
+@synthesize subscriptiontime;
+-(void)dealloc{
+    [observer release];
+	[super dealloc];
+}
+
+@end
+
+
 @implementation UPnPEvents
 
 -(id)init{
-	[super init];
-	
-	mMutex = [[NSRecursiveLock alloc] init];
-	mEventSubscribers = [[NSMutableDictionary alloc] init];
-	parser =[[UPnPEventParser alloc] init];
-	
-	server = [[BasicHTTPServer_ObjC alloc] init];
-	[server start];
-	[server addObserver:(BasicHTTPServer_ObjC_Observer*)self];
-	
+    self = [super init];
+    
+    if (self) {		
+        mMutex = [[NSRecursiveLock alloc] init];
+        mEventSubscribers = [[NSMutableDictionary alloc] init];
+        parser =[[UPnPEventParser alloc] init];
+        
+        server = [[BasicHTTPServer_ObjC alloc] init];
+        [server start];
+        [server addObserver:(BasicHTTPServer_ObjC_Observer*)self];
+        
+        
+	}
+
 	return self;
 }
 
 
 -(void)dealloc{
-	[server stop];
+	[mTimeoutTimer release];
+    [server stop];
 	[server release];
 	[mEventSubscribers release];
 	[parser release];
@@ -62,10 +79,22 @@
 	[super dealloc];
 }
 
+-(void)start{
+    //Start the subscription timer
+    mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(ManageSubscriptionTimeouts:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:mTimeoutTimer forMode:NSDefaultRunLoopMode];
+}
+-(void)stop{
+    //Stop the subscription timer
+    [mTimeoutTimer invalidate];
+}
+
+
 
 -(NSString*)Subscribe:(UPnPEvents_Observer*)subscriber{
 	//Send Event subscription over HTTP
 	NSString *retUUID = nil;	
+	NSString *timeOut = nil;	
 	
 	//Construct the HTML SUBSCRIBE 
 	NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
@@ -76,7 +105,7 @@
 	
 	NSString *callBack = [NSString stringWithFormat:@"<http://%@:%d/Event>", [server getIPAddress], [server getPort]];
 	
-	[urlRequest setValue:@"OSX/10.6 UPnP/1.1 Mediacloud/0.1" forHTTPHeaderField:@"USER-AGENT"];
+	[urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.2.4" forHTTPHeaderField:@"USER-AGENT"];
 	[urlRequest setValue:callBack forHTTPHeaderField:@"CALLBACK"];
 	[urlRequest setValue:@"upnp:event" forHTTPHeaderField:@"NT"];
 	[urlRequest setValue:@"Second-1800" forHTTPHeaderField:@"TIMEOUT"];
@@ -93,17 +122,29 @@
 		for(NSString* key in allReturnedHeaders){
 			if([key caseInsensitiveCompare:@"SID"] == NSOrderedSame){
 				retUUID = [NSString stringWithString:[allReturnedHeaders objectForKey:key]];
-				break;
 			}
-		}
-		
+			if([key caseInsensitiveCompare:@"TIMEOUT"] == NSOrderedSame){
+				timeOut = [NSString stringWithString:[allReturnedHeaders objectForKey:key]];                
+            }
+		}		
 	}
-
 	
 	//Add to the subscription Dictionary
 	[mMutex lock];
 	if(retUUID){
-		[mEventSubscribers setObject:subscriber forKey:retUUID];
+        ObserverEntry *en = [[ObserverEntry alloc] init];
+
+        en.observer = subscriber;
+        en.subscriptiontime = [[NSDate date]timeIntervalSince1970];
+        
+        NSRange r = [timeOut rangeOfString:@"Second-"];
+        if(r.length > 0){
+            en.timeout = [[timeOut substringFromIndex:r.location+r.length] intValue];
+            if(en.timeout < 300)
+                en.timeout = 300;
+        }
+        
+		[mEventSubscribers setObject:en forKey:retUUID];
 	}else{
 		NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
 	}
@@ -182,12 +223,17 @@
 		//ok
 		//		
 		[mMutex lock];
-		UPnPEvents_Observer *thisObserver = [mEventSubscribers objectForKey:uuid];
-		[thisObserver retain];
+        UPnPEvents_Observer *thisObserver = nil;
+        ObserverEntry *entry = [mEventSubscribers objectForKey:uuid];
+        if(entry != nil){
+            thisObserver = entry.observer;
+            [thisObserver retain];
+        }
 		[mMutex unlock];
-		
-		[thisObserver UPnPEvent:[parser events]];
-		[thisObserver release];
+		if(thisObserver != nil){
+            [thisObserver UPnPEvent:[parser events]];
+            [thisObserver release];
+        }
 	}
 	
 	
@@ -206,5 +252,50 @@
 	
 	return ret;
 }
+
+
+-(void)ManageSubscriptionTimeouts:(NSTimer*)timer{
+    //NSLog(@"ManageSubscriptionTimeouts");
+    double tm = [[NSDate date]timeIntervalSince1970];
+    ObserverEntry *entry = nil;
+    NSMutableArray *remove = [[NSMutableArray alloc] init];
+    NSMutableArray *notify = [[NSMutableArray alloc] init];    
+    [mMutex lock];
+    NSString *uuid;
+    for (uuid in mEventSubscribers) {
+        entry = [mEventSubscribers objectForKey:uuid];
+        if(tm - entry.subscriptiontime >= (double)(entry.timeout)){
+            [remove addObject:uuid];
+        }else if(tm - entry.subscriptiontime > (double)(entry.timeout/2)){
+            [notify addObject:uuid];
+        }
+    }
+    [mMutex unlock];
+    
+    //Send Notifications
+    for (uuid in notify) {
+        [mMutex lock];
+        entry = [mEventSubscribers objectForKey:uuid];
+        if(entry){
+            [entry retain];
+        }
+        [mMutex unlock];
+        if(entry){
+            [[entry observer] SubscriptionTimerExpiresIn:(int)(tm - entry.subscriptiontime) timeoutSubscription:entry.timeout timeSubscription:entry.subscriptiontime];
+            [entry release];
+        }
+    }
+
+    //Remove
+    for (uuid in remove) {
+        [mMutex lock];
+        [mEventSubscribers removeObjectForKey:uuid];
+        [mMutex unlock];
+    }
+    
+    [remove release];
+    [notify release];
+}
+
 
 @end

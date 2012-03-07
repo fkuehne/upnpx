@@ -52,8 +52,9 @@
 
 
 -(id)init{
-	[super init];
-	return self;
+    self = [super init];
+    
+    return self;
 }
 
 

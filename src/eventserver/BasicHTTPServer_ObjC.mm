@@ -78,7 +78,7 @@ public:
 		
 		BOOL ret;
 		BasicHTTPServer_ObjC_Observer *obs = nil;
-		NSString *request = [[NSString alloc] initWithCString:method->c_str()];
+		NSString *request = [[NSString alloc] initWithCString:method->c_str() encoding:NSASCIIStringEncoding];
 		
 		NSEnumerator *obsenum = [mObjCObservers objectEnumerator];	
 		while((obs = [obsenum nextObject])){
@@ -96,16 +96,16 @@ public:
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
 		BOOL ret;
-		NSString *oMethod = [[NSString alloc] initWithCString:method->c_str()];
-		NSString *oPath = [[NSString alloc] initWithCString:path->c_str()];
-		NSString *oVersion = [[NSString alloc] initWithCString:version->c_str()];
+		NSString *oMethod = [[NSString alloc] initWithCString:method->c_str() encoding:NSASCIIStringEncoding];
+		NSString *oPath = [[NSString alloc] initWithCString:path->c_str() encoding:NSASCIIStringEncoding];
+		NSString *oVersion = [[NSString alloc] initWithCString:version->c_str() encoding:NSASCIIStringEncoding];
 		NSMutableDictionary *oHeaders = [[NSMutableDictionary alloc] init];
 		map<string,string>::const_iterator it;
 		NSString *header = nil;
 		NSString *value = nil;
 		for ( it=headers->begin() ; it != headers->end(); it++ ){
-			header = [[NSString alloc] initWithCString:(*it).first.c_str()];
-			value = [[NSString alloc] initWithCString:(*it).second.c_str()];
+			header = [[NSString alloc] initWithCString:(*it).first.c_str() encoding:NSASCIIStringEncoding];
+			value = [[NSString alloc] initWithCString:(*it).second.c_str() encoding:NSASCIIStringEncoding];
 			NSString *upperHeader = [header uppercaseString];
 			[oHeaders setObject:value forKey:upperHeader];
 			[value release];
@@ -190,17 +190,21 @@ private:
 
 
 -(id)init{
-	[super init];
-	
-	mObservers = [[NSMutableArray alloc] init];
-	httpServerWrapper = new BasicHTTPObserver_wrapper(self);
-	
+    self = [super init];
+    
+    if (self) {	
+        mObservers = [[NSMutableArray alloc] init];
+        httpServerWrapper = new BasicHTTPObserver_wrapper(self);
+	}
+    
 	return self;
 }
 
 -(void)dealloc{
 	[self stop];
-	delete((BasicHTTPObserver_wrapper*)httpServerWrapper);
+    if (httpServerWrapper) {
+        delete((BasicHTTPObserver_wrapper*)httpServerWrapper);
+    }
 	[mObservers release];
 	
 	[super dealloc];

@@ -38,14 +38,16 @@
 @implementation LastChangeParser
 
 -(id)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
-	[super init];
-	
-	events = foundEvents;
-	[events retain];
-	
-	[self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-
+    self = [super init];
+    
+    if (self) {
+        /* TODO: events -> retain property */
+        events = foundEvents;
+        [events retain];
+        
+        [self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+    }
 	
 	return self;
 }
