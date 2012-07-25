@@ -51,6 +51,7 @@
     NSURL *baseURL;
     NSString *baseURLString;
     NSString *friendlyName;
+    NSString *manufacturer;
     NSString *modelDescription;
     NSString *modelName;
     NSString *modelNumber;

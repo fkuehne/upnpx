@@ -48,6 +48,7 @@
 @synthesize iconDepth;
 @synthesize udn;
 @synthesize friendlyName;
+@synthesize manufacturer;
 @synthesize modelDescription;
 @synthesize modelName;
 @synthesize modelNumber;
@@ -136,6 +137,7 @@
         [self addAsset:@[@"*", @"device", @"deviceList", @"device"] callfunction:@selector(embeddedDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"UDN"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
         [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"friendlyName"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+        [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"manufacturer"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturer:) setStringValueObject:self];
     }
 
     return self;
@@ -151,6 +153,7 @@
     [iconDepth release];
     [udn release];
     [friendlyName release];
+    [manufacturer release];
 
     [friendlyNameStack release];
     [udnStack release];
@@ -255,6 +258,7 @@
             //this is our device, copy the collected info to the [device] instance
             [device setUdn:udn];
             [device setFriendlyName:friendlyName];
+            [device setManufacturer:manufacturer];
 
             [device setModelDescription:modelDescription];
             [device setModelName:modelName];
@@ -276,6 +280,7 @@
                 //this is our device, copy the collected info to the [device] instance
                 [device setFriendlyName:friendlyName];
                 [device setUdn:udn];
+                [device setManufacturer:manufacturer];
             }
         }
         [self setUdn:[udnStack lastObject]];
