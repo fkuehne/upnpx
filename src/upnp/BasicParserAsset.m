@@ -48,7 +48,7 @@
     self = [super init];
     
     if (self) {
-        /* TODO: path -> retain property */
+       
         path = thePath;
         [path retain];
 
@@ -57,9 +57,9 @@
         function = theFunction;
         functionObject = funcobj;
         
-        NSMutableString *s = [[NSMutableString alloc] init] ;
-        [self setStringCache:s];
-        [s release];
+      
+        [self setStringCache:[NSMutableString string]];
+       
     }
     
 	return self;

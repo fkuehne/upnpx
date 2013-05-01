@@ -61,7 +61,7 @@ public:
 	int AddObserver(SSDPObserver* observer);
 	int RemoveObserver(SSDPObserver* observer);
 	int Advertise();
-	int Search();
+	int Search(const char* type);
     void SetOS(const char* os);
     void SetProduct(const char* product);    
 	SSDPDB* GetDB();
@@ -84,6 +84,7 @@ private:
     std::string mProduct;
 	SSDPParser* mParser;
 	SSDPDB* mDB;
+    pthread_mutex_t mMutexAccess;
 private:
 	int ReadLoop();
 	int IncommingMessage(struct sockaddr* sender, u8* buf, u32 len);

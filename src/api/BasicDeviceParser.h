@@ -67,6 +67,10 @@
 
 @property (readwrite, retain) NSString* udn;
 @property (readwrite, retain) NSString* friendlyName;
+@property (nonatomic, retain) NSString *modelDescription;
+@property (nonatomic, retain) NSString *modelName;
+@property (nonatomic, retain) NSString *modelNumber;
+@property (nonatomic, retain) NSString *serialNumber;
 
 
 @end

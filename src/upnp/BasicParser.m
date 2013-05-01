@@ -234,7 +234,7 @@ static NSString *ElementStop = @"ElementStop";
 		if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
 			//we are interested in a string and we are looking for this
 			[[asset stringCache] setString:@""];
-            //[asset setStringCache:[[[NSString alloc] init] autorelease]];
+           
 		}
 		if([asset function] != nil && [asset functionObject] != nil){
 			if([[asset functionObject] respondsToSelector:[asset function]]){
@@ -257,11 +257,12 @@ static NSString *ElementStop = @"ElementStop";
 		//Set string (call function to set)
 		if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
 			if([[asset stringValueObject] respondsToSelector:[asset stringValueFunction]]){                
+                //Make sure to make a copy of the string since the derived classes can keep references to it
                 NSString *obj = [[NSString alloc] initWithString:[asset stringCache]];
 				[[asset stringValueObject] performSelector:[asset stringValueFunction] withObject:obj];
                 [obj release];
 			}else{
-				NSLog(@"Does not respond to selector @" );
+				NSLog(@"Does not respond to selector %@", NSStringFromSelector([asset stringValueFunction]));
 			}
 		}
 		//Call function

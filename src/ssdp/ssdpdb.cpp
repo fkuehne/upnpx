@@ -42,7 +42,8 @@ SSDPDB::SSDPDB(){
 	STAT(ret);
 	ret = pthread_mutex_init(&mMutexAccess, &mMutexAccessAttr);
  	STAT(ret);
-		
+    ret = pthread_mutex_init(&mMutexRunning, NULL);
+    STAT(ret);
 		
 
 EXIT:	
@@ -52,6 +53,7 @@ EXIT:
 }
 
 SSDPDB::~SSDPDB(){
+    pthread_mutex_destroy(&mMutexRunning);
 	pthread_mutex_destroy(&mMutexAccess);
 	pthread_mutexattr_destroy(&mMutexAccessAttr);
 }
@@ -74,6 +76,11 @@ EXIT:
 
 int SSDPDB::Stop(){
 	mRun = 0;
+    
+    // wait for the thread to finish
+    //pthread_mutex_lock(&mMutexRunning);
+    //pthread_mutex_unlock(&mMutexRunning);
+    
 	return 0;
 }
 
@@ -124,7 +131,28 @@ int SSDPDB::DeleteDevice(u8* usn, u32 usnlen){
 	return tel;	
 }
 
-
+int SSDPDB::DeleteAllDevices()
+{
+    int tel = 0;
+	SSDPDBDevice* thisdevice = NULL;
+	int updated = 0;
+	
+	Lock();
+	int i=0;
+	while(i<mDevices.size()){
+		thisdevice = mDevices[i];
+        mDevices.erase(mDevices.begin()+i);
+        delete(thisdevice);
+        updated++;
+	}
+	Unlock();
+    
+	if(updated > 0){
+		DeviceUpdate(NULL);
+	}
+	
+	return tel;
+}
 
 
 int SSDPDB::DeleteDevicesByUuid(u8* uuid, u32 uuidlen){
@@ -136,13 +164,9 @@ int SSDPDB::DeleteDevicesByUuid(u8* uuid, u32 uuidlen){
 	int i=0;
 	while(i<mDevices.size()){
 		thisdevice = mDevices[i];
-		if( (thisdevice->uuid.length() == uuidlen &&  memcmp(thisdevice->uuid.c_str(), uuid, uuidlen) == 0) ){
-			mDevices.erase(mDevices.begin()+i);		
-			delete(thisdevice);
-			updated++;
-		}else{
-			i++;
-		}
+        mDevices.erase(mDevices.begin()+i);
+        delete(thisdevice);
+        updated++;
 	}			
 	Unlock();
 	
@@ -258,6 +282,10 @@ int SSDPDB::CacheControlLoop(){
 	vector<SSDPDBDevice*>::iterator it;
 	int nows;
 	u8 updated;
+    
+    // grab the lock
+    pthread_mutex_lock(&mMutexRunning);
+    
 	while(mRun){		
 		sleep(CACHE_CONTROL_TIMEOUT);
 		
@@ -281,6 +309,9 @@ int SSDPDB::CacheControlLoop(){
 			DeviceUpdate(NULL);
 		}
 	}
+    
+    // release the lock
+    pthread_mutex_unlock(&mMutexRunning);
 	
 	return 0;
 }

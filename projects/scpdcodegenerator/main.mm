@@ -44,8 +44,8 @@ int main (int argc, char * const argv[]) {
 	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
-	NSString *loc = [NSString stringWithCString:argv[1]];
-	NSString *name = [NSString stringWithCString:argv[2]];
+	NSString *loc = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
+	NSString *name = [NSString stringWithCString:argv[2] encoding:NSUTF8StringEncoding];
 //	NSString *ns = [NSString stringWithCString:argv[3]];
 	
 	SCDPPArser *parser = [[SCDPPArser alloc] initWithXMLLocation:loc output:name];// nameSpace:ns];

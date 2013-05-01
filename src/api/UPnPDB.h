@@ -54,21 +54,24 @@
 	NSMutableArray *readyForDescription; //BasicUPnPDevice (only some info is known)
 	NSMutableArray *rootDevices; //BasicUPnPDevice (full info is known)
 	NSRecursiveLock *mMutex;
+    NSRecursiveLock *mMutexRunning;
 	SSDPDB_ObjC *mSSDP;
 	NSMutableArray *mObservers;
 	NSThread *mHTTPThread;
-	
+	int mRun;
 }
 
 -(id)initWithSSDP:(SSDPDB_ObjC*)ssdp; 
 -(void)dealloc;
--(void)lock;
--(void)unlock;
+//-(void)lock;
+//-(void)unlock;
 -(void)httpThread:(id)argument;
 -(int)addObserver:(UPnPDBObserver*)obs;
 -(int)removeObserver:(UPnPDBObserver*)obs;
 -(NSArray*)getSSDPServicesFor:(BasicUPnPDevice*)device; //Returns NSArray[SSDPDBDevice_ObjC*] devices
 -(NSArray*)getSSDPServicesForUUID:(NSString*)uuid; //Returns NSArray[SSDPDBDevice_ObjC*] devices
+-(void)stopThread;
+-(void)stop;
 
 @property(readonly, retain) NSMutableArray *rootDevices;
 

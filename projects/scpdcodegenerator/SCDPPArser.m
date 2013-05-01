@@ -153,8 +153,8 @@
 	NSLog(@"Source:\r\n%@", source);
 	
 	//Write to files
-	[header writeToFile:headerName atomically:YES];
-	[source writeToFile:sourceName atomically:YES];
+	[header writeToFile:headerName atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	[source writeToFile:sourceName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 	
 	
 	return ret;

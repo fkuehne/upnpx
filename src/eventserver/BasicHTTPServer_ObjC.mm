@@ -76,7 +76,7 @@ public:
 		
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
-		BOOL ret;
+		BOOL ret = NO;
 		BasicHTTPServer_ObjC_Observer *obs = nil;
 		NSString *request = [[NSString alloc] initWithCString:method->c_str() encoding:NSASCIIStringEncoding];
 		
@@ -95,7 +95,7 @@ public:
 	bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen){
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-		BOOL ret;
+		BOOL ret = NO;
 		NSString *oMethod = [[NSString alloc] initWithCString:method->c_str() encoding:NSASCIIStringEncoding];
 		NSString *oPath = [[NSString alloc] initWithCString:path->c_str() encoding:NSASCIIStringEncoding];
 		NSString *oVersion = [[NSString alloc] initWithCString:version->c_str() encoding:NSASCIIStringEncoding];
@@ -138,7 +138,7 @@ public:
 	bool Response(int *returncode, map<string, string> *headers, char **body, int *bodylen){
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-		BOOL ret;
+		BOOL ret = NO;
 
 		int oReturnCode;
 		NSMutableDictionary *oHeaders = [[NSMutableDictionary alloc] init];

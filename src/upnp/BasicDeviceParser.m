@@ -47,6 +47,10 @@
 @synthesize iconDepth;
 @synthesize udn;
 @synthesize friendlyName;
+@synthesize modelDescription;
+@synthesize modelName;
+@synthesize modelNumber;
+@synthesize serialNumber;
 
 
 /****
@@ -113,6 +117,13 @@
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", nil] callfunction:@selector(rootDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"UDN", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"friendlyName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+     
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"modelDescription", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelDescription:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"modelName", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelName:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"modelNumber", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelNumber:) setStringValueObject:self];
+        [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"serialNumber", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setSerialNumber:) setStringValueObject:self];
+
+        
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", nil] callfunction:@selector(iconFound:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"mimetype", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconMime:) setStringValueObject:self];
         [self addAsset:[NSArray arrayWithObjects: @"root", @"device", @"iconList", @"icon", @"width", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconWidth:) setStringValueObject:self];
@@ -241,6 +252,11 @@
 			//this is our device, copy the collected info to the [device] instance
 			[device setUdn:udn];
 			[device setFriendlyName:friendlyName];
+            
+            device.modelDescription = self.modelDescription;
+            device.modelName = self.modelName;
+            device.modelNumber = self.modelNumber;
+            device.serialNumber = self.serialNumber;
 		}
 	}
 }

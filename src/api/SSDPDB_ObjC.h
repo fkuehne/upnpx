@@ -66,6 +66,7 @@
 -(int)startSSDP;
 -(int)stopSSDP;
 -(int)searchSSDP;
+- (int)searchSSDPWithType:(NSString *)type;
 -(int)addObserver:(SSDPDB_ObjC_Observer*)obs;
 -(int)removeObserver:(SSDPDB_ObjC_Observer*)obs;
 -(void)SSDPDBUpdate;

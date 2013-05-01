@@ -48,6 +48,7 @@
 #import "TelephonyClient1Device.h"
 #import "TelephonyServer1Device.h"
 
+
 @implementation DeviceFactory
 
 
@@ -67,7 +68,7 @@
 -(BasicUPnPDevice*)allocDeviceForSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
 	BasicUPnPDevice* device = nil;	
 	
-	if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
+    if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
 		device =  [[MediaRenderer1Device alloc] initWithSSDPDevice:ssdp];
 	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
 		device =  [[MediaServer1Device alloc] initWithSSDPDevice:ssdp];

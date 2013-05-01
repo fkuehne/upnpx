@@ -75,7 +75,7 @@ private:
 	fd_set mWriteFDS;
 	
 	int mMaxConnections;
-	
+	pthread_mutex_t mMutexRunning;
 	
 private:
 	int ReadLoop();	

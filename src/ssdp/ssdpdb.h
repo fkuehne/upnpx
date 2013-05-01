@@ -60,6 +60,7 @@ public:
 	SSDPDBDevice* GetDevice(u8* usn, u32 usnlen);
 	SSDPDBDevice* InsertDevice(u8* usn, u32 usnlen);
 	int DeleteDevice(u8* usn, u32 usnlen);
+    int DeleteAllDevices();
 	int DeleteDevicesByUuid(u8* uuid, u32 uuidlen);	
 	vector<SSDPDBDevice*> GetDevices();
 
@@ -73,6 +74,7 @@ private:
 	vector<SSDPDBObserver*> mObservers;
 	pthread_mutexattr_t mMutexAccessAttr;
 	pthread_mutex_t mMutexAccess;
+    pthread_mutex_t mMutexRunning;
 	pthread_t mCacheControlThread;
 	int CacheControlLoop();
 	u8 mRun;
