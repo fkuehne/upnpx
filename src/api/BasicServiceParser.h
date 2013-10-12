@@ -51,12 +51,11 @@
 	StateVariableList *mStatevarListCache;
 	StateVariableRange *mStatevarRangeCache;
 	StateVariable *mStatevarCache;
-
 }
 
 -(id)initWithUPnPService:(BasicUPnPService*)upnpservice;
+
 -(int)parse;
--(void)dealloc;
 -(void)serviceTag:(NSString*)startStop;
 -(void)stateVariable:(NSString*)startStop;
 -(void)setAllowedValue:(NSString*)value;

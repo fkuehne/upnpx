@@ -55,9 +55,6 @@
 	SoapActionsDeviceProtection1 *mDeviceProtection;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsMediaManagement1*)mediaManagement;
 -(SoapActionsMessaging1*)messaging;
 -(SoapActionsInputConfig1*)inputConfig;

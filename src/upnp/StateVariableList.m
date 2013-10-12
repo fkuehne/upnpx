@@ -66,6 +66,4 @@
 	list = [[NSMutableArray alloc] initWithArray:[stateVar list]];
 }
 
-
-
 @end

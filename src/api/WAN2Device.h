@@ -46,13 +46,8 @@
 	SoapActionsWANCommonInterfaceConfig1 *mCommonInterfaceConfig;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsWANCommonInterfaceConfig1*)commonInterfaceConfig;
 
 -(BasicUPnPService*)commonInterfaceConfigService;
-
-
 
 @end

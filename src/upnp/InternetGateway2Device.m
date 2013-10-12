@@ -37,27 +37,12 @@
 
 @implementation InternetGateway2Device
 
-
-
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mLayer3Forwarding = nil;
-	}
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mLayer3Forwarding release];
 	
 	[super dealloc];
 }
-
-
 
 -(SoapActionsLayer3Forwarding1*)layer3Forwarding{
 	if(mLayer3Forwarding == nil){
@@ -71,8 +56,5 @@
 -(BasicUPnPService*)layer3ForwardingService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"];
 }
-
-
-
 
 @end

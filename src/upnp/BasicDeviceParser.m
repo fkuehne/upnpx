@@ -232,7 +232,6 @@
 
 }
 
-
 -(void)rootDevice:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
 	}else{ 

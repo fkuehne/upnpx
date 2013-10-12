@@ -37,27 +37,12 @@
 
 @implementation WAN2Device
 
-
-
--(id)init{
-    self = [super init];
-    
-    if (self) {
-        mCommonInterfaceConfig = nil;
-	}
-
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mCommonInterfaceConfig release];
 	
 	[super dealloc];
 }
-
-
 
 -(SoapActionsWANCommonInterfaceConfig1*)commonInterfaceConfig{
 	if(mCommonInterfaceConfig == nil){
@@ -67,12 +52,8 @@
 	return mCommonInterfaceConfig;
 }
 
-
 -(BasicUPnPService*)commonInterfaceConfigService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1"];
 }
-
-
-
 
 @end

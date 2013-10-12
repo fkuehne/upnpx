@@ -36,7 +36,6 @@
 
 #import "SoapActionsLANHostConfigManagement1.h"
 
-
 /*
  * Services:
  * O - LANHostConfigManagement:1 
@@ -46,13 +45,7 @@
 	SoapActionsLANHostConfigManagement1 *mLanHostConfigManagement;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsLANHostConfigManagement1*)lanHostConfigManagement;
-
 -(BasicUPnPService*)lanHostConfigManagementService;
-
-
 
 @end

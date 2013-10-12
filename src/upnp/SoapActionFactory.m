@@ -45,20 +45,6 @@
 
 @implementation SoapActionFactory
 
-
--(id)init{
-    self = [super init];
-    
-    return self;
-}
-
-
--(void)dealloc{
-	
-	[super dealloc];
-}
-
-
 -(SoapAction*)allocSoapWithURN:(NSString*)urn andBaseNSURL:(NSURL*)baseURL andControlURL:(NSString*)controlURL andEventURL:(NSString*)eventURL{
 	SoapAction *soapaction = nil;
 	

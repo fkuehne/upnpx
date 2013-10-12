@@ -42,8 +42,6 @@
 	LastChangeParser *lastChangeParser;
 }
 
--(id)init;
--(void)dealloc;
 -(void)propertyName:(NSString*)startStop;
 -(void)lastChangeElement:(NSString*)startStop;
 -(void)reinit;

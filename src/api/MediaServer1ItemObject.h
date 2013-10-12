@@ -54,10 +54,7 @@
     NSMutableArray *resources; //MediaServer1ItemRes[]
 }
 
--(id)init;
--(void)dealloc;
 -(void)addRes:(MediaServer1ItemRes*) res;
-
 
 @property(retain, nonatomic) NSString *artist;
 @property(retain, nonatomic) NSString *album;

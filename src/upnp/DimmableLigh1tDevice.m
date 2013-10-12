@@ -37,18 +37,6 @@
 
 @implementation DimmableLight1Device
 
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mSwitchPower = nil;
-        mDimming = nil;
-    }
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mSwitchPower release];
@@ -58,7 +46,6 @@
 }
 
 
-
 -(BasicUPnPService*)switchPowerService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:SwitchPower:1"];
 }
@@ -66,7 +53,6 @@
 -(BasicUPnPService*)dimmingService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:Dimming:1"];
 }
-
 
 
 -(SoapActionsSwitchPower1*)switchPower{
@@ -86,7 +72,5 @@
 	
 	return mDimming;
 }
-
-
 
 @end

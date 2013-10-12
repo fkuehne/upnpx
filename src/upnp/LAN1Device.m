@@ -37,27 +37,12 @@
 
 @implementation LAN1Device
 
-
-
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mLanHostConfigManagement = nil;
-	}
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mLanHostConfigManagement release];
 	
 	[super dealloc];
 }
-
-
 
 -(SoapActionsLANHostConfigManagement1*)lanHostConfigManagement{
 	if(mLanHostConfigManagement == nil){
@@ -71,8 +56,5 @@
 -(BasicUPnPService*)lanHostConfigManagementService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:LANHostConfigManagement:1"];
 }
-
-
-
 
 @end

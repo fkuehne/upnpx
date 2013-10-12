@@ -42,19 +42,6 @@
 
 @implementation DigitalSecurityCamera1Device
 
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mDigitalSecurityCameraSettings = nil;
-        mDigitalSecurityCameraStillImage = nil;
-        mDigitalSecurityCameraMotionImage = nil;
-	}
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mDigitalSecurityCameraSettings release];

@@ -43,8 +43,6 @@
 +(NSString*)Seconds2HMS:(int)seconds;
 @end
 
-
-
 @interface CocoaTools : NSObject {
 
 }

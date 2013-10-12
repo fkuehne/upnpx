@@ -38,7 +38,6 @@
 #import "SoapActionsConnectionManager1.h"
 #import "SoapActionsContentDirectory1.h"
 
-
 /*
  * Services:
  * M - ContentDirectory:1.0 
@@ -51,9 +50,6 @@
 	SoapActionsConnectionManager1 *mConnectionManager;
 	SoapActionsContentDirectory1 *mContentDirectory;
 }
-
--(id)init;
--(void)dealloc;
 
 -(SoapActionsAVTransport1*)avTransport;
 -(SoapActionsConnectionManager1*)connectionManager;

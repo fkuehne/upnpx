@@ -42,9 +42,6 @@
 	SoapActionsDimming1 *mDimming;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsSwitchPower1*)switchPower;
 -(SoapActionsDimming1*)dimming;
 

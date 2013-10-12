@@ -37,19 +37,6 @@
 
 @implementation WANConnection1Device
 
-
--(id)init{
-    self = [super init];
-    
-    if (self) {
-        mIPConnection = nil;
-        mPPPConnection = nil;
-	}
-
-	return self;
-}
-
-
 -(void)dealloc{
 	[mPPPConnection release];
 	[mIPConnection release];

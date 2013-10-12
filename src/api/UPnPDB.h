@@ -61,7 +61,7 @@
 }
 
 -(id)initWithSSDP:(SSDPDB_ObjC*)ssdp; 
--(void)dealloc;
+
 -(void)lock;
 -(void)unlock;
 -(void)httpThread:(id)argument;

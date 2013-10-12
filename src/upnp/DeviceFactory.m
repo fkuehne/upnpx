@@ -50,20 +50,6 @@
 
 @implementation DeviceFactory
 
-
--(id)init{
-    self = [super init];
-    
-    return self;
-}
-
-
--(void)dealloc{
-	
-	[super dealloc];
-}
-
-
 -(BasicUPnPDevice*)allocDeviceForSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
 	BasicUPnPDevice* device = nil;	
 	

@@ -37,24 +37,6 @@
 
 @implementation WANConnection2Device
 
-
--(id)init{
-    self = [super init];
-    
-    if (self) {
-        mPOTSLinkConfig         = nil;
-        mDSLLinkConfig          = nil;
-        mCableLinkConfig        = nil;
-        mEthernetLinkConfig     = nil;
-        mPPPConnection          = nil;
-        mIPConnection           = nil;
-        mIPv6FirewallControl    = nil;
-	}
-
-	return self;
-}
-
-
 -(void)dealloc{
 	[mPOTSLinkConfig release];
 	[mDSLLinkConfig release];
@@ -66,7 +48,6 @@
 	
 	[super dealloc];
 }
-
 
 
 -(SoapActionsWANPOTSLinkConfig1*)potsLinkConfig{
@@ -124,8 +105,6 @@
 	}
 	return mIPv6FirewallControl;
 }
-
-
 
 
 

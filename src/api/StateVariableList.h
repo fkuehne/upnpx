@@ -41,8 +41,6 @@
 	NSMutableArray *list;
 }
 
--(id)init;
--(void)dealloc;
 -(void)empty;
 
 -(void)copyFromStateVariableList:(StateVariableList*)stateVar;

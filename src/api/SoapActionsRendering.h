@@ -42,12 +42,10 @@
 }
 
 -(id)initWithService:(BasicUPnPService*)service;
--(void)dealloc;
 
 //SOAP 
 -(int)listPesets:(NSMutableString*)presetsRet;
 -(int)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet;
-
 
 -(int)getVolume;
 -(int)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel;

@@ -37,21 +37,6 @@
 
 @implementation MediaServer1Device
 
-
-
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mAvTransport = nil;
-        mConnectionManager = nil;
-        mContentDirectory = nil;
-	}
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
     if(mContentDirectory)
@@ -107,7 +92,6 @@
 -(BasicUPnPService*)contentDirectoryService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:ContentDirectory:1"];
 }
-
 
 
 @end

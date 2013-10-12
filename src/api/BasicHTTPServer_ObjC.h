@@ -47,16 +47,12 @@
 @end
 
 
-
 @interface BasicHTTPServer_ObjC : NSObject {
 @private
 	void* httpServerWrapper;
 	NSMutableArray *mObservers; //BasicHTTPServer_ObjC_Observer
 }
 
-
--(id)init;
--(void)dealloc;
 -(int)start;
 -(int)stop;
 -(void)addObserver:(BasicHTTPServer_ObjC_Observer*)observer;

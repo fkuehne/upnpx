@@ -38,21 +38,6 @@
 @implementation TelephonyClient1Device
 
 
-
--(id)init{
-    self = [super init];
-    
-    if (self) {		
-        mMediaManagement = nil;
-        mMessaging = nil;
-        mInputConfig = nil;
-        mDeviceProtection = nil;
-    }
-
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mMediaManagement release];
@@ -62,7 +47,6 @@
 	
 	[super dealloc];
 }
-
 
 
 -(SoapActionsMediaManagement1*)mediaManagement{
