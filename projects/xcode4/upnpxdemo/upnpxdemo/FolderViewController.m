@@ -251,7 +251,7 @@
         MediaServer1ItemRes *resource = nil;		
         NSEnumerator *e = [[item resources] objectEnumerator];
         while((resource = (MediaServer1ItemRes*)[e nextObject])){
-            NSLog(@"%@ - %d, %@, %d, %d, %d, %@", [item title], [resource bitrate], [resource duration], [resource nrAudioChannels], [resource size],  [resource durationInSeconds],  [resource protocolInfo] );
+            NSLog(@"%@ - %d, %@, %d, %lld, %d, %@", [item title], [resource bitrate], [resource duration], [resource nrAudioChannels], [resource size],  [resource durationInSeconds],  [resource protocolInfo] );
         }	    
 
         [[PlayBack GetInstance] Play:m_playList position:indexPath.row];
