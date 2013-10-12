@@ -36,33 +36,31 @@
 
 @implementation NSString(AcranegraExtentions)
 
--(NSString*)XMLUnEscape{
+-(NSString*)XMLUnEscape {
 	if([self length] < 2){
 		return self;
 	}
 	
 	NSString *returnStr = nil;
 
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"&"  ];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"'"];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"'"];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"'"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"'"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"\n"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"\r"];
-	
-	returnStr = [ [ NSString alloc ] initWithString:returnStr];
-	
-	[pool release];
-	
-	[returnStr autorelease]; 
+	@autoreleasepool {
+        returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"&"  ];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"'"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"'"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"'"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"'"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"\n"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"\r"];
 
-	return returnStr;
+        returnStr = [ [ NSString alloc ] initWithString:returnStr];
+        
+        [returnStr autorelease]; 
+        
+        return returnStr;
+    }
 }
 
 
@@ -73,80 +71,71 @@
 	
 	NSString *returnStr = nil;
 	
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	//First remove all eventually escape codes because it makes it impossible to distinguish during unescape
-	returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"."  ];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"."];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"."];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"."];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"."];
-	
-	//Escape
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&" withString: @"&amp;"  ];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"'" withString:@"&#x27;"];	
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\n" withString:@"&#10;"];
-	returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\r" withString:@"&#13;"];
-	
-	returnStr = [ [ NSString alloc ] initWithString:returnStr];
-	
-	[pool release];
-	
-	[returnStr autorelease]; 
-	
-	return returnStr;
+	@autoreleasepool {
+        //First remove all eventually escape codes because it makes it impossible to distinguish during unescape
+        returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"."  ];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"."];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"."];
+
+        //Escape
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&" withString: @"&amp;"  ];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"'" withString:@"&#x27;"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\n" withString:@"&#10;"];
+        returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\r" withString:@"&#13;"];
+        
+        returnStr = [ [ NSString alloc ] initWithString:returnStr];
+        
+        [returnStr autorelease];
+        
+        return returnStr;
+    }
 }
-
-
 
 //hh:mm:ss -> seconds
 -(int)HMS2Seconds{
 	int s = 0;
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-	NSArray *items = [self componentsSeparatedByString:@":"];
-	if([items count] == 3){
-		//hh
-		s = s + [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;		
-		//mm
-		s = s + [(NSString*)[items objectAtIndex:1] intValue] * 60;
-		//ss
-		s = s + [(NSString*)[items objectAtIndex:2] intValue];
-	}
-	
-	[pool release];
+    @autoreleasepool {
+        NSArray *items = [self componentsSeparatedByString:@":"];
+        if([items count] == 3){
+            //hh
+            s += [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;
+            //mm
+            s += [(NSString*)[items objectAtIndex:1] intValue] * 60;
+            //ss
+            s += [(NSString*)[items objectAtIndex:2] intValue];
+        }
 
-	return s;
+        return s;
+    }
 }
 
 //seconds -> hh:mm:ss 
 +(NSString*)Seconds2HMS:(int)seconds{
 	NSString *ret = nil;
-	if(seconds > 0){
+	if (seconds > 0) {
 		int hh = (int) (seconds / 60 / 60);
 		int mm = (int) ((seconds / 60) %  60 );
 		int ss = (int) (seconds % 60 );
 		ret = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hh, mm, ss];
-	}else{
+	} else {
 		ret = @"00:00:00";
 	}
 	
 	return ret;	
 }
 
-
 @end
-
-
-
 
 @implementation CocoaTools
 

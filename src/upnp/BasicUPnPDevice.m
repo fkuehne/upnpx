@@ -132,41 +132,44 @@
 
 
 -(void)syncServices{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    //Sync 'services'
-	SSDPDBDevice_ObjC *ssdpService = nil;
-	BasicUPnPService *upnpService = nil;
-	NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid]; //SSDPDBDevice_ObjC[]
+    @autoreleasepool {
+        //Sync 'services'
+        SSDPDBDevice_ObjC *ssdpService = nil;
+        BasicUPnPService *upnpService = nil;
+        NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid]; //SSDPDBDevice_ObjC[]
 
-	NSMutableDictionary *toRemove = [[NSMutableDictionary alloc] initWithDictionary:services];
-	NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
-	
-	for(int x=0;x<[ssdpservices count];x++){
-		ssdpService = [ssdpservices objectAtIndex:x];
-		upnpService = [services objectForKey:[ssdpService urn]];
-		if(upnpService == nil){
-			//We don't have the service, create a new one
-			upnpService = [[[UPnPManager GetInstance] serviceFactory] allocServiceForSSDPService:ssdpService];
-			//we delay initialization of the service until we need it [upnpService process];  
-			[toAdd setObject:upnpService forKey:[upnpService urn]];
-            [upnpService release];
-		}else{
-			//remove from toremove
-			[toRemove removeObjectForKey:[ssdpService urn]];
-		}
-	}
-	//toAdd and toRemove are filled now, first remove services if needed
-	NSString *key;
-	for (key in toRemove) {
-		[services removeObjectForKey:key];
-	}	
-	for (key in toAdd) {
-		[services setObject:[toAdd objectForKey:key] forKey:key];
-	}
-	
-	[toRemove release];
-	[toAdd release];
-    [pool release];
+        NSMutableDictionary *toRemove = [[NSMutableDictionary alloc] initWithDictionary:services];
+        NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
+
+        for(int x = 0; x < [ssdpservices count]; x++){
+            ssdpService = [ssdpservices objectAtIndex:x];
+            upnpService = [services objectForKey:[ssdpService urn]];
+
+            if(upnpService == nil){
+                //We don't have the service, create a new one
+                upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
+
+                //we delay initialization of the service until we need it [upnpService process];
+                [toAdd setObject:upnpService forKey:[upnpService urn]];
+                [upnpService release];
+            }else{
+                //remove from toremove
+                [toRemove removeObjectForKey:[ssdpService urn]];
+            }
+        }
+
+        //toAdd and toRemove are filled now, first remove services if needed
+        NSString *key;
+        for (key in toRemove) {
+            [services removeObjectForKey:key];
+        }	
+        for (key in toAdd) {
+            [services setObject:[toAdd objectForKey:key] forKey:key];
+        }
+
+        [toRemove release];
+        [toAdd release];
+    }
 }
 
 -(NSMutableDictionary*)getServices{ //BasicUPnPService[]

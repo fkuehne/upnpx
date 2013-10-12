@@ -56,15 +56,13 @@ public:
 	
 	int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf){
 		[NSRunLoop currentRunLoop]; //Start our runloop
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-		
-		unsigned short port = sender->sin_port;
-		NSString *ip = [[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding];
-	
-		[pool release];
-		
-		return [mObjCObserver dataIn:buf length:len fromIP:ip fromPort:port];
+		@autoreleasepool {
+            unsigned short port = sender->sin_port;
+            NSString *ip = [[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding];
+            return [mObjCObserver dataIn:buf length:len fromIP:ip fromPort:port];
+        }
+
 	}
 
 	int DataToSend(int *len, unsigned char **buf){
