@@ -50,23 +50,17 @@
 
 
 
-@interface UPnPDB : NSObject <SSDPDB_ObjC_Observer>{
-	NSMutableArray *readyForDescription; //BasicUPnPDevice (only some info is known)
-	NSMutableArray *rootDevices; //BasicUPnPDevice (full info is known)
-	NSRecursiveLock *mMutex;
-	SSDPDB_ObjC *mSSDP;
-	NSMutableArray *mObservers;
-	NSThread *mHTTPThread;
-	
-}
+@interface UPnPDB : NSObject <SSDPDB_ObjC_Observer>
 
 -(id)initWithSSDP:(SSDPDB_ObjC*)ssdp; 
 
 -(void)lock;
 -(void)unlock;
 -(void)httpThread:(id)argument;
--(int)addObserver:(UPnPDBObserver*)obs;
--(int)removeObserver:(UPnPDBObserver*)obs;
+
+-(int)addObserver:(id<UPnPDBObserver>)observer;
+-(int)removeObserver:(id<UPnPDBObserver>)observer;
+
 -(NSArray*)getSSDPServicesFor:(BasicUPnPDevice*)device; //Returns NSArray[SSDPDBDevice_ObjC*] devices
 -(NSArray*)getSSDPServicesForUUID:(NSString*)uuid; //Returns NSArray[SSDPDBDevice_ObjC*] devices
 

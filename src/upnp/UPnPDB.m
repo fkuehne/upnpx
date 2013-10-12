@@ -34,9 +34,15 @@
 #import "UPnPDB.h"
 #import "UPnPManager.h"
 
+@interface UPnPDB() {
+	NSMutableArray *readyForDescription; //BasicUPnPDevice (only some info is known)
+	NSMutableArray *rootDevices; //BasicUPnPDevice (full info is known)
+	NSRecursiveLock *mMutex;
+	SSDPDB_ObjC *mSSDP;
+	NSMutableArray *mObservers;
+	NSThread *mHTTPThread;
+}
 
-
-@interface UPnPDB()
 -(BasicUPnPDevice*)addToDescriptionQueue:(SSDPDBDevice_ObjC*)ssdpdevice; 
 @end
 
@@ -44,8 +50,7 @@
 
 @synthesize rootDevices;
 
-
--(id)initWithSSDP:(SSDPDB_ObjC*)ssdp{ 
+-(id)initWithSSDP:(SSDPDB_ObjC*)ssdp{
     self = [super init];
     
     if (self) {
