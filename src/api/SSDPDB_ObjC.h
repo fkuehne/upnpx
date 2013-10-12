@@ -57,9 +57,6 @@
 }
 
 
--(id)init;
--(void)dealloc;
-
 -(void)lock;
 -(void)unlock;
 
@@ -96,7 +93,6 @@
 }
 
 -(id)initWithCPPDevice:(void*)cppDevice;
--(void)dealloc;
 
 @property(readonly) bool isdevice;
 @property(readonly) bool isroot;

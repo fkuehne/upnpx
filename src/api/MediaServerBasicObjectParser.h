@@ -72,7 +72,6 @@
 
 -(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray;
 -(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray itemsOnly:(BOOL)onlyItems;
--(void)dealloc;
 
 -(void)container:(NSString*)startStop;
 -(void)item:(NSString*)startStop;

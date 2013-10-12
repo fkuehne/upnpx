@@ -44,12 +44,6 @@
 @synthesize objectClass;
 @synthesize albumArt;
 
--(id)init{
-    self = [super init];
-    
-	return self;
-}
-
 -(void)dealloc{
     [objectID release];
     [parentID release];
@@ -59,9 +53,5 @@
     
 	[super dealloc];
 }
-
-
-
-
 
 @end

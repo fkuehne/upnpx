@@ -44,7 +44,6 @@
 }
 
 -(id)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns;
--(void)dealloc;
 -(int)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output;
 
 -(void)setStringValueForFoundAsset:(NSString*)value;

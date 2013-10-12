@@ -58,9 +58,6 @@
     SoapActionsConfigurationManagement1 *mConfigurationManagement;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsCallManagement1*)callManagement;
 -(SoapActionsMessaging1*)messaging;
 -(SoapActionsInputConfig1*)inputConfig;

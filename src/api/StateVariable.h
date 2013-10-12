@@ -57,9 +57,6 @@ typedef enum StateVariableDataType{
 	NSString *dataTypeString;
 }
 
-
--(id)init;
--(void)dealloc;
 -(void)empty;
 -(void)setDataTypeString:(NSString*)value;
 -(void)copyFromStateVariable:(StateVariable*)stateVar;

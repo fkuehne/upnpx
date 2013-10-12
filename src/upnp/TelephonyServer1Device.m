@@ -37,23 +37,6 @@
 
 @implementation TelephonyServer1Device
 
-
-
--(id)init{
-    self = [super init];
-    
-    if (self) {		
-        mCallManagement = nil;
-        mMessaging = nil;
-        mInputConfig = nil;
-        mDeviceProtection = nil;
-        mConfigurationManagement = nil;
-    }
-
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mCallManagement release];

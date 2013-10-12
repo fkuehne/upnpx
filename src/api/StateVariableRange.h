@@ -40,8 +40,6 @@
 	int max;
 }
 
--(id)init;
--(void)dealloc;
 -(void)empty;
 
 -(int)setMinWithString:(NSString*)val;

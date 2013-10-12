@@ -47,7 +47,6 @@ typedef enum MediaPlaylistState{
 	MediaPlaylistState_Playing
 }MediaPlaylistState;
 
-
 /**
  * Observer
  */
@@ -55,7 +54,6 @@ typedef enum MediaPlaylistState{
 -(int)NewTrack:(MediaServer1ItemObject*)track;
 -(void)StateChanged:(MediaPlaylistState)state;
 @end
-
 
 
 /**
@@ -71,8 +69,6 @@ typedef enum MediaPlaylistState{
 	MediaPlaylistState state;
 }
 
--(id)init;
--(void)dealloc;
 -(int)addObserver:(MediaPlaylistObserver*)obs;
 -(int)removeObserver:(MediaPlaylistObserver*)obs;
 -(int)loadWithMediaServer:(MediaServer1Device*)server forContainer:(MediaServer1ContainerObject*)selectedContainer;
@@ -91,6 +87,5 @@ typedef enum MediaPlaylistState{
 @property(readonly) MediaServer1ContainerObject* container;
 @property(readonly) MediaPlaylistState state;
 //@property(readwrite, retain) MediaRenderer1Device* mediaRenderer;
-
 
 @end

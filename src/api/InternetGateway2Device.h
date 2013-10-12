@@ -36,7 +36,6 @@
 
 #import "SoapActionsLayer3Forwarding1.h"
 
-
 /*
  * Services:
  * O - Layer3Forwarding:1 
@@ -46,13 +45,8 @@
 	SoapActionsLayer3Forwarding1 *mLayer3Forwarding;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsLayer3Forwarding1*)layer3Forwarding;
 
 -(BasicUPnPService*)layer3ForwardingService;
-
-
 
 @end

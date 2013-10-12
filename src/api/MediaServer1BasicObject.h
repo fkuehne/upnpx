@@ -45,10 +45,6 @@
 	BOOL isContainer;
 }
 
--(id)init;
--(void)dealloc;
-
-
 @property (readwrite, retain)NSString *objectID;
 @property (readwrite, retain)NSString *parentID;
 @property (readwrite, retain)NSString *title;

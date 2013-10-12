@@ -56,8 +56,6 @@
 }
 
 +(UPnPManager*)GetInstance;
--(id)init;
--(void)dealloc;
 
 @property(readonly) SSDPDB_ObjC *SSDP;
 @property(readonly) UPnPDB *DB;
@@ -67,6 +65,5 @@
 @property(retain, nonatomic) MediaRenderer1Device *defaultMediaRenderer1;
 @property(readonly) UPnPEvents *upnpEvents;
 @property(readonly) MediaPlaylist *defaultPlaylist;
-
 
 @end

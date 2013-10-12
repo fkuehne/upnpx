@@ -53,9 +53,6 @@
 	SoapActionsDigitalSecurityCameraMotionImage1 *mDigitalSecurityCameraMotionImage;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsDigitalSecurityCameraSettings1*)digitalSecurityCameraSettings;
 -(SoapActionsDigitalSecurityCameraStillImage1*)digitalSecurityCameraStillImage;
 -(SoapActionsDigitalSecurityCameraMotionImage1*)digitalSecurityCameraMotionImage;
@@ -63,7 +60,5 @@
 -(BasicUPnPService*)digitalSecurityCameraSettingsService;
 -(BasicUPnPService*)digitalSecurityCameraStillImageService;
 -(BasicUPnPService*)digitalSecurityCameraMotionImageService;
-
-
 
 @end

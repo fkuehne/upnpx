@@ -37,26 +37,12 @@
 
 @implementation BinaryLight1Device
 
-
--(id)init{
-    self = [super init];
-    
-    if (self) {	
-        mSwitchPower = nil;
-	}
-    
-	return self;
-}
-
-
 -(void)dealloc{
 	
 	[mSwitchPower release];
 	
 	[super dealloc];
 }
-
-
 
 -(BasicUPnPService*)switchPowerService{
 	return [self getServiceForType:@"urn:schemas-upnp-org:service:SwitchPower:1"];
@@ -71,8 +57,6 @@
 	
 	return mSwitchPower;
 }
-
-
 
 
 @end

@@ -39,9 +39,6 @@
 
 }
 
--(id)init;
--(void)dealloc;
 -(SoapAction*)allocSoapWithURN:(NSString*)urn andBaseNSURL:(NSURL*)baseURL andControlURL:(NSString*)controlURL andEventURL:(NSString*)eventURL;
-
 
 @end

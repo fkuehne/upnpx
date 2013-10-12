@@ -131,7 +131,6 @@
 }
 
 
-
 -(void)syncServices{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     //Sync 'services'

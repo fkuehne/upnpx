@@ -40,7 +40,5 @@
 }
 
 -(id)initWithEventDictionary:(NSMutableDictionary*)foundEvents;
--(void)dealloc;
-
 
 @end

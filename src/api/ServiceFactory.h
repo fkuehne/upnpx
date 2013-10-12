@@ -42,8 +42,4 @@
 
 -(BasicUPnPService*)allocServiceForSSDPService:(SSDPDBDevice_ObjC*)ssdp;
 
-
--(id)init;
--(void)dealloc;
-
 @end

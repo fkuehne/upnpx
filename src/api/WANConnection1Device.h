@@ -55,15 +55,10 @@
 	SoapActionsWANPPPConnection1 *mPPPConnection;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsWANIPConnection1*)ipConnection;
 -(SoapActionsWANPPPConnection1*)pppConnection;
 
 -(BasicUPnPService*)ipConnectionService;
 -(BasicUPnPService*)pppConnectionService;
-
-
 
 @end

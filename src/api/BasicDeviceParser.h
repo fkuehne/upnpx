@@ -48,8 +48,6 @@
 
 	NSString* friendlyName;
 	NSString* udn;
-
-	
 }
 
 -(id)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice;

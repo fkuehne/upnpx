@@ -48,7 +48,6 @@
 @end
 
 	
-	
 
 @implementation MediaPlaylist
 

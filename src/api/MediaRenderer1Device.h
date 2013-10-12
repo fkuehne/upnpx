@@ -63,9 +63,6 @@
 	MediaPlaylist *playList;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsAVTransport1*)avTransport;
 -(SoapActionsRenderingControl1*)renderingControl;
 -(SoapActionsConnectionManager1*)connectionManager;
@@ -76,7 +73,6 @@
 
 -(BOOL)supportProtocol:(NSString*)protocolInfo withCache:(BOOL)useCache;
 
-
 -(int)play;
 -(int)playWithMedia:(MediaServer1BasicObject*)media;
 
@@ -84,6 +80,5 @@
 
 //BasicUPnPServiceObserver
 -(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
-
 
 @end

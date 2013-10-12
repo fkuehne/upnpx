@@ -63,7 +63,6 @@
 
 
 
-
 -(int)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output{
 	int len=0;
 	int ret = 0;
@@ -152,7 +151,5 @@
 		}
 	}	
 }
-
-
 
 @end

@@ -37,18 +37,6 @@
 
 @implementation ServiceFactory
 
--(id)init{
-    self = [super init];
-
-	return self;
-}
-
--(void)dealloc{
-	
-	[super dealloc];
-}
-
-
 
 -(BasicUPnPService*)allocServiceForSSDPService:(SSDPDBDevice_ObjC*)ssdp{
 	BasicUPnPService* service = nil;	
@@ -59,8 +47,5 @@
 
 	return service;
 }
-
-
-
 
 @end

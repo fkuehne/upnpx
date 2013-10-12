@@ -143,8 +143,6 @@
 }
 
 
-
-
 -(int)play{
 	
 	[playList stop];

@@ -193,7 +193,6 @@
 
 }
 
-
 -(BasicUPnPDevice*)addToDescriptionQueue:(SSDPDBDevice_ObjC*)ssdpdevice{
 	[self lock];
 
@@ -221,8 +220,6 @@
 	
 	return upnpdevice; //carefull, it is possible upnpevice will be deleted before the caller can use it
 }
-
-
 
 
 //return SSDPDBDevice_ObjC[]
@@ -268,8 +265,6 @@
 	
 	return services;
 }
-
-
 
 
 //Thread
@@ -318,7 +313,5 @@
 		sleep(2); //Wait and get signalled @TODO
 	}	
 }
-
-
 
 @end

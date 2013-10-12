@@ -36,7 +36,6 @@
 #import "SSDPDB_ObjC.h"
 #import "BasicUPnPService.h"
 
-
 #import "iphoneport.h"
 
 @interface BasicUPnPDevice : NSObject {
@@ -60,12 +59,10 @@
 	int smallIconWidth;
 	int smallIconDepth;
 	NSString *smallIconURL;
-	
 }
 
--(id)init;
+
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
--(void)dealloc;
 -(int)loadDeviceDescriptionFromXML;
 -(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn;
 -(NSMutableDictionary*)getServices; //BasicUPnPService[]
@@ -87,8 +84,5 @@
 @property(readwrite) int smallIconWidth;
 @property(readwrite) int smallIconDepth;
 @property(readwrite, retain) NSString *smallIconURL;
-
-
-
 
 @end

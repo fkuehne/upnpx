@@ -68,9 +68,7 @@
 	NSRecursiveLock *mMutex;
 }
 
-
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device;
--(void)dealloc;
 
 -(int)addObserver:(BasicUPnPServiceObserver*)obs;
 -(int)removeObserver:(BasicUPnPServiceObserver*)obs;
@@ -82,7 +80,6 @@
 //Further processing is service dependent and must be handled by the derived classes 
 //The return value must be 0 when implenented
 -(int)process; //in C++ this should be a pure virtual function
-
 
 
 @property (readwrite, retain) NSURL* baseURL;

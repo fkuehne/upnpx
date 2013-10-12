@@ -45,13 +45,7 @@
 	SoapActionsSwitchPower1 *mSwitchPower;
 }
 
-
--(id)init;
--(void)dealloc;
-
 -(SoapActionsSwitchPower1*)switchPower;
 -(BasicUPnPService*)switchPowerService;
-
-
 
 @end

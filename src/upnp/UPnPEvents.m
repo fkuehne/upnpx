@@ -39,6 +39,7 @@
 @synthesize observer;
 @synthesize timeout;
 @synthesize subscriptiontime;
+
 -(void)dealloc{
     [observer release];
 	[super dealloc];

@@ -66,9 +66,6 @@
     SoapActionsWANIPv6FirewallControl1 *mIPv6FirewallControl;
 }
 
--(id)init;
--(void)dealloc;
-
 -(SoapActionsWANPOTSLinkConfig1*)potsLinkConfig;
 -(SoapActionsWANDSLLinkConfig1*)dslLinkConfig;
 -(SoapActionsWANCableLinkConfig1*)cableLinkConfig;
