@@ -157,46 +157,42 @@ private:
 -(void)SSDPDBUpdate{
 	[NSRunLoop currentRunLoop]; //Start our runloop
 	
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
+        SSDPDB_ObjC_Observer *obs;
 
-	SSDPDB_ObjC_Observer *obs;
-	
-	//Inform the listeners
-	NSEnumerator *listeners = [mObservers objectEnumerator];
-	while((obs = [listeners nextObject])){
-		[obs SSDPDBWillUpdate:self];
-	}
-	
-	
-	[self lock];
-	[SSDPObjCDevices removeAllObjects];
-	//Update the Obj-C Array	
-	UPNP::GetInstance()->GetSSDP()->GetDB()->Lock();
-	SSDPDBDevice* thisDevice;
-	std::vector<SSDPDBDevice*> devices;
-	std::vector<SSDPDBDevice*>::const_iterator it;
-	devices = UPNP::GetInstance()->GetSSDP()->GetDB()->GetDevices();
-	for(it=devices.begin();it<devices.end();it++){
-		thisDevice = *it;
-		SSDPDBDevice_ObjC* thisObjCDevice = [[SSDPDBDevice_ObjC alloc] initWithCPPDevice:thisDevice];
-		[SSDPObjCDevices addObject:thisObjCDevice];
-		[thisObjCDevice release];
-	}
-	UPNP::GetInstance()->GetSSDP()->GetDB()->Unlock();
-	
-	//Inform the listeners
-	listeners = [mObservers objectEnumerator];
-	while((obs = [listeners nextObject])){
-		[obs SSDPDBUpdated:self];
-	}
-	[self unlock];
-	
-	
-	[pool release];
+        //Inform the listeners
+        NSEnumerator *listeners = [mObservers objectEnumerator];
+        while((obs = [listeners nextObject])){
+            [obs SSDPDBWillUpdate:self];
+        }
+
+
+        [self lock];
+        [SSDPObjCDevices removeAllObjects];
+        //Update the Obj-C Array
+        UPNP::GetInstance()->GetSSDP()->GetDB()->Lock();
+        SSDPDBDevice* thisDevice;
+        std::vector<SSDPDBDevice*> devices;
+        std::vector<SSDPDBDevice*>::const_iterator it;
+        devices = UPNP::GetInstance()->GetSSDP()->GetDB()->GetDevices();
+        for(it=devices.begin();it<devices.end();it++){
+            thisDevice = *it;
+            SSDPDBDevice_ObjC* thisObjCDevice = [[SSDPDBDevice_ObjC alloc] initWithCPPDevice:thisDevice];
+            [SSDPObjCDevices addObject:thisObjCDevice];
+            [thisObjCDevice release];
+        }
+        UPNP::GetInstance()->GetSSDP()->GetDB()->Unlock();
+        
+        //Inform the listeners
+        listeners = [mObservers objectEnumerator];
+        while((obs = [listeners nextObject])){
+            [obs SSDPDBUpdated:self];
+        }
+        [self unlock];
+    }
 }
+
 @end
-
-
 
 /**
  * Device class

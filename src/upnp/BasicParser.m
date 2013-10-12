@@ -146,70 +146,45 @@ static NSString *ElementStop = @"ElementStop";
 
 
 -(int)parseFromData:(NSData*)data{
-	int ret=0;
-	
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-	ret = [self startParser:parser];	
-	[parser release];
-	
-    [pool drain];
-    
-	return ret;
+    @autoreleasepool {
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+        int ret = [self startParser:parser];
+        [parser release];
+        return ret;
+    }
 }
-
-
 
 -(int)parseFromURL:(NSURL*)url{
-	int ret=0;
+    @autoreleasepool {
+        //Workaround for memory leak
+        //http://blog.filipekberg.se/2010/11/30/nsxmlparser-has-memory-leaks-in-ios-4/
+        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+        [[NSURLCache sharedURLCache] setDiskCapacity:0];
 
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        NSData *xml = [NSData dataWithContentsOfURL:url];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xml];;
 
-    //Workaround for memory leak
-    //http://blog.filipekberg.se/2010/11/30/nsxmlparser-has-memory-leaks-in-ios-4/
-    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-    [[NSURLCache sharedURLCache] setDiskCapacity:0];
-    
-    NSData *xml = [NSData dataWithContentsOfURL:url];
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xml];;
-
-	ret = [self startParser:parser];	
-    [parser release];
-
-    [pool drain];
-	
-	return ret;
+        int ret = [self startParser:parser];
+        [parser release];
+        return ret;
+    }
 }
 
-
 -(int)startParser:(NSXMLParser*)parser{
-	int ret = 0;
-	
-	if(parser == nil){
+    if(parser == nil){
 		return -1;
 	}
-	
+
+	int ret = 0;
 
 	[parser setShouldProcessNamespaces:mSupportNamespaces];
-	
 	[parser setDelegate:self];
 	
 	BOOL pret = [parser parse];
-	if(pret == YES){
-		ret = 0;
-	}else{
-		ret = -1;
-	}
-	
     [parser setDelegate:nil];
-	
-	
-	return ret;
+
+	return pret? 0: -1;
 }
-
-
-
 
 /***
  * NSXMLParser Delegates
@@ -298,7 +273,6 @@ static NSString *ElementStop = @"ElementStop";
     NSLog(@"%@", [NSString stringWithFormat:@"Parser Error %li, Description: %@, Line: %li, Column: %li", (long)[parseError code], [[parser parserError] localizedDescription], (long)[parser lineNumber], (long)[parser columnNumber]]);
 }
 
-
 /*
  # – parser:didStartMappingPrefix:toURI:  delegate method
  # – parser:didEndMappingPrefix:  delegate method
@@ -310,8 +284,5 @@ static NSString *ElementStop = @"ElementStop";
  # – parser:foundComment:  delegate method
  # – parser:foundCDATA:  delegate method
  */
-
-
-
 
 @end
