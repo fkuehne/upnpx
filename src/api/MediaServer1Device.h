@@ -59,6 +59,4 @@
 -(BasicUPnPService*)connectionManagerService;
 -(BasicUPnPService*)contentDirectoryService;
 
-
-
 @end

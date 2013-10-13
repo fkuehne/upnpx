@@ -33,6 +33,7 @@
 
 
 #import "BasicDeviceParser.h"
+#import "BasicUPnPDevice.h"
 
 #define IDEALICONWIDTH 48
 #define IDEALICONHEIGHT 48

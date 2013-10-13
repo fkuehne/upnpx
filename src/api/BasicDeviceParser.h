@@ -32,9 +32,9 @@
 // **********************************************************************************
 
 #import <Foundation/Foundation.h>
-#import "BasicUPnPDevice.h"
 #import "BasicParser.h"
 
+@class BasicUPnPDevice;
 @interface BasicDeviceParser : BasicParser {
 	BasicUPnPDevice *device;
 	NSString* iconURL;
