@@ -33,6 +33,7 @@
 
 
 #import "BasicParser.h"
+#import "BasicParserAsset.h"
 
 @interface BasicParser()
 	-(int)startParser:(NSXMLParser*)parser;	

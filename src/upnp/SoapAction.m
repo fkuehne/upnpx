@@ -33,7 +33,25 @@
 
 
 #import "SoapAction.h"
+#import "BasicParserAsset.h"
 
+#import "SoapActionsAVTransport1.h"
+#import "SoapActionsConnectionManager1.h"
+#import "SoapActionsContentDirectory1.h"
+#import "SoapActionsRenderingControl1.h"
+#import "SoapActionsSwitchPower1.h"
+#import "SoapActionsDimming1.h"
+#import "SoapActionsWANIPConnection1.h"
+#import "SoapActionsWANPPPConnection1.h"
+
+
+@interface SoapAction () {
+	NSURL *_actionURL;
+	NSURL *_eventURL;
+	NSString *_upnpNameSpace;
+	NSDictionary *_mOutput;
+}
+@end
 
 @implementation SoapAction
 
@@ -43,21 +61,21 @@
     
     if (self) {
         /* TODO: All of the below -> retain properties */
-        actionURL = aUrl;
-        eventURL = eUrl;
-        upnpNameSpace = ns;
-        [actionURL retain];
-        [eventURL retain];
-        [upnpNameSpace retain];
+        _actionURL = aUrl;
+        _eventURL = eUrl;
+        _upnpNameSpace = ns;
+        [_actionURL retain];
+        [_eventURL retain];
+        [_upnpNameSpace retain];
 	}
 	
 	return self;
 }
 
 -(void)dealloc{
-	[actionURL release];
-	[eventURL release];
-	[upnpNameSpace release];
+	[_actionURL release];
+	[_eventURL release];
+	[_upnpNameSpace release];
 	[super dealloc];
 }
 
@@ -67,14 +85,14 @@
 	int len=0;
 	int ret = 0;
 	
-	mOutput = output;//we need it as a member to fill it during parsing
+	_mOutput = output;//we need it as a member to fill it during parsing
 	
 	//SOAP Message to Send
 	NSMutableString *body = [[NSMutableString alloc] init];
 	[body appendString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>"];
 	[body appendString:@"<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"];
 	[body appendString:@"<s:Body>"];
-	[body appendFormat:@"<u:%@ xmlns:u=\"%@\">", soapAction, upnpNameSpace];
+	[body appendFormat:@"<u:%@ xmlns:u=\"%@\">", soapAction, _upnpNameSpace];
 	for (id key in parameters) {		
 		[body appendFormat:@"<%@>%@</%@>", key, [parameters objectForKey:key], key];
 	}
@@ -83,11 +101,11 @@
 	len = [body length];
 
 	//Construct the HTML POST 
-	NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:actionURL
+	NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:_actionURL
 															cachePolicy:NSURLRequestReloadIgnoringCacheData
 														timeoutInterval:15.0];
 	
-	[urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
+	[urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", _upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
 	[urlRequest setValue:[NSString stringWithFormat:@"%d", len] forHTTPHeaderField:@"CONTENT-LENGTH"];
 	[urlRequest setValue:@"text/xml; charset=\"utf-8\"" forHTTPHeaderField:@"CONTENT-TYPE"];
 
@@ -130,7 +148,7 @@
 	
     [body release];
     
-	mOutput = nil;
+	_mOutput = nil;
 	
 	return ret;
 }
@@ -143,13 +161,87 @@
 		if(asset != nil){
 			NSString *elementName = [[asset path] lastObject];
 			if(elementName != nil){
-				NSMutableString *output = [mOutput objectForKey:elementName];
+				NSMutableString *output = [_mOutput objectForKey:elementName];
 				if(output != nil){	
 					[output setString:value];
 				}
 			}
 		}
 	}	
+}
+
+@end
+
+@implementation SoapAction (Factory)
+
++ (SoapAction*)soapActionWithURN:(NSString*)urn andBaseNSURL:(NSURL*)baseURL andControlURL:(NSString*)controlURL andEventURL:(NSString*)eventURL {
+	SoapAction *soapaction = nil;
+
+	if([urn isEqualToString:@"urn:schemas-upnp-org:service:AVTransport:1"]){
+
+
+		soapaction = [[SoapActionsAVTransport1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+                      ];
+
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:ConnectionManager:1"]){
+
+		soapaction = [[SoapActionsConnectionManager1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:ContentDirectory:1"]){
+
+		soapaction = [[SoapActionsContentDirectory1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:RenderingControl:1"]){
+
+		soapaction = [[SoapActionsRenderingControl1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:SwitchPower:1"]){
+		soapaction = [[SoapActionsSwitchPower1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:Dimming:1"]){
+		soapaction = [[SoapActionsDimming1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:WANIPConnection:1"]){
+		soapaction = [[SoapActionsWANIPConnection1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+	}else if([urn isEqualToString:@"urn:schemas-upnp-org:service:WANPPPConnection:1"]){
+		soapaction = [[SoapActionsWANPPPConnection1 alloc]
+					  initWithActionURL:[NSURL URLWithString:controlURL relativeToURL:baseURL]
+					  eventURL:[NSURL URLWithString:eventURL relativeToURL:baseURL]
+					  upnpnamespace:urn
+					  ];
+	}
+	
+	
+	return soapaction;
 }
 
 @end

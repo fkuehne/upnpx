@@ -34,8 +34,17 @@
 
 #import "BasicParserAsset.h"
 
-@implementation BasicParserAsset
+@interface BasicParserAsset ()  {
+	NSArray *path;
+	SEL function;
+	id functionObject;
+	SEL stringValueFunction;
+	id  stringValueObject;
+	NSMutableString *stringCache;
+}
+@end
 
+@implementation BasicParserAsset
 
 @synthesize path;
 @synthesize function;
@@ -64,7 +73,6 @@
     
 	return self;
 }
-
 
 -(void)dealloc{
 	[path release];

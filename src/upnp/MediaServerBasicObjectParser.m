@@ -35,7 +35,7 @@
 #import "MediaServer1BasicObject.h"
 #import "MediaServer1ContainerObject.h"
 #import "MediaServer1ItemObject.h"
-#import "CocoaTools.h"
+#import "NSString+UPnPExtentions.h"
 #import "OrderedDictionary.h"
 #import "MediaServer1ItemRes.h"
 

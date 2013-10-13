@@ -40,7 +40,7 @@
 
 #import "MediaPlaylist.h"
 #import "MediaServerBasicObjectParser.h"
-#import "CocoaTools.h"
+#import "NSString+UPnPExtentions.h"
 
 
 @interface MediaPlaylist()

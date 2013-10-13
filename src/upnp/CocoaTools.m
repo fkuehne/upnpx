@@ -32,9 +32,9 @@
 // **********************************************************************************
 
 
-#import "CocoaTools.h"
+#import "NSString+UPnPExtentions.h"
 
-@implementation NSString(AcranegraExtentions)
+@implementation NSString(UPnPExtentions)
 
 -(NSString*)XMLUnEscape {
 	if([self length] < 2){
@@ -134,9 +134,5 @@
 	
 	return ret;	
 }
-
-@end
-
-@implementation CocoaTools
 
 @end

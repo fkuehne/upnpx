@@ -35,14 +35,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BasicParserAsset : NSObject {
-	NSArray *path;
-	SEL function;
-	id functionObject;
-	SEL stringValueFunction;
-	id  stringValueObject;
-	NSMutableString *stringCache;
-}
+@interface BasicParserAsset : NSObject
 
 -(id)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj;
 

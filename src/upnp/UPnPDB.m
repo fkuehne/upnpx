@@ -291,22 +291,17 @@
                         //NSLog(@"httpThread upnpdevice, location=%@", [upnpdevice xmlLocation]);
 
                         //Inform the listeners so they know the rootDevices array might change
-                        UPnPDBObserver *obs;
-                        NSEnumerator *listeners = [mObservers objectEnumerator];
-                        while((obs = [listeners nextObject])){
-                            [obs UPnPDBWillUpdate:self];
+                        for (id<UPnPDBObserver> observer in mObservers) {
+                            [observer UPnPDBWillUpdate:self];
                         }
 
                         //This is the only place we add devices to the rootdevices
                         [rootDevices addObject:upnpdevice];
                         
-                        
-                        listeners = [mObservers objectEnumerator];
-                        while((obs = [listeners nextObject])){
-                            [obs UPnPDBUpdated:self];
-                        }		
-                        
-                        
+                        for (id<UPnPDBObserver> observer in mObservers) {
+                            [observer UPnPDBUpdated:self];
+                        }
+
                         [self unlock];
                     }
                     [readyForDescription removeObjectAtIndex:0];

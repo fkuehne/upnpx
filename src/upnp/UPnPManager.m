@@ -34,23 +34,34 @@
 
 #import "UPnPManager.h"
 
-static UPnPManager *_upnpmanager = nil;
+@interface UPnPManager () {
+	SSDPDB_ObjC *SSDP;
+	UPnPDB *DB;
+	DeviceFactory* deviceFactory;
+	UPnPEvents *upnpEvents;
+
+	MediaRenderer1Device *defaultMediaRenderer1;
+	MediaPlaylist *defaultPlaylist;
+}
+@end
 
 @implementation UPnPManager
 
 @synthesize SSDP;
 @synthesize DB;
 @synthesize deviceFactory;
-@synthesize soapFactory;
 @synthesize upnpEvents;
 @synthesize defaultMediaRenderer1;
 @synthesize defaultPlaylist;
 
 +(UPnPManager*)GetInstance{
-	if(_upnpmanager == nil){
-		_upnpmanager = [[UPnPManager alloc] init];
-	}
-	return _upnpmanager;
+    static UPnPManager *instance = nil;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        instance = [[UPnPManager alloc] init];
+    });
+	return instance;
 }
 
 -(id)init{
@@ -58,7 +69,6 @@ static UPnPManager *_upnpmanager = nil;
     
     if (self) {
         upnpEvents = [[UPnPEvents alloc] init];
-        soapFactory = [[SoapActionFactory alloc] init];
         deviceFactory = [[DeviceFactory alloc] init];
         SSDP = [[SSDPDB_ObjC alloc] init];
         DB = [[UPnPDB alloc] initWithSSDP:SSDP]; 
@@ -79,7 +89,6 @@ static UPnPManager *_upnpmanager = nil;
 	[SSDP release];
 	[DB release];
 	[deviceFactory release];
-	[soapFactory release];
 	[upnpEvents release];
 	[defaultPlaylist release];
 	

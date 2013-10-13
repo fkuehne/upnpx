@@ -33,7 +33,7 @@
 
 
 #import "MediaRenderer1Device.h"
-#import "CocoaTools.h"
+#import "NSString+UPnPExtentions.h"
 
 @implementation MediaRenderer1Device
 

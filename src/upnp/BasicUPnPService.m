@@ -174,7 +174,7 @@
 	//Set the soap actions
 	[soap release];
 	if(ret == 0){
-		soap = [[[UPnPManager GetInstance] soapFactory] allocSoapWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL];
+		soap = [SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL];
 		//retain is not needed because we did alloc
 		isProcessed = YES;
 	}else{
