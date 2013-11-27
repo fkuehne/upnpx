@@ -98,10 +98,11 @@
 
 -(int)removeObserver:(UPnPDBObserver*)obs{
 	int ret = 0;
-	[self lock];
-	[mObservers removeObject:obs];
-	ret = [mObservers count];
-	[self unlock];
+    if ([mMutex tryLock]) {
+        [mObservers removeObject:obs];
+        ret = [mObservers count];
+        [self unlock];
+    }
 	return ret;
 }
 
