@@ -74,8 +74,10 @@ static UPnPManager *_upnpmanager = nil;
 }
 
 -(void)dealloc{
-    [upnpEvents stop];
-	[SSDP stopSSDP];
+    if (upnpEvents)
+        [upnpEvents stop];
+    if (SSDP)
+        [SSDP stopSSDP];
 	[SSDP release];
 	[DB release];
 	[serviceFactory release];
