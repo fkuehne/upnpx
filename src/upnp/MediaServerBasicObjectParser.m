@@ -281,7 +281,7 @@
         [r setDuration: duration];
         [r setNrAudioChannels: [audioChannels intValue]];
         [r setProtocolInfo: protocolInfo];
-        [r setSize: [size intValue]];
+        [r setSize: [size longLongValue]];
         if ([duration respondsToSelector:@selector(HMS2Seconds)])
             [r setDurationInSeconds:[duration HMS2Seconds]];
         else
