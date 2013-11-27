@@ -238,7 +238,10 @@
 		[media setAudioChannels:audioChannels];	
 		[media setSize:size];
 		[media setDuration:duration];
-        [media setDurationInSeconds:[duration HMS2Seconds]];
+        if ([duration respondsToSelector:@selector(HMS2Seconds)])
+            [media setDurationInSeconds:[duration HMS2Seconds]];
+        else
+            [media setDurationInSeconds:@""];
 		[media setBitrate:bitrate];
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];
@@ -279,9 +282,11 @@
         [r setNrAudioChannels: [audioChannels intValue]];
         [r setProtocolInfo: protocolInfo];
         [r setSize: [size intValue]];
-        [r setDurationInSeconds:[duration HMS2Seconds]];
-        
-        [resources addObject:r];      
+        if ([duration respondsToSelector:@selector(HMS2Seconds)])
+            [r setDurationInSeconds:[duration HMS2Seconds]];
+        else
+            [r setDurationInSeconds:@""];
+        [resources addObject:r];
         [r release];
         
 	}else{
