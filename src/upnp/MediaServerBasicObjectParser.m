@@ -180,6 +180,25 @@
 }
 
 
+//hh:mm:ss -> seconds
+-(int)_HMS2Seconds:(NSString *)time
+{
+	int s = 0;
+
+	NSArray *items = [time componentsSeparatedByString:@":"];
+	if ([items count] == 3){
+		//hh
+		s = s + [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;
+		//mm
+		s = s + [(NSString*)[items objectAtIndex:1] intValue] * 60;
+		//ss
+		s = s + [(NSString*)[items objectAtIndex:2] intValue];
+	}
+
+	return s;
+}
+
+
 -(void)container:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
 		//Clear
@@ -238,10 +257,7 @@
 		[media setAudioChannels:audioChannels];	
 		[media setSize:size];
 		[media setDuration:duration];
-        if ([duration respondsToSelector:@selector(HMS2Seconds)])
-            [media setDurationInSeconds:[duration HMS2Seconds]];
-        else
-            [media setDurationInSeconds:@""];
+        [media setDurationInSeconds:[self _HMS2Seconds:duration]];
 		[media setBitrate:bitrate];
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];
@@ -282,10 +298,7 @@
         [r setNrAudioChannels: [audioChannels intValue]];
         [r setProtocolInfo: protocolInfo];
         [r setSize: [size longLongValue]];
-        if ([duration respondsToSelector:@selector(HMS2Seconds)])
-            [r setDurationInSeconds:[duration HMS2Seconds]];
-        else
-            [r setDurationInSeconds:@""];
+        [r setDurationInSeconds:[self _HMS2Seconds:duration]];
         [resources addObject:r];
         [r release];
         
