@@ -292,16 +292,24 @@ int SSDP::ReadLoop(){
     
 	//Read UDP answers
 	while(mReadLoop){
-		//printf("SSDP::ReadLoop, enter 'select'\n");
-		
 		//(Re)set file descriptor
 		FD_ZERO(&mReadFDS);
         FD_ZERO(&mWriteFDS);
 		FD_ZERO(&mExceptionFDS);
+        if (!mMulticastSocket) {
+            printf("Multicast socket failed!\n");
+            break;
+        }
+
 		FD_SET(mMulticastSocket, &mReadFDS);
 		FD_SET(mMulticastSocket, &mWriteFDS);
 		FD_SET(mMulticastSocket, &mExceptionFDS);
-		FD_SET(mUnicastSocket, &mReadFDS);
+
+        if (!mUnicastSocket) {
+            printf("Multicast socket failed!\n");
+            break;
+        }
+        FD_SET(mUnicastSocket, &mReadFDS);
 		FD_SET(mUnicastSocket, &mWriteFDS);
 		FD_SET(mUnicastSocket, &mExceptionFDS);
 		        
@@ -310,7 +318,7 @@ int SSDP::ReadLoop(){
 
 		ret = select(maxsock+1, &mReadFDS, 0, &mExceptionFDS, &timeout);
 		if(ret == SOCKET_ERROR){
-			printf("Socket error!");
+			printf("Socket error!\n");
 			break;
 		}else if(ret != 0){
 			//Multicast
