@@ -51,8 +51,7 @@
 @synthesize icon;
 @synthesize bitrate;
 @synthesize durationInSeconds;
-@synthesize uriCollection; 
-@synthesize resources; 
+@synthesize resources;
 
 
 
@@ -66,6 +65,16 @@
     return self;
 }
 
+- (void)setUriCollection:(NSDictionary *)newUriCollection
+{
+    uriCollection = newUriCollection;
+    [uriCollection retain];
+}
+
+- (NSDictionary *)uriCollection
+{
+    return uriCollection;
+}
 
 -(void)dealloc{
     [artist release];
