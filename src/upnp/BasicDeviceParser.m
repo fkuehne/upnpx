@@ -247,7 +247,8 @@
 
 -(void)embeddedDevice:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
-		[friendlyNameStack addObject:friendlyName];
+        if (friendlyName)
+            [friendlyNameStack addObject:friendlyName];
 		[udnStack addObject:udn];		
 	}else{
 		//Was this the device we are looking for ?
