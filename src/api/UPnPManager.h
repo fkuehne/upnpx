@@ -46,10 +46,12 @@
 
 +(UPnPManager*)GetInstance;
 
+-(id)init;
+-(id)initWithDeviceFactory:(DeviceFactory*)devFactory;
+
 @property(readonly) SSDPDB_ObjC *SSDP;
 @property(readonly) UPnPDB *DB;
-@property(readonly) ServiceFactory* serviceFactory;
-@property(readonly) DeviceFactory* deviceFactory;
+@property(retain, nonatomic) DeviceFactory* deviceFactory;
 @property(retain, nonatomic) MediaRenderer1Device *defaultMediaRenderer1;
 @property(readonly) UPnPEvents *upnpEvents;
 @property(readonly) MediaPlaylist *defaultPlaylist;

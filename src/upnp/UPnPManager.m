@@ -65,20 +65,22 @@
 }
 
 -(id)init{
+
     self = [super init];
-    
+
     if (self) {
+
         upnpEvents = [[UPnPEvents alloc] init];
         deviceFactory = [[DeviceFactory alloc] init];
         SSDP = [[SSDPDB_ObjC alloc] init];
-        DB = [[UPnPDB alloc] initWithSSDP:SSDP]; 
+        DB = [[UPnPDB alloc] initWithSSDP:SSDP];
         defaultPlaylist = [[MediaPlaylist alloc] init];
 
         [SSDP startSSDP];
         [upnpEvents start];
     }
-	
-	return self;
+
+    return self;
 }
 
 -(void)dealloc{
