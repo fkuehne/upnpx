@@ -36,6 +36,7 @@
 #include "tools.h"
 #include "osal.h"
 
+#include <stdlib.h>
 
 BasicHTTPServer::BasicHTTPServer(unsigned short prefferedPort){
 	mServer = new SocketServer(prefferedPort); 		   

@@ -33,6 +33,9 @@
 
 #include "ssdpmessage.h"
 
+#include <stdlib.h>
+#include <unistd.h>
+
 SSDPMessage::SSDPMessage():mDB(NULL){
 }
 
