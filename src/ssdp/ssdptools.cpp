@@ -34,6 +34,8 @@
 
 #include "ssdptools.h"
 
+#include <stdlib.h>
+
 int GetHeaderValueFromCollection(vector<SSDP_HTTP_HEADER*> headers, u8* fieldname, int fieldnamelen, u8** value, int *len){
 	int ret=0;
 	int found=0;

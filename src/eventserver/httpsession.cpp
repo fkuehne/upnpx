@@ -35,6 +35,8 @@
 #include "httpsession.h"
 #include "tools.h"
 
+#include <stdlib.h>
+
 HTTPSession::HTTPSession(char* srcip, unsigned short srcport){
 	sourcePort = srcport;
 	strcpy(sourceIP, (char*)srcip);

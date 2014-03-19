@@ -33,6 +33,8 @@
 
 #include "ssdpdb.h"
 
+#include <unistd.h>
+
 SSDPDB::SSDPDB(){
 	int ret;
 	
