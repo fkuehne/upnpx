@@ -35,7 +35,6 @@
 #import "BasicUPnPDevice.h"
 #import "UPnPManager.h"
 #import "BasicDeviceParser.h"
-#import "ServiceFactory.h"
 
 @interface BasicUPnPDevice()
 	-(void)syncServices;

@@ -35,7 +35,6 @@
 #import <Foundation/Foundation.h>
 #import "SSDPDB_ObjC.h"
 #import "UPnPDB.h"
-#import "ServiceFactory.h"
 #import "DeviceFactory.h"
 #import "MediaRenderer1Device.h"
 #import "UPnPEvents.h"
