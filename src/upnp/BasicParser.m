@@ -176,8 +176,6 @@ static NSString *ElementStop = @"ElementStop";
 		return -1;
 	}
 
-	int ret = 0;
-
 	[parser setShouldProcessNamespaces:mSupportNamespaces];
 	[parser setDelegate:self];
 	
