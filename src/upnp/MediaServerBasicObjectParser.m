@@ -101,25 +101,25 @@
 
         //Container
         if(onlyItems == NO){
-            [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"container", nil] callfunction:@selector(container:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-            [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"container", @"title", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaTitle:) setStringValueObject:self];
-            [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"container", @"class", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaClass:) setStringValueObject:self];
-            [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"container", @"albumArtURI", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbumArt:) setStringValueObject:self];
+            [self addAsset:@[@"DIDL-Lite", @"container"] callfunction:@selector(container:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+            [self addAsset:@[@"DIDL-Lite", @"container", @"title"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaTitle:) setStringValueObject:self];
+            [self addAsset:@[@"DIDL-Lite", @"container", @"class"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaClass:) setStringValueObject:self];
+            [self addAsset:@[@"DIDL-Lite", @"container", @"albumArtURI"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbumArt:) setStringValueObject:self];
         }
         
         
         //Item
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", nil] callfunction:@selector(item:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"title", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaTitle:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"class", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaClass:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"artist", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setArtist:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"album", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbum:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"date", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDate:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"genre", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setGenre:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"originalTrackNumber", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setOriginalTrackNumber:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"albumArtURI", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbumArt:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item"] callfunction:@selector(item:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"title"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaTitle:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"class"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setMediaClass:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"artist"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setArtist:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"album"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbum:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"date"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDate:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"genre"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setGenre:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"originalTrackNumber"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setOriginalTrackNumber:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"albumArtURI"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbumArt:) setStringValueObject:self];
 
-        [self addAsset:[NSArray arrayWithObjects: @"DIDL-Lite", @"item", @"res",  nil] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setUri:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"res"] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setUri:) setStringValueObject:self];
     }
     
 	return self;
@@ -181,11 +181,11 @@
 	NSArray *items = [time componentsSeparatedByString:@":"];
 	if ([items count] == 3){
 		//hh
-		s = s + [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;
+		s = s + [(NSString*)items[0] intValue] * 60 * 60;
 		//mm
-		s = s + [(NSString*)[items objectAtIndex:1] intValue] * 60;
+		s = s + [(NSString*)items[1] intValue] * 60;
 		//ss
-		s = s + [(NSString*)[items objectAtIndex:2] intValue];
+		s = s + [(NSString*)items[2] intValue];
 	}
 
 	return s;
@@ -198,9 +198,9 @@
 		[self empty];
 		
 		//Get the attributes
-		[self setMediaID:[elementAttributeDict objectForKey:@"id"]];
-		[self setParentID:[elementAttributeDict objectForKey:@"parentID"]];
-		[self setChildCount:[elementAttributeDict objectForKey:@"childCount"]];
+		[self setMediaID:elementAttributeDict[@"id"]];
+		[self setParentID:elementAttributeDict[@"parentID"]];
+		[self setChildCount:elementAttributeDict[@"childCount"]];
 		
 	}else{
 		MediaServer1ContainerObject *media = [[MediaServer1ContainerObject alloc] init];
@@ -228,8 +228,8 @@
 		[self empty];
 
 		//Get the attributes
-		[self setMediaID:[elementAttributeDict objectForKey:@"id"]];
-		[self setParentID:[elementAttributeDict objectForKey:@"parentID"]];
+		[self setMediaID:elementAttributeDict[@"id"]];
+		[self setParentID:elementAttributeDict[@"parentID"]];
 	}else{
 		MediaServer1ItemObject *media = [[MediaServer1ItemObject alloc] init];
 		
@@ -272,15 +272,15 @@
 -(void)res:(NSString*)startStop{
 	if([startStop isEqualToString:@"ElementStart"]){
 		//Get the attributes
-		[self setProtocolInfo:[elementAttributeDict objectForKey:@"protocolInfo"]];
-		[self setFrequency:[elementAttributeDict objectForKey:@"sampleFrequency"]];
-		[self setAudioChannels:[elementAttributeDict objectForKey:@"nrAudioChannels"]];
+		[self setProtocolInfo:elementAttributeDict[@"protocolInfo"]];
+		[self setFrequency:elementAttributeDict[@"sampleFrequency"]];
+		[self setAudioChannels:elementAttributeDict[@"nrAudioChannels"]];
 		
-		[self setSize:[elementAttributeDict objectForKey:@"size"]];
-		[self setDuration:[elementAttributeDict objectForKey:@"duration"]];
-		[self setBitrate:[elementAttributeDict objectForKey:@"bitrate"]];
+		[self setSize:elementAttributeDict[@"size"]];
+		[self setDuration:elementAttributeDict[@"duration"]];
+		[self setBitrate:elementAttributeDict[@"bitrate"]];
 		
-		[self setIcon:[elementAttributeDict objectForKey:@"icon"]];
+		[self setIcon:elementAttributeDict[@"icon"]];
 		
         
         //Add to the recource connection, there can be multiple resources per media item 
@@ -295,7 +295,7 @@
         [r release];
         
 	}else
-        [uriCollection setObject:uri forKey:protocolInfo]; //@todo: we overwrite uri's with same protocol info
+        uriCollection[protocolInfo] = uri; //@todo: we overwrite uri's with same protocol info
 }
 
 -(void)setUri:(NSString*)s{

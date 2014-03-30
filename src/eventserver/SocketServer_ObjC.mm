@@ -113,7 +113,7 @@ private:
 -(NSString*)getIPAddress{
 	char *ip = ((SocketServer*)mCppSocketServer)->getServerIPAddress();
 	
-	return [NSString stringWithCString:ip encoding:NSASCIIStringEncoding];
+	return @(ip);
 }
 
 -(unsigned short)getPort{

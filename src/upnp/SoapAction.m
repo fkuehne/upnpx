@@ -94,7 +94,7 @@
 	[body appendString:@"<s:Body>"];
 	[body appendFormat:@"<u:%@ xmlns:u=\"%@\">", soapAction, _upnpNameSpace];
 	for (id key in parameters) {		
-		[body appendFormat:@"<%@>%@</%@>", key, [parameters objectForKey:key], key];
+		[body appendFormat:@"<%@>%@</%@>", key, parameters[key], key];
 	}
 	[body appendFormat:@"</u:%@>", soapAction];
 	[body appendFormat:@"</s:Body></s:Envelope>"];
@@ -138,7 +138,7 @@
 		[self clearAllAssets];
 		NSString *responseGroupTag = [NSString stringWithFormat:@"%@Response", soapAction];
 		for (id key in output) {		
-			[self addAsset:[NSArray arrayWithObjects: @"Envelope", @"Body", responseGroupTag, (NSString*)key, nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setStringValueForFoundAsset:) setStringValueObject:self];
+			[self addAsset:@[@"Envelope", @"Body", responseGroupTag, (NSString*)key] callfunction:nil functionObject:nil setStringValueFunction:@selector(setStringValueForFoundAsset:) setStringValueObject:self];
 		}
 				
 		//uShare Issues here, can not handle names like 'Bj~rk
@@ -161,7 +161,7 @@
 		if(asset != nil){
 			NSString *elementName = [[asset path] lastObject];
 			if(elementName != nil){
-				NSMutableString *output = [_mOutput objectForKey:elementName];
+				NSMutableString *output = _mOutput[elementName];
 				if(output != nil){	
 					[output setString:value];
 				}

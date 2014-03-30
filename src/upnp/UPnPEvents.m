@@ -122,10 +122,10 @@
 		NSDictionary *allReturnedHeaders = [urlResponse allHeaderFields];
 		for(NSString* key in allReturnedHeaders){
 			if([key caseInsensitiveCompare:@"SID"] == NSOrderedSame){
-				retUUID = [NSString stringWithString:[allReturnedHeaders objectForKey:key]];
+				retUUID = [NSString stringWithString:allReturnedHeaders[key]];
 			}
 			if([key caseInsensitiveCompare:@"TIMEOUT"] == NSOrderedSame){
-				timeOut = [NSString stringWithString:[allReturnedHeaders objectForKey:key]];                
+				timeOut = [NSString stringWithString:allReturnedHeaders[key]];                
             }
 		}		
 	}
@@ -145,7 +145,7 @@
                 en.timeout = 300;
         }
         
-		[mEventSubscribers setObject:en forKey:retUUID];
+		mEventSubscribers[retUUID] = en;
 	}else{
 		NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
 	}
@@ -179,7 +179,7 @@
 -(BOOL)request:(BasicHTTPServer_ObjC*)sender method:(NSString*)method path:(NSString*)path version:(NSString*)version headers:(NSDictionary*)headers body:(NSData*)body{
 	BOOL ret = NO;
 	
-	NSString *uuid = [headers objectForKey:@"SID"];
+	NSString *uuid = headers[@"SID"];
 	if(uuid == nil){
 		return NO;
 	}
@@ -225,7 +225,7 @@
 		//		
 		[mMutex lock];
         UPnPEvents_Observer *thisObserver = nil;
-        ObserverEntry *entry = [mEventSubscribers objectForKey:uuid];
+        ObserverEntry *entry = mEventSubscribers[uuid];
         if(entry != nil){
             thisObserver = entry.observer;
             [thisObserver retain];
@@ -264,7 +264,7 @@
     [mMutex lock];
     NSString *uuid;
     for (uuid in mEventSubscribers) {
-        entry = [mEventSubscribers objectForKey:uuid];
+        entry = mEventSubscribers[uuid];
         if(tm - entry.subscriptiontime >= (double)(entry.timeout)){
             [remove addObject:uuid];
         }else if(tm - entry.subscriptiontime > (double)(entry.timeout/2)){
@@ -276,7 +276,7 @@
     //Send Notifications
     for (uuid in notify) {
         [mMutex lock];
-        entry = [mEventSubscribers objectForKey:uuid];
+        entry = mEventSubscribers[uuid];
         if(entry){
             [entry retain];
         }

@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewEthernetLinkStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:newethernetlinkstatus, nil];
+    outputKeys = @[@"NewEthernetLinkStatus"];
+    outputObjects = @[newethernetlinkstatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetEthernetLinkStatus" parameters:parameters returnValues:output];

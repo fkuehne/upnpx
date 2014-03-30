@@ -68,11 +68,11 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 
 - (void)setObject:(id)anObject forKey:(id)aKey
 {
-	if (![dictionary objectForKey:aKey])
+	if (!dictionary[aKey])
 	{
 		[array addObject:aKey];
 	}
-	[dictionary setObject:anObject forKey:aKey];
+	dictionary[aKey] = anObject;
 }
 
 - (void)removeObjectForKey:(id)aKey
@@ -88,7 +88,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 
 - (id)objectForKey:(id)aKey
 {
-	return [dictionary objectForKey:aKey];
+	return dictionary[aKey];
 }
 
 - (NSEnumerator *)keyEnumerator
@@ -103,17 +103,17 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 
 - (void)insertObject:(id)anObject forKey:(id)aKey atIndex:(NSUInteger)anIndex
 {
-	if (![dictionary objectForKey:aKey])
+	if (!dictionary[aKey])
 	{
 		[self removeObjectForKey:aKey];
 	}
 	[array insertObject:aKey atIndex:anIndex];
-	[dictionary setObject:anObject forKey:aKey];
+	dictionary[aKey] = anObject;
 }
 
 - (id)keyAtIndex:(NSUInteger)anIndex
 {
-	return [array objectAtIndex:anIndex];
+	return array[anIndex];
 }
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
@@ -132,7 +132,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 		[description appendFormat:@"%@    %@ = %@;\n",
 			indentString,
 			DescriptionForObject(key, locale, level),
-			DescriptionForObject([self objectForKey:key], locale, level)];
+			DescriptionForObject(self[key], locale, level)];
 	}
 	[description appendFormat:@"%@}\n", indentString];
 	return description;

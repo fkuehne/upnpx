@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewDefaultConnectionService", nil];
-    parameterObjects = [NSArray arrayWithObjects:newdefaultconnectionservice, nil];
+    parameterKeys = @[@"NewDefaultConnectionService"];
+    parameterObjects = @[newdefaultconnectionservice];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultConnectionService" parameters:parameters returnValues:output];
@@ -63,8 +63,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDefaultConnectionService", nil];
-    outputObjects = [NSArray arrayWithObjects:newdefaultconnectionservice, nil];
+    outputKeys = @[@"NewDefaultConnectionService"];
+    outputObjects = @[newdefaultconnectionservice];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultConnectionService" parameters:parameters returnValues:output];

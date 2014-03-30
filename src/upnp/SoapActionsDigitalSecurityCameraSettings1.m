@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewAutomaticWhiteBalance", nil];
-    parameterObjects = [NSArray arrayWithObjects:newautomaticwhitebalance, nil];
+    parameterKeys = @[@"NewAutomaticWhiteBalance"];
+    parameterObjects = @[newautomaticwhitebalance];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAutomaticWhiteBalance" parameters:parameters returnValues:output];
@@ -63,8 +63,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetAutomaticWhiteBalance", nil];
-    outputObjects = [NSArray arrayWithObjects:retautomaticwhitebalance, nil];
+    outputKeys = @[@"RetAutomaticWhiteBalance"];
+    outputObjects = @[retautomaticwhitebalance];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAutomaticWhiteBalance" parameters:parameters returnValues:output];
@@ -79,8 +79,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewFixedWhiteBalance", nil];
-    parameterObjects = [NSArray arrayWithObjects:newfixedwhitebalance, nil];
+    parameterKeys = @[@"NewFixedWhiteBalance"];
+    parameterObjects = @[newfixedwhitebalance];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetFixedWhiteBalance" parameters:parameters returnValues:output];
@@ -95,8 +95,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetFixedWhiteBalance", nil];
-    outputObjects = [NSArray arrayWithObjects:retfixedwhitebalance, nil];
+    outputKeys = @[@"RetFixedWhiteBalance"];
+    outputObjects = @[retfixedwhitebalance];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetFixedWhiteBalance" parameters:parameters returnValues:output];
@@ -111,8 +111,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetAvailableRotations", nil];
-    outputObjects = [NSArray arrayWithObjects:retavailablerotations, nil];
+    outputKeys = @[@"RetAvailableRotations"];
+    outputObjects = @[retavailablerotations];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAvailableRotations" parameters:parameters returnValues:output];
@@ -127,8 +127,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewRotation", nil];
-    parameterObjects = [NSArray arrayWithObjects:newrotation, nil];
+    parameterKeys = @[@"NewRotation"];
+    parameterObjects = @[newrotation];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultRotation" parameters:parameters returnValues:output];
@@ -143,8 +143,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetRotation", nil];
-    outputObjects = [NSArray arrayWithObjects:retrotation, nil];
+    outputKeys = @[@"RetRotation"];
+    outputObjects = @[retrotation];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultRotation" parameters:parameters returnValues:output];
@@ -159,8 +159,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewBrightness", nil];
-    parameterObjects = [NSArray arrayWithObjects:newbrightness, nil];
+    parameterKeys = @[@"NewBrightness"];
+    parameterObjects = @[newbrightness];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetBrightness" parameters:parameters returnValues:output];
@@ -175,8 +175,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetBrightness", nil];
-    outputObjects = [NSArray arrayWithObjects:retbrightness, nil];
+    outputKeys = @[@"RetBrightness"];
+    outputObjects = @[retbrightness];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetBrightness" parameters:parameters returnValues:output];
@@ -211,8 +211,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewColorSaturation", nil];
-    parameterObjects = [NSArray arrayWithObjects:newcolorsaturation, nil];
+    parameterKeys = @[@"NewColorSaturation"];
+    parameterObjects = @[newcolorsaturation];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetColorSaturation" parameters:parameters returnValues:output];
@@ -227,8 +227,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetColorSaturation", nil];
-    outputObjects = [NSArray arrayWithObjects:retcolorsaturation, nil];
+    outputKeys = @[@"RetColorSaturation"];
+    outputObjects = @[retcolorsaturation];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetColorSaturation" parameters:parameters returnValues:output];

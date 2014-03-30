@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewISPPhoneNumber", @"NewISPInfo", @"NewLinkType", nil];
-    parameterObjects = [NSArray arrayWithObjects:newispphonenumber, newispinfo, newlinktype, nil];
+    parameterKeys = @[@"NewISPPhoneNumber", @"NewISPInfo", @"NewLinkType"];
+    parameterObjects = @[newispphonenumber, newispinfo, newlinktype];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetISPInfo" parameters:parameters returnValues:output];
@@ -63,8 +63,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewNumberOfRetries", @"NewDelayBetweenRetries", nil];
-    parameterObjects = [NSArray arrayWithObjects:newnumberofretries, newdelaybetweenretries, nil];
+    parameterKeys = @[@"NewNumberOfRetries", @"NewDelayBetweenRetries"];
+    parameterObjects = @[newnumberofretries, newdelaybetweenretries];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetCallRetryInfo" parameters:parameters returnValues:output];
@@ -79,8 +79,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewISPPhoneNumber", @"NewISPInfo", @"NewLinkType", nil];
-    outputObjects = [NSArray arrayWithObjects:newispphonenumber, newispinfo, newlinktype, nil];
+    outputKeys = @[@"NewISPPhoneNumber", @"NewISPInfo", @"NewLinkType"];
+    outputObjects = @[newispphonenumber, newispinfo, newlinktype];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetISPInfo" parameters:parameters returnValues:output];
@@ -95,8 +95,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewNumberOfRetries", @"NewDelayBetweenRetries", nil];
-    outputObjects = [NSArray arrayWithObjects:newnumberofretries, newdelaybetweenretries, nil];
+    outputKeys = @[@"NewNumberOfRetries", @"NewDelayBetweenRetries"];
+    outputObjects = @[newnumberofretries, newdelaybetweenretries];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCallRetryInfo" parameters:parameters returnValues:output];
@@ -111,8 +111,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewFclass", nil];
-    outputObjects = [NSArray arrayWithObjects:newfclass, nil];
+    outputKeys = @[@"NewFclass"];
+    outputObjects = @[newfclass];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetFclass" parameters:parameters returnValues:output];
@@ -127,8 +127,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDataModulationSupported", nil];
-    outputObjects = [NSArray arrayWithObjects:newdatamodulationsupported, nil];
+    outputKeys = @[@"NewDataModulationSupported"];
+    outputObjects = @[newdatamodulationsupported];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDataModulationSupported" parameters:parameters returnValues:output];
@@ -143,8 +143,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDataProtocol", nil];
-    outputObjects = [NSArray arrayWithObjects:newdataprotocol, nil];
+    outputKeys = @[@"NewDataProtocol"];
+    outputObjects = @[newdataprotocol];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDataProtocol" parameters:parameters returnValues:output];
@@ -159,8 +159,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDataCompression", nil];
-    outputObjects = [NSArray arrayWithObjects:newdatacompression, nil];
+    outputKeys = @[@"NewDataCompression"];
+    outputObjects = @[newdatacompression];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDataCompression" parameters:parameters returnValues:output];
@@ -175,8 +175,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewPlusVTRCommandSupported", nil];
-    outputObjects = [NSArray arrayWithObjects:newplusvtrcommandsupported, nil];
+    outputKeys = @[@"NewPlusVTRCommandSupported"];
+    outputObjects = @[newplusvtrcommandsupported];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetPlusVTRCommandSupported" parameters:parameters returnValues:output];

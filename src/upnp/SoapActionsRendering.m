@@ -68,11 +68,11 @@
 	
 	NSMutableString *currentVolumeString = [[NSMutableString alloc] init]; 
 	
-	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
-	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
+	NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
+	NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];	
 	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
-	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
-	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
+	NSArray *outputKeys = @[@"CurrentVolume"];
+	NSArray *outputObjects = @[currentVolumeString];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 	
 	ret = [self action:@"GetVolume" parameters:parameters returnValues:output];
@@ -98,11 +98,11 @@
 	
 	NSMutableString *currentVolumeString = [[NSMutableString alloc] init]; 
 	
-	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
-	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
+	NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
+	NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];	
 	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
-	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
-	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
+	NSArray *outputKeys = @[@"CurrentVolume"];
+	NSArray *outputObjects = @[currentVolumeString];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 	
 	ret = [self action:@"GetVolumeDB" parameters:parameters returnValues:output];
@@ -125,12 +125,12 @@
 	int ret = 0;
 	
 	NSMutableString *currentPresetString = [[NSMutableString alloc] init]; 	
-	NSArray *parameterKeys		= [NSArray arrayWithObjects:@"InstanceID",									nil];
-	NSArray *parameterObjects	= [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID],  nil];		
+	NSArray *parameterKeys		= @[@"InstanceID"];
+	NSArray *parameterObjects	= @[[NSString stringWithFormat:@"%d", instanceID]];		
 	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	
-	NSArray *outputKeys			= [NSArray arrayWithObjects:@"CurrentPresetNameList",	nil];
-	NSArray *outputObjects		= [NSArray arrayWithObjects:currentPresetString,		nil];	
+	NSArray *outputKeys			= @[@"CurrentPresetNameList"];
+	NSArray *outputObjects		= @[currentPresetString];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 	
 	ret = [self action:@"ListPresets" parameters:parameters returnValues:output];

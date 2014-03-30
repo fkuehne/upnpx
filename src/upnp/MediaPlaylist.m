@@ -175,7 +175,7 @@
 	
 	//Set the current track
 	for(int t=0;t<[playList count];t++){
-		lobj = [playList objectAtIndex:t];
+		lobj = playList[t];
 		if( [[lobj objectID] isEqualToString:objectID]){
 			currentTrack = t;
 			break;
@@ -254,7 +254,7 @@
 	MediaServer1ItemObject *ret  = nil;
 	
 	if([playList count] > currentTrack){
-		ret = [playList objectAtIndex:currentTrack];
+		ret = playList[currentTrack];
 	}
 	
 	return ret;

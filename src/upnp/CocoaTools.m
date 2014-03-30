@@ -109,11 +109,11 @@
         NSArray *items = [self componentsSeparatedByString:@":"];
         if([items count] == 3){
             //hh
-            s += [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;
+            s += [(NSString*)items[0] intValue] * 60 * 60;
             //mm
-            s += [(NSString*)[items objectAtIndex:1] intValue] * 60;
+            s += [(NSString*)items[1] intValue] * 60;
             //ss
-            s += [(NSString*)[items objectAtIndex:2] intValue];
+            s += [(NSString*)items[2] intValue];
         }
 
         return s;

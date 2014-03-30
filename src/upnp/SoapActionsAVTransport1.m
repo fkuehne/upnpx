@@ -39,8 +39,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"CurrentURI", @"CurrentURIMetaData", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, currenturi, currenturimetadata, nil];
+    parameterKeys = @[@"InstanceID", @"CurrentURI", @"CurrentURIMetaData"];
+    parameterObjects = @[instanceid, currenturi, currenturimetadata];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAVTransportURI" parameters:parameters returnValues:output];
@@ -55,8 +55,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NextURI", @"NextURIMetaData", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nexturi, nexturimetadata, nil];
+    parameterKeys = @[@"InstanceID", @"NextURI", @"NextURIMetaData"];
+    parameterObjects = @[instanceid, nexturi, nexturimetadata];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetNextAVTransportURI" parameters:parameters returnValues:output];
@@ -71,14 +71,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NrTracks", @"MediaDuration", @"CurrentURI", @"CurrentURIMetaData", @"NextURI", @"NextURIMetaData", @"PlayMedium", @"RecordMedium", @"WriteStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:nrtracks, mediaduration, currenturi, currenturimetadata, nexturi, nexturimetadata, playmedium, recordmedium, writestatus, nil];
+    outputKeys = @[@"NrTracks", @"MediaDuration", @"CurrentURI", @"CurrentURIMetaData", @"NextURI", @"NextURIMetaData", @"PlayMedium", @"RecordMedium", @"WriteStatus"];
+    outputObjects = @[nrtracks, mediaduration, currenturi, currenturimetadata, nexturi, nexturimetadata, playmedium, recordmedium, writestatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetMediaInfo" parameters:parameters returnValues:output];
@@ -93,14 +93,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"CurrentTransportState", @"CurrentTransportStatus", @"CurrentSpeed", nil];
-    outputObjects = [NSArray arrayWithObjects:currenttransportstate, currenttransportstatus, currentspeed, nil];
+    outputKeys = @[@"CurrentTransportState", @"CurrentTransportStatus", @"CurrentSpeed"];
+    outputObjects = @[currenttransportstate, currenttransportstatus, currentspeed];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTransportInfo" parameters:parameters returnValues:output];
@@ -115,14 +115,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Track", @"TrackDuration", @"TrackMetaData", @"TrackURI", @"RelTime", @"AbsTime", @"RelCount", @"AbsCount", nil];
-    outputObjects = [NSArray arrayWithObjects:track, trackduration, trackmetadata, trackuri, reltime, abstime, relcount, abscount, nil];
+    outputKeys = @[@"Track", @"TrackDuration", @"TrackMetaData", @"TrackURI", @"RelTime", @"AbsTime", @"RelCount", @"AbsCount"];
+    outputObjects = @[track, trackduration, trackmetadata, trackuri, reltime, abstime, relcount, abscount];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetPositionInfo" parameters:parameters returnValues:output];
@@ -137,14 +137,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"PlayMedia", @"RecMedia", @"RecQualityModes", nil];
-    outputObjects = [NSArray arrayWithObjects:playmedia, recmedia, recqualitymodes, nil];
+    outputKeys = @[@"PlayMedia", @"RecMedia", @"RecQualityModes"];
+    outputObjects = @[playmedia, recmedia, recqualitymodes];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDeviceCapabilities" parameters:parameters returnValues:output];
@@ -159,14 +159,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"PlayMode", @"RecQualityMode", nil];
-    outputObjects = [NSArray arrayWithObjects:playmode, recqualitymode, nil];
+    outputKeys = @[@"PlayMode", @"RecQualityMode"];
+    outputObjects = @[playmode, recqualitymode];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTransportSettings" parameters:parameters returnValues:output];
@@ -181,8 +181,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Stop" parameters:parameters returnValues:output];
@@ -197,8 +197,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Speed", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, speed, nil];
+    parameterKeys = @[@"InstanceID", @"Speed"];
+    parameterObjects = @[instanceid, speed];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Play" parameters:parameters returnValues:output];
@@ -213,8 +213,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Pause" parameters:parameters returnValues:output];
@@ -229,8 +229,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Record" parameters:parameters returnValues:output];
@@ -245,8 +245,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Unit", @"Target", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, unit, target, nil];
+    parameterKeys = @[@"InstanceID", @"Unit", @"Target"];
+    parameterObjects = @[instanceid, unit, target];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Seek" parameters:parameters returnValues:output];
@@ -261,8 +261,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Next" parameters:parameters returnValues:output];
@@ -277,8 +277,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"Previous" parameters:parameters returnValues:output];
@@ -293,8 +293,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NewPlayMode", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, newplaymode, nil];
+    parameterKeys = @[@"InstanceID", @"NewPlayMode"];
+    parameterObjects = @[instanceid, newplaymode];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetPlayMode" parameters:parameters returnValues:output];
@@ -309,8 +309,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"NewRecordQualityMode", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, newrecordqualitymode, nil];
+    parameterKeys = @[@"InstanceID", @"NewRecordQualityMode"];
+    parameterObjects = @[instanceid, newrecordqualitymode];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRecordQualityMode" parameters:parameters returnValues:output];
@@ -325,14 +325,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceID", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceid, nil];
+    parameterKeys = @[@"InstanceID"];
+    parameterObjects = @[instanceid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Actions", nil];
-    outputObjects = [NSArray arrayWithObjects:actions, nil];
+    outputKeys = @[@"Actions"];
+    outputObjects = @[actions];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCurrentTransportActions" parameters:parameters returnValues:output];

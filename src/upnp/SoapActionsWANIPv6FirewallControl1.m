@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"FirewallEnabled", @"InboundPinholeAllowed", nil];
-    outputObjects = [NSArray arrayWithObjects:firewallenabled, inboundpinholeallowed, nil];
+    outputKeys = @[@"FirewallEnabled", @"InboundPinholeAllowed"];
+    outputObjects = @[firewallenabled, inboundpinholeallowed];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetFirewallStatus" parameters:parameters returnValues:output];
@@ -63,14 +63,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol", nil];
-    parameterObjects = [NSArray arrayWithObjects:remotehost, remoteport, internalclient, internalport, protocol, nil];
+    parameterKeys = @[@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol"];
+    parameterObjects = @[remotehost, remoteport, internalclient, internalport, protocol];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"OutboundPinholeTimeout", nil];
-    outputObjects = [NSArray arrayWithObjects:outboundpinholetimeout, nil];
+    outputKeys = @[@"OutboundPinholeTimeout"];
+    outputObjects = @[outboundpinholetimeout];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetOutboundPinholeTimeout" parameters:parameters returnValues:output];
@@ -85,14 +85,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol", @"LeaseTime", nil];
-    parameterObjects = [NSArray arrayWithObjects:remotehost, remoteport, internalclient, internalport, protocol, leasetime, nil];
+    parameterKeys = @[@"RemoteHost", @"RemotePort", @"InternalClient", @"InternalPort", @"Protocol", @"LeaseTime"];
+    parameterObjects = @[remotehost, remoteport, internalclient, internalport, protocol, leasetime];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
-    outputObjects = [NSArray arrayWithObjects:uniqueid, nil];
+    outputKeys = @[@"UniqueID"];
+    outputObjects = @[uniqueid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"AddPinhole" parameters:parameters returnValues:output];
@@ -107,8 +107,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"UniqueID", @"NewLeaseTime", nil];
-    parameterObjects = [NSArray arrayWithObjects:uniqueid, newleasetime, nil];
+    parameterKeys = @[@"UniqueID", @"NewLeaseTime"];
+    parameterObjects = @[uniqueid, newleasetime];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"UpdatePinhole" parameters:parameters returnValues:output];
@@ -123,8 +123,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
-    parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
+    parameterKeys = @[@"UniqueID"];
+    parameterObjects = @[uniqueid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeletePinhole" parameters:parameters returnValues:output];
@@ -139,14 +139,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
-    parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
+    parameterKeys = @[@"UniqueID"];
+    parameterObjects = @[uniqueid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"PinholePackets", nil];
-    outputObjects = [NSArray arrayWithObjects:pinholepackets, nil];
+    outputKeys = @[@"PinholePackets"];
+    outputObjects = @[pinholepackets];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetPinholePackets" parameters:parameters returnValues:output];
@@ -161,14 +161,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"UniqueID", nil];
-    parameterObjects = [NSArray arrayWithObjects:uniqueid, nil];
+    parameterKeys = @[@"UniqueID"];
+    parameterObjects = @[uniqueid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"IsWorking", nil];
-    outputObjects = [NSArray arrayWithObjects:isworking, nil];
+    outputKeys = @[@"IsWorking"];
+    outputObjects = @[isworking];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"CheckPinholeWorking" parameters:parameters returnValues:output];

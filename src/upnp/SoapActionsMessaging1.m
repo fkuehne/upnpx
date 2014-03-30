@@ -16,8 +16,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"TelephonyIdentity", nil];
-    outputObjects = [NSArray arrayWithObjects:telephonyidentity, nil];
+    outputKeys = @[@"TelephonyIdentity"];
+    outputObjects = @[telephonyidentity];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTelephonyIdentity" parameters:parameters returnValues:output];
@@ -32,8 +32,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"SupportedCapabilities", nil];
-    outputObjects = [NSArray arrayWithObjects:supportedcapabilities, nil];
+    outputKeys = @[@"SupportedCapabilities"];
+    outputObjects = @[supportedcapabilities];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetMessagingCapabilities" parameters:parameters returnValues:output];
@@ -48,8 +48,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewMessages", nil];
-    outputObjects = [NSArray arrayWithObjects:newmessages, nil];
+    outputKeys = @[@"NewMessages"];
+    outputObjects = @[newmessages];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetNewMessages" parameters:parameters returnValues:output];
@@ -64,14 +64,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"MessageClass", @"MessageFolder", @"MessageStatus", @"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:messageclass, messagefolder, messagestatus, sessionid, nil];
+    parameterKeys = @[@"MessageClass", @"MessageFolder", @"MessageStatus", @"SessionID"];
+    parameterObjects = @[messageclass, messagefolder, messagestatus, sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"MessageList", nil];
-    outputObjects = [NSArray arrayWithObjects:messagelist, nil];
+    outputKeys = @[@"MessageList"];
+    outputObjects = @[messagelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"SearchMessages" parameters:parameters returnValues:output];
@@ -86,14 +86,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"MessageID", nil];
-    parameterObjects = [NSArray arrayWithObjects:messageid, nil];
+    parameterKeys = @[@"MessageID"];
+    parameterObjects = @[messageid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"MessageRequested", nil];
-    outputObjects = [NSArray arrayWithObjects:messagerequested, nil];
+    outputKeys = @[@"MessageRequested"];
+    outputObjects = @[messagerequested];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"ReadMessage" parameters:parameters returnValues:output];
@@ -108,14 +108,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"MessageToSend", nil];
-    parameterObjects = [NSArray arrayWithObjects:messagetosend, nil];
+    parameterKeys = @[@"MessageToSend"];
+    parameterObjects = @[messagetosend];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"MessageID", nil];
-    outputObjects = [NSArray arrayWithObjects:messageid, nil];
+    outputKeys = @[@"MessageID"];
+    outputObjects = @[messageid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"SendMessage" parameters:parameters returnValues:output];
@@ -130,8 +130,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"MessageID", nil];
-    parameterObjects = [NSArray arrayWithObjects:messageid, nil];
+    parameterKeys = @[@"MessageID"];
+    parameterObjects = @[messageid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeleteMessage" parameters:parameters returnValues:output];
@@ -146,14 +146,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionClass", @"SessionRecipients", @"Subject", @"SupportedContentType", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionclass, sessionrecipients, subject, supportedcontenttype, nil];
+    parameterKeys = @[@"SessionClass", @"SessionRecipients", @"Subject", @"SupportedContentType"];
+    parameterObjects = @[sessionclass, sessionrecipients, subject, supportedcontenttype];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    outputObjects = [NSArray arrayWithObjects:sessionid, nil];
+    outputKeys = @[@"SessionID"];
+    outputObjects = @[sessionid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"CreateSession" parameters:parameters returnValues:output];
@@ -168,8 +168,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", @"SessionRecipientsToAdd", @"SessionRecipientsToRemove", @"Subject", @"SupportedContentType", @"SessionClass", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, sessionrecipientstoadd, sessionrecipientstoremove, subject, supportedcontenttype, sessionclass, nil];
+    parameterKeys = @[@"SessionID", @"SessionRecipientsToAdd", @"SessionRecipientsToRemove", @"Subject", @"SupportedContentType", @"SessionClass"];
+    parameterObjects = @[sessionid, sessionrecipientstoadd, sessionrecipientstoremove, subject, supportedcontenttype, sessionclass];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ModifySession" parameters:parameters returnValues:output];
@@ -184,8 +184,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"AcceptSession" parameters:parameters returnValues:output];
@@ -200,8 +200,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"SessionUpdates", nil];
-    outputObjects = [NSArray arrayWithObjects:sessionupdates, nil];
+    outputKeys = @[@"SessionUpdates"];
+    outputObjects = @[sessionupdates];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSessionUpdates" parameters:parameters returnValues:output];
@@ -216,14 +216,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", @"SessionClass", @"SessionStatus", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, sessionclass, sessionstatus, nil];
+    parameterKeys = @[@"SessionID", @"SessionClass", @"SessionStatus"];
+    parameterObjects = @[sessionid, sessionclass, sessionstatus];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"SessionsList", nil];
-    outputObjects = [NSArray arrayWithObjects:sessionslist, nil];
+    outputKeys = @[@"SessionsList"];
+    outputObjects = @[sessionslist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSessions" parameters:parameters returnValues:output];
@@ -238,8 +238,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"JoinSession" parameters:parameters returnValues:output];
@@ -254,8 +254,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"LeaveSession" parameters:parameters returnValues:output];
@@ -270,8 +270,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"CloseSession" parameters:parameters returnValues:output];
@@ -286,8 +286,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"FileInfoList", nil];
-    parameterObjects = [NSArray arrayWithObjects:fileinfolist, nil];
+    parameterKeys = @[@"FileInfoList"];
+    parameterObjects = @[fileinfolist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StartFileTransfer" parameters:parameters returnValues:output];
@@ -302,8 +302,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"CancelFileTransfer" parameters:parameters returnValues:output];
@@ -318,14 +318,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"SessionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:sessionid, nil];
+    parameterKeys = @[@"SessionID"];
+    parameterObjects = @[sessionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"FileInfoList", nil];
-    outputObjects = [NSArray arrayWithObjects:fileinfolist, nil];
+    outputKeys = @[@"FileInfoList"];
+    outputObjects = @[fileinfolist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetFileTransferSession" parameters:parameters returnValues:output];

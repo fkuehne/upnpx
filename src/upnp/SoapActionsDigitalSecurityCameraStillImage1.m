@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetAvailableEncodings", nil];
-    outputObjects = [NSArray arrayWithObjects:retavailableencodings, nil];
+    outputKeys = @[@"RetAvailableEncodings"];
+    outputObjects = @[retavailableencodings];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAvailableEncodings" parameters:parameters returnValues:output];
@@ -63,8 +63,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetEncoding", nil];
-    outputObjects = [NSArray arrayWithObjects:retencoding, nil];
+    outputKeys = @[@"RetEncoding"];
+    outputObjects = @[retencoding];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultEncoding" parameters:parameters returnValues:output];
@@ -79,8 +79,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", nil];
-    parameterObjects = [NSArray arrayWithObjects:reqencoding, nil];
+    parameterKeys = @[@"ReqEncoding"];
+    parameterObjects = @[reqencoding];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultEncoding" parameters:parameters returnValues:output];
@@ -95,8 +95,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetAvailableCompressionLevels", nil];
-    outputObjects = [NSArray arrayWithObjects:retavailablecompressionlevels, nil];
+    outputKeys = @[@"RetAvailableCompressionLevels"];
+    outputObjects = @[retavailablecompressionlevels];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAvailableCompressionLevels" parameters:parameters returnValues:output];
@@ -111,8 +111,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetCompressionLevel", nil];
-    outputObjects = [NSArray arrayWithObjects:retcompressionlevel, nil];
+    outputKeys = @[@"RetCompressionLevel"];
+    outputObjects = @[retcompressionlevel];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultCompressionLevel" parameters:parameters returnValues:output];
@@ -127,8 +127,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ReqCompressionLevel", nil];
-    parameterObjects = [NSArray arrayWithObjects:reqcompressionlevel, nil];
+    parameterKeys = @[@"ReqCompressionLevel"];
+    parameterObjects = @[reqcompressionlevel];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultCompressionLevel" parameters:parameters returnValues:output];
@@ -143,8 +143,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetAvailableResolutions", nil];
-    outputObjects = [NSArray arrayWithObjects:retavailableresolutions, nil];
+    outputKeys = @[@"RetAvailableResolutions"];
+    outputObjects = @[retavailableresolutions];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAvailableResolutions" parameters:parameters returnValues:output];
@@ -159,8 +159,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetResolution", nil];
-    outputObjects = [NSArray arrayWithObjects:retresolution, nil];
+    outputKeys = @[@"RetResolution"];
+    outputObjects = @[retresolution];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultResolution" parameters:parameters returnValues:output];
@@ -175,8 +175,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ReqResolution", nil];
-    parameterObjects = [NSArray arrayWithObjects:reqresolution, nil];
+    parameterKeys = @[@"ReqResolution"];
+    parameterObjects = @[reqresolution];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetDefaultResolution" parameters:parameters returnValues:output];
@@ -191,14 +191,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", nil];
-    parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, nil];
+    parameterKeys = @[@"ReqEncoding", @"ReqCompression", @"ReqResolution"];
+    parameterObjects = @[reqencoding, reqcompression, reqresolution];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetImageURL", nil];
-    outputObjects = [NSArray arrayWithObjects:retimageurl, nil];
+    outputKeys = @[@"RetImageURL"];
+    outputObjects = @[retimageurl];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetImageURL" parameters:parameters returnValues:output];
@@ -213,8 +213,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetImageURL", nil];
-    outputObjects = [NSArray arrayWithObjects:retimageurl, nil];
+    outputKeys = @[@"RetImageURL"];
+    outputObjects = @[retimageurl];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultImageURL" parameters:parameters returnValues:output];
@@ -229,14 +229,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ReqEncoding", @"ReqCompression", @"ReqResolution", nil];
-    parameterObjects = [NSArray arrayWithObjects:reqencoding, reqcompression, reqresolution, nil];
+    parameterKeys = @[@"ReqEncoding", @"ReqCompression", @"ReqResolution"];
+    parameterObjects = @[reqencoding, reqcompression, reqresolution];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetImagePresentationURL", nil];
-    outputObjects = [NSArray arrayWithObjects:retimagepresentationurl, nil];
+    outputKeys = @[@"RetImagePresentationURL"];
+    outputObjects = @[retimagepresentationurl];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetImagePresentationURL" parameters:parameters returnValues:output];
@@ -251,8 +251,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetImagePresentationURL", nil];
-    outputObjects = [NSArray arrayWithObjects:retimagepresentationurl, nil];
+    outputKeys = @[@"RetImagePresentationURL"];
+    outputObjects = @[retimagepresentationurl];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDefaultImagePresentationURL" parameters:parameters returnValues:output];

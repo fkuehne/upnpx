@@ -102,7 +102,7 @@ public:
                 NSString *header = [[NSString alloc] initWithCString:(*it).first.c_str() encoding:NSASCIIStringEncoding];
                 NSString *value = [[NSString alloc] initWithCString:(*it).second.c_str() encoding:NSASCIIStringEncoding];
                 NSString *upperHeader = [header uppercaseString];
-                [oHeaders setObject:value forKey:upperHeader];
+                oHeaders[upperHeader] = value;
                 [value release];
                 [header release];
             }
@@ -146,7 +146,7 @@ public:
             BasicHTTPServer_ObjC_Observer *obs = nil;
             if([mObjCObservers count] > 0){
                 //Only the first observer can respond
-                obs = [mObjCObservers objectAtIndex:0];
+                obs = mObjCObservers[0];
 
                 oReturnCode = -1;
                 [oHeaders removeAllObjects];
@@ -160,7 +160,7 @@ public:
                         memcpy(*body, [oBody bytes], [oBody length]);
                     }
                     for(id key in oHeaders){
-                        value = [(NSString*)[oHeaders objectForKey:key] cStringUsingEncoding: NSASCIIStringEncoding];
+                        value = [(NSString*)oHeaders[key] cStringUsingEncoding: NSASCIIStringEncoding];
                         name = [(NSString*)key cStringUsingEncoding: NSASCIIStringEncoding];
                         (*headers)[name] = value;
                     }
@@ -221,7 +221,7 @@ public:
 -(NSString*)getIPAddress{
 	char *ip = ((BasicHTTPObserver_wrapper*)httpServerWrapper)->GetServer()->GetSocketServer()->getServerIPAddress();
 	
-	return [NSString stringWithCString:ip encoding:NSASCIIStringEncoding];
+	return @(ip);
 }
 
 -(unsigned short)getPort{

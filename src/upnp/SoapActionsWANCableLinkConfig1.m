@@ -47,8 +47,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewCableLinkConfigState", @"NewLinkType", nil];
-    outputObjects = [NSArray arrayWithObjects:newcablelinkconfigstate, newlinktype, nil];
+    outputKeys = @[@"NewCableLinkConfigState", @"NewLinkType"];
+    outputObjects = @[newcablelinkconfigstate, newlinktype];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCableLinkConfigInfo" parameters:parameters returnValues:output];
@@ -63,8 +63,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDownstreamFrequency", nil];
-    outputObjects = [NSArray arrayWithObjects:newdownstreamfrequency, nil];
+    outputKeys = @[@"NewDownstreamFrequency"];
+    outputObjects = @[newdownstreamfrequency];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDownstreamFrequency" parameters:parameters returnValues:output];
@@ -79,8 +79,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewDownstreamModulation", nil];
-    outputObjects = [NSArray arrayWithObjects:newdownstreammodulation, nil];
+    outputKeys = @[@"NewDownstreamModulation"];
+    outputObjects = @[newdownstreammodulation];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetDownstreamModulation" parameters:parameters returnValues:output];
@@ -95,8 +95,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewUpstreamFrequency", nil];
-    outputObjects = [NSArray arrayWithObjects:newupstreamfrequency, nil];
+    outputKeys = @[@"NewUpstreamFrequency"];
+    outputObjects = @[newupstreamfrequency];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetUpstreamFrequency" parameters:parameters returnValues:output];
@@ -111,8 +111,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewUpstreamModulation", nil];
-    outputObjects = [NSArray arrayWithObjects:newupstreammodulation, nil];
+    outputKeys = @[@"NewUpstreamModulation"];
+    outputObjects = @[newupstreammodulation];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetUpstreamModulation" parameters:parameters returnValues:output];
@@ -127,8 +127,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewUpstreamChannelID", nil];
-    outputObjects = [NSArray arrayWithObjects:newupstreamchannelid, nil];
+    outputKeys = @[@"NewUpstreamChannelID"];
+    outputObjects = @[newupstreamchannelid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetUpstreamChannelID" parameters:parameters returnValues:output];
@@ -143,8 +143,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewUpstreamPowerLevel", nil];
-    outputObjects = [NSArray arrayWithObjects:newupstreampowerlevel, nil];
+    outputKeys = @[@"NewUpstreamPowerLevel"];
+    outputObjects = @[newupstreampowerlevel];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetUpstreamPowerLevel" parameters:parameters returnValues:output];
@@ -159,8 +159,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewBPIEncryptionEnabled", nil];
-    outputObjects = [NSArray arrayWithObjects:newbpiencryptionenabled, nil];
+    outputKeys = @[@"NewBPIEncryptionEnabled"];
+    outputObjects = @[newbpiencryptionenabled];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetBPIEncryptionEnabled" parameters:parameters returnValues:output];
@@ -175,8 +175,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewConfigFile", nil];
-    outputObjects = [NSArray arrayWithObjects:newconfigfile, nil];
+    outputKeys = @[@"NewConfigFile"];
+    outputObjects = @[newconfigfile];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetConfigFile" parameters:parameters returnValues:output];
@@ -191,8 +191,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewTFTPServer", nil];
-    outputObjects = [NSArray arrayWithObjects:newtftpserver, nil];
+    outputKeys = @[@"NewTFTPServer"];
+    outputObjects = @[newtftpserver];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTFTPServer" parameters:parameters returnValues:output];

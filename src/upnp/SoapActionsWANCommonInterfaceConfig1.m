@@ -16,8 +16,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewEnabledForInternet", nil];
-    parameterObjects = [NSArray arrayWithObjects:newenabledforinternet, nil];
+    parameterKeys = @[@"NewEnabledForInternet"];
+    parameterObjects = @[newenabledforinternet];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetEnabledForInternet" parameters:parameters returnValues:output];
@@ -32,8 +32,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewEnabledForInternet", nil];
-    outputObjects = [NSArray arrayWithObjects:newenabledforinternet, nil];
+    outputKeys = @[@"NewEnabledForInternet"];
+    outputObjects = @[newenabledforinternet];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetEnabledForInternet" parameters:parameters returnValues:output];
@@ -48,8 +48,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewWANAccessType", @"NewLayer1UpstreamMaxBitRate", @"NewLayer1DownstreamMaxBitRate", @"NewPhysicalLinkStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:newwanaccesstype, newlayer1upstreammaxbitrate, newlayer1downstreammaxbitrate, newphysicallinkstatus, nil];
+    outputKeys = @[@"NewWANAccessType", @"NewLayer1UpstreamMaxBitRate", @"NewLayer1DownstreamMaxBitRate", @"NewPhysicalLinkStatus"];
+    outputObjects = @[newwanaccesstype, newlayer1upstreammaxbitrate, newlayer1downstreammaxbitrate, newphysicallinkstatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCommonLinkProperties" parameters:parameters returnValues:output];
@@ -64,8 +64,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewWANAccessProvider", nil];
-    outputObjects = [NSArray arrayWithObjects:newwanaccessprovider, nil];
+    outputKeys = @[@"NewWANAccessProvider"];
+    outputObjects = @[newwanaccessprovider];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetWANAccessProvider" parameters:parameters returnValues:output];
@@ -80,8 +80,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewMaximumActiveConnections", nil];
-    outputObjects = [NSArray arrayWithObjects:newmaximumactiveconnections, nil];
+    outputKeys = @[@"NewMaximumActiveConnections"];
+    outputObjects = @[newmaximumactiveconnections];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetMaximumActiveConnections" parameters:parameters returnValues:output];
@@ -96,8 +96,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewTotalBytesSent", nil];
-    outputObjects = [NSArray arrayWithObjects:newtotalbytessent, nil];
+    outputKeys = @[@"NewTotalBytesSent"];
+    outputObjects = @[newtotalbytessent];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTotalBytesSent" parameters:parameters returnValues:output];
@@ -112,8 +112,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewTotalBytesReceived", nil];
-    outputObjects = [NSArray arrayWithObjects:newtotalbytesreceived, nil];
+    outputKeys = @[@"NewTotalBytesReceived"];
+    outputObjects = @[newtotalbytesreceived];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTotalBytesReceived" parameters:parameters returnValues:output];
@@ -128,8 +128,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewTotalPacketsSent", nil];
-    outputObjects = [NSArray arrayWithObjects:newtotalpacketssent, nil];
+    outputKeys = @[@"NewTotalPacketsSent"];
+    outputObjects = @[newtotalpacketssent];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTotalPacketsSent" parameters:parameters returnValues:output];
@@ -144,8 +144,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewTotalPacketsReceived", nil];
-    outputObjects = [NSArray arrayWithObjects:newtotalpacketsreceived, nil];
+    outputKeys = @[@"NewTotalPacketsReceived"];
+    outputObjects = @[newtotalpacketsreceived];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTotalPacketsReceived" parameters:parameters returnValues:output];
@@ -160,14 +160,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NewActiveConnectionIndex", nil];
-    parameterObjects = [NSArray arrayWithObjects:newactiveconnectionindex, nil];
+    parameterKeys = @[@"NewActiveConnectionIndex"];
+    parameterObjects = @[newactiveconnectionindex];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NewActiveConnDeviceContainer", @"NewActiveConnectionServiceID", nil];
-    outputObjects = [NSArray arrayWithObjects:newactiveconndevicecontainer, newactiveconnectionserviceid, nil];
+    outputKeys = @[@"NewActiveConnDeviceContainer", @"NewActiveConnectionServiceID"];
+    outputObjects = @[newactiveconndevicecontainer, newactiveconnectionserviceid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetActiveConnection" parameters:parameters returnValues:output];

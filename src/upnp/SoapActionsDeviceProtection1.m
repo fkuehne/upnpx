@@ -16,14 +16,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ProtocolType", @"InMessage", nil];
-    parameterObjects = [NSArray arrayWithObjects:protocoltype, inmessage, nil];
+    parameterKeys = @[@"ProtocolType", @"InMessage"];
+    parameterObjects = @[protocoltype, inmessage];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"OutMessage", nil];
-    outputObjects = [NSArray arrayWithObjects:outmessage, nil];
+    outputKeys = @[@"OutMessage"];
+    outputObjects = @[outmessage];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"SendSetupMessage" parameters:parameters returnValues:output];
@@ -38,8 +38,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ProtocolList", nil];
-    outputObjects = [NSArray arrayWithObjects:protocollist, nil];
+    outputKeys = @[@"ProtocolList"];
+    outputObjects = @[protocollist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSupportedProtocols" parameters:parameters returnValues:output];
@@ -54,8 +54,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RoleList", nil];
-    outputObjects = [NSArray arrayWithObjects:rolelist, nil];
+    outputKeys = @[@"RoleList"];
+    outputObjects = @[rolelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAssignedRoles" parameters:parameters returnValues:output];
@@ -70,14 +70,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"DeviceUDN", @"ServiceId", @"ActionName", nil];
-    parameterObjects = [NSArray arrayWithObjects:deviceudn, serviceid, actionname, nil];
+    parameterKeys = @[@"DeviceUDN", @"ServiceId", @"ActionName"];
+    parameterObjects = @[deviceudn, serviceid, actionname];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RoleList", @"RestrictedRoleList", nil];
-    outputObjects = [NSArray arrayWithObjects:rolelist, restrictedrolelist, nil];
+    outputKeys = @[@"RoleList", @"RestrictedRoleList"];
+    outputObjects = @[rolelist, restrictedrolelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetRolesForAction" parameters:parameters returnValues:output];
@@ -92,14 +92,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ProtocolType", @"Name", nil];
-    parameterObjects = [NSArray arrayWithObjects:protocoltype, name, nil];
+    parameterKeys = @[@"ProtocolType", @"Name"];
+    parameterObjects = @[protocoltype, name];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Salt", @"Challenge", nil];
-    outputObjects = [NSArray arrayWithObjects:salt, challenge, nil];
+    outputKeys = @[@"Salt", @"Challenge"];
+    outputObjects = @[salt, challenge];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetUserLoginChallenge" parameters:parameters returnValues:output];
@@ -114,8 +114,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ProtocolType", @"Challenge", @"Authenticator", nil];
-    parameterObjects = [NSArray arrayWithObjects:protocoltype, challenge, authenticator, nil];
+    parameterKeys = @[@"ProtocolType", @"Challenge", @"Authenticator"];
+    parameterObjects = @[protocoltype, challenge, authenticator];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"UserLogin" parameters:parameters returnValues:output];
@@ -140,8 +140,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ACL", nil];
-    outputObjects = [NSArray arrayWithObjects:acl, nil];
+    outputKeys = @[@"ACL"];
+    outputObjects = @[acl];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetACLData" parameters:parameters returnValues:output];
@@ -156,14 +156,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"IdentityList", nil];
-    parameterObjects = [NSArray arrayWithObjects:identitylist, nil];
+    parameterKeys = @[@"IdentityList"];
+    parameterObjects = @[identitylist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"IdentityListResult", nil];
-    outputObjects = [NSArray arrayWithObjects:identitylistresult, nil];
+    outputKeys = @[@"IdentityListResult"];
+    outputObjects = @[identitylistresult];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"AddIdentityList" parameters:parameters returnValues:output];
@@ -178,8 +178,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"Identity", nil];
-    parameterObjects = [NSArray arrayWithObjects:identity, nil];
+    parameterKeys = @[@"Identity"];
+    parameterObjects = @[identity];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"RemoveIdentity" parameters:parameters returnValues:output];
@@ -194,8 +194,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ProtocolType", @"Name", @"Stored", @"Salt", nil];
-    parameterObjects = [NSArray arrayWithObjects:protocoltype, name, stored, salt, nil];
+    parameterKeys = @[@"ProtocolType", @"Name", @"Stored", @"Salt"];
+    parameterObjects = @[protocoltype, name, stored, salt];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetUserLoginPassword" parameters:parameters returnValues:output];
@@ -210,8 +210,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"Identity", @"RoleList", nil];
-    parameterObjects = [NSArray arrayWithObjects:identity, rolelist, nil];
+    parameterKeys = @[@"Identity", @"RoleList"];
+    parameterObjects = @[identity, rolelist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"AddRolesForIdentity" parameters:parameters returnValues:output];
@@ -226,8 +226,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"Identity", @"RoleList", nil];
-    parameterObjects = [NSArray arrayWithObjects:identity, rolelist, nil];
+    parameterKeys = @[@"Identity", @"RoleList"];
+    parameterObjects = @[identity, rolelist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"RemoveRolesForIdentity" parameters:parameters returnValues:output];

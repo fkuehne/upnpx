@@ -289,7 +289,7 @@
                 }
 
                 while( [readyForDescription count] > 0){
-                    upnpdevice = [readyForDescription objectAtIndex:0];
+                    upnpdevice = readyForDescription[0];
                     //fill the upnpdevice with info from the XML
                     int ret = [upnpdevice loadDeviceDescriptionFromXML];
                     if(ret == 0){

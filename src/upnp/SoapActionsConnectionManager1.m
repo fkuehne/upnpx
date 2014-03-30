@@ -39,8 +39,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Source", @"Sink", nil];
-    outputObjects = [NSArray arrayWithObjects:source, sink, nil];
+    outputKeys = @[@"Source", @"Sink"];
+    outputObjects = @[source, sink];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetProtocolInfo" parameters:parameters returnValues:output];
@@ -55,14 +55,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"RemoteProtocolInfo", @"PeerConnectionManager", @"PeerConnectionID", @"Direction", nil];
-    parameterObjects = [NSArray arrayWithObjects:remoteprotocolinfo, peerconnectionmanager, peerconnectionid, direction, nil];
+    parameterKeys = @[@"RemoteProtocolInfo", @"PeerConnectionManager", @"PeerConnectionID", @"Direction"];
+    parameterObjects = @[remoteprotocolinfo, peerconnectionmanager, peerconnectionid, direction];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ConnectionID", @"AVTransportID", @"RcsID", nil];
-    outputObjects = [NSArray arrayWithObjects:connectionid, avtransportid, rcsid, nil];
+    outputKeys = @[@"ConnectionID", @"AVTransportID", @"RcsID"];
+    outputObjects = @[connectionid, avtransportid, rcsid];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"PrepareForConnection" parameters:parameters returnValues:output];
@@ -77,8 +77,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ConnectionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:connectionid, nil];
+    parameterKeys = @[@"ConnectionID"];
+    parameterObjects = @[connectionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"ConnectionComplete" parameters:parameters returnValues:output];
@@ -93,8 +93,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ConnectionIDs", nil];
-    outputObjects = [NSArray arrayWithObjects:connectionids, nil];
+    outputKeys = @[@"ConnectionIDs"];
+    outputObjects = @[connectionids];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCurrentConnectionIDs" parameters:parameters returnValues:output];
@@ -109,14 +109,14 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ConnectionID", nil];
-    parameterObjects = [NSArray arrayWithObjects:connectionid, nil];
+    parameterKeys = @[@"ConnectionID"];
+    parameterObjects = @[connectionid];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RcsID", @"AVTransportID", @"ProtocolInfo", @"PeerConnectionManager", @"PeerConnectionID", @"Direction", @"Status", nil];
-    outputObjects = [NSArray arrayWithObjects:rcsid, avtransportid, protocolinfo, peerconnectionmanager, peerconnectionid, direction, status, nil];
+    outputKeys = @[@"RcsID", @"AVTransportID", @"ProtocolInfo", @"PeerConnectionManager", @"PeerConnectionID", @"Direction", @"Status"];
+    outputObjects = @[rcsid, avtransportid, protocolinfo, peerconnectionmanager, peerconnectionid, direction, status];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCurrentConnectionInfo" parameters:parameters returnValues:output];
