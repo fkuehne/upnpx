@@ -144,7 +144,6 @@
 		15C44E66132C30490013D453 /* MediaServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E19132C30490013D453 /* MediaServer1Device.m */; };
 		15C44E68132C30490013D453 /* MediaServer1ItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */; };
 		15C44E6A132C30490013D453 /* MediaServerBasicObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */; };
-		15C44E6C132C30490013D453 /* ServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1F132C30490013D453 /* ServiceFactory.m */; };
 		15C44E6E132C30490013D453 /* SoapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E21132C30490013D453 /* SoapAction.m */; };
 		15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */; };
 		15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */; };
@@ -183,8 +182,6 @@
 		15C44F3F132C45B60013D453 /* MediaServer1ContainerObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F31132C45B60013D453 /* MediaServer1ContainerObject.h */; };
 		15C44F40132C45B60013D453 /* MediaServer1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F32132C45B60013D453 /* MediaServer1Device.h */; };
 		15C44F41132C45B60013D453 /* MediaServer1ItemObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F33132C45B60013D453 /* MediaServer1ItemObject.h */; };
-		15C44F42132C45B60013D453 /* ServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F34132C45B60013D453 /* ServiceFactory.h */; };
-		15C44F43132C45B60013D453 /* SoapActionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F35132C45B60013D453 /* SoapActionFactory.h */; };
 		15C44F44132C45B60013D453 /* SoapActionsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F36132C45B60013D453 /* SoapActionsAVTransport1.h */; };
 		15C44F45132C45B60013D453 /* SoapActionsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F37132C45B60013D453 /* SoapActionsConnectionManager1.h */; };
 		15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */; };
@@ -332,7 +329,6 @@
 		15C44E19132C30490013D453 /* MediaServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1Device.m; path = ../../../../src/upnp/MediaServer1Device.m; sourceTree = "<group>"; };
 		15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ItemObject.m; path = ../../../../src/upnp/MediaServer1ItemObject.m; sourceTree = "<group>"; };
 		15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServerBasicObjectParser.m; path = ../../../../src/upnp/MediaServerBasicObjectParser.m; sourceTree = "<group>"; };
-		15C44E1F132C30490013D453 /* ServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceFactory.m; path = ../../../../src/upnp/ServiceFactory.m; sourceTree = "<group>"; };
 		15C44E21132C30490013D453 /* SoapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapAction.m; path = ../../../../src/upnp/SoapAction.m; sourceTree = "<group>"; };
 		15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsAVTransport1.m; path = ../../../../src/upnp/SoapActionsAVTransport1.m; sourceTree = "<group>"; };
 		15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsConnectionManager1.m; path = ../../../../src/upnp/SoapActionsConnectionManager1.m; sourceTree = "<group>"; };
@@ -371,8 +367,6 @@
 		15C44F31132C45B60013D453 /* MediaServer1ContainerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServer1ContainerObject.h; path = ../../../../src/api/MediaServer1ContainerObject.h; sourceTree = "<group>"; };
 		15C44F32132C45B60013D453 /* MediaServer1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServer1Device.h; path = ../../../../src/api/MediaServer1Device.h; sourceTree = "<group>"; };
 		15C44F33132C45B60013D453 /* MediaServer1ItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServer1ItemObject.h; path = ../../../../src/api/MediaServer1ItemObject.h; sourceTree = "<group>"; };
-		15C44F34132C45B60013D453 /* ServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceFactory.h; path = ../../../../src/api/ServiceFactory.h; sourceTree = "<group>"; };
-		15C44F35132C45B60013D453 /* SoapActionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionFactory.h; path = ../../../../src/api/SoapActionFactory.h; sourceTree = "<group>"; };
 		15C44F36132C45B60013D453 /* SoapActionsAVTransport1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsAVTransport1.h; path = ../../../../src/api/SoapActionsAVTransport1.h; sourceTree = "<group>"; };
 		15C44F37132C45B60013D453 /* SoapActionsConnectionManager1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsConnectionManager1.h; path = ../../../../src/api/SoapActionsConnectionManager1.h; sourceTree = "<group>"; };
 		15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsContentDirectory1.h; path = ../../../../src/api/SoapActionsContentDirectory1.h; sourceTree = "<group>"; };
@@ -546,7 +540,6 @@
 				15C44F32132C45B60013D453 /* MediaServer1Device.h */,
 				15C44F33132C45B60013D453 /* MediaServer1ItemObject.h */,
 				15583F2E138F448E00A734E7 /* MediaServerBasicObjectParser.h */,
-				15C44F34132C45B60013D453 /* ServiceFactory.h */,
 				15C44F3A132C45B60013D453 /* UPnPManager.h */,
 				15C44EF8132C3AF80013D453 /* BasicHTTPServer_ObjC.h */,
 				15C44EF9132C3AF80013D453 /* BasicParser.h */,
@@ -560,7 +553,6 @@
 				15C44F01132C3AF80013D453 /* UPnPDB.h */,
 				15C44F02132C3AF80013D453 /* UPnPEventParser.h */,
 				15C44F03132C3AF80013D453 /* UPnPEvents.h */,
-				15C44F35132C45B60013D453 /* SoapActionFactory.h */,
 				15C44F36132C45B60013D453 /* SoapActionsAVTransport1.h */,
 				15C44F37132C45B60013D453 /* SoapActionsConnectionManager1.h */,
 				15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */,
@@ -639,7 +631,6 @@
 				15C44E19132C30490013D453 /* MediaServer1Device.m */,
 				15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */,
 				15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */,
-				15C44E1F132C30490013D453 /* ServiceFactory.m */,
 				15C44E21132C30490013D453 /* SoapAction.m */,
 				15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */,
 				15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */,
@@ -716,8 +707,6 @@
 				15C44F3F132C45B60013D453 /* MediaServer1ContainerObject.h in Headers */,
 				15C44F40132C45B60013D453 /* MediaServer1Device.h in Headers */,
 				15C44F41132C45B60013D453 /* MediaServer1ItemObject.h in Headers */,
-				15C44F42132C45B60013D453 /* ServiceFactory.h in Headers */,
-				15C44F43132C45B60013D453 /* SoapActionFactory.h in Headers */,
 				15C44F44132C45B60013D453 /* SoapActionsAVTransport1.h in Headers */,
 				15C44F45132C45B60013D453 /* SoapActionsConnectionManager1.h in Headers */,
 				15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */,
@@ -860,7 +849,6 @@
 				15C44E66132C30490013D453 /* MediaServer1Device.m in Sources */,
 				15C44E68132C30490013D453 /* MediaServer1ItemObject.m in Sources */,
 				15C44E6A132C30490013D453 /* MediaServerBasicObjectParser.m in Sources */,
-				15C44E6C132C30490013D453 /* ServiceFactory.m in Sources */,
 				15C44E6E132C30490013D453 /* SoapAction.m in Sources */,
 				15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */,
 				15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */,
