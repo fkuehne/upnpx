@@ -39,8 +39,8 @@
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newTargetValue", nil];
-    parameterObjects = [NSArray arrayWithObjects:newtargetvalue, nil];
+    parameterKeys = @[@"newTargetValue"];
+    parameterObjects = @[newtargetvalue];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetTarget" parameters:parameters returnValues:output];
@@ -55,8 +55,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetTargetValue", nil];
-    outputObjects = [NSArray arrayWithObjects:rettargetvalue, nil];
+    outputKeys = @[@"RetTargetValue"];
+    outputObjects = @[rettargetvalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTarget" parameters:parameters returnValues:output];
@@ -71,8 +71,8 @@
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ResultStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:resultstatus, nil];
+    outputKeys = @[@"ResultStatus"];
+    outputObjects = @[resultstatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetStatus" parameters:parameters returnValues:output];

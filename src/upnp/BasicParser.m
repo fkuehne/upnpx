@@ -95,7 +95,7 @@ static NSString *ElementStop = @"ElementStop";
 		}else{
 			// * -> leafX -> leafY
 			//Maybe we have a wildchar, that means that the path after the wildchar must match
-			if([(NSString*)[[asset path] objectAtIndex:0] isEqualToString:@"*"]){
+			if([(NSString*)[asset path][0] isEqualToString:@"*"]){
 				if([stack count] >= [[asset path] count]){
 					//Path ends with
 					NSMutableArray *lastStackPath = [[NSMutableArray alloc] initWithArray:stack];

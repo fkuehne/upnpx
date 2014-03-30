@@ -142,15 +142,15 @@
         NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
 
         for(int x = 0; x < [ssdpservices count]; x++){
-            ssdpService = [ssdpservices objectAtIndex:x];
-            upnpService = [services objectForKey:[ssdpService urn]];
+            ssdpService = ssdpservices[x];
+            upnpService = services[[ssdpService urn]];
 
             if(upnpService == nil){
                 //We don't have the service, create a new one
                 upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
 
                 //we delay initialization of the service until we need it [upnpService process];
-                [toAdd setObject:upnpService forKey:[upnpService urn]];
+                toAdd[[upnpService urn]] = upnpService;
                 [upnpService release];
             }else{
                 //remove from toremove
@@ -164,7 +164,7 @@
             [services removeObjectForKey:key];
         }	
         for (key in toAdd) {
-            [services setObject:[toAdd objectForKey:key] forKey:key];
+            services[key] = toAdd[key];
         }
 
         [toRemove release];
@@ -183,7 +183,7 @@
 	[self syncServices];	
 		
 	//Get service
-	thisService = [services objectForKey:serviceUrn];
+	thisService = services[serviceUrn];
 	if(thisService != nil){
 		[thisService process]; //can be called several times, we need to be sure it is done
 	}

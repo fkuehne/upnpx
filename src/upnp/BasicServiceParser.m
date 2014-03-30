@@ -82,12 +82,12 @@
 	 * 1. First parse the Device Description XML
 	 */
 	[self clearAllAssets];
-	[self addAsset:[NSArray arrayWithObjects: @"root", @"URLBase", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setBaseURLString:) setStringValueObject:service];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"serviceList", @"service", @"serviceType", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setServiceType:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"serviceList", @"service", @"SCPDURL", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDescriptionURL:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"serviceList", @"service", @"controlURL", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setControlURL:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"serviceList", @"service", @"eventSubURL", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setEventURL:) setStringValueObject:self];
-	[self addAsset:[NSArray arrayWithObjects: @"*", @"device", @"serviceList", @"service", nil] callfunction:@selector(serviceTag:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+	[self addAsset:@[@"root", @"URLBase"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setBaseURLString:) setStringValueObject:service];
+	[self addAsset:@[@"*", @"device", @"serviceList", @"service", @"serviceType"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setServiceType:) setStringValueObject:self];
+	[self addAsset:@[@"*", @"device", @"serviceList", @"service", @"SCPDURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDescriptionURL:) setStringValueObject:self];
+	[self addAsset:@[@"*", @"device", @"serviceList", @"service", @"controlURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setControlURL:) setStringValueObject:self];
+	[self addAsset:@[@"*", @"device", @"serviceList", @"service", @"eventSubURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setEventURL:) setStringValueObject:self];
+	[self addAsset:@[@"*", @"device", @"serviceList", @"service"] callfunction:@selector(serviceTag:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
 
 	
 	NSURL *descurl = [NSURL URLWithString:[[service ssdpdevice] location]];	
@@ -118,17 +118,17 @@
 	 * 2. Parse the Service Description XML ([service descriptionURL])
 	 */
 	[self clearAllAssets];
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", nil] callfunction:@selector(stateVariable:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable"] callfunction:@selector(stateVariable:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
 	//fill our cache
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"name", nil] callfunction:nil functionObject:nil setStringValueFunction:@selector(setName:) setStringValueObject:mStatevarCache];
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"dataType", nil] callfunction:nil functionObject:self setStringValueFunction:@selector(setDataTypeString:) setStringValueObject:mStatevarCache];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"name"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setName:) setStringValueObject:mStatevarCache];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"dataType"] callfunction:nil functionObject:self setStringValueFunction:@selector(setDataTypeString:) setStringValueObject:mStatevarCache];
 
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange", nil] callfunction:@selector(allowedValueRange:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange", @"minimum", nil] callfunction:nil functionObject:self setStringValueFunction:@selector(setMinWithString:) setStringValueObject:mStatevarRangeCache];
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange", @"maximum", nil] callfunction:nil functionObject:self setStringValueFunction:@selector(setMaxWithString:) setStringValueObject:mStatevarRangeCache];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange"] callfunction:@selector(allowedValueRange:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange", @"minimum"] callfunction:nil functionObject:self setStringValueFunction:@selector(setMinWithString:) setStringValueObject:mStatevarRangeCache];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueRange", @"maximum"] callfunction:nil functionObject:self setStringValueFunction:@selector(setMaxWithString:) setStringValueObject:mStatevarRangeCache];
 
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueList", nil] callfunction:@selector(allowedValueList:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-	[self addAsset:[NSArray arrayWithObjects: @"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueList", @"allowedValue", nil] callfunction:nil functionObject:self setStringValueFunction:@selector(setAllowedValue:) setStringValueObject:self];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueList"] callfunction:@selector(allowedValueList:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+	[self addAsset:@[@"scpd", @"serviceStateTable", @"stateVariable", @"allowedValueList", @"allowedValue"] callfunction:nil functionObject:self setStringValueFunction:@selector(setAllowedValue:) setStringValueObject:self];
 
 		
 	NSURL *serviceDescUrl = [NSURL URLWithString:[service descriptionURL] relativeToURL:[service baseURL] ];	
@@ -173,7 +173,7 @@
 				{
 					StateVariable *new = [[StateVariable alloc] init]; 
 					[new copyFromStateVariable:mStatevarCache];
-					[[service stateVariables] setObject:new forKey:[new name]  ];
+					[service stateVariables][[new name]] = new;
 					[new release];
 				}
 				break;
@@ -181,7 +181,7 @@
 				{	
 					StateVariableList *new = [[StateVariableList alloc] init];
 					[new copyFromStateVariableList:mStatevarListCache];
-					[[service stateVariables] setObject:new forKey:[new name]  ];
+					[service stateVariables][[new name]] = new;
 					[new release];
 				}
 				break;
@@ -189,7 +189,7 @@
 				{
 					StateVariableRange *new = [[StateVariableRange alloc] init];
 					[new copyFromStateVariableRange:mStatevarRangeCache];
-					[[service stateVariables] setObject:new forKey:[new name]  ];
+					[service stateVariables][[new name]] = new;
 					[new release];
 				}
 				break;

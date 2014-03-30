@@ -45,8 +45,8 @@
         events = foundEvents;
         [events retain];
         
-        [self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
-        [self addAsset:[NSArray arrayWithObjects: @"Event", @"InstanceID", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:@[@"Event", @"InstanceID"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
+        [self addAsset:@[@"Event", @"InstanceID", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
     }
 	
 	return self;
@@ -58,10 +58,10 @@
 		//Element name
 		NSString *name = [[NSString alloc] initWithString:currentElementName];
 		//Element value
-		NSString *value = [elementAttributeDict objectForKey:@"val"];
+		NSString *value = elementAttributeDict[@"val"];
 		//Add
 		if(name != nil && value != nil){
-			[events setObject:value forKey:name];
+			events[name] = value;
 		}
 		
 		[name release];

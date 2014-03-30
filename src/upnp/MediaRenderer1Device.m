@@ -213,7 +213,7 @@
 //BasicUPnPServiceObserver
 -(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events{
 	if(sender == [self avTransportService]){
-		NSString *newState = [events objectForKey:@"TransportState"];
+		NSString *newState = events[@"TransportState"];
 	
 		if([newState isEqualToString:@"STOPPED"]){
 			int i = [playList nextTrack];

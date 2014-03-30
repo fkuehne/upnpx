@@ -57,8 +57,8 @@
         lastChangeParser = nil;
         
         //Device is the root device
-        [self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"LastChange", nil] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
-        [self addAsset:[NSArray arrayWithObjects: @"propertyset", @"property", @"*", nil] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
+        [self addAsset:@[@"propertyset", @"property", @"LastChange"] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
+        [self addAsset:@[@"propertyset", @"property", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
     }
 
 	return self;
@@ -86,7 +86,7 @@
 		//Element value
 		NSString *value = [[NSString alloc] initWithString:elementValue];
 		//Add
-		[events setObject:value forKey:name];
+		events[name] = value;
 		
 		[name release];
 		[value release];
