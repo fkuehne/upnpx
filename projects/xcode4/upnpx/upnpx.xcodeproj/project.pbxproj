@@ -146,7 +146,6 @@
 		15C44E6A132C30490013D453 /* MediaServerBasicObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */; };
 		15C44E6C132C30490013D453 /* ServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E1F132C30490013D453 /* ServiceFactory.m */; };
 		15C44E6E132C30490013D453 /* SoapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E21132C30490013D453 /* SoapAction.m */; };
-		15C44E70132C30490013D453 /* SoapActionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E23132C30490013D453 /* SoapActionFactory.m */; };
 		15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */; };
 		15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */; };
 		15C44E76132C30490013D453 /* SoapActionsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */; };
@@ -335,7 +334,6 @@
 		15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServerBasicObjectParser.m; path = ../../../../src/upnp/MediaServerBasicObjectParser.m; sourceTree = "<group>"; };
 		15C44E1F132C30490013D453 /* ServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceFactory.m; path = ../../../../src/upnp/ServiceFactory.m; sourceTree = "<group>"; };
 		15C44E21132C30490013D453 /* SoapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapAction.m; path = ../../../../src/upnp/SoapAction.m; sourceTree = "<group>"; };
-		15C44E23132C30490013D453 /* SoapActionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionFactory.m; path = ../../../../src/upnp/SoapActionFactory.m; sourceTree = "<group>"; };
 		15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsAVTransport1.m; path = ../../../../src/upnp/SoapActionsAVTransport1.m; sourceTree = "<group>"; };
 		15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsConnectionManager1.m; path = ../../../../src/upnp/SoapActionsConnectionManager1.m; sourceTree = "<group>"; };
 		15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsContentDirectory1.m; path = ../../../../src/upnp/SoapActionsContentDirectory1.m; sourceTree = "<group>"; };
@@ -643,7 +641,6 @@
 				15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */,
 				15C44E1F132C30490013D453 /* ServiceFactory.m */,
 				15C44E21132C30490013D453 /* SoapAction.m */,
-				15C44E23132C30490013D453 /* SoapActionFactory.m */,
 				15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */,
 				15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */,
 				15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */,
@@ -865,7 +862,6 @@
 				15C44E6A132C30490013D453 /* MediaServerBasicObjectParser.m in Sources */,
 				15C44E6C132C30490013D453 /* ServiceFactory.m in Sources */,
 				15C44E6E132C30490013D453 /* SoapAction.m in Sources */,
-				15C44E70132C30490013D453 /* SoapActionFactory.m in Sources */,
 				15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */,
 				15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */,
 				15C44E76132C30490013D453 /* SoapActionsContentDirectory1.m in Sources */,
