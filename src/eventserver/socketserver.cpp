@@ -45,7 +45,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-//#include "iphoneport.h"
+#include "iphoneport.h"
 
 #define IFF_UP          0x1             /* interface is up              */
 #define IFF_BROADCAST   0x2             /* broadcast address valid      */
@@ -60,14 +60,12 @@
 
 
 SocketServer::SocketServer(unsigned short preferredPort):mServerSocket(NULL),mReadLoop(0){
-    pthread_mutex_init(&mMutexRunning, NULL);
 	mPort = preferredPort;
 	mMaxConnections = 20;
 	memset(ipAddress, 0, sizeof(ipAddress));	
 }
 
 SocketServer::~SocketServer(){
-    pthread_mutex_destroy(&mMutexRunning);
 }
 
 char* SocketServer::getServerIPAddress(){
@@ -212,13 +210,7 @@ EXIT:
 
 
 int SocketServer::Stop(){
-	mReadLoop = 0;
-    
-    // wait for the thread to finish
-    pthread_mutex_lock(&mMutexRunning);
-    pthread_mutex_unlock(&mMutexRunning);
-    
-    return 0;
+	return -1;
 }
 
 
@@ -267,9 +259,6 @@ int SocketServer::ReadLoop(){
 	int len;
 	
 	listen(mServerSocket, mMaxConnections);
-    
-    // grab the lock
-    pthread_mutex_lock(&mMutexRunning);
 	
 	//Read UDP answers
 	while(mReadLoop){
@@ -302,8 +291,8 @@ int SocketServer::ReadLoop(){
 		}
 			
 
-        timeout.tv_sec = 0;
-        timeout.tv_usec = 50000;
+        timeout.tv_sec = 5;
+        timeout.tv_usec = 0;
 
 #ifdef UPNPX_IPHONE     
         //Not sure why but 1024 seems to be the only one that work on the iPhone device
@@ -392,10 +381,6 @@ int SocketServer::ReadLoop(){
 		
 	}
 EXIT:
-    
-    // release the lock
-    pthread_mutex_unlock(&mMutexRunning);
-    
 	return ret;
 }
 

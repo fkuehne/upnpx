@@ -61,10 +61,6 @@
 @synthesize smallIconURL;
 @synthesize smallIconDepth;
 @synthesize type;
-@synthesize modelDescription;
-@synthesize modelName;
-@synthesize modelNumber;
-@synthesize serialNumber;
 
 
 -(id)init{
@@ -84,7 +80,7 @@
 }
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
-	self = [self init];
+	[self init];
 	
 	isRoot = ssdp.isroot;
 	uuid = ssdp.uuid;

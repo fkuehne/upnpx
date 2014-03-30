@@ -58,7 +58,6 @@
 +(UPnPManager*)GetInstance;
 -(id)init;
 -(void)dealloc;
-+(void)shutdown;
 
 @property(readonly) SSDPDB_ObjC *SSDP;
 @property(readonly) UPnPDB *DB;

@@ -125,7 +125,7 @@ static NSString *ElementStop = @"ElementStop";
 
 	[parser setShouldProcessNamespaces:mSupportNamespaces];
 	
-	[parser setDelegate:(id<NSXMLParserDelegate>)self];
+	[parser setDelegate:self];
 	
 	BOOL pret = [parser parse];
 	if(pret == YES){

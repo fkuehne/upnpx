@@ -48,13 +48,10 @@ static UPnPManager *_upnpmanager = nil;
 @synthesize defaultPlaylist;
 
 +(UPnPManager*)GetInstance{
-    @synchronized(self)
-    {
-        if(_upnpmanager == nil){
-            _upnpmanager = [[UPnPManager alloc] init];
-        }
-        return _upnpmanager;
-    }
+	if(_upnpmanager == nil){
+		_upnpmanager = [[UPnPManager alloc] init];
+	}
+	return _upnpmanager;
 }
 
 -(id)init{
@@ -92,31 +89,5 @@ static UPnPManager *_upnpmanager = nil;
 	[super dealloc];
 }
 
--(void)stop
-{
-    [upnpEvents stop];
-	[SSDP stopSSDP];
-    [SSDP release]; SSDP = nil;
-    [DB stop];
-    [DB release]; DB = nil;
-    [serviceFactory release]; serviceFactory = nil;
-    [deviceFactory release]; deviceFactory = nil;
-    [soapFactory release]; soapFactory = nil;
-    [upnpEvents release]; upnpEvents = nil;
-    [defaultPlaylist release];  defaultPlaylist = nil;
-}
-
-+(void)shutdown
-{
-    @synchronized(self)
-    {
-        if(_upnpmanager != nil)
-        {
-            [_upnpmanager stop];
-            [_upnpmanager release];
-            _upnpmanager = nil;
-        }
-    }
-}
 
 @end

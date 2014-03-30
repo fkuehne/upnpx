@@ -60,7 +60,7 @@ public:
 
 		
 		unsigned short port = sender->sin_port;
-		NSString *ip = [[[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding] autorelease];
+		NSString *ip = [[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding];
 	
 		[pool release];
 		

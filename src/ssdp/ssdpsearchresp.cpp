@@ -120,7 +120,7 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
 			device->location.replace(wrongloc, 12, ipbuf);
 		}
 		//end workaround	
-#pragma mark - Jon's chanages
+		
 		//Workaround for another MusicPal bug
 		int wrongdev = device->urn.find("schemas-upnp-org:device:RenderingControl:1");
 		if(wrongdev > 0){
@@ -130,18 +130,16 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
 		}
 		//end workaround			
 		
-        // This is the place where we used to inform the observers
-
+		
+		//Inform the observers
+		if(uuid.isdevice || uuid.isrootdevice){
+			mDB->DeviceUpdate(device);
+		}else if(uuid.isservice){
+			mDB->ServiceUpdate(device);
+		}
+		
 	}
-
-    // Always Inform the observers
-    if(uuid.isdevice || uuid.isrootdevice){
-        mDB->DeviceUpdate(device);
-    }else if(uuid.isservice){
-        mDB->ServiceUpdate(device);
-    }
-    // End changes
-    
+	
 	//always update cache control
 	if(device != NULL && cache >= 0){
 		mDB->UpdateCacheControl(uuid.uuid, uuid.uuidlen, cache);

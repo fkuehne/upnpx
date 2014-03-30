@@ -42,7 +42,6 @@
 
 
 SSDP::SSDP():mMulticastSocket(INVALID_SOCKET), mUnicastSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2), mOS("mac/1.0"), mProduct("upnpx/1.0"){
-    pthread_mutex_init(&mMutexAccess, NULL);
 	mDB = new SSDPDB();
 	mDB->Start();
 	mParser = new SSDPParser(mDB);
@@ -56,7 +55,6 @@ SSDP::~SSDP(){
 	mDB->Stop();
 	delete(mDB);
 	mDB = NULL;
-    pthread_mutex_destroy(&mMutexAccess);
 }
 
 
@@ -199,15 +197,7 @@ EXIT:
 
 
 int SSDP::Stop(){
-    // grab the lock
-    pthread_mutex_lock(&mMutexAccess);
-    
-    mDB->Stop();
-    mDB->DeleteAllDevices();
 	mReadLoop = 0;
-    
-    // wait for the thread to finish
-    
 	//@TODO: leave multicast groups
 	if(mMulticastSocket > 0){
 		close(mMulticastSocket);
@@ -215,43 +205,30 @@ int SSDP::Stop(){
         close(mUnicastSocket);
         mUnicastSocket = INVALID_SOCKET;
 	}
-    
-    // release the lock
-    pthread_mutex_unlock(&mMutexAccess);
+	
+
 	return 0;
 }
 
 
 
 //Multicast M-Search
-int SSDP::Search(const char* type){
+int SSDP::Search(){
 	u32 seconds = 3;
-    char *target = (char*)malloc(64);
-    
-    if (type) {
-        strcpy(target, type);
-    }else {
-        strcpy(target, "ssdp:all");
-    }
-    
+	char target[]="ssdp:all";
 	const char *os=mOS.c_str();
 	const char *product=mProduct.c_str();
 	
-	char buf[20048];
+	char buf[20048]; 
 	
 	sprintf(buf, "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: %d\r\nST: %s\r\nUSER-AGENT: %s UPnP/1.1 %s\r\n\r\n", seconds, target,os, product);
-    
-    printf("%s", buf);
 	
 	if(mMulticastSocket != INVALID_SOCKET){
 		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
 	}else{
 		printf("invalid socket\n");
 	}
-    
-    free(target);
 	return 0;
-    
 }
 
 
@@ -299,10 +276,11 @@ std::string mProcuct;
 
 int SSDP::ReadLoop(){
 	int ret = 0;
+	mReadLoop = 1;
 	
 	struct timeval timeout;
-	timeout.tv_sec = 0;
-	timeout.tv_usec = 50000;
+	timeout.tv_sec = 5;
+	timeout.tv_usec = 0;
 	
 	u8 buf[4096];
 	int bufsize = 4096;
@@ -311,9 +289,6 @@ int SSDP::ReadLoop(){
 	socklen_t senderlen = sizeof(struct sockaddr);
 	
     int maxsock = mMulticastSocket>mUnicastSocket?mMulticastSocket:mUnicastSocket;
-    
-    // mark as running
-    mReadLoop = 1;
     
 	//Read UDP answers
 	while(mReadLoop){
@@ -338,7 +313,7 @@ int SSDP::ReadLoop(){
 		FD_SET(mUnicastSocket, &mWriteFDS);
 		FD_SET(mUnicastSocket, &mExceptionFDS);
 		        
-        timeout.tv_sec = 1;
+        timeout.tv_sec = 5;
         timeout.tv_usec = 0;
 
 		ret = select(maxsock+1, &mReadFDS, 0, &mExceptionFDS, &timeout);
@@ -355,12 +330,8 @@ int SSDP::ReadLoop(){
 				//printf("Data\n");
 				ret = recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
 				if(ret != SOCKET_ERROR){
-                    // grab the lock
-                    pthread_mutex_lock(&mMutexAccess);
 					//Be sure to only deliver full messages (!)
 					IncommingMessage((struct sockaddr*)&sender, buf, ret);
-                    // release the lock
-                    pthread_mutex_unlock(&mMutexAccess);
 				}
 			}
             //Unicast
@@ -372,29 +343,24 @@ int SSDP::ReadLoop(){
 				//printf("Data\n");
 				ret = recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
 				if(ret != SOCKET_ERROR){
-                    // grab the lock
-                    pthread_mutex_lock(&mMutexAccess);
 					//Be sure to only deliver full messages (!)
 					IncommingMessage((struct sockaddr*)&sender, buf, ret);
-                    // release the lock
-                    pthread_mutex_unlock(&mMutexAccess);
 				}
 			}
 
 		}
 	}
 EXIT:
-    
 	return ret;
 }
 
 
 
 int SSDP::IncommingMessage(struct sockaddr* sender, u8* buf, u32 len){
-	//u8 *address;
+	u8 *address;
 	u16 port;
 	
-	//address = (u8*)sender->sa_data+2;
+	address = (u8*)sender->sa_data+2;
 	memcpy(&port, sender->sa_data, 2);
 	port = ntohs(port);
 

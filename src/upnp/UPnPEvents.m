@@ -86,16 +86,7 @@
 }
 -(void)stop{
     //Stop the subscription timer
-    if(mTimeoutTimer != nil)
-    {
-        [mTimeoutTimer invalidate];
-        mTimeoutTimer = nil;
-    }
-    [server stop];
-    [server release];	server = nil;
-	[mEventSubscribers release]; mEventSubscribers = nil;
-    [parser release]; parser = nil;
-    [mMutex release]; mMutex = nil;
+    [mTimeoutTimer invalidate];
 }
 
 
@@ -154,7 +145,6 @@
         }
         
 		[mEventSubscribers setObject:en forKey:retUUID];
-        [en release];
 	}else{
 		NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
 	}
@@ -164,12 +154,9 @@
 }
 
 -(void)UnSubscribe:(NSString*)uuid{
-    if(uuid != nil)
-    {
-        [mMutex lock];
-        [mEventSubscribers removeObjectForKey:uuid];
-        [mMutex unlock];
-    }
+	[mMutex lock];
+	[mEventSubscribers removeObjectForKey:uuid];
+	[mMutex unlock];
 }
 
 
