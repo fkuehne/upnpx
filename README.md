@@ -6,6 +6,7 @@ Fork of the discontinued upnpx library by Bruno Keymolen, Jonathan Guan, Mujtaba
 Including various logic and stability improvements over the last version
 
 Copyright (c) 2013-2014, Felix Paul Kühne
+Copyright (c) 2013, Gleb Pinigin
 All rights reserved.
 
 =====
