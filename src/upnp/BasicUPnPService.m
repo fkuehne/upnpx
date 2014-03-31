@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -55,10 +55,10 @@
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
     self = [super init];
-    
-    if (self) {	
+
+    if (self) {
         NSLog(@"BasicUPnPService - initWithSSDPDevice - %@", [device urn] );
-        
+
         mMutex = [[NSRecursiveLock alloc] init];
 
         /* TODO: device -> retain property */
@@ -66,169 +66,169 @@
         [device retain];
 
         [self setUrn:[device urn]];
-        
+
         baseURLString = nil;
-        baseURL = nil;	
+        baseURL = nil;
         descriptionURL = nil;
         eventURL = nil;
         controlURL = nil;
         serviceType = nil;
         eventUUID = nil;
-        
+
         isProcessed = NO;
         isSupportForEvents = NO;
-        
-        stateVariables = [[NSMutableDictionary alloc] init]; //StateVariable
-        
+
+        stateVariables = [[NSMutableDictionary alloc] init];//StateVariable
+
         mObservers = [[NSMutableArray alloc] init];
-        
+
         //We still need to initialze this class with information from the location URL given by the ssdp 'device'
         //this is done in 'process'
     }
-	
-	return self;
+
+    return self;
 }
 
 -(void)dealloc{
     NSLog(@"BasicUPnPService - dealloc - %@", [ssdpdevice urn]);
 
-	if(eventUUID != nil){
-		[[[UPnPManager GetInstance] upnpEvents] UnSubscribe:eventUUID ];
-	}
-	
-	[mObservers release];
-	[eventUUID release];
-	[ssdpdevice release];
-	[baseURL release];
-	[descriptionURL release];
-	[eventURL release];
-	[controlURL release];		
-	[serviceType release];		
-	[baseURLString release];
-    
-	[stateVariables release];
-	
+    if(eventUUID != nil){
+        [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:eventUUID ];
+    }
+
+    [mObservers release];
+    [eventUUID release];
+    [ssdpdevice release];
+    [baseURL release];
+    [descriptionURL release];
+    [eventURL release];
+    [controlURL release];
+    [serviceType release];
+    [baseURLString release];
+
+    [stateVariables release];
+
     [urn release];
-	[soap release];
-	[mMutex release];
-	
-	baseURL = nil;
-	descriptionURL = nil;
-	eventURL = nil;
-	controlURL = nil;		
-	serviceType = nil;
-	baseURLString = nil;
-	urn = nil;
-	eventUUID = nil;
-	
-	[super dealloc];
+    [soap release];
+    [mMutex release];
+
+    baseURL = nil;
+    descriptionURL = nil;
+    eventURL = nil;
+    controlURL = nil;
+    serviceType = nil;
+    baseURLString = nil;
+    urn = nil;
+    eventUUID = nil;
+
+    [super dealloc];
 }
 
 
 -(int)addObserver:(BasicUPnPServiceObserver*)obs{
-	int ret = 0;
-	
-	[mMutex lock];
-	[mObservers addObject:obs];
-	ret = [mObservers count];
-	[mMutex unlock];
-	
-	return ret;	
+    int ret = 0;
+
+    [mMutex lock];
+    [mObservers addObject:obs];
+    ret = [mObservers count];
+    [mMutex unlock];
+
+    return ret;
 }
 
 -(int)removeObserver:(BasicUPnPServiceObserver*)obs{
-	int ret = 0;
-	
-	[mMutex lock];
-	[mObservers removeObject:obs];
-	ret = [mObservers count];
-	[mMutex unlock];
-	
-	return ret;	
+    int ret = 0;
+
+    [mMutex lock];
+    [mObservers removeObject:obs];
+    ret = [mObservers count];
+    [mMutex unlock];
+
+    return ret;
 }
 
 -(BOOL)isObserver:(BasicUPnPServiceObserver*)obs{
-	BOOL ret = NO;
-	[mMutex lock];
-	ret = [mObservers containsObject:obs];
-	[mMutex unlock];
-	
-	return ret;	
-	
+    BOOL ret = NO;
+    [mMutex lock];
+    ret = [mObservers containsObject:obs];
+    [mMutex unlock];
+
+    return ret;
+
 }
 
 
 //Can be overriden by subclasses if they need ohter kind of parsing
 -(int)process{
-	int ret = 0;
-	
-	if(isProcessed == YES){
-		return 1;
-	}
-	
-	//We need to initialze this class with information from the location URL given by the ssdp 'ssdpdevice'
-	BasicServiceParser *parser = [[BasicServiceParser alloc] initWithUPnPService:self];
-	ret = [parser parse];
-	[parser release];
-	
-	//Set the soap actions
-	[soap release];
-	if(ret == 0){
-		soap = [SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL];
-		//retain is not needed because we did alloc
-		isProcessed = YES;
-	}else{
-		isProcessed = NO;
-	}
-	
-	//Start listening for events
-	if(eventURL){
-		eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self]; 
-		if(eventUUID != nil){
-	//		NSLog(@"Service Subsrcibed for events; uuid:%@", eventUUID);
-			[eventUUID retain];
-			isSupportForEvents = YES;
-		}
-	}
-	
-	return ret;
+    int ret = 0;
+
+    if(isProcessed == YES){
+        return 1;
+    }
+
+    //We need to initialze this class with information from the location URL given by the ssdp 'ssdpdevice'
+    BasicServiceParser *parser = [[BasicServiceParser alloc] initWithUPnPService:self];
+    ret = [parser parse];
+    [parser release];
+
+    //Set the soap actions
+    [soap release];
+    if(ret == 0){
+        soap = [SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL];
+        //retain is not needed because we did alloc
+        isProcessed = YES;
+    }else{
+        isProcessed = NO;
+    }
+
+    //Start listening for events
+    if(eventURL){
+        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self];
+        if(eventUUID != nil){
+    //        NSLog(@"Service Subsrcibed for events;uuid:%@", eventUUID);
+            [eventUUID retain];
+            isSupportForEvents = YES;
+        }
+    }
+
+    return ret;
 }
 
 
 //UPnPEvents_Observer
 -(void)UPnPEvent:(NSDictionary*)events{
-	BasicUPnPServiceObserver *obs = nil;
-	
-	[mMutex lock];
-	NSEnumerator *listeners = [mObservers objectEnumerator];
-	while(obs = [listeners nextObject]){
-		[obs UPnPEvent:self events:events];
-	}	
-	[mMutex unlock];
+    BasicUPnPServiceObserver *obs = nil;
+
+    [mMutex lock];
+    NSEnumerator *listeners = [mObservers objectEnumerator];
+    while(obs = [listeners nextObject]){
+        [obs UPnPEvent:self events:events];
+    }
+    [mMutex unlock];
 }
 
 -(NSURL*)GetUPnPEventURL{
-	NSURL *ret = nil;
-	if(eventURL){
-		ret = [NSURL URLWithString:eventURL relativeToURL:baseURL];		
-	}
-	return ret;
+    NSURL *ret = nil;
+    if(eventURL){
+        ret = [NSURL URLWithString:eventURL relativeToURL:baseURL];
+    }
+    return ret;
 }
 
 -(void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed{
 
-	//Re-Subscribe
-	if(eventURL){
+    //Re-Subscribe
+    if(eventURL){
         NSString *oldUUID = eventUUID;
-		eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self]; 		
+        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self];
         if(eventUUID != nil){
-            //NSLog(@"Service Re-Subsrcibed for events; uuid:%@, old uuid:%@", eventUUID, oldUUID);
+            //NSLog(@"Service Re-Subsrcibed for events;uuid:%@, old uuid:%@", eventUUID, oldUUID);
             //Unsubscribe old
             [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:oldUUID];
             [oldUUID release];
-			[eventUUID retain];
-			isSupportForEvents = YES;
-		}
-	}
+            [eventUUID retain];
+            isSupportForEvents = YES;
+        }
+    }
 }
 @end

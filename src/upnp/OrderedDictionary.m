@@ -16,126 +16,126 @@
 
 NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 {
-	NSString *objectString;
-	if ([object isKindOfClass:[NSString class]])
-	{
-		objectString = (NSString *)[[object retain] autorelease];
-	}
-	else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)])
-	{
-		objectString = [(NSDictionary *)object descriptionWithLocale:locale indent:indent];
-	}
-	else if ([object respondsToSelector:@selector(descriptionWithLocale:)])
-	{
-		objectString = [(NSSet *)object descriptionWithLocale:locale];
-	}
-	else
-	{
-		objectString = [object description];
-	}
-	return objectString;
+    NSString *objectString;
+    if ([object isKindOfClass:[NSString class]])
+    {
+        objectString = (NSString *)[[object retain] autorelease];
+    }
+    else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)])
+    {
+        objectString = [(NSDictionary *)object descriptionWithLocale:locale indent:indent];
+    }
+    else if ([object respondsToSelector:@selector(descriptionWithLocale:)])
+    {
+        objectString = [(NSSet *)object descriptionWithLocale:locale];
+    }
+    else
+    {
+        objectString = [object description];
+    }
+    return objectString;
 }
 
 @implementation OrderedDictionary
 
 - (id)init
 {
-	return [self initWithCapacity:0];
+    return [self initWithCapacity:0];
 }
 
 - (id)initWithCapacity:(NSUInteger)capacity
 {
-	self = [super init];
-	if (self != nil)
-	{
-		dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
-		array = [[NSMutableArray alloc] initWithCapacity:capacity];
-	}
-	return self;
+    self = [super init];
+    if (self != nil)
+    {
+        dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
+        array = [[NSMutableArray alloc] initWithCapacity:capacity];
+    }
+    return self;
 }
 
 - (void)dealloc
 {
-	[dictionary release];
-	[array release];
-	[super dealloc];
+    [dictionary release];
+    [array release];
+    [super dealloc];
 }
 
 - (id)copy
 {
-	return [self mutableCopy];
+    return [self mutableCopy];
 }
 
 - (void)setObject:(id)anObject forKey:(id)aKey
 {
-	if (!dictionary[aKey])
-	{
-		[array addObject:aKey];
-	}
-	dictionary[aKey] = anObject;
+    if (!dictionary[aKey])
+    {
+        [array addObject:aKey];
+    }
+    dictionary[aKey] = anObject;
 }
 
 - (void)removeObjectForKey:(id)aKey
 {
-	[dictionary removeObjectForKey:aKey];
-	[array removeObject:aKey];
+    [dictionary removeObjectForKey:aKey];
+    [array removeObject:aKey];
 }
 
 - (NSUInteger)count
 {
-	return [dictionary count];
+    return [dictionary count];
 }
 
 - (id)objectForKey:(id)aKey
 {
-	return dictionary[aKey];
+    return dictionary[aKey];
 }
 
 - (NSEnumerator *)keyEnumerator
 {
-	return [array objectEnumerator];
+    return [array objectEnumerator];
 }
 
 - (NSEnumerator *)reverseKeyEnumerator
 {
-	return [array reverseObjectEnumerator];
+    return [array reverseObjectEnumerator];
 }
 
 - (void)insertObject:(id)anObject forKey:(id)aKey atIndex:(NSUInteger)anIndex
 {
-	if (!dictionary[aKey])
-	{
-		[self removeObjectForKey:aKey];
-	}
-	[array insertObject:aKey atIndex:anIndex];
-	dictionary[aKey] = anObject;
+    if (!dictionary[aKey])
+    {
+        [self removeObjectForKey:aKey];
+    }
+    [array insertObject:aKey atIndex:anIndex];
+    dictionary[aKey] = anObject;
 }
 
 - (id)keyAtIndex:(NSUInteger)anIndex
 {
-	return array[anIndex];
+    return array[anIndex];
 }
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 {
-	NSMutableString *indentString = [NSMutableString string];
-	NSUInteger i, count = level;
-	for (i = 0; i < count; i++)
-	{
-		[indentString appendFormat:@"    "];
-	}
-	
-	NSMutableString *description = [NSMutableString string];
-	[description appendFormat:@"%@{\n", indentString];
-	for (NSObject *key in self)
-	{
-		[description appendFormat:@"%@    %@ = %@;\n",
-			indentString,
-			DescriptionForObject(key, locale, level),
-			DescriptionForObject(self[key], locale, level)];
-	}
-	[description appendFormat:@"%@}\n", indentString];
-	return description;
+    NSMutableString *indentString = [NSMutableString string];
+    NSUInteger i, count = level;
+    for (i = 0;i < count;i++)
+    {
+        [indentString appendFormat:@"    "];
+    }
+
+    NSMutableString *description = [NSMutableString string];
+    [description appendFormat:@"%@{\n", indentString];
+    for (NSObject *key in self)
+    {
+        [description appendFormat:@"%@    %@ = %@;\n",
+            indentString,
+            DescriptionForObject(key, locale, level),
+            DescriptionForObject(self[key], locale, level)];
+    }
+    [description appendFormat:@"%@}\n", indentString];
+    return description;
 }
 
 @end

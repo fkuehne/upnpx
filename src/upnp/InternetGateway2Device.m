@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -38,23 +38,23 @@
 @implementation InternetGateway2Device
 
 -(void)dealloc{
-	
-	[mLayer3Forwarding release];
-	
-	[super dealloc];
+
+    [mLayer3Forwarding release];
+
+    [super dealloc];
 }
 
 -(SoapActionsLayer3Forwarding1*)layer3Forwarding{
-	if(mLayer3Forwarding == nil){
-		mLayer3Forwarding = (SoapActionsLayer3Forwarding1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"] soap];
-		[mLayer3Forwarding retain];
-	}	
-	return mLayer3Forwarding;
+    if(mLayer3Forwarding == nil){
+        mLayer3Forwarding = (SoapActionsLayer3Forwarding1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"] soap];
+        [mLayer3Forwarding retain];
+    }
+    return mLayer3Forwarding;
 }
 
 
 -(BasicUPnPService*)layer3ForwardingService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"];
 }
 
 @end

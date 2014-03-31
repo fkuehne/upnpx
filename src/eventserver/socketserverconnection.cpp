@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -41,11 +41,11 @@
 #define SERVER_BUFFER_STEP 2048
 
 SocketServerConnection::SocketServerConnection(SOCKET socket, struct sockaddr_in *sender){
-	mSocket = socket;
-	isActive = true;
-	mBuffer = (u8*)malloc(SERVER_BUFFER_STEP);
-	mBufferSize = SERVER_BUFFER_STEP;
-	memcpy(&mSender, sender, sizeof(struct sockaddr_in));
+    mSocket = socket;
+    isActive = true;
+    mBuffer = (u8*)malloc(SERVER_BUFFER_STEP);
+    mBufferSize = SERVER_BUFFER_STEP;
+    memcpy(&mSender, sender, sizeof(struct sockaddr_in));
 }
 
 
@@ -53,53 +53,53 @@ SocketServerConnection::SocketServerConnection(SOCKET socket, struct sockaddr_in
 SocketServerConnection::~SocketServerConnection(){
     if(mSocket)
         close(mSocket);
-    
-	free(mBuffer);
+
+    free(mBuffer);
 }
 
 
 
 SOCKET SocketServerConnection::GetSocket(){
-	return mSocket;
+    return mSocket;
 }
 
 u8* SocketServerConnection::GetBuffer(){
-	return mBuffer;
+    return mBuffer;
 }
 
 
 
 int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
-	int len = 0; 
-	
-	memset(sender, 0, sizeof(struct sockaddr_in));
-	
-	while(true){
-		len = recv(mSocket, mBuffer, mBufferSize, 0);
-		*sender = &mSender;
-		
-		if(len < 0 /* error */ || len == 0 /* closed */){
-			return len;
-		}
-		if(len == mBufferSize){
-			//there is more to read (?)
-			return -1;
-		}else{
-			break;
-		}
-	}
-	
-	return len;
+    int len = 0;
+
+    memset(sender, 0, sizeof(struct sockaddr_in));
+
+    while(true){
+        len = recv(mSocket, mBuffer, mBufferSize, 0);
+        *sender = &mSender;
+
+        if(len < 0 /* error */ || len == 0 /* closed */){
+            return len;
+        }
+        if(len == mBufferSize){
+            //there is more to read (?)
+            return -1;
+        }else{
+            break;
+        }
+    }
+
+    return len;
 }
 
 int SocketServerConnection::SendDataOnSocket(unsigned char *sendbuf, int len){
-	int sentlen = send(mSocket, sendbuf, len, 0);
-	return sentlen;
+    int sentlen = send(mSocket, sendbuf, len, 0);
+    return sentlen;
 }
 
 
 int SocketServerConnection::ErrorOnSocket(){
-	return -1;
+    return -1;
 }
 
 

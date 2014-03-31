@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -37,7 +37,7 @@
 #import "BasicDeviceParser.h"
 
 @interface BasicUPnPDevice()
-	-(void)syncServices;
+    -(void)syncServices;
 @end
 
 
@@ -64,69 +64,69 @@
 
 -(id)init{
     self = [super init];
-    
+
     if (self) {
         //NSLog(@"BasicUPnPDevice - init");
-        services = [[NSMutableDictionary alloc] init]; //Key=urn string, Object=BasicUPnPService 
+        services = [[NSMutableDictionary alloc] init];//Key=urn string, Object=BasicUPnPService 
         lastUpdated = [NSDate timeIntervalSinceReferenceDate];
         smallIconWidth = 0;
         smallIconHeight = 0;
         baseURL = nil;
         baseURLString = nil;
-	}
-    
-	return self;
+    }
+
+    return self;
 }
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
-	[self init];
-	
-	isRoot = ssdp.isroot;
-	uuid = ssdp.uuid;
-	[uuid retain];
+    [self init];
+
+    isRoot = ssdp.isroot;
+    uuid = ssdp.uuid;
+    [uuid retain];
     [self setUsn:ssdp.usn];
     [self setUrn:ssdp.urn];
-	type = [NSString stringWithFormat:@"%@:%@", ssdp.type, ssdp.version];
-	[type retain];
-	xmlLocation = ssdp.location;
-	[xmlLocation retain];
-	
-	return self;
+    type = [NSString stringWithFormat:@"%@:%@", ssdp.type, ssdp.version];
+    [type retain];
+    xmlLocation = ssdp.location;
+    [xmlLocation retain];
+
+    return self;
 }
 
 -(void)dealloc{
-    
+
     [services removeAllObjects];
-	[services release];
-	services = nil;
-    
-	[uuid release];
-	[xmlLocation release];
-	[baseURL release];
-	[baseURLString release];
-	[friendlyName release];
-	[udn release];
-	[usn release];
-	[urn release];
-	[smallIcon release];
-	[type release];
+    [services release];
+    services = nil;
+
+    [uuid release];
+    [xmlLocation release];
+    [baseURL release];
+    [baseURLString release];
+    [friendlyName release];
+    [udn release];
+    [usn release];
+    [urn release];
+    [smallIcon release];
+    [type release];
     [smallIconURL release];
-    
-	[super dealloc];
+
+    [super dealloc];
 }
 
 -(int)loadDeviceDescriptionFromXML{
-	int ret = 0;
-	if(xmlLocation == nil || [xmlLocation length] < 5){
-		return -1;
-	}
-		
-	BasicDeviceParser *parser = [[BasicDeviceParser alloc] initWithUPnPDevice:self];
-	ret = [parser parse];
-	[parser release];
-	
-	
-	return ret;
+    int ret = 0;
+    if(xmlLocation == nil || [xmlLocation length] < 5){
+        return -1;
+    }
+
+    BasicDeviceParser *parser = [[BasicDeviceParser alloc] initWithUPnPDevice:self];
+    ret = [parser parse];
+    [parser release];
+
+
+    return ret;
 }
 
 
@@ -135,12 +135,12 @@
         //Sync 'services'
         SSDPDBDevice_ObjC *ssdpService = nil;
         BasicUPnPService *upnpService = nil;
-        NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid]; //SSDPDBDevice_ObjC[]
+        NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid];//SSDPDBDevice_ObjC[]
 
         NSMutableDictionary *toRemove = [[NSMutableDictionary alloc] initWithDictionary:services];
         NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
 
-        for(int x = 0; x < [ssdpservices count]; x++){
+        for(int x = 0;x < [ssdpservices count];x++){
             ssdpService = ssdpservices[x];
             upnpService = services[[ssdpService urn]];
 
@@ -161,7 +161,7 @@
         NSString *key;
         for (key in toRemove) {
             [services removeObjectForKey:key];
-        }	
+        }
         for (key in toAdd) {
             services[key] = toAdd[key];
         }
@@ -172,22 +172,22 @@
 }
 
 -(NSMutableDictionary*)getServices{ //BasicUPnPService[]
-	[self syncServices];	
-	return services;
+    [self syncServices];
+    return services;
 }
 
 -(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn{
-	BasicUPnPService *thisService = nil;
-	
-	[self syncServices];	
-		
-	//Get service
-	thisService = services[serviceUrn];
-	if(thisService != nil){
-		[thisService process]; //can be called several times, we need to be sure it is done
-	}
-	
-	return thisService;
+    BasicUPnPService *thisService = nil;
+
+    [self syncServices];
+
+    //Get service
+    thisService = services[serviceUrn];
+    if(thisService != nil){
+        [thisService process];//can be called several times, we need to be sure it is done
+    }
+
+    return thisService;
 }
 
 

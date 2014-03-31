@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -51,37 +51,37 @@
 @implementation DeviceFactory
 
 -(BasicUPnPDevice*)allocDeviceForSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
-	BasicUPnPDevice* device = nil;	
-	
-	if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
-		device =  [[MediaRenderer1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
-		device =  [[MediaServer1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:BinaryLight:1"]){
-		device =  [[BinaryLight1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:DimmableLight:1"]){
-		device =  [[DimmableLight1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:1"]){
-		device =  [[WANConnection1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:2"]){
-		device =  [[WANConnection2Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:DigitalSecurityCamera:1"]){
-		device =  [[DigitalSecurityCamera1Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:InternetGatewayDevice:2"]){
-		device =  [[InternetGateway2Device alloc] initWithSSDPDevice:ssdp];
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANDevice:2"]){
-		device =  [[WAN2Device alloc] initWithSSDPDevice:ssdp];        
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:LANDevice:1"]){
-		device =  [[LAN1Device alloc] initWithSSDPDevice:ssdp];        
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyClient:1"]){
-		device =  [[TelephonyClient1Device alloc] initWithSSDPDevice:ssdp];        
-	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyServer:1"]){
-		device =  [[TelephonyServer1Device alloc] initWithSSDPDevice:ssdp];        
-	}else{
-		device =  [[BasicUPnPDevice alloc] initWithSSDPDevice:ssdp];
-	}
-	
-	return device;
+    BasicUPnPDevice* device = nil;
+
+    if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
+        device =  [[MediaRenderer1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
+        device =  [[MediaServer1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:BinaryLight:1"]){
+        device =  [[BinaryLight1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:DimmableLight:1"]){
+        device =  [[DimmableLight1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:1"]){
+        device =  [[WANConnection1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:2"]){
+        device =  [[WANConnection2Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:DigitalSecurityCamera:1"]){
+        device =  [[DigitalSecurityCamera1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:InternetGatewayDevice:2"]){
+        device =  [[InternetGateway2Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANDevice:2"]){
+        device =  [[WAN2Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:LANDevice:1"]){
+        device =  [[LAN1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyClient:1"]){
+        device =  [[TelephonyClient1Device alloc] initWithSSDPDevice:ssdp];
+    }else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyServer:1"]){
+        device =  [[TelephonyServer1Device alloc] initWithSSDPDevice:ssdp];
+    }else{
+        device =  [[BasicUPnPDevice alloc] initWithSSDPDevice:ssdp];
+    }
+
+    return device;
 }
 
 @end

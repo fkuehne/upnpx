@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -39,33 +39,33 @@
 #import "iphoneport.h"
 
 @interface BasicUPnPDevice : NSObject {
-@private	
-	bool isRoot;
-	bool isFound;
-	double lastUpdated;
-	NSMutableDictionary *services;  //Key=urn string, Object=BasicUPnPService 
-	NSString *uuid;	
-	NSString *type;
-	
-	NSString *xmlLocation;
-	NSURL *baseURL;
-	NSString *baseURLString;
-	NSString *friendlyName;
-	NSString *udn;
-	NSString *usn;
-	NSString *urn;
-	UIImage *smallIcon;
-	int smallIconHeight;
-	int smallIconWidth;
-	int smallIconDepth;
-	NSString *smallIconURL;
+@private
+    bool isRoot;
+    bool isFound;
+    double lastUpdated;
+    NSMutableDictionary *services; //Key=urn string, Object=BasicUPnPService 
+    NSString *uuid;
+    NSString *type;
+
+    NSString *xmlLocation;
+    NSURL *baseURL;
+    NSString *baseURLString;
+    NSString *friendlyName;
+    NSString *udn;
+    NSString *usn;
+    NSString *urn;
+    UIImage *smallIcon;
+    int smallIconHeight;
+    int smallIconWidth;
+    int smallIconDepth;
+    NSString *smallIconURL;
 }
 
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
 -(int)loadDeviceDescriptionFromXML;
 -(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn;
--(NSMutableDictionary*)getServices; //BasicUPnPService[]
+-(NSMutableDictionary*)getServices;//BasicUPnPService[]
 
 @property(readonly) bool isRoot;
 @property(readwrite) bool isFound;

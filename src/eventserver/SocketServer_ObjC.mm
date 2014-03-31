@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -39,38 +39,38 @@
 
 
 class SocketServerObserver_wrapper:public SocketServerObserver{
-private:	
-	SocketServer_ObjC* mObjCObserver;
-	SocketServer *mServer;
-	
-public:
-	SocketServerObserver_wrapper(SocketServer_ObjC* observer, SocketServer *server){
-		mObjCObserver = observer;
-		mServer = server;
-		mServer->AddObserver(this);
-	}
-	
-	~SocketServerObserver_wrapper(){
-		mServer->RemoveObserver(this);
-	}
-	
-	int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf){
-		[NSRunLoop currentRunLoop]; //Start our runloop
+private:
+    SocketServer_ObjC* mObjCObserver;
+    SocketServer *mServer;
 
-		@autoreleasepool {
+public:
+    SocketServerObserver_wrapper(SocketServer_ObjC* observer, SocketServer *server){
+        mObjCObserver = observer;
+        mServer = server;
+        mServer->AddObserver(this);
+    }
+
+    ~SocketServerObserver_wrapper(){
+        mServer->RemoveObserver(this);
+    }
+
+    int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf){
+        [NSRunLoop currentRunLoop];//Start our runloop
+
+        @autoreleasepool {
             unsigned short port = sender->sin_port;
             NSString *ip = [[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding];
             return [mObjCObserver dataIn:buf length:len fromIP:ip fromPort:port];
         }
 
-	}
+    }
 
-	int DataToSend(int *len, unsigned char **buf){
-		return -1; //no data to send
-	}
-	
-private:	
-	SocketServerObserver_wrapper(){}
+    int DataToSend(int *len, unsigned char **buf){
+        return -1;//no data to send
+    }
+
+private:
+    SocketServerObserver_wrapper(){}
 };
 
 
@@ -79,69 +79,68 @@ private:
 
 -(id)init{
     self = [super init];
-    
-    if (self) {	
+
+    if (self) {
         mCppSocketServer = new SocketServer(42809);
         mCppSocketServerObserverWrapper = new SocketServerObserver_wrapper(self, (SocketServer*)mCppSocketServer);
     }
-    
-	return self;
+
+    return self;
 }
-	
+
 -(void)dealloc{
     if (mCppSocketServer) {
         ((SocketServer*)mCppSocketServer)->Stop();
         delete((SocketServer*)mCppSocketServer);
     }
-    
+
     if (mCppSocketServerObserverWrapper) {
         delete((SocketServerObserver_wrapper*)mCppSocketServerObserverWrapper);
-	}
-    
-	[super dealloc];
+    }
+
+    [super dealloc];
 }
 
 -(void)start{
-	((SocketServer*)mCppSocketServer)->Start();	
+    ((SocketServer*)mCppSocketServer)->Start();
 }
 
 -(void)stop{
-	((SocketServer*)mCppSocketServer)->Stop();
+    ((SocketServer*)mCppSocketServer)->Stop();
 }
 
 
 -(NSString*)getIPAddress{
-	char *ip = ((SocketServer*)mCppSocketServer)->getServerIPAddress();
-	
-	return @(ip);
+    char *ip = ((SocketServer*)mCppSocketServer)->getServerIPAddress();
+
+    return @(ip);
 }
 
 -(unsigned short)getPort{
-	return ((SocketServer*)mCppSocketServer)->getServerPort();
+    return ((SocketServer*)mCppSocketServer)->getServerPort();
 }
 
 
 -(void)addObserver:(SocketServer_ObjC_Observer*)obs{
-	[mObservers addObject:obs];
+    [mObservers addObject:obs];
 }
 
 -(void)removeObserver:(SocketServer_ObjC_Observer*)obs{
-	[mObservers removeObject:obs];
+    [mObservers removeObject:obs];
 }
 
 
 -(int)dataIn:(unsigned char*)data length:(int)len fromIP:(NSString*)ipAddress fromPort:(unsigned short)port{
-	int ret  = -1;
+    int ret  = -1;
 
-	SocketServer_ObjC_Observer* obs;
-	
-	NSEnumerator *obsenum = [mObservers objectEnumerator];	
-	while(obs = [obsenum nextObject]){
-		[obs DataIn:self withData:data andLen:len fromSource:ipAddress];
-	}			
-	
+    SocketServer_ObjC_Observer* obs;
 
-	return ret;
+    NSEnumerator *obsenum = [mObservers objectEnumerator];
+    while(obs = [obsenum nextObject]){
+        [obs DataIn:self withData:data andLen:len fromSource:ipAddress];
+    }
+
+    return ret;
 }
 
 

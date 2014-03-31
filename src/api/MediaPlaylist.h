@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -42,9 +42,9 @@
 @class MediaPlaylistObserver, MediaPlaylist;
 
 typedef enum MediaPlaylistState{
-	MediaPlaylistState_NotInitialized = 0,
-	MediaPlaylistState_Stopped,
-	MediaPlaylistState_Playing
+    MediaPlaylistState_NotInitialized = 0,
+    MediaPlaylistState_Stopped,
+    MediaPlaylistState_Playing
 }MediaPlaylistState;
 
 /**
@@ -60,13 +60,13 @@ typedef enum MediaPlaylistState{
  * Class
  */
 @interface MediaPlaylist : NSObject {
-	NSMutableArray *playList; //MediaServer1ItemObject[]
-	int currentTrack;
-	MediaServer1Device* mediaServer;
-//	MediaRenderer1Device* mediaRenderer;
-	MediaServer1ContainerObject* container;
-	NSMutableArray *mObservers; //MediaPlaylistObserver[]
-	MediaPlaylistState state;
+    NSMutableArray *playList;//MediaServer1ItemObject[]
+    int currentTrack;
+    MediaServer1Device* mediaServer;
+//    MediaRenderer1Device* mediaRenderer;
+    MediaServer1ContainerObject* container;
+    NSMutableArray *mObservers;//MediaPlaylistObserver[]
+    MediaPlaylistState state;
 }
 
 -(int)addObserver:(id<MediaPlaylistObserver>)obs;
@@ -79,7 +79,7 @@ typedef enum MediaPlaylistState{
 -(int)nextTrack;
 -(int)prevTrack;
 -(int)setTrackByNumber:(int)track;
--(int)setTrackByID:(NSString*)objectID; 
+-(int)setTrackByID:(NSString*)objectID;
 -(MediaServer1ItemObject*)GetCurrentTrackItem;
 
 @property(readonly) NSMutableArray *playList;

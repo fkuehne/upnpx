@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -37,13 +37,13 @@
 @implementation NSString(UPnPExtentions)
 
 -(NSString*)XMLUnEscape {
-	if([self length] < 2){
-		return self;
-	}
-	
-	NSString *returnStr = nil;
+    if([self length] < 2){
+        return self;
+    }
 
-	@autoreleasepool {
+    NSString *returnStr = nil;
+
+    @autoreleasepool {
         returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"&"  ];
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"'"];
@@ -56,22 +56,22 @@
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"\r"];
 
         returnStr = [ [ NSString alloc ] initWithString:returnStr];
-        
-        [returnStr autorelease]; 
-        
+
+        [returnStr autorelease];
+
         return returnStr;
     }
 }
 
 
 -(NSString*)XMLEscape{
-	if([self length] < 2){
-		return self;
-	}
-	
-	NSString *returnStr = nil;
-	
-	@autoreleasepool {
+    if([self length] < 2){
+        return self;
+    }
+
+    NSString *returnStr = nil;
+
+    @autoreleasepool {
         //First remove all eventually escape codes because it makes it impossible to distinguish during unescape
         returnStr = [ self stringByReplacingOccurrencesOfString:@"&amp;" withString: @"."  ];
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
@@ -92,18 +92,18 @@
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\n" withString:@"&#10;"];
         returnStr = [ returnStr stringByReplacingOccurrencesOfString:@"\r" withString:@"&#13;"];
-        
+
         returnStr = [ [ NSString alloc ] initWithString:returnStr];
-        
+
         [returnStr autorelease];
-        
+
         return returnStr;
     }
 }
 
 //hh:mm:ss -> seconds
 -(int)HMS2Seconds{
-	int s = 0;
+    int s = 0;
 
     @autoreleasepool {
         NSArray *items = [self componentsSeparatedByString:@":"];
@@ -122,17 +122,17 @@
 
 //seconds -> hh:mm:ss 
 +(NSString*)Seconds2HMS:(int)seconds{
-	NSString *ret = nil;
-	if (seconds > 0) {
-		int hh = (int) (seconds / 60 / 60);
-		int mm = (int) ((seconds / 60) %  60 );
-		int ss = (int) (seconds % 60 );
-		ret = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hh, mm, ss];
-	} else {
-		ret = @"00:00:00";
-	}
-	
-	return ret;	
+    NSString *ret = nil;
+    if (seconds > 0) {
+        int hh = (int) (seconds / 60 / 60);
+        int mm = (int) ((seconds / 60) %  60 );
+        int ss = (int) (seconds % 60 );
+        ret = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hh, mm, ss];
+    } else {
+        ret = @"00:00:00";
+    }
+
+    return ret;
 }
 
 @end

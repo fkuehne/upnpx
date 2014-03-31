@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -38,19 +38,19 @@
 #import "StateVariableRange.h"
 #import "StateVariableList.h"
 
-@interface BasicServiceParser : BasicParser {	
-	BasicUPnPService* service;
-	
-	NSString *descriptionURL;
-	NSString *eventURL;
-	NSString *controlURL;
-	NSString *serviceType;
-	BOOL mCollectingStateVar;
-	
-	StateVariableType mCachedType;
-	StateVariableList *mStatevarListCache;
-	StateVariableRange *mStatevarRangeCache;
-	StateVariable *mStatevarCache;
+@interface BasicServiceParser : BasicParser {
+    BasicUPnPService* service;
+
+    NSString *descriptionURL;
+    NSString *eventURL;
+    NSString *controlURL;
+    NSString *serviceType;
+    BOOL mCollectingStateVar;
+
+    StateVariableType mCachedType;
+    StateVariableList *mStatevarListCache;
+    StateVariableRange *mStatevarRangeCache;
+    StateVariable *mStatevarCache;
 }
 
 -(id)initWithUPnPService:(BasicUPnPService*)upnpservice;
@@ -59,7 +59,7 @@
 -(void)serviceTag:(NSString*)startStop;
 -(void)stateVariable:(NSString*)startStop;
 -(void)setAllowedValue:(NSString*)value;
-			
+
 @property (readonly, retain) BasicUPnPService* service;
 
 //Keep a local copy because there are mutiple services found during parsing

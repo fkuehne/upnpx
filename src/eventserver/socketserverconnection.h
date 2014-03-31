@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -42,25 +42,25 @@
 
 class SocketServerConnection{
 public:
-	SocketServerConnection(SOCKET socket, struct sockaddr_in *sender);
-	~SocketServerConnection();
-	
-	SOCKET GetSocket();
-	int ReadDataFromSocket(struct sockaddr_in **sender);
-	int SendDataOnSocket(unsigned char *sendbuf, int len);
+    SocketServerConnection(SOCKET socket, struct sockaddr_in *sender);
+    ~SocketServerConnection();
 
-	int ErrorOnSocket();
-	bool isActive;
-	
-	u8* GetBuffer();
-	
-	struct sockaddr_in mSender;
-	
+    SOCKET GetSocket();
+    int ReadDataFromSocket(struct sockaddr_in **sender);
+    int SendDataOnSocket(unsigned char *sendbuf, int len);
+
+    int ErrorOnSocket();
+    bool isActive;
+
+    u8* GetBuffer();
+
+    struct sockaddr_in mSender;
+
 private:
-	SOCKET mSocket;
-	u8 *mBuffer;
-	int mBufferSize;
-	
+    SOCKET mSocket;
+    u8 *mBuffer;
+    int mBufferSize;
+
 };
 
 

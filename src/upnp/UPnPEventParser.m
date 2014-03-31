@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -33,10 +33,10 @@
 
 /*
  <e:propertyset xmlns:e="urn:schemas-upnp-org:event-1-0">
-	<e:property>
-		<SystemUpdateID>0</SystemUpdateID>
-		<ContainerUpdateIDs>0,4</ContainerUpdateIDs>
-	</e:property>
+    <e:property>
+        <SystemUpdateID>0</SystemUpdateID>
+        <ContainerUpdateIDs>0,4</ContainerUpdateIDs>
+    </e:property>
  </e:propertyset>
 */
 
@@ -50,65 +50,65 @@
 
 -(id)init{
     self = [super initWithNamespaceSupport:YES];
-    
-    if (self) {	
-        events = [[NSMutableDictionary alloc] init];	
+
+    if (self) {
+        events = [[NSMutableDictionary alloc] init];
 
         lastChangeParser = nil;
-        
+
         //Device is the root device
         [self addAsset:@[@"propertyset", @"property", @"LastChange"] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
         [self addAsset:@[@"propertyset", @"property", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
     }
 
-	return self;
+    return self;
 }
 
 
 -(void)dealloc{
-	[lastChangeParser release];
-	[elementValue release];
-	[events release];
-	[super dealloc];
+    [lastChangeParser release];
+    [elementValue release];
+    [events release];
+    [super dealloc];
 }
 
 
 -(void)reinit{
-	[events removeAllObjects];
+    [events removeAllObjects];
 }
 
 
 -(void)propertyName:(NSString*)startStop{
-	if([startStop isEqualToString:@"ElementStart"]){
-	}else{
-		//Element name
-		NSString *name = [[NSString alloc] initWithString:currentElementName];
-		//Element value
-		NSString *value = [[NSString alloc] initWithString:elementValue];
-		//Add
-		events[name] = value;
-		
-		[name release];
-		[value release];
-	}
+    if([startStop isEqualToString:@"ElementStart"]){
+    }else{
+        //Element name
+        NSString *name = [[NSString alloc] initWithString:currentElementName];
+        //Element value
+        NSString *value = [[NSString alloc] initWithString:elementValue];
+        //Add
+        events[name] = value;
+
+        [name release];
+        [value release];
+    }
 }
 
 -(void)lastChangeElement:(NSString*)startStop{
-	if(lastChangeParser == nil){
-		lastChangeParser = [[LastChangeParser alloc] initWithEventDictionary:events];
-	}
+    if(lastChangeParser == nil){
+        lastChangeParser = [[LastChangeParser alloc] initWithEventDictionary:events];
+    }
 
-	if([startStop isEqualToString:@"ElementStart"]){
-	}else{	
-		//NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
-		//Parse LastChange
-		NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding]; 
-		
-		int ret = [lastChangeParser parseFromData:lastChange];
-		if(ret != 0){
-			NSLog(@"Something went wrong during LastChange parsing");
-		}
-	}
+    if([startStop isEqualToString:@"ElementStart"]){
+    }else{
+        //NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
+        //Parse LastChange
+        NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
+
+        int ret = [lastChangeParser parseFromData:lastChange];
+        if(ret != 0){
+            NSLog(@"Something went wrong during LastChange parsing");
+        }
+    }
 }
 
 

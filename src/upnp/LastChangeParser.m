@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -39,33 +39,33 @@
 
 -(id)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
     self = [super init];
-    
+
     if (self) {
         /* TODO: events -> retain property */
         events = foundEvents;
         [events retain];
-        
+
         [self addAsset:@[@"Event", @"InstanceID"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"Event", @"InstanceID", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
     }
-	
-	return self;
+
+    return self;
 }
 
 -(void)propertyName:(NSString*)startStop{
-	if([startStop isEqualToString:@"ElementStart"]){
-	}else{		
-		//Element name
-		NSString *name = [[NSString alloc] initWithString:currentElementName];
-		//Element value
-		NSString *value = elementAttributeDict[@"val"];
-		//Add
-		if(name != nil && value != nil){
-			events[name] = value;
-		}
-		
-		[name release];
-	}
+    if([startStop isEqualToString:@"ElementStart"]){
+    }else{
+        //Element name
+        NSString *name = [[NSString alloc] initWithString:currentElementName];
+        //Element value
+        NSString *value = elementAttributeDict[@"val"];
+        //Add
+        if(name != nil && value != nil){
+            events[name] = value;
+        }
+
+        [name release];
+    }
 }
 
 @end

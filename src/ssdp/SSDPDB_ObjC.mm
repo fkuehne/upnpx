@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -46,22 +46,22 @@
 
 class SSDPDB_Observer_wrapper:public SSDPDBObserver{
 public:
-	SSDPDB_ObjC* mObjCObserver;
-	SSDPDB_Observer_wrapper(SSDPDB_ObjC* observer){
-		mObjCObserver = observer;
-		UPNP::GetInstance()->GetSSDP()->GetDB()->AddObserver(this);
-	}
-	
-	~SSDPDB_Observer_wrapper(){
-		UPNP::GetInstance()->GetSSDP()->GetDB()->RemoveObserver(this);
-	}
-	
-	int SSDPDBMessage(SSDPDBMsg* msg){	
-		[mObjCObserver SSDPDBUpdate];
-		return 0;
-	}
-private:	
-	SSDPDB_Observer_wrapper(){}
+    SSDPDB_ObjC* mObjCObserver;
+    SSDPDB_Observer_wrapper(SSDPDB_ObjC* observer){
+        mObjCObserver = observer;
+        UPNP::GetInstance()->GetSSDP()->GetDB()->AddObserver(this);
+    }
+
+    ~SSDPDB_Observer_wrapper(){
+        UPNP::GetInstance()->GetSSDP()->GetDB()->RemoveObserver(this);
+    }
+
+    int SSDPDBMessage(SSDPDBMsg* msg){
+        [mObjCObserver SSDPDBUpdate];
+        return 0;
+    }
+private:
+    SSDPDB_Observer_wrapper(){}
 };
 
 
@@ -77,49 +77,49 @@ private:
 -(id)init
 {
     self = [super init];
-    
-    if (self) {		
+
+    if (self) {
         mMutex = [[NSRecursiveLock alloc] init];
         mObservers = [[NSMutableArray alloc] init];
-        SSDPObjCDevices = [[NSMutableArray alloc] init]; 
+        SSDPObjCDevices = [[NSMutableArray alloc] init];
 
         mWrapper = new SSDPDB_Observer_wrapper(self);
     }
 
-	return self;
+    return self;
 }
 
 -(void)dealloc{
     if (mWrapper) {
         delete((SSDPDB_Observer_wrapper*)mWrapper);
     }
-	[mObservers removeAllObjects];
-	[mObservers release];
-	[SSDPObjCDevices removeAllObjects];
-	[SSDPObjCDevices release];
-	[mMutex release];
-	[super dealloc];
+    [mObservers removeAllObjects];
+    [mObservers release];
+    [SSDPObjCDevices removeAllObjects];
+    [SSDPObjCDevices release];
+    [mMutex release];
+    [super dealloc];
 }
 
 -(void)lock{
-	[mMutex lock];
+    [mMutex lock];
 }
 
 -(void)unlock{
-	[mMutex unlock];
+    [mMutex unlock];
 }
 
 
 -(int)startSSDP{
-	return UPNP::GetInstance()->GetSSDP()->Start();
+    return UPNP::GetInstance()->GetSSDP()->Start();
 }
 
 -(int)stopSSDP{
-	return UPNP::GetInstance()->GetSSDP()->Stop();
+    return UPNP::GetInstance()->GetSSDP()->Stop();
 }
 
 -(int)notifySSDPAlive{
-	return UPNP::GetInstance()->GetSSDP()->NotifyAlive();
+    return UPNP::GetInstance()->GetSSDP()->NotifyAlive();
 }
 
 -(int)notifySSDPByeBye{
@@ -127,7 +127,7 @@ private:
 }
 
 -(int)searchSSDP{
-	return UPNP::GetInstance()->GetSSDP()->Search();	
+    return UPNP::GetInstance()->GetSSDP()->Search();
 }
 
 -(int)searchForMediaServer{
@@ -136,27 +136,27 @@ private:
 
 
 -(int)addObserver:(SSDPDB_ObjC_Observer*)obs{
-	int ret = 0;
-	[self lock];
-	[mObservers addObject:obs];
-	ret = [mObservers count];
-	[self unlock];
-	return ret;
+    int ret = 0;
+    [self lock];
+    [mObservers addObject:obs];
+    ret = [mObservers count];
+    [self unlock];
+    return ret;
 }
 
 -(int)removeObserver:(SSDPDB_ObjC_Observer*)obs{
-	int ret = 0;
-	[self lock];
-	[mObservers removeObject:obs];
-	ret = [mObservers count];
-	[self unlock];
-	return ret;
+    int ret = 0;
+    [self lock];
+    [mObservers removeObject:obs];
+    ret = [mObservers count];
+    [self unlock];
+    return ret;
 }
 
--(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os{    
+-(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os{
     if(os != nil){
         const char *c_os = [os cStringUsingEncoding:NSASCIIStringEncoding];
-        UPNP::GetInstance()->GetSSDP()->SetOS(c_os);        
+        UPNP::GetInstance()->GetSSDP()->SetOS(c_os);
     }
     if(product != nil){
         const char *c_product = [product cStringUsingEncoding:NSASCIIStringEncoding];
@@ -165,8 +165,8 @@ private:
 }
 
 -(void)SSDPDBUpdate{
-	[NSRunLoop currentRunLoop]; //Start our runloop
-	
+    [NSRunLoop currentRunLoop];//Start our runloop
+
     @autoreleasepool {
         SSDPDB_ObjC_Observer *obs;
 
@@ -175,7 +175,6 @@ private:
         while((obs = [listeners nextObject])){
             [obs SSDPDBWillUpdate:self];
         }
-
 
         [self lock];
         [SSDPObjCDevices removeAllObjects];
@@ -192,7 +191,7 @@ private:
             [thisObjCDevice release];
         }
         UPNP::GetInstance()->GetSSDP()->GetDB()->Unlock();
-        
+
         //Inform the listeners
         listeners = [mObservers objectEnumerator];
         while((obs = [listeners nextObject])){
@@ -218,45 +217,44 @@ private:
 @synthesize type;
 @synthesize version;
 @synthesize host;
-@synthesize location;	
+@synthesize location;
 @synthesize ip;
 @synthesize port;
 
 
 -(id)initWithCPPDevice:(void*)cppDevice{
     self = [super init];
-    
+
     if (self) {
         SSDPDBDevice *dev = (SSDPDBDevice*)cppDevice;
-        
-        isdevice	= dev->isdevice==1?true:false;
-        isroot		= dev->isroot==1?true:false;
-        isservice	= dev->isservice==1?true:false;
-        uuid		= [[NSString alloc] initWithCString:dev->uuid.c_str() encoding:NSASCIIStringEncoding];
-        urn			= [[NSString alloc] initWithCString:dev->urn.c_str() encoding:NSASCIIStringEncoding];
-        usn			= [[NSString alloc] initWithCString:dev->usn.c_str() encoding:NSASCIIStringEncoding];
-        type		= [[NSString alloc] initWithCString:dev->type.c_str() encoding:NSASCIIStringEncoding];
-        version		= [[NSString alloc] initWithCString:dev->version.c_str() encoding:NSASCIIStringEncoding];
-        host		= [[NSString alloc] initWithCString:dev->host.c_str() encoding:NSASCIIStringEncoding];
-        location	= [[NSString alloc] initWithCString:dev->location.c_str() encoding:NSASCIIStringEncoding];	
-        ip			= dev->ip;
-        port		= dev->port;
-	}
-    
-	return self;
+
+        isdevice    = dev->isdevice==1?true:false;
+        isroot        = dev->isroot==1?true:false;
+        isservice    = dev->isservice==1?true:false;
+        uuid        = [[NSString alloc] initWithCString:dev->uuid.c_str() encoding:NSASCIIStringEncoding];
+        urn            = [[NSString alloc] initWithCString:dev->urn.c_str() encoding:NSASCIIStringEncoding];
+        usn            = [[NSString alloc] initWithCString:dev->usn.c_str() encoding:NSASCIIStringEncoding];
+        type        = [[NSString alloc] initWithCString:dev->type.c_str() encoding:NSASCIIStringEncoding];
+        version        = [[NSString alloc] initWithCString:dev->version.c_str() encoding:NSASCIIStringEncoding];
+        host        = [[NSString alloc] initWithCString:dev->host.c_str() encoding:NSASCIIStringEncoding];
+        location    = [[NSString alloc] initWithCString:dev->location.c_str() encoding:NSASCIIStringEncoding];
+        ip            = dev->ip;
+        port        = dev->port;
+    }
+
+    return self;
 }
 
 -(void)dealloc{
-	[uuid release];
-	[urn release];
-	[usn release];
-	[type release];
-	[version release];
-	[host release];
-	[location release];
-	
-	[super dealloc];
-}
+    [uuid release];
+    [urn release];
+    [usn release];
+    [type release];
+    [version release];
+    [host release];
+    [location release];
 
+    [super dealloc];
+}
 
 @end
