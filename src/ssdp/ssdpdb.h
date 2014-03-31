@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -48,39 +48,39 @@ using namespace std;
 
 class SSDPDB{
 public:
-	SSDPDB();
-	~SSDPDB();
+    SSDPDB();
+    ~SSDPDB();
 
-	int Start();
-	int Stop();
-	
-	int AddObserver(SSDPDBObserver* obs);	
-	int RemoveObserver(SSDPDBObserver* obs);	
-	
-	SSDPDBDevice* GetDevice(u8* usn, u32 usnlen);
-	SSDPDBDevice* InsertDevice(u8* usn, u32 usnlen);
-	int DeleteDevice(u8* usn, u32 usnlen);
-	int DeleteDevicesByUuid(u8* uuid, u32 uuidlen);	
-	vector<SSDPDBDevice*> GetDevices();
+    int Start();
+    int Stop();
 
-	void Lock();
-	void Unlock();
-	void DeviceUpdate(SSDPDBDevice* device);
-	void ServiceUpdate(SSDPDBDevice* service);
-	int UpdateCacheControl(u8* uuid, u32 uuidlen, int cachecontrol);
+    int AddObserver(SSDPDBObserver* obs);
+    int RemoveObserver(SSDPDBObserver* obs);
+
+    SSDPDBDevice* GetDevice(u8* usn, u32 usnlen);
+    SSDPDBDevice* InsertDevice(u8* usn, u32 usnlen);
+    int DeleteDevice(u8* usn, u32 usnlen);
+    int DeleteDevicesByUuid(u8* uuid, u32 uuidlen);
+    vector<SSDPDBDevice*> GetDevices();
+
+    void Lock();
+    void Unlock();
+    void DeviceUpdate(SSDPDBDevice* device);
+    void ServiceUpdate(SSDPDBDevice* service);
+    int UpdateCacheControl(u8* uuid, u32 uuidlen, int cachecontrol);
 private:
-	vector<SSDPDBDevice*> mDevices;
-	vector<SSDPDBObserver*> mObservers;
-	pthread_mutexattr_t mMutexAccessAttr;
-	pthread_mutex_t mMutexAccess;
-	pthread_t mCacheControlThread;
-	int CacheControlLoop();
-	u8 mRun;
+    vector<SSDPDBDevice*> mDevices;
+    vector<SSDPDBObserver*> mObservers;
+    pthread_mutexattr_t mMutexAccessAttr;
+    pthread_mutex_t mMutexAccess;
+    pthread_t mCacheControlThread;
+    int CacheControlLoop();
+    u8 mRun;
 private:
-	SSDPDB(const SSDPDB &src);
-	SSDPDB& operator= (const SSDPDB &src);		
+    SSDPDB(const SSDPDB &src);
+    SSDPDB& operator= (const SSDPDB &src);
 private:
-	static void* sCacheControlLoop(void* data);
+    static void* sCacheControlLoop(void* data);
 };
 
 

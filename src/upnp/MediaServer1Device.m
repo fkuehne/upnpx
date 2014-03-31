@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -38,59 +38,59 @@
 @implementation MediaServer1Device
 
 -(void)dealloc{
-	
+
     if(mContentDirectory)
         NSLog(@"[mContentDirectory retainCount]=%lu", (unsigned long)[mContentDirectory retainCount] );
-    
-    
-	[mAvTransport release];
-	[mContentDirectory release];
-	[mConnectionManager release];
-	
-	[super dealloc];
+
+
+    [mAvTransport release];
+    [mContentDirectory release];
+    [mConnectionManager release];
+
+    [super dealloc];
 }
 
 
 -(SoapActionsAVTransport1*)avTransport{
-	if(mAvTransport == nil){
-		mAvTransport = (SoapActionsAVTransport1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:AVTransport:1"] soap];
-		[mAvTransport retain];
-	}
-	
-	return mAvTransport;
+    if(mAvTransport == nil){
+        mAvTransport = (SoapActionsAVTransport1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:AVTransport:1"] soap];
+        [mAvTransport retain];
+    }
+
+    return mAvTransport;
 }
 
 -(SoapActionsContentDirectory1*)contentDirectory{
-	if(mContentDirectory == nil){
-		mContentDirectory = (SoapActionsContentDirectory1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:ContentDirectory:1"] soap];
-		[mContentDirectory retain];
-	}
-	
-	return mContentDirectory;
+    if(mContentDirectory == nil){
+        mContentDirectory = (SoapActionsContentDirectory1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:ContentDirectory:1"] soap];
+        [mContentDirectory retain];
+    }
+
+    return mContentDirectory;
 }
 
 
 -(SoapActionsConnectionManager1*)connectionManager{
-	if(mConnectionManager == nil){
-		mConnectionManager = (SoapActionsConnectionManager1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:ConnectionManager:1"] soap];
-		[mConnectionManager retain];
-	}
-	
-	return mConnectionManager;
+    if(mConnectionManager == nil){
+        mConnectionManager = (SoapActionsConnectionManager1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:ConnectionManager:1"] soap];
+        [mConnectionManager retain];
+    }
+
+    return mConnectionManager;
 }
 
 
 -(BasicUPnPService*)avTransportService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:AVTransport:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:AVTransport:1"];
 }
 
 
 -(BasicUPnPService*)connectionManagerService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:ConnectionManager:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:ConnectionManager:1"];
 }
 
 -(BasicUPnPService*)contentDirectoryService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:ContentDirectory:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:ContentDirectory:1"];
 }
 
 

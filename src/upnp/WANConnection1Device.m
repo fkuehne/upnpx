@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -38,40 +38,40 @@
 @implementation WANConnection1Device
 
 -(void)dealloc{
-	[mPPPConnection release];
-	[mIPConnection release];
-	
-	[super dealloc];
+    [mPPPConnection release];
+    [mIPConnection release];
+
+    [super dealloc];
 }
 
 
 -(BasicUPnPService*)ipConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
 }
 
 
 -(BasicUPnPService*)pppConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
 }
 
 
 -(SoapActionsWANIPConnection1*)ipConnection{
-	if(mIPConnection == nil){	                                                                     
-		mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
-		[mIPConnection retain];
-	}
-	
-	return mIPConnection;
+    if(mIPConnection == nil){
+        mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
+        [mIPConnection retain];
+    }
+
+    return mIPConnection;
 }
 
 
 -(SoapActionsWANPPPConnection1*)pppConnection{
-	if(mPPPConnection == nil){	                                                                     
-		mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
-		[mPPPConnection retain];
-	}
-	
-	return mPPPConnection;
+    if(mPPPConnection == nil){
+        mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
+        [mPPPConnection retain];
+    }
+
+    return mPPPConnection;
 }
 
 

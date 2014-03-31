@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -45,20 +45,20 @@ using namespace std;
 
 class SSDPParser{
 public:
-	SSDPParser(SSDPDB* db);
-	~SSDPParser();
-	int ReInit();
-	int Parse(struct sockaddr* sender, u8* buf, u32 len);
-	SSDP_TYPE GetType();
+    SSDPParser(SSDPDB* db);
+    ~SSDPParser();
+    int ReInit();
+    int Parse(struct sockaddr* sender, u8* buf, u32 len);
+    SSDP_TYPE GetType();
 private:
-	int ReadLine(u8 *buf, u32 len, u8 **restbuf, u32 *restlen);
-	SSDP_TYPE mType;
-	vector<SSDP_HTTP_HEADER*> mHeaders;
-	vector<SSDPMessage*> mMessages;
-	SSDPDB* mDB;
+    int ReadLine(u8 *buf, u32 len, u8 **restbuf, u32 *restlen);
+    SSDP_TYPE mType;
+    vector<SSDP_HTTP_HEADER*> mHeaders;
+    vector<SSDPMessage*> mMessages;
+    SSDPDB* mDB;
 private:
-	SSDPParser(const SSDPParser &src);
-	SSDPParser& operator= (const SSDPParser &src);	
+    SSDPParser(const SSDPParser &src);
+    SSDPParser& operator= (const SSDPParser &src);
 };
 
 #endif //_SSDPPARSER_H_

@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -49,11 +49,11 @@
  */
 @interface SSDPDB_ObjC : NSObject {
 @public
-	NSMutableArray *mObservers;
+    NSMutableArray *mObservers;
 @private
-	void* mWrapper;
-	NSRecursiveLock *mMutex;
-	NSMutableArray *SSDPObjCDevices;
+    void* mWrapper;
+    NSRecursiveLock *mMutex;
+    NSMutableArray *SSDPObjCDevices;
 }
 
 
@@ -80,19 +80,19 @@
  */
 @interface SSDPDBDevice_ObjC : NSObject {
 @private
-	bool isdevice;
-	bool isroot;
-	bool isservice;
-	NSString *uuid;
-	NSString *urn;
-	NSString *usn;
-	NSString *type;
-	NSString *version;
-	NSString *host;
-	NSString *location;	
-	
-	unsigned int ip;
-	unsigned short port;
+    bool isdevice;
+    bool isroot;
+    bool isservice;
+    NSString *uuid;
+    NSString *urn;
+    NSString *usn;
+    NSString *type;
+    NSString *version;
+    NSString *host;
+    NSString *location;
+
+    unsigned int ip;
+    unsigned short port;
 }
 
 -(id)initWithCPPDevice:(void*)cppDevice;
@@ -106,8 +106,8 @@
 @property(readonly) NSString *type;
 @property(readonly) NSString *version;
 @property(readonly) NSString *host;
-@property(readonly) NSString *location;	
-@property(readonly) unsigned int ip;	
+@property(readonly) NSString *location;
+@property(readonly) unsigned int ip;
 @property(readonly) unsigned short port;
 
 @end

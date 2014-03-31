@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -43,106 +43,106 @@
     self = [super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
                            eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
                       upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];
-    
+
     if (self) {
         /* TODO: set upnpservice as retain property */
         upnpservice = service;
         [upnpservice retain];
-	}
-    
-	return self;
+    }
+
+    return self;
 }
 
 -(void)dealloc{
-	[upnpservice release];
-	
-	[super dealloc];
+    [upnpservice release];
+
+    [super dealloc];
 }
 
 -(int)getVolume{
-	return [self getVolumeForInstance:0 andChannel:@"Master"];
+    return [self getVolumeForInstance:0 andChannel:@"Master"];
 }
 
 -(int)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel{
-	int ret = 0;
-	
-	NSMutableString *currentVolumeString = [[NSMutableString alloc] init]; 
-	
-	NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
-	NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];	
-	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
-	NSArray *outputKeys = @[@"CurrentVolume"];
-	NSArray *outputObjects = @[currentVolumeString];	
-	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
-	
-	ret = [self action:@"GetVolume" parameters:parameters returnValues:output];
+    int ret = 0;
 
-	if(ret == 0){
-		//Cast the return to a int
-		ret = [currentVolumeString intValue];
-	}
-	[currentVolumeString release];
-	
-	return ret;
+    NSMutableString *currentVolumeString = [[NSMutableString alloc] init];
+
+    NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
+    NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];
+    NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    NSArray *outputKeys = @[@"CurrentVolume"];
+    NSArray *outputObjects = @[currentVolumeString];
+    NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
+
+    ret = [self action:@"GetVolume" parameters:parameters returnValues:output];
+
+    if(ret == 0){
+        //Cast the return to a int
+        ret = [currentVolumeString intValue];
+    }
+    [currentVolumeString release];
+
+    return ret;
 }
 
 
 
 
 -(int)getVolumeDB{
-	return [self getVolumeDBForInstance:0 andChannel:@"Master"];
+    return [self getVolumeDBForInstance:0 andChannel:@"Master"];
 }
 
 -(int)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel{
-	int ret = 0;
-	
-	NSMutableString *currentVolumeString = [[NSMutableString alloc] init]; 
-	
-	NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
-	NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];	
-	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
-	NSArray *outputKeys = @[@"CurrentVolume"];
-	NSArray *outputObjects = @[currentVolumeString];	
-	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
-	
-	ret = [self action:@"GetVolumeDB" parameters:parameters returnValues:output];
-	
-	if(ret == 0){
-		//Cast the return to a int
-		ret = [currentVolumeString intValue];
-	}
-	[currentVolumeString release];
-	
-	return ret;
+    int ret = 0;
+
+    NSMutableString *currentVolumeString = [[NSMutableString alloc] init];
+
+    NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
+    NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];
+    NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    NSArray *outputKeys = @[@"CurrentVolume"];
+    NSArray *outputObjects = @[currentVolumeString];
+    NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
+
+    ret = [self action:@"GetVolumeDB" parameters:parameters returnValues:output];
+
+    if(ret == 0){
+        //Cast the return to a int
+        ret = [currentVolumeString intValue];
+    }
+    [currentVolumeString release];
+
+    return ret;
 }
 
 
 -(int)listPesets:(NSMutableString*)presetsRet{
-	return [self listPresetsForInstance:0 presetsOut:presetsRet];
+    return [self listPresetsForInstance:0 presetsOut:presetsRet];
 }
 
 -(int)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet{
-	int ret = 0;
-	
-	NSMutableString *currentPresetString = [[NSMutableString alloc] init]; 	
-	NSArray *parameterKeys		= @[@"InstanceID"];
-	NSArray *parameterObjects	= @[[NSString stringWithFormat:@"%d", instanceID]];		
-	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
-	
-	NSArray *outputKeys			= @[@"CurrentPresetNameList"];
-	NSArray *outputObjects		= @[currentPresetString];	
-	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
-	
-	ret = [self action:@"ListPresets" parameters:parameters returnValues:output];
-	
-	if(ret == 0){
-		if(presetsRet != nil){
-			[presetsRet setString:currentPresetString];
-		}
-	}
-	[currentPresetString release];
-	
-	return ret;
+    int ret = 0;
+
+    NSMutableString *currentPresetString = [[NSMutableString alloc] init];
+    NSArray *parameterKeys        = @[@"InstanceID"];
+    NSArray *parameterObjects    = @[[NSString stringWithFormat:@"%d", instanceID]];
+    NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+
+    NSArray *outputKeys            = @[@"CurrentPresetNameList"];
+    NSArray *outputObjects        = @[currentPresetString];
+    NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
+
+    ret = [self action:@"ListPresets" parameters:parameters returnValues:output];
+
+    if(ret == 0){
+        if(presetsRet != nil){
+            [presetsRet setString:currentPresetString];
+        }
+    }
+    [currentPresetString release];
+
+    return ret;
 }
 
 

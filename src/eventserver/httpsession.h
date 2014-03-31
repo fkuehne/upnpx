@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -44,44 +44,44 @@ using namespace std;
 
 class HTTPSession{
 private:
-	char *sessionBuf;
-	int sessionBufLen;
-	int currentFillLength;
-	map<string, string> sessionHeaders; //copy the strings into the map
-	
-	bool firstData;
-	unsigned short sourcePort;
-	char sourceIP[16];
-	string mVersion;
-	string mPath;
-	string mMethod;
-	char* mBody;
-	int mBodyLen;
-	int mContentlength;
-	int mHeaderlength;
-	
-	map<string, string> mHeaders; 
-	
+    char *sessionBuf;
+    int sessionBufLen;
+    int currentFillLength;
+    map<string, string> sessionHeaders;//copy the strings into the map
+
+    bool firstData;
+    unsigned short sourcePort;
+    char sourceIP[16];
+    string mVersion;
+    string mPath;
+    string mMethod;
+    char* mBody;
+    int mBodyLen;
+    int mContentlength;
+    int mHeaderlength;
+
+    map<string, string> mHeaders;
+
 public:
-	HTTPSession(char* srcip, unsigned short srcport);
-	~HTTPSession();
+    HTTPSession(char* srcip, unsigned short srcport);
+    ~HTTPSession();
 
-	//return the bytes still to receive
-	//< 0 when error
-	//0 if done
-	int AddData(unsigned char* buf, int len);
+    //return the bytes still to receive
+    //< 0 when error
+    //0 if done
+    int AddData(unsigned char* buf, int len);
 
-	string* GetMethod();
-	char* GetSenderIP();
-	unsigned short GetSenderPort();
-	string* GetPath();
-	string*  GetVersion();
-	map<string, string>* GetHeaders();
-	char* GetBody();
-	int GetBodyLen();
-	
+    string* GetMethod();
+    char* GetSenderIP();
+    unsigned short GetSenderPort();
+    string* GetPath();
+    string*  GetVersion();
+    map<string, string>* GetHeaders();
+    char* GetBody();
+    int GetBodyLen();
+
 private:
-	int ParseHeader(unsigned char* buf, int len);
+    int ParseHeader(unsigned char* buf, int len);
 };
 
 #endif //_HTTPSESSION_H

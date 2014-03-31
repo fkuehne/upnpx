@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -40,72 +40,72 @@ SSDPMessage::SSDPMessage():mDB(NULL){
 }
 
 SSDPMessage::~SSDPMessage(){
-	std::vector<SSDP_HTTP_HEADER*>::iterator it;
-	for(it=mHeaderSignature.begin(); it<mHeaderSignature.end(); it++){
-		free(*it);
-	}
-	mHeaderSignature.clear();
+    std::vector<SSDP_HTTP_HEADER*>::iterator it;
+    for(it=mHeaderSignature.begin();it<mHeaderSignature.end();it++){
+        free(*it);
+    }
+    mHeaderSignature.clear();
 }
 
 
 
 std::vector<SSDP_HTTP_HEADER*> SSDPMessage::GetHeaderSignature(){
-	return mHeaderSignature;
+    return mHeaderSignature;
 }
 
 
 u8 SSDPMessage::CanProcess(std::vector<SSDP_HTTP_HEADER*> msgheaders){
-	u8 ret = 0;
-	SSDP_HTTP_HEADER* hdrsig;
-	SSDP_HTTP_HEADER* hdrmsg;
-	u8 found = 0;
-	u32 ftel = 0;
-	std::vector<SSDP_HTTP_HEADER*>::const_iterator itsig;
-	std::vector<SSDP_HTTP_HEADER*>::const_iterator itmsg;
-	if(mHeaderSignature.size()<=0 || msgheaders.size() <= 0){
-		goto EXIT;
-	}
-	for(itsig=mHeaderSignature.begin(); itsig<mHeaderSignature.end(); itsig++){
-		hdrsig = (SSDP_HTTP_HEADER*)*itsig;
-		found = 0;
-		for(itmsg=msgheaders.begin(); itmsg<msgheaders.end(); itmsg++){
-			hdrmsg = (SSDP_HTTP_HEADER*)*itmsg;
-			if(caseinstringcmp(hdrmsg->fieldname, hdrmsg->fieldnamelen, hdrsig->fieldname, hdrsig->fieldnamelen) == 0 &&
-			   ( hdrsig->fieldvaluelen == 0 || (hdrmsg->fieldvaluelen == hdrsig->fieldvaluelen && memcmp(hdrmsg->fieldvalue, hdrsig->fieldvalue, hdrsig->fieldvaluelen) == 0) ))
-			{
-				found = 1;
-				break;
-			}
-		}
-		if(found==1){
-			ftel++;
-		}
-	}	
-	if(ftel == mHeaderSignature.size()){
-		//All found
-		ret = 1;
-	}
+    u8 ret = 0;
+    SSDP_HTTP_HEADER* hdrsig;
+    SSDP_HTTP_HEADER* hdrmsg;
+    u8 found = 0;
+    u32 ftel = 0;
+    std::vector<SSDP_HTTP_HEADER*>::const_iterator itsig;
+    std::vector<SSDP_HTTP_HEADER*>::const_iterator itmsg;
+    if(mHeaderSignature.size()<=0 || msgheaders.size() <= 0){
+        goto EXIT;
+    }
+    for(itsig=mHeaderSignature.begin();itsig<mHeaderSignature.end();itsig++){
+        hdrsig = (SSDP_HTTP_HEADER*)*itsig;
+        found = 0;
+        for(itmsg=msgheaders.begin();itmsg<msgheaders.end();itmsg++){
+            hdrmsg = (SSDP_HTTP_HEADER*)*itmsg;
+            if(caseinstringcmp(hdrmsg->fieldname, hdrmsg->fieldnamelen, hdrsig->fieldname, hdrsig->fieldnamelen) == 0 &&
+               ( hdrsig->fieldvaluelen == 0 || (hdrmsg->fieldvaluelen == hdrsig->fieldvaluelen && memcmp(hdrmsg->fieldvalue, hdrsig->fieldvalue, hdrsig->fieldvaluelen) == 0) ))
+            {
+                found = 1;
+                break;
+            }
+        }
+        if(found==1){
+            ftel++;
+        }
+    }
+    if(ftel == mHeaderSignature.size()){
+        //All found
+        ret = 1;
+    }
 EXIT:
-	return ret;
+    return ret;
 }
 
 
 int SSDPMessage::AddSignatureHeader(char* fieldname, char* fieldvalue){
-	SSDP_HTTP_HEADER *thisHeader = (SSDP_HTTP_HEADER*)malloc(sizeof(SSDP_HTTP_HEADER));
-	thisHeader->fieldname = (u8*)fieldname;
-	thisHeader->fieldnamelen = strlen(fieldname);
-	thisHeader->fieldvalue = (u8*)fieldvalue;
-	thisHeader->fieldvaluelen = strlen(fieldvalue);
-	mHeaderSignature.push_back(thisHeader);			
-	return mHeaderSignature.size();
+    SSDP_HTTP_HEADER *thisHeader = (SSDP_HTTP_HEADER*)malloc(sizeof(SSDP_HTTP_HEADER));
+    thisHeader->fieldname = (u8*)fieldname;
+    thisHeader->fieldnamelen = strlen(fieldname);
+    thisHeader->fieldvalue = (u8*)fieldvalue;
+    thisHeader->fieldvaluelen = strlen(fieldvalue);
+    mHeaderSignature.push_back(thisHeader);
+    return mHeaderSignature.size();
 }
 
 
 void SSDPMessage::SetDB(SSDPDB* db){
-	mDB = db;
+    mDB = db;
 }
 
 SSDPDB* SSDPMessage::GetDB(){
-	return mDB;
+    return mDB;
 }
 

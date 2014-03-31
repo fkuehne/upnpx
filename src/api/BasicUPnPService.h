@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -46,26 +46,26 @@
 
 
 @interface BasicUPnPService : NSObject <UPnPEvents_Observer> {
-	SSDPDBDevice_ObjC *ssdpdevice;
-	
-	BOOL isProcessed;
-	BOOL isSupportForEvents;
-	
-	NSString *baseURLString;
-	NSURL *baseURL;
-	NSString *descriptionURL;
-	NSString *eventURL;
-	NSString *controlURL;
-	NSString *serviceType;
-	SoapAction *soap;
-	
-	NSString *urn;
-	NSString *eventUUID;
-	
-	NSMutableDictionary *stateVariables; //StateVariable
-	NSMutableArray *mObservers; //BasicUPnPServiceObserver
-	
-	NSRecursiveLock *mMutex;
+    SSDPDBDevice_ObjC *ssdpdevice;
+
+    BOOL isProcessed;
+    BOOL isSupportForEvents;
+
+    NSString *baseURLString;
+    NSURL *baseURL;
+    NSString *descriptionURL;
+    NSString *eventURL;
+    NSString *controlURL;
+    NSString *serviceType;
+    SoapAction *soap;
+
+    NSString *urn;
+    NSString *eventUUID;
+
+    NSMutableDictionary *stateVariables;//StateVariable
+    NSMutableArray *mObservers;//BasicUPnPServiceObserver
+
+    NSRecursiveLock *mMutex;
 }
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device;
@@ -79,7 +79,7 @@
 //The BasicUPnPService (this) members are set with the right values
 //Further processing is service dependent and must be handled by the derived classes 
 //The return value must be 0 when implenented
--(int)process; //in C++ this should be a pure virtual function
+-(int)process;//in C++ this should be a pure virtual function
 
 
 @property (readwrite, retain) NSURL* baseURL;

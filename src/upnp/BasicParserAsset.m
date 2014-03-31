@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -35,12 +35,12 @@
 #import "BasicParserAsset.h"
 
 @interface BasicParserAsset ()  {
-	NSArray *path;
-	SEL function;
-	id functionObject;
-	SEL stringValueFunction;
-	id  stringValueObject;
-	NSMutableString *stringCache;
+    NSArray *path;
+    SEL function;
+    id functionObject;
+    SEL stringValueFunction;
+    id  stringValueObject;
+    NSMutableString *stringCache;
 }
 @end
 
@@ -55,7 +55,7 @@
 
 -(id)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj{
     self = [super init];
-    
+
     if (self) {
         /* TODO: path -> retain property */
         path = thePath;
@@ -65,19 +65,19 @@
         stringValueObject = obj;
         function = theFunction;
         functionObject = funcobj;
-        
+
         NSMutableString *s = [[NSMutableString alloc] init] ;
         [self setStringCache:s];
         [s release];
     }
-    
-	return self;
+
+    return self;
 }
 
 -(void)dealloc{
-	[path release];
-	[stringCache release];
-	[super dealloc];
+    [path release];
+    [stringCache release];
+    [super dealloc];
 }
 
 

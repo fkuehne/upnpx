@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -43,30 +43,30 @@ using namespace std;
 
 class SSDPDBDevice{
 public:
-	SSDPDBDevice();
-	~SSDPDBDevice();
-	u8 isdevice;
-	u8 isroot;
-	u8 isservice;
-	string uuid;
-	string urn;
-	string usn;
-	ssdpuuid parsedusn;
-	string type;
-	string version;
-	string host;
-	string location;
-	
-	u32 ip;
-	u16 port;
-	
-	u32 cachecontrol;
-	u32 lastupdate;
-	
-	
+    SSDPDBDevice();
+    ~SSDPDBDevice();
+    u8 isdevice;
+    u8 isroot;
+    u8 isservice;
+    string uuid;
+    string urn;
+    string usn;
+    ssdpuuid parsedusn;
+    string type;
+    string version;
+    string host;
+    string location;
+
+    u32 ip;
+    u16 port;
+
+    u32 cachecontrol;
+    u32 lastupdate;
+
+
 private:
-	SSDPDBDevice(const SSDPDBDevice &src);
-	SSDPDBDevice& operator= (const SSDPDBDevice &src);		
+    SSDPDBDevice(const SSDPDBDevice &src);
+    SSDPDBDevice& operator= (const SSDPDBDevice &src);
 };
 
 

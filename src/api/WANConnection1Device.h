@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -34,12 +34,12 @@
 
 /* WANConnectionDevice:1 Services (O:Optional/R:Required)
  *
- * WANPOTSLinkConfig:1			O for POTS modems
- * WANDSLLinkConfig:1			O for DSL modems
- * WANCableLinkConfig:1			O for Cable modems
- * WANEthernetLinkConfig:1		O for Ethernet attached modems
- * WANPPPConnection:1			R for modems that support PPP based connections
- * WANIPConnection:1			R for modems that support IP based connections
+ * WANPOTSLinkConfig:1            O for POTS modems
+ * WANDSLLinkConfig:1            O for DSL modems
+ * WANCableLinkConfig:1            O for Cable modems
+ * WANEthernetLinkConfig:1        O for Ethernet attached modems
+ * WANPPPConnection:1            R for modems that support PPP based connections
+ * WANIPConnection:1            R for modems that support IP based connections
  *
  */
 
@@ -51,8 +51,8 @@
 
 
 @interface WANConnection1Device : BasicUPnPDevice {
-	SoapActionsWANIPConnection1 *mIPConnection;
-	SoapActionsWANPPPConnection1 *mPPPConnection;
+    SoapActionsWANIPConnection1 *mIPConnection;
+    SoapActionsWANPPPConnection1 *mPPPConnection;
 }
 
 -(SoapActionsWANIPConnection1*)ipConnection;

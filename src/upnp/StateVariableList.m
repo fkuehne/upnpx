@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -40,30 +40,30 @@
 
 -(id)init{
     self = [super init];
-    
-    if (self) {	
+
+    if (self) {
         variableType = StateVariable_Type_List;
         list = [[NSMutableArray alloc] init];
         [self empty];
-	}
+    }
 
-	return self;
+    return self;
 }
 
 -(void)dealloc{
-	[list release];
-	[super dealloc];
+    [list release];
+    [super dealloc];
 }
 
 -(void)empty{
-	[super empty];
-	[list removeAllObjects];
+    [super empty];
+    [list removeAllObjects];
 }
 
 -(void)copyFromStateVariableList:(StateVariableList*)stateVar{
-	[super copyFromStateVariable:(StateVariable*)stateVar];
-	[list release];
-	list = [[NSMutableArray alloc] initWithArray:[stateVar list]];
+    [super copyFromStateVariable:(StateVariable*)stateVar];
+    [list release];
+    list = [[NSMutableArray alloc] initWithArray:[stateVar list]];
 }
 
 @end

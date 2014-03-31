@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -39,66 +39,66 @@
 
 
 -(void)dealloc{
-	
-	[mMediaManagement release];
-	[mMessaging release];
-	[mInputConfig release];
-	[mDeviceProtection release];
-	
-	[super dealloc];
+
+    [mMediaManagement release];
+    [mMessaging release];
+    [mInputConfig release];
+    [mDeviceProtection release];
+
+    [super dealloc];
 }
 
 
 -(SoapActionsMediaManagement1*)mediaManagement{
-	if(mMediaManagement == nil){
-		mMediaManagement = (SoapActionsMediaManagement1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"] soap];
-		[mMediaManagement retain];
-	}
-	
-	return mMediaManagement;
+    if(mMediaManagement == nil){
+        mMediaManagement = (SoapActionsMediaManagement1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"] soap];
+        [mMediaManagement retain];
+    }
+
+    return mMediaManagement;
 }
 
 -(SoapActionsMessaging1*)messaging{
-	if(mMessaging == nil){
-		mMessaging = (SoapActionsMessaging1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"] soap];
-		[mMessaging retain];
-	}
-	
-	return mMessaging;
+    if(mMessaging == nil){
+        mMessaging = (SoapActionsMessaging1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"] soap];
+        [mMessaging retain];
+    }
+
+    return mMessaging;
 }
 
 
 -(SoapActionsInputConfig1*)inputConfig{
-	if(mInputConfig == nil){
-		mInputConfig = (SoapActionsInputConfig1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"] soap];
-		[mInputConfig retain];
-	}
-	
-	return mInputConfig;
+    if(mInputConfig == nil){
+        mInputConfig = (SoapActionsInputConfig1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"] soap];
+        [mInputConfig retain];
+    }
+
+    return mInputConfig;
 }
 
 -(SoapActionsDeviceProtection1*)deviceProtection{
-	if(mDeviceProtection == nil){
-		mDeviceProtection = (SoapActionsDeviceProtection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:DeviceProtection:1"] soap];
-		[mDeviceProtection retain];
-	}
-	
-	return mDeviceProtection;
+    if(mDeviceProtection == nil){
+        mDeviceProtection = (SoapActionsDeviceProtection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:DeviceProtection:1"] soap];
+        [mDeviceProtection retain];
+    }
+
+    return mDeviceProtection;
 }
 
 
 
 -(BasicUPnPService*)mediaManagementService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"];
 }
 
 
 -(BasicUPnPService*)messagingService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"];
 }
 
 -(BasicUPnPService*)inputConfigService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"];
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"];
 }
 
 -(BasicUPnPService*)deviceProtectionService{

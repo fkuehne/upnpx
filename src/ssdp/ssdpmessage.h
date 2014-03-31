@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -41,31 +41,31 @@
 
 class SSDPMessage{
 public:
-	SSDPMessage();
-	virtual ~SSDPMessage();
-	//What type of message can we handle 
-	virtual SSDP_TYPE GetType()=0;
-	//Get the message dignature implemented in this class
-	virtual std::vector<SSDP_HTTP_HEADER*> GetHeaderSignature();
-	//Can this class parse the message with this signature ?
-	virtual u8 CanProcess(std::vector<SSDP_HTTP_HEADER*> msgheaders);
-	//Process the message, return value: 
-	//0 : processed
-	//1 : not for me, search for another to process
-	//<0 : message was for me but there is an error
-	virtual int Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADER*> msgheaders)=0;
-	//ReInit all members
-	virtual void ReInit()=0;
-	virtual SSDPDB* GetDB();
-	virtual void SetDB(SSDPDB* db);
+    SSDPMessage();
+    virtual ~SSDPMessage();
+    //What type of message can we handle
+    virtual SSDP_TYPE GetType()=0;
+    //Get the message dignature implemented in this class
+    virtual std::vector<SSDP_HTTP_HEADER*> GetHeaderSignature();
+    //Can this class parse the message with this signature ?
+    virtual u8 CanProcess(std::vector<SSDP_HTTP_HEADER*> msgheaders);
+    //Process the message, return value: 
+    //0 : processed
+    //1 : not for me, search for another to process
+    //<0 : message was for me but there is an error
+    virtual int Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADER*> msgheaders)=0;
+    //ReInit all members
+    virtual void ReInit()=0;
+    virtual SSDPDB* GetDB();
+    virtual void SetDB(SSDPDB* db);
 private:
-	std::vector<SSDP_HTTP_HEADER*> mHeaderSignature;
+    std::vector<SSDP_HTTP_HEADER*> mHeaderSignature;
 protected:
-	int AddSignatureHeader(char* fieldname, char* fieldvalue);
-	SSDPDB *mDB;
+    int AddSignatureHeader(char* fieldname, char* fieldvalue);
+    SSDPDB *mDB;
 private:
-	SSDPMessage(const SSDPMessage &src);
-	SSDPMessage& operator= (const SSDPMessage &src);			
+    SSDPMessage(const SSDPMessage &src);
+    SSDPMessage& operator= (const SSDPMessage &src);
 };
 
 

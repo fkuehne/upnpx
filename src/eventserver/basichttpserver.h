@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
+// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -46,29 +46,25 @@ using namespace std;
 
 class BasicHTTPServer:public SocketServerObserver{
 public:
-	BasicHTTPServer(unsigned short prefferedPort);
-	~BasicHTTPServer();
-	
-	
-	SocketServer* GetSocketServer();
-	int Start();
-	int Stop();
-	int AddObserver(BasicHTTPObserver *observer);
-	int RemoveObserver(BasicHTTPObserver *observer);
-	
-public:
-	//SocketServerObserver
-	int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf);
-	int DataToSend(int *len, unsigned char **buf);
-	
-private:
-	SocketServer *mServer;
-	std::vector<BasicHTTPObserver*> mObservers;
-	
+    BasicHTTPServer(unsigned short prefferedPort);
+    ~BasicHTTPServer();
 
-	map<string, HTTPSession*> mSessions; 
-		
-	
+    SocketServer* GetSocketServer();
+    int Start();
+    int Stop();
+    int AddObserver(BasicHTTPObserver *observer);
+    int RemoveObserver(BasicHTTPObserver *observer);
+
+public:
+    //SocketServerObserver
+    int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf);
+    int DataToSend(int *len, unsigned char **buf);
+
+private:
+    SocketServer *mServer;
+    std::vector<BasicHTTPObserver*> mObservers;
+
+    map<string, HTTPSession*> mSessions;
 };
 
 
