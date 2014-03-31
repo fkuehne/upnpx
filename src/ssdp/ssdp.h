@@ -62,6 +62,9 @@ public:
 	int RemoveObserver(SSDPObserver* observer);
 	int Advertise();
 	int Search();
+    int SearchForMediaServer();
+    int NotifyAlive();
+    int NotifyByeBye();
     void SetOS(const char* os);
     void SetProduct(const char* product);    
 	SSDPDB* GetDB();

@@ -63,6 +63,9 @@
 -(int)startSSDP;
 -(int)stopSSDP;
 -(int)searchSSDP;
+-(int)searchForMediaServer;
+-(int)notifySSDPAlive;
+-(int)notifySSDPByeBye;
 -(int)addObserver:(SSDPDB_ObjC_Observer*)obs;
 -(int)removeObserver:(SSDPDB_ObjC_Observer*)obs;
 -(void)SSDPDBUpdate;

@@ -103,7 +103,11 @@ int SSDP::Start(){
 	ret = setsockopt(mMulticastSocket, IPPROTO_IP, IP_MULTICAST_TTL, (char*)&optval, sizeof(int));
 	STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);	
 	
-	
+	//buffer size
+    optval = 5000;
+    ret = setsockopt(mMulticastSocket, SOL_SOCKET, SO_SNDBUF, (char*)&optval, sizeof(int));
+    STATNVAL(ret, SOCKET_ERROR, CLEAN_AND_EXIT);
+
 	//Add membership
 	mMreq.imr_multiaddr.s_addr = inet_addr(SSDP_MCAST_ADDRESS);
 	mMreq.imr_interface.s_addr = INADDR_ANY;
@@ -191,7 +195,7 @@ CLEAN_AND_EXIT:
 	close(mUnicastSocket);
 	mUnicastSocket = INVALID_SOCKET;
 
-EXIT:	
+EXIT:
 	return ret;
 }
 
@@ -205,32 +209,76 @@ int SSDP::Stop(){
         close(mUnicastSocket);
         mUnicastSocket = INVALID_SOCKET;
 	}
-	
 
 	return 0;
 }
 
 
+int SSDP::NotifyAlive(){
+	const char *os=mOS.c_str();
+	const char *product=mProduct.c_str();
+
+	char buf[20048];
+
+	sprintf(buf, "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nCACHE-CONTROL: max-age=100\r\nNT: upnp:rootdevice\r\nNTS: ssdp:alive\r\nSERVER: %s/14.0.0, %s, UPnP/1.1\r\nX-User-Agent: fkuehne-upnpx\r\n\r\n", os, product);
+
+	if(mMulticastSocket != INVALID_SOCKET)
+		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+	else
+		printf("invalid socket\n");
+
+	return 0;
+}
+
+int SSDP::NotifyByeBye(){
+    const char *os=mOS.c_str();
+	const char *product=mProduct.c_str();
+
+	char buf[20048];
+
+	sprintf(buf, "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nCACHE-CONTROL: max-age=100\r\nNT: upnp:rootdevice\r\nNTS: ssdp:byebye\r\nSERVER: %s, %s, UPnP/1.1\r\nX-User-Agent: fkuehne-upnpx\r\n\r\n", os, product);
+
+	if(mMulticastSocket != INVALID_SOCKET)
+		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+	else
+		printf("invalid socket\n");
+
+    return 0;
+}
 
 //Multicast M-Search
 int SSDP::Search(){
-	u32 seconds = 3;
-	char target[]="ssdp:all";
+	u32 seconds = 5;
 	const char *os=mOS.c_str();
 	const char *product=mProduct.c_str();
-	
 	char buf[20048]; 
-	
-	sprintf(buf, "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: %d\r\nST: %s\r\nUSER-AGENT: %s UPnP/1.1 %s\r\n\r\n", seconds, target,os, product);
-	
-	if(mMulticastSocket != INVALID_SOCKET){
+
+	sprintf(buf, "M-SEARCH * HTTP/1.1\r\nMx: %d\r\nSt: ssdp:all\r\nMan: \"ssdp:discover\"\r\nUser-Agent: UPnP/1.1 %s %s\r\nConnection: close\r\nHost: 239.255.255.250:1900\r\n\r\n", seconds, os, product);
+
+	if(mMulticastSocket != INVALID_SOCKET)
 		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
-	}else{
+	else
 		printf("invalid socket\n");
-	}
-	return 0;
+
+    return 0;
 }
 
+int SSDP::SearchForMediaServer(){
+	u32 seconds = 5;
+	char target[]="urn:schemas-upnp-org:device:MediaServer:1";
+	const char *os=mOS.c_str();
+	const char *product=mProduct.c_str();
+	char buf[20048];
+
+	sprintf(buf, "M-SEARCH * HTTP/1.1\r\nMx: %d\r\nSt: %s\r\nMan: \"ssdp:discover\"\r\nUser-Agent: UPnP/1.1 %s %s\r\nConnection: close\r\nHost: 239.255.255.250:1900\r\n\r\n", seconds, target, os, product);
+
+	if(mMulticastSocket != INVALID_SOCKET)
+		sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+	else
+		printf("invalid socket\n");
+
+    return 0;
+}
 
 int SSDP::AddObserver(SSDPObserver* observer){
 	RemoveObserver(observer);
