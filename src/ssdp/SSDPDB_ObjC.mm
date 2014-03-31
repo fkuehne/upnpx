@@ -118,10 +118,20 @@ private:
 	return UPNP::GetInstance()->GetSSDP()->Stop();
 }
 
+-(int)notifySSDPAlive{
+	return UPNP::GetInstance()->GetSSDP()->NotifyAlive();
+}
 
+-(int)notifySSDPByeBye{
+    return UPNP::GetInstance()->GetSSDP()->NotifyByeBye();
+}
 
 -(int)searchSSDP{
 	return UPNP::GetInstance()->GetSSDP()->Search();	
+}
+
+-(int)searchForMediaServer{
+    return UPNP::GetInstance()->GetSSDP()->SearchForMediaServer();
 }
 
 

@@ -96,7 +96,7 @@ int main (int argc, char * const argv[]) {
 	Test_ObjC* testObjC = [[Test_ObjC alloc] init];
 	
 	UPNP* upnp = UPNP::GetInstance();
-	
+
 	SSDP* ssdp = upnp->GetSSDP();
 	SSDPDB* db = ssdp->GetDB();
 //	db->AddObserver(&mm);
