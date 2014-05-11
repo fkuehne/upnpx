@@ -66,15 +66,16 @@ int HTTPSession::AddData(unsigned char* buf, int len){
     }
 
     //header ?
+    memset(&sessionBuf[currentFillLength], 0, sessionBufLen - currentFillLength);
+    memcpy(&sessionBuf[currentFillLength], buf, len);
     if(firstData){
-        ret = ParseHeader(buf, len);
+        ret = ParseHeader((unsigned char*)&sessionBuf[currentFillLength], len);
         if(ret < 0){
             return ret;
         }
     }
     firstData = false;
 
-    memcpy(&sessionBuf[currentFillLength], buf, len);
     currentFillLength = currentFillLength + len;
 
     //Complete ?
