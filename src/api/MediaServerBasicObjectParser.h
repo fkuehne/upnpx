@@ -99,6 +99,12 @@
 @property(readwrite, retain) NSString *bitrate;
 @property(readwrite, retain) NSString *albumArt;
 
-
+@property (readwrite, retain) NSMutableArray *creators;
+@property (readwrite, retain) NSMutableArray *authors;
+@property (readwrite, retain) NSMutableArray *directors;
+@property (readwrite, retain) NSString *longDescription;
+@property (readwrite, retain) NSString *lastPlaybackPosition;
+@property (readwrite, retain) NSString *lastPlaybacktime;
+@property (readwrite, retain) NSString *playbackCount;
 
 @end

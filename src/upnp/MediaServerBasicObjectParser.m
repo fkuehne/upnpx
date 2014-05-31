@@ -119,6 +119,14 @@
         [self addAsset:@[@"DIDL-Lite", @"item", @"originalTrackNumber"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setOriginalTrackNumber:) setStringValueObject:self];
         [self addAsset:@[@"DIDL-Lite", @"item", @"albumArtURI"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAlbumArt:) setStringValueObject:self];
 
+        [self addAsset:@[@"DIDL-Lite", @"item", @"creator"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setCreator:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"author"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setAuthor:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"director"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDirector:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"longDescription"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setLongDescription:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"lastPlaybackPosition"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setLastPlaybackPosition:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"lastPlaybackTime"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setLastPlaybacktime:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"playbackCount"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setPlaybackCount:) setStringValueObject:self];
+
         [self addAsset:@[@"DIDL-Lite", @"item", @"res"] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setUri:) setStringValueObject:self];
     }
 
@@ -166,10 +174,22 @@
     [self setAlbumArt:nil];
     [self setDuration:nil];
 
+    [self setLongDescription:@""];
+    [self setLastPlaybackPosition:@""];
+    [self setLastPlaybacktime:@""];
+    [self setPlaybackCount:@""];
+    [self.creators removeAllObjects];
+    [self.authors removeAllObjects];
+    [self.directors removeAllObjects];
+
     [resources release];
     resources = [[NSMutableArray alloc] init];
     [uriCollection release];
     uriCollection = [[NSMutableDictionary alloc] init];
+
+    self.creators = [NSMutableArray new];
+    self.authors = [NSMutableArray new];
+    self.directors = [NSMutableArray new];
 }
 
 
@@ -213,6 +233,14 @@
         [media setObjectClass:mediaClass];
         [media setChildCount:childCount];
         [media setAlbumArt:albumArt];
+
+        [media setLongDescription:self.longDescription];
+        [media setLastPlaybackPosition:self.lastPlaybackPosition];
+        [media setLastPlaybacktime:self.lastPlaybacktime];
+        [media setPlaybackCount:self.playbackCount];
+        [media setCreators:self.creators];
+        [media setAuthors:self.authors];
+        [media setDirectors:self.directors];
 
         [mediaObjects addObject:media];
 
@@ -302,6 +330,21 @@
     [uri release];
     uri = s;
     [uri retain];
+}
+
+- (void)setCreator: (NSString *)value
+{
+    [self.creators addObject:value];
+}
+
+- (void)setAuthor: (NSString *)value
+{
+    [self.authors addObject:value];
+}
+
+- (void)setDirector: (NSString *)value
+{
+    [self.directors addObject:value];
 }
 
 @end
