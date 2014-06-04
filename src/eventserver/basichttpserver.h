@@ -57,8 +57,8 @@ public:
 
 public:
     //SocketServerObserver
-    int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf);
-    int DataToSend(int *len, unsigned char **buf);
+    int DataReceived(struct sockaddr_in *sender, size_t len, unsigned char *buf);
+    ssize_t DataToSend(ssize_t *len, unsigned char **buf);
 
 private:
     SocketServer *mServer;

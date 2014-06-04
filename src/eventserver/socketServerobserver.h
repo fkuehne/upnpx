@@ -36,11 +36,12 @@
 #define _SOCKETSERVEROBSERVER_H
 
 #include <arpa/inet.h>
+#include <sys/types.h>
 
 class SocketServerObserver{
 public:
-    virtual int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf) = 0;
-    virtual int DataToSend(int *len, unsigned char **buf) = 0;
+    virtual int DataReceived(struct sockaddr_in *sender, size_t len, unsigned char *buf) = 0;
+    virtual ssize_t DataToSend(ssize_t *len, unsigned char **buf) = 0;
 };
 
 #endif //_SOCKETSERVEROBSERVER_H
