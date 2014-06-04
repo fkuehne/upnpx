@@ -9,8 +9,8 @@
 @implementation SoapActionsMessaging1
 
 
--(int)GetTelephonyIdentityWithOutTelephonyIdentity:(NSMutableString*)telephonyidentity{
-    int ret = 0;
+-(NSInteger)GetTelephonyIdentityWithOutTelephonyIdentity:(NSMutableString*)telephonyidentity{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -25,8 +25,8 @@
 }
 
 
--(int)GetMessagingCapabilitiesWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities{
-    int ret = 0;
+-(NSInteger)GetMessagingCapabilitiesWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -41,8 +41,8 @@
 }
 
 
--(int)GetNewMessagesWithOutNewMessages:(NSMutableString*)newmessages{
-    int ret = 0;
+-(NSInteger)GetNewMessagesWithOutNewMessages:(NSMutableString*)newmessages{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -57,8 +57,8 @@
 }
 
 
--(int)SearchMessagesWithMessageClass:(NSString*)messageclass MessageFolder:(NSString*)messagefolder MessageStatus:(NSString*)messagestatus SessionID:(NSString*)sessionid OutMessageList:(NSMutableString*)messagelist{
-    int ret = 0;
+-(NSInteger)SearchMessagesWithMessageClass:(NSString*)messageclass MessageFolder:(NSString*)messagefolder MessageStatus:(NSString*)messagestatus SessionID:(NSString*)sessionid OutMessageList:(NSMutableString*)messagelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -79,8 +79,8 @@
 }
 
 
--(int)ReadMessageWithMessageID:(NSString*)messageid OutMessageRequested:(NSMutableString*)messagerequested{
-    int ret = 0;
+-(NSInteger)ReadMessageWithMessageID:(NSString*)messageid OutMessageRequested:(NSMutableString*)messagerequested{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -101,8 +101,8 @@
 }
 
 
--(int)SendMessageWithMessageToSend:(NSString*)messagetosend OutMessageID:(NSMutableString*)messageid{
-    int ret = 0;
+-(NSInteger)SendMessageWithMessageToSend:(NSString*)messagetosend OutMessageID:(NSMutableString*)messageid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -123,8 +123,8 @@
 }
 
 
--(int)DeleteMessageWithMessageID:(NSString*)messageid{
-    int ret = 0;
+-(NSInteger)DeleteMessageWithMessageID:(NSString*)messageid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -139,8 +139,8 @@
 }
 
 
--(int)CreateSessionWithSessionClass:(NSString*)sessionclass SessionRecipients:(NSString*)sessionrecipients Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype OutSessionID:(NSMutableString*)sessionid{
-    int ret = 0;
+-(NSInteger)CreateSessionWithSessionClass:(NSString*)sessionclass SessionRecipients:(NSString*)sessionrecipients Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype OutSessionID:(NSMutableString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -161,8 +161,8 @@
 }
 
 
--(int)ModifySessionWithSessionID:(NSString*)sessionid SessionRecipientsToAdd:(NSString*)sessionrecipientstoadd SessionRecipientsToRemove:(NSString*)sessionrecipientstoremove Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype SessionClass:(NSString*)sessionclass{
-    int ret = 0;
+-(NSInteger)ModifySessionWithSessionID:(NSString*)sessionid SessionRecipientsToAdd:(NSString*)sessionrecipientstoadd SessionRecipientsToRemove:(NSString*)sessionrecipientstoremove Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype SessionClass:(NSString*)sessionclass{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -177,8 +177,8 @@
 }
 
 
--(int)AcceptSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)AcceptSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -193,8 +193,8 @@
 }
 
 
--(int)GetSessionUpdatesWithOutSessionUpdates:(NSMutableString*)sessionupdates{
-    int ret = 0;
+-(NSInteger)GetSessionUpdatesWithOutSessionUpdates:(NSMutableString*)sessionupdates{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -209,8 +209,8 @@
 }
 
 
--(int)GetSessionsWithSessionID:(NSString*)sessionid SessionClass:(NSString*)sessionclass SessionStatus:(NSString*)sessionstatus OutSessionsList:(NSMutableString*)sessionslist{
-    int ret = 0;
+-(NSInteger)GetSessionsWithSessionID:(NSString*)sessionid SessionClass:(NSString*)sessionclass SessionStatus:(NSString*)sessionstatus OutSessionsList:(NSMutableString*)sessionslist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -231,8 +231,8 @@
 }
 
 
--(int)JoinSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)JoinSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -247,8 +247,8 @@
 }
 
 
--(int)LeaveSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)LeaveSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -263,8 +263,8 @@
 }
 
 
--(int)CloseSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)CloseSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -279,8 +279,8 @@
 }
 
 
--(int)StartFileTransferWithFileInfoList:(NSString*)fileinfolist{
-    int ret = 0;
+-(NSInteger)StartFileTransferWithFileInfoList:(NSString*)fileinfolist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -295,8 +295,8 @@
 }
 
 
--(int)CancelFileTransferWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)CancelFileTransferWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -311,8 +311,8 @@
 }
 
 
--(int)GetFileTransferSessionWithSessionID:(NSString*)sessionid OutFileInfoList:(NSMutableString*)fileinfolist{
-    int ret = 0;
+-(NSInteger)GetFileTransferSessionWithSessionID:(NSString*)sessionid OutFileInfoList:(NSMutableString*)fileinfolist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

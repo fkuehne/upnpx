@@ -216,7 +216,7 @@
         NSString *newState = events[@"TransportState"];
 
         if([newState isEqualToString:@"STOPPED"]){
-            int i = [playList nextTrack];
+            NSInteger i = [playList nextTrack];
             if(i >= 0){
                 [self play];
             }

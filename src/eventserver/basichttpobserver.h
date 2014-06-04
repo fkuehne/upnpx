@@ -45,7 +45,7 @@ public:
     //Methods to hook into the HTTP Server
     virtual bool CanProcessMethod(string *method) = 0;
     virtual bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen) = 0;
-    virtual bool Response(int *returncode, map<string, string> *headers, char **body, int *bodylen) = 0;
+    virtual bool Response(int *returncode, map<string, string> *headers, char **body, unsigned long *bodylen) = 0;
 };
 
 

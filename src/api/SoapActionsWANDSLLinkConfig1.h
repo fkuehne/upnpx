@@ -41,15 +41,15 @@
 
 //SOAP
 
--(int)SetDSLLinkTypeWithNewLinkType:(NSString*)newlinktype;
--(int)GetDSLLinkInfoWithOutNewLinkType:(NSMutableString*)newlinktype OutNewLinkStatus:(NSMutableString*)newlinkstatus;
--(int)GetAutoConfigWithOutNewAutoConfig:(NSMutableString*)newautoconfig;
--(int)GetModulationTypeWithOutNewModulationType:(NSMutableString*)newmodulationtype;
--(int)SetDestinationAddressWithNewDestinationAddress:(NSString*)newdestinationaddress;
--(int)GetDestinationAddressWithOutNewDestinationAddress:(NSMutableString*)newdestinationaddress;
--(int)SetATMEncapsulationWithNewATMEncapsulation:(NSString*)newatmencapsulation;
--(int)GetATMEncapsulationWithOutNewATMEncapsulation:(NSMutableString*)newatmencapsulation;
--(int)SetFCSPreservedWithNewFCSPreserved:(NSString*)newfcspreserved;
--(int)GetFCSPreservedWithOutNewFCSPreserved:(NSMutableString*)newfcspreserved;
+-(NSInteger)SetDSLLinkTypeWithNewLinkType:(NSString*)newlinktype;
+-(NSInteger)GetDSLLinkInfoWithOutNewLinkType:(NSMutableString*)newlinktype OutNewLinkStatus:(NSMutableString*)newlinkstatus;
+-(NSInteger)GetAutoConfigWithOutNewAutoConfig:(NSMutableString*)newautoconfig;
+-(NSInteger)GetModulationTypeWithOutNewModulationType:(NSMutableString*)newmodulationtype;
+-(NSInteger)SetDestinationAddressWithNewDestinationAddress:(NSString*)newdestinationaddress;
+-(NSInteger)GetDestinationAddressWithOutNewDestinationAddress:(NSMutableString*)newdestinationaddress;
+-(NSInteger)SetATMEncapsulationWithNewATMEncapsulation:(NSString*)newatmencapsulation;
+-(NSInteger)GetATMEncapsulationWithOutNewATMEncapsulation:(NSMutableString*)newatmencapsulation;
+-(NSInteger)SetFCSPreservedWithNewFCSPreserved:(NSString*)newfcspreserved;
+-(NSInteger)GetFCSPreservedWithOutNewFCSPreserved:(NSMutableString*)newfcspreserved;
 
 @end

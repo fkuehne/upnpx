@@ -10,23 +10,23 @@
 
 //SOAP
 
--(int)GetTelephonyIdentityWithOutTelephonyIdentity:(NSMutableString*)telephonyidentity;
--(int)GetMessagingCapabilitiesWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities;
--(int)GetNewMessagesWithOutNewMessages:(NSMutableString*)newmessages;
--(int)SearchMessagesWithMessageClass:(NSString*)messageclass MessageFolder:(NSString*)messagefolder MessageStatus:(NSString*)messagestatus SessionID:(NSString*)sessionid OutMessageList:(NSMutableString*)messagelist;
--(int)ReadMessageWithMessageID:(NSString*)messageid OutMessageRequested:(NSMutableString*)messagerequested;
--(int)SendMessageWithMessageToSend:(NSString*)messagetosend OutMessageID:(NSMutableString*)messageid;
--(int)DeleteMessageWithMessageID:(NSString*)messageid;
--(int)CreateSessionWithSessionClass:(NSString*)sessionclass SessionRecipients:(NSString*)sessionrecipients Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype OutSessionID:(NSMutableString*)sessionid;
--(int)ModifySessionWithSessionID:(NSString*)sessionid SessionRecipientsToAdd:(NSString*)sessionrecipientstoadd SessionRecipientsToRemove:(NSString*)sessionrecipientstoremove Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype SessionClass:(NSString*)sessionclass;
--(int)AcceptSessionWithSessionID:(NSString*)sessionid;
--(int)GetSessionUpdatesWithOutSessionUpdates:(NSMutableString*)sessionupdates;
--(int)GetSessionsWithSessionID:(NSString*)sessionid SessionClass:(NSString*)sessionclass SessionStatus:(NSString*)sessionstatus OutSessionsList:(NSMutableString*)sessionslist;
--(int)JoinSessionWithSessionID:(NSString*)sessionid;
--(int)LeaveSessionWithSessionID:(NSString*)sessionid;
--(int)CloseSessionWithSessionID:(NSString*)sessionid;
--(int)StartFileTransferWithFileInfoList:(NSString*)fileinfolist;
--(int)CancelFileTransferWithSessionID:(NSString*)sessionid;
--(int)GetFileTransferSessionWithSessionID:(NSString*)sessionid OutFileInfoList:(NSMutableString*)fileinfolist;
+-(NSInteger)GetTelephonyIdentityWithOutTelephonyIdentity:(NSMutableString*)telephonyidentity;
+-(NSInteger)GetMessagingCapabilitiesWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities;
+-(NSInteger)GetNewMessagesWithOutNewMessages:(NSMutableString*)newmessages;
+-(NSInteger)SearchMessagesWithMessageClass:(NSString*)messageclass MessageFolder:(NSString*)messagefolder MessageStatus:(NSString*)messagestatus SessionID:(NSString*)sessionid OutMessageList:(NSMutableString*)messagelist;
+-(NSInteger)ReadMessageWithMessageID:(NSString*)messageid OutMessageRequested:(NSMutableString*)messagerequested;
+-(NSInteger)SendMessageWithMessageToSend:(NSString*)messagetosend OutMessageID:(NSMutableString*)messageid;
+-(NSInteger)DeleteMessageWithMessageID:(NSString*)messageid;
+-(NSInteger)CreateSessionWithSessionClass:(NSString*)sessionclass SessionRecipients:(NSString*)sessionrecipients Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype OutSessionID:(NSMutableString*)sessionid;
+-(NSInteger)ModifySessionWithSessionID:(NSString*)sessionid SessionRecipientsToAdd:(NSString*)sessionrecipientstoadd SessionRecipientsToRemove:(NSString*)sessionrecipientstoremove Subject:(NSString*)subject SupportedContentType:(NSString*)supportedcontenttype SessionClass:(NSString*)sessionclass;
+-(NSInteger)AcceptSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)GetSessionUpdatesWithOutSessionUpdates:(NSMutableString*)sessionupdates;
+-(NSInteger)GetSessionsWithSessionID:(NSString*)sessionid SessionClass:(NSString*)sessionclass SessionStatus:(NSString*)sessionstatus OutSessionsList:(NSMutableString*)sessionslist;
+-(NSInteger)JoinSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)LeaveSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)CloseSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)StartFileTransferWithFileInfoList:(NSString*)fileinfolist;
+-(NSInteger)CancelFileTransferWithSessionID:(NSString*)sessionid;
+-(NSInteger)GetFileTransferSessionWithSessionID:(NSString*)sessionid OutFileInfoList:(NSMutableString*)fileinfolist;
 
 @end
