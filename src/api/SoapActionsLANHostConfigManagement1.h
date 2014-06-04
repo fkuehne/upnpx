@@ -41,24 +41,24 @@
 
 //SOAP
 
--(int)SetDHCPServerConfigurableWithNewDHCPServerConfigurable:(NSString*)newdhcpserverconfigurable;
--(int)GetDHCPServerConfigurableWithOutNewDHCPServerConfigurable:(NSMutableString*)newdhcpserverconfigurable;
--(int)SetDHCPRelayWithNewDHCPRelay:(NSString*)newdhcprelay;
--(int)GetDHCPRelayWithOutNewDHCPRelay:(NSMutableString*)newdhcprelay;
--(int)SetSubnetMaskWithNewSubnetMask:(NSString*)newsubnetmask;
--(int)GetSubnetMaskWithOutNewSubnetMask:(NSMutableString*)newsubnetmask;
--(int)SetIPRouterWithNewIPRouters:(NSString*)newiprouters;
--(int)DeleteIPRouterWithNewIPRouters:(NSString*)newiprouters;
--(int)GetIPRoutersListWithOutNewIPRouters:(NSMutableString*)newiprouters;
--(int)SetDomainNameWithNewDomainName:(NSString*)newdomainname;
--(int)GetDomainNameWithOutNewDomainName:(NSMutableString*)newdomainname;
--(int)SetAddressRangeWithNewMinAddress:(NSString*)newminaddress NewMaxAddress:(NSString*)newmaxaddress;
--(int)GetAddressRangeWithOutNewMinAddress:(NSMutableString*)newminaddress OutNewMaxAddress:(NSMutableString*)newmaxaddress;
--(int)SetReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses;
--(int)DeleteReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses;
--(int)GetReservedAddressesWithOutNewReservedAddresses:(NSMutableString*)newreservedaddresses;
--(int)SetDNSServerWithNewDNSServers:(NSString*)newdnsservers;
--(int)DeleteDNSServerWithNewDNSServers:(NSString*)newdnsservers;
--(int)GetDNSServersWithOutNewDNSServers:(NSMutableString*)newdnsservers;
+-(NSInteger)SetDHCPServerConfigurableWithNewDHCPServerConfigurable:(NSString*)newdhcpserverconfigurable;
+-(NSInteger)GetDHCPServerConfigurableWithOutNewDHCPServerConfigurable:(NSMutableString*)newdhcpserverconfigurable;
+-(NSInteger)SetDHCPRelayWithNewDHCPRelay:(NSString*)newdhcprelay;
+-(NSInteger)GetDHCPRelayWithOutNewDHCPRelay:(NSMutableString*)newdhcprelay;
+-(NSInteger)SetSubnetMaskWithNewSubnetMask:(NSString*)newsubnetmask;
+-(NSInteger)GetSubnetMaskWithOutNewSubnetMask:(NSMutableString*)newsubnetmask;
+-(NSInteger)SetIPRouterWithNewIPRouters:(NSString*)newiprouters;
+-(NSInteger)DeleteIPRouterWithNewIPRouters:(NSString*)newiprouters;
+-(NSInteger)GetIPRoutersListWithOutNewIPRouters:(NSMutableString*)newiprouters;
+-(NSInteger)SetDomainNameWithNewDomainName:(NSString*)newdomainname;
+-(NSInteger)GetDomainNameWithOutNewDomainName:(NSMutableString*)newdomainname;
+-(NSInteger)SetAddressRangeWithNewMinAddress:(NSString*)newminaddress NewMaxAddress:(NSString*)newmaxaddress;
+-(NSInteger)GetAddressRangeWithOutNewMinAddress:(NSMutableString*)newminaddress OutNewMaxAddress:(NSMutableString*)newmaxaddress;
+-(NSInteger)SetReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses;
+-(NSInteger)DeleteReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses;
+-(NSInteger)GetReservedAddressesWithOutNewReservedAddresses:(NSMutableString*)newreservedaddresses;
+-(NSInteger)SetDNSServerWithNewDNSServers:(NSString*)newdnsservers;
+-(NSInteger)DeleteDNSServerWithNewDNSServers:(NSString*)newdnsservers;
+-(NSInteger)GetDNSServersWithOutNewDNSServers:(NSMutableString*)newdnsservers;
 
 @end

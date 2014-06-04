@@ -40,8 +40,8 @@
 @implementation SoapActionsDigitalSecurityCameraStillImage1
 
 
--(int)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings{
-    int ret = 0;
+-(NSInteger)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -56,8 +56,8 @@
 }
 
 
--(int)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding{
-    int ret = 0;
+-(NSInteger)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -72,8 +72,8 @@
 }
 
 
--(int)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding{
-    int ret = 0;
+-(NSInteger)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -88,8 +88,8 @@
 }
 
 
--(int)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels{
-    int ret = 0;
+-(NSInteger)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -104,8 +104,8 @@
 }
 
 
--(int)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel{
-    int ret = 0;
+-(NSInteger)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -120,8 +120,8 @@
 }
 
 
--(int)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel{
-    int ret = 0;
+-(NSInteger)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -136,8 +136,8 @@
 }
 
 
--(int)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions{
-    int ret = 0;
+-(NSInteger)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -152,8 +152,8 @@
 }
 
 
--(int)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution{
-    int ret = 0;
+-(NSInteger)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -168,8 +168,8 @@
 }
 
 
--(int)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution{
-    int ret = 0;
+-(NSInteger)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -184,8 +184,8 @@
 }
 
 
--(int)GetImageURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImageURL:(NSMutableString*)retimageurl{
-    int ret = 0;
+-(NSInteger)GetImageURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImageURL:(NSMutableString*)retimageurl{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -206,8 +206,8 @@
 }
 
 
--(int)GetDefaultImageURLWithOutRetImageURL:(NSMutableString*)retimageurl{
-    int ret = 0;
+-(NSInteger)GetDefaultImageURLWithOutRetImageURL:(NSMutableString*)retimageurl{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -222,8 +222,8 @@
 }
 
 
--(int)GetImagePresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl{
-    int ret = 0;
+-(NSInteger)GetImagePresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -244,8 +244,8 @@
 }
 
 
--(int)GetDefaultImagePresentationURLWithOutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl{
-    int ret = 0;
+-(NSInteger)GetDefaultImagePresentationURLWithOutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

@@ -44,13 +44,13 @@
 -(id)initWithService:(BasicUPnPService*)service;
 
 //SOAP 
--(int)listPesets:(NSMutableString*)presetsRet;
--(int)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet;
+-(NSInteger)listPesets:(NSMutableString*)presetsRet;
+-(NSInteger)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet;
 
--(int)getVolume;
--(int)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel;
--(int)getVolumeDB;
--(int)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel;
+-(NSInteger)getVolume;
+-(NSInteger)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel;
+-(NSInteger)getVolumeDB;
+-(NSInteger)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel;
 
 
 @end

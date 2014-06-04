@@ -10,13 +10,13 @@
 
 //SOAP
 
--(int)GetInputCapabilityWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities;
--(int)GetInputConnectionListWithOutCurrentConnectionList:(NSMutableString*)currentconnectionlist;
--(int)SetInputSessionWithSelectedCapability:(NSString*)selectedcapability ReceiverInfo:(NSString*)receiverinfo PeerDeviceInfo:(NSString*)peerdeviceinfo ConnectionInfo:(NSString*)connectioninfo OutSessionID:(NSMutableString*)sessionid;
--(int)StartInputSessionWithSessionID:(NSString*)sessionid;
--(int)StopInputsessionWithSessionID:(NSString*)sessionid;
--(int)SwitchInputSessionWithSessionID:(NSString*)sessionid;
--(int)SetMultiInputModeWithNewMultiInputMode:(NSString*)newmultiinputmode;
--(int)SetMonopolizedSenderWithOwnerDeviceInfo:(NSString*)ownerdeviceinfo OwnedSessionID:(NSString*)ownedsessionid;
+-(NSInteger)GetInputCapabilityWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities;
+-(NSInteger)GetInputConnectionListWithOutCurrentConnectionList:(NSMutableString*)currentconnectionlist;
+-(NSInteger)SetInputSessionWithSelectedCapability:(NSString*)selectedcapability ReceiverInfo:(NSString*)receiverinfo PeerDeviceInfo:(NSString*)peerdeviceinfo ConnectionInfo:(NSString*)connectioninfo OutSessionID:(NSMutableString*)sessionid;
+-(NSInteger)StartInputSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)StopInputsessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)SwitchInputSessionWithSessionID:(NSString*)sessionid;
+-(NSInteger)SetMultiInputModeWithNewMultiInputMode:(NSString*)newmultiinputmode;
+-(NSInteger)SetMonopolizedSenderWithOwnerDeviceInfo:(NSString*)ownerdeviceinfo OwnedSessionID:(NSString*)ownedsessionid;
 
 @end

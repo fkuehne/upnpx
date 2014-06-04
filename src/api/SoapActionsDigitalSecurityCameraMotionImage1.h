@@ -41,22 +41,22 @@
 
 //SOAP
 
--(int)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings;
--(int)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding;
--(int)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding;
--(int)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels;
--(int)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel;
--(int)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel;
--(int)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions;
--(int)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution;
--(int)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution;
--(int)GetVideoURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution ReqMaxBandwidth:(NSString*)reqmaxbandwidth ReqTargetFrameRate:(NSString*)reqtargetframerate OutRetVideoURL:(NSMutableString*)retvideourl;
--(int)GetDefaultVideoURLWithOutRetVideoURL:(NSMutableString*)retvideourl;
--(int)GetVideoPresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution ReqMaxBandwidth:(NSString*)reqmaxbandwidth ReqTargetFrameRate:(NSString*)reqtargetframerate OutRetVideoPresentationURL:(NSMutableString*)retvideopresentationurl;
--(int)GetDefaultVideoPresentationURLWithOutRetVideoPresentationURL:(NSMutableString*)retvideopresentationurl;
--(int)SetMaxBandwidthWithReqMaxBandwidth:(NSString*)reqmaxbandwidth;
--(int)GetMaxBandwidthWithOutRetMaxBandwidth:(NSMutableString*)retmaxbandwidth;
--(int)SetTargetFrameRateWithReqTargetFrameRate:(NSString*)reqtargetframerate;
--(int)GetTargetFrameRateWithOutRetTargetFrameRate:(NSMutableString*)rettargetframerate;
+-(NSInteger)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings;
+-(NSInteger)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding;
+-(NSInteger)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding;
+-(NSInteger)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels;
+-(NSInteger)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel;
+-(NSInteger)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel;
+-(NSInteger)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions;
+-(NSInteger)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution;
+-(NSInteger)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution;
+-(NSInteger)GetVideoURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution ReqMaxBandwidth:(NSString*)reqmaxbandwidth ReqTargetFrameRate:(NSString*)reqtargetframerate OutRetVideoURL:(NSMutableString*)retvideourl;
+-(NSInteger)GetDefaultVideoURLWithOutRetVideoURL:(NSMutableString*)retvideourl;
+-(NSInteger)GetVideoPresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution ReqMaxBandwidth:(NSString*)reqmaxbandwidth ReqTargetFrameRate:(NSString*)reqtargetframerate OutRetVideoPresentationURL:(NSMutableString*)retvideopresentationurl;
+-(NSInteger)GetDefaultVideoPresentationURLWithOutRetVideoPresentationURL:(NSMutableString*)retvideopresentationurl;
+-(NSInteger)SetMaxBandwidthWithReqMaxBandwidth:(NSString*)reqmaxbandwidth;
+-(NSInteger)GetMaxBandwidthWithOutRetMaxBandwidth:(NSMutableString*)retmaxbandwidth;
+-(NSInteger)SetTargetFrameRateWithReqTargetFrameRate:(NSString*)reqtargetframerate;
+-(NSInteger)GetTargetFrameRateWithOutRetTargetFrameRate:(NSMutableString*)rettargetframerate;
 
 @end

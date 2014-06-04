@@ -125,8 +125,8 @@
 }
 
 
--(int)addObserver:(BasicUPnPServiceObserver*)obs{
-    int ret = 0;
+-(NSUInteger)addObserver:(BasicUPnPServiceObserver*)obs{
+    NSUInteger ret = 0;
 
     [mMutex lock];
     [mObservers addObject:obs];
@@ -136,8 +136,8 @@
     return ret;
 }
 
--(int)removeObserver:(BasicUPnPServiceObserver*)obs{
-    int ret = 0;
+-(NSUInteger)removeObserver:(BasicUPnPServiceObserver*)obs{
+    NSUInteger ret = 0;
 
     [mMutex lock];
     [mObservers removeObject:obs];

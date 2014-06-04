@@ -59,12 +59,12 @@
     [super dealloc];
 }
 
--(int)getVolume{
+-(NSInteger)getVolume{
     return [self getVolumeForInstance:0 andChannel:@"Master"];
 }
 
--(int)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel{
-    int ret = 0;
+-(NSInteger)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel{
+    NSInteger ret = 0;
 
     NSMutableString *currentVolumeString = [[NSMutableString alloc] init];
 
@@ -89,17 +89,17 @@
 
 
 
--(int)getVolumeDB{
+-(NSInteger)getVolumeDB{
     return [self getVolumeDBForInstance:0 andChannel:@"Master"];
 }
 
--(int)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel{
-    int ret = 0;
+-(NSInteger)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel{
+    NSInteger ret = 0;
 
     NSMutableString *currentVolumeString = [[NSMutableString alloc] init];
 
     NSArray *parameterKeys = @[@"InstanceID", @"Channel"];
-    NSArray *parameterObjects = @[[NSString stringWithFormat:@"%d", instanceID], channel];
+    NSArray *parameterObjects = @[[NSString stringWithFormat:@"%ld", (long)instanceID], channel];
     NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
     NSArray *outputKeys = @[@"CurrentVolume"];
     NSArray *outputObjects = @[currentVolumeString];
@@ -117,16 +117,16 @@
 }
 
 
--(int)listPesets:(NSMutableString*)presetsRet{
+-(NSInteger)listPesets:(NSMutableString*)presetsRet{
     return [self listPresetsForInstance:0 presetsOut:presetsRet];
 }
 
--(int)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet{
-    int ret = 0;
+-(NSInteger)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet{
+    NSInteger ret = 0;
 
     NSMutableString *currentPresetString = [[NSMutableString alloc] init];
     NSArray *parameterKeys        = @[@"InstanceID"];
-    NSArray *parameterObjects    = @[[NSString stringWithFormat:@"%d", instanceID]];
+    NSArray *parameterObjects    = @[[NSString stringWithFormat:@"%ld", (long)instanceID]];
     NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputKeys            = @[@"CurrentPresetNameList"];

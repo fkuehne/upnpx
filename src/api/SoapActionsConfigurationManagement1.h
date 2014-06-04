@@ -10,21 +10,21 @@
 
 //SOAP
 
--(int)GetSupportedDataModelsWithOutSupportedDataModels:(NSMutableString*)supporteddatamodels;
--(int)GetSupportedParametersWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result;
--(int)GetInstancesWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result;
--(int)GetValuesWithParameters:(NSString*)parameters OutParameterValueList:(NSMutableString*)parametervaluelist;
--(int)GetSelectedValuesWithStartingNode:(NSString*)startingnode Filter:(NSString*)filter OutParameterValueList:(NSMutableString*)parametervaluelist;
--(int)SetValuesWithParameterValueList:(NSString*)parametervaluelist OutStatus:(NSMutableString*)status;
--(int)CreateInstanceWithMultiInstanceName:(NSString*)multiinstancename ChildrenInitialization:(NSString*)childreninitialization OutInstanceIdentifier:(NSMutableString*)instanceidentifier OutStatus:(NSMutableString*)status;
--(int)DeleteInstanceWithInstanceIdentifier:(NSString*)instanceidentifier OutStatus:(NSMutableString*)status;
--(int)GetAttributesWithParameters:(NSString*)parameters OutNodeAttributeValueList:(NSMutableString*)nodeattributevaluelist;
--(int)SetAttributesWithNodeAttributeValueList:(NSString*)nodeattributevaluelist OutStatus:(NSMutableString*)status;
--(int)GetInconsistentStatusWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
--(int)GetConfigurationUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
--(int)GetCurrentConfigurationVersionWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
--(int)GetSupportedDataModelsUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
--(int)GetSupportedParametersUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
--(int)GetAttributeValuesUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetSupportedDataModelsWithOutSupportedDataModels:(NSMutableString*)supporteddatamodels;
+-(NSInteger)GetSupportedParametersWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result;
+-(NSInteger)GetInstancesWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result;
+-(NSInteger)GetValuesWithParameters:(NSString*)parameters OutParameterValueList:(NSMutableString*)parametervaluelist;
+-(NSInteger)GetSelectedValuesWithStartingNode:(NSString*)startingnode Filter:(NSString*)filter OutParameterValueList:(NSMutableString*)parametervaluelist;
+-(NSInteger)SetValuesWithParameterValueList:(NSString*)parametervaluelist OutStatus:(NSMutableString*)status;
+-(NSInteger)CreateInstanceWithMultiInstanceName:(NSString*)multiinstancename ChildrenInitialization:(NSString*)childreninitialization OutInstanceIdentifier:(NSMutableString*)instanceidentifier OutStatus:(NSMutableString*)status;
+-(NSInteger)DeleteInstanceWithInstanceIdentifier:(NSString*)instanceidentifier OutStatus:(NSMutableString*)status;
+-(NSInteger)GetAttributesWithParameters:(NSString*)parameters OutNodeAttributeValueList:(NSMutableString*)nodeattributevaluelist;
+-(NSInteger)SetAttributesWithNodeAttributeValueList:(NSString*)nodeattributevaluelist OutStatus:(NSMutableString*)status;
+-(NSInteger)GetInconsistentStatusWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetConfigurationUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetCurrentConfigurationVersionWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetSupportedDataModelsUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetSupportedParametersUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
+-(NSInteger)GetAttributeValuesUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue;
 
 @end

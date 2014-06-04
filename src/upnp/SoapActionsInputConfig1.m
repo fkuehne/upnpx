@@ -9,8 +9,8 @@
 @implementation SoapActionsInputConfig1
 
 
--(int)GetInputCapabilityWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities{
-    int ret = 0;
+-(NSInteger)GetInputCapabilityWithOutSupportedCapabilities:(NSMutableString*)supportedcapabilities{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -25,8 +25,8 @@
 }
 
 
--(int)GetInputConnectionListWithOutCurrentConnectionList:(NSMutableString*)currentconnectionlist{
-    int ret = 0;
+-(NSInteger)GetInputConnectionListWithOutCurrentConnectionList:(NSMutableString*)currentconnectionlist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -41,8 +41,8 @@
 }
 
 
--(int)SetInputSessionWithSelectedCapability:(NSString*)selectedcapability ReceiverInfo:(NSString*)receiverinfo PeerDeviceInfo:(NSString*)peerdeviceinfo ConnectionInfo:(NSString*)connectioninfo OutSessionID:(NSMutableString*)sessionid{
-    int ret = 0;
+-(NSInteger)SetInputSessionWithSelectedCapability:(NSString*)selectedcapability ReceiverInfo:(NSString*)receiverinfo PeerDeviceInfo:(NSString*)peerdeviceinfo ConnectionInfo:(NSString*)connectioninfo OutSessionID:(NSMutableString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -63,8 +63,8 @@
 }
 
 
--(int)StartInputSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)StartInputSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -79,8 +79,8 @@
 }
 
 
--(int)StopInputsessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)StopInputsessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -95,8 +95,8 @@
 }
 
 
--(int)SwitchInputSessionWithSessionID:(NSString*)sessionid{
-    int ret = 0;
+-(NSInteger)SwitchInputSessionWithSessionID:(NSString*)sessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -111,8 +111,8 @@
 }
 
 
--(int)SetMultiInputModeWithNewMultiInputMode:(NSString*)newmultiinputmode{
-    int ret = 0;
+-(NSInteger)SetMultiInputModeWithNewMultiInputMode:(NSString*)newmultiinputmode{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -127,8 +127,8 @@
 }
 
 
--(int)SetMonopolizedSenderWithOwnerDeviceInfo:(NSString*)ownerdeviceinfo OwnedSessionID:(NSString*)ownedsessionid{
-    int ret = 0;
+-(NSInteger)SetMonopolizedSenderWithOwnerDeviceInfo:(NSString*)ownerdeviceinfo OwnedSessionID:(NSString*)ownedsessionid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
