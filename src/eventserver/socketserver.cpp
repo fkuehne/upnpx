@@ -232,7 +232,7 @@ int SocketServer::RemoveObserver(SocketServerObserver* observer){
 
 
 int SocketServer::ReadLoop(){
-    int ret = 0;
+    ssize_t ret = 0;
     mReadLoop = 1;
 
     int highSocket = mServerSocket;
@@ -246,7 +246,7 @@ int SocketServer::ReadLoop(){
     socklen_t senderlen = sizeof(struct sockaddr);
     std::vector<SocketServerObserver*>::iterator observerIterator;
     SocketServerConnection* connection;
-    int len;
+    ssize_t len;
 
     listen(mServerSocket, mMaxConnections);
 

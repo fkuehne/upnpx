@@ -69,8 +69,8 @@ u8* SocketServerConnection::GetBuffer(){
 
 
 
-int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
-    int len = 0;
+ssize_t SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
+    ssize_t len = 0;
 
     memset(sender, 0, sizeof(struct sockaddr_in));
 
@@ -92,8 +92,8 @@ int SocketServerConnection::ReadDataFromSocket(struct sockaddr_in **sender){
     return len;
 }
 
-int SocketServerConnection::SendDataOnSocket(unsigned char *sendbuf, int len){
-    int sentlen = send(mSocket, sendbuf, len, 0);
+ssize_t SocketServerConnection::SendDataOnSocket(unsigned char *sendbuf, size_t len){
+    ssize_t sentlen = send(mSocket, sendbuf, len, 0);
     return sentlen;
 }
 

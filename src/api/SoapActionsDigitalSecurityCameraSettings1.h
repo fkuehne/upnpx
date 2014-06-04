@@ -41,20 +41,20 @@
 
 //SOAP
 
--(int)SetAutomaticWhiteBalanceWithNewAutomaticWhiteBalance:(NSString*)newautomaticwhitebalance;
--(int)GetAutomaticWhiteBalanceWithOutRetAutomaticWhiteBalance:(NSMutableString*)retautomaticwhitebalance;
--(int)SetFixedWhiteBalanceWithNewFixedWhiteBalance:(NSString*)newfixedwhitebalance;
--(int)GetFixedWhiteBalanceWithOutRetFixedWhiteBalance:(NSMutableString*)retfixedwhitebalance;
--(int)GetAvailableRotationsWithOutRetAvailableRotations:(NSMutableString*)retavailablerotations;
--(int)SetDefaultRotationWithNewRotation:(NSString*)newrotation;
--(int)GetDefaultRotationWithOutRetRotation:(NSMutableString*)retrotation;
--(int)SetBrightnessWithNewBrightness:(NSString*)newbrightness;
--(int)GetBrightnessWithOutRetBrightness:(NSMutableString*)retbrightness;
--(int)IncreaseBrightness;
--(int)DecreaseBrightness;
--(int)SetColorSaturationWithNewColorSaturation:(NSString*)newcolorsaturation;
--(int)GetColorSaturationWithOutRetColorSaturation:(NSMutableString*)retcolorsaturation;
--(int)IncreaseColorSaturation;
--(int)DecreaseColorSaturation;
+-(NSInteger)SetAutomaticWhiteBalanceWithNewAutomaticWhiteBalance:(NSString*)newautomaticwhitebalance;
+-(NSInteger)GetAutomaticWhiteBalanceWithOutRetAutomaticWhiteBalance:(NSMutableString*)retautomaticwhitebalance;
+-(NSInteger)SetFixedWhiteBalanceWithNewFixedWhiteBalance:(NSString*)newfixedwhitebalance;
+-(NSInteger)GetFixedWhiteBalanceWithOutRetFixedWhiteBalance:(NSMutableString*)retfixedwhitebalance;
+-(NSInteger)GetAvailableRotationsWithOutRetAvailableRotations:(NSMutableString*)retavailablerotations;
+-(NSInteger)SetDefaultRotationWithNewRotation:(NSString*)newrotation;
+-(NSInteger)GetDefaultRotationWithOutRetRotation:(NSMutableString*)retrotation;
+-(NSInteger)SetBrightnessWithNewBrightness:(NSString*)newbrightness;
+-(NSInteger)GetBrightnessWithOutRetBrightness:(NSMutableString*)retbrightness;
+-(NSInteger)IncreaseBrightness;
+-(NSInteger)DecreaseBrightness;
+-(NSInteger)SetColorSaturationWithNewColorSaturation:(NSString*)newcolorsaturation;
+-(NSInteger)GetColorSaturationWithOutRetColorSaturation:(NSMutableString*)retcolorsaturation;
+-(NSInteger)IncreaseColorSaturation;
+-(NSInteger)DecreaseColorSaturation;
 
 @end

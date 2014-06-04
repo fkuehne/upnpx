@@ -61,7 +61,7 @@ public:
     u16 port;
 
     u32 cachecontrol;
-    u32 lastupdate;
+    time_t lastupdate;
 
 
 private:

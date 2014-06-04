@@ -40,8 +40,8 @@
 @implementation SoapActionsLayer3Forwarding1
 
 
--(int)SetDefaultConnectionServiceWithNewDefaultConnectionService:(NSString*)newdefaultconnectionservice{
-    int ret = 0;
+-(NSInteger)SetDefaultConnectionServiceWithNewDefaultConnectionService:(NSString*)newdefaultconnectionservice{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -56,8 +56,8 @@
 }
 
 
--(int)GetDefaultConnectionServiceWithOutNewDefaultConnectionService:(NSMutableString*)newdefaultconnectionservice{
-    int ret = 0;
+-(NSInteger)GetDefaultConnectionServiceWithOutNewDefaultConnectionService:(NSMutableString*)newdefaultconnectionservice{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

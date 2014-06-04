@@ -40,8 +40,8 @@
 @implementation SoapActionsLANHostConfigManagement1
 
 
--(int)SetDHCPServerConfigurableWithNewDHCPServerConfigurable:(NSString*)newdhcpserverconfigurable{
-    int ret = 0;
+-(NSInteger)SetDHCPServerConfigurableWithNewDHCPServerConfigurable:(NSString*)newdhcpserverconfigurable{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -56,8 +56,8 @@
 }
 
 
--(int)GetDHCPServerConfigurableWithOutNewDHCPServerConfigurable:(NSMutableString*)newdhcpserverconfigurable{
-    int ret = 0;
+-(NSInteger)GetDHCPServerConfigurableWithOutNewDHCPServerConfigurable:(NSMutableString*)newdhcpserverconfigurable{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -72,8 +72,8 @@
 }
 
 
--(int)SetDHCPRelayWithNewDHCPRelay:(NSString*)newdhcprelay{
-    int ret = 0;
+-(NSInteger)SetDHCPRelayWithNewDHCPRelay:(NSString*)newdhcprelay{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -88,8 +88,8 @@
 }
 
 
--(int)GetDHCPRelayWithOutNewDHCPRelay:(NSMutableString*)newdhcprelay{
-    int ret = 0;
+-(NSInteger)GetDHCPRelayWithOutNewDHCPRelay:(NSMutableString*)newdhcprelay{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -104,8 +104,8 @@
 }
 
 
--(int)SetSubnetMaskWithNewSubnetMask:(NSString*)newsubnetmask{
-    int ret = 0;
+-(NSInteger)SetSubnetMaskWithNewSubnetMask:(NSString*)newsubnetmask{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -120,8 +120,8 @@
 }
 
 
--(int)GetSubnetMaskWithOutNewSubnetMask:(NSMutableString*)newsubnetmask{
-    int ret = 0;
+-(NSInteger)GetSubnetMaskWithOutNewSubnetMask:(NSMutableString*)newsubnetmask{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -136,8 +136,8 @@
 }
 
 
--(int)SetIPRouterWithNewIPRouters:(NSString*)newiprouters{
-    int ret = 0;
+-(NSInteger)SetIPRouterWithNewIPRouters:(NSString*)newiprouters{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -152,8 +152,8 @@
 }
 
 
--(int)DeleteIPRouterWithNewIPRouters:(NSString*)newiprouters{
-    int ret = 0;
+-(NSInteger)DeleteIPRouterWithNewIPRouters:(NSString*)newiprouters{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -168,8 +168,8 @@
 }
 
 
--(int)GetIPRoutersListWithOutNewIPRouters:(NSMutableString*)newiprouters{
-    int ret = 0;
+-(NSInteger)GetIPRoutersListWithOutNewIPRouters:(NSMutableString*)newiprouters{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -184,8 +184,8 @@
 }
 
 
--(int)SetDomainNameWithNewDomainName:(NSString*)newdomainname{
-    int ret = 0;
+-(NSInteger)SetDomainNameWithNewDomainName:(NSString*)newdomainname{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -200,8 +200,8 @@
 }
 
 
--(int)GetDomainNameWithOutNewDomainName:(NSMutableString*)newdomainname{
-    int ret = 0;
+-(NSInteger)GetDomainNameWithOutNewDomainName:(NSMutableString*)newdomainname{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -216,8 +216,8 @@
 }
 
 
--(int)SetAddressRangeWithNewMinAddress:(NSString*)newminaddress NewMaxAddress:(NSString*)newmaxaddress{
-    int ret = 0;
+-(NSInteger)SetAddressRangeWithNewMinAddress:(NSString*)newminaddress NewMaxAddress:(NSString*)newmaxaddress{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -232,8 +232,8 @@
 }
 
 
--(int)GetAddressRangeWithOutNewMinAddress:(NSMutableString*)newminaddress OutNewMaxAddress:(NSMutableString*)newmaxaddress{
-    int ret = 0;
+-(NSInteger)GetAddressRangeWithOutNewMinAddress:(NSMutableString*)newminaddress OutNewMaxAddress:(NSMutableString*)newmaxaddress{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -248,8 +248,8 @@
 }
 
 
--(int)SetReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses{
-    int ret = 0;
+-(NSInteger)SetReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -264,8 +264,8 @@
 }
 
 
--(int)DeleteReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses{
-    int ret = 0;
+-(NSInteger)DeleteReservedAddressWithNewReservedAddresses:(NSString*)newreservedaddresses{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -280,8 +280,8 @@
 }
 
 
--(int)GetReservedAddressesWithOutNewReservedAddresses:(NSMutableString*)newreservedaddresses{
-    int ret = 0;
+-(NSInteger)GetReservedAddressesWithOutNewReservedAddresses:(NSMutableString*)newreservedaddresses{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -296,8 +296,8 @@
 }
 
 
--(int)SetDNSServerWithNewDNSServers:(NSString*)newdnsservers{
-    int ret = 0;
+-(NSInteger)SetDNSServerWithNewDNSServers:(NSString*)newdnsservers{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -312,8 +312,8 @@
 }
 
 
--(int)DeleteDNSServerWithNewDNSServers:(NSString*)newdnsservers{
-    int ret = 0;
+-(NSInteger)DeleteDNSServerWithNewDNSServers:(NSString*)newdnsservers{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -328,8 +328,8 @@
 }
 
 
--(int)GetDNSServersWithOutNewDNSServers:(NSMutableString*)newdnsservers{
-    int ret = 0;
+-(NSInteger)GetDNSServersWithOutNewDNSServers:(NSMutableString*)newdnsservers{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

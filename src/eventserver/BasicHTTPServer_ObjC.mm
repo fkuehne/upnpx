@@ -129,7 +129,7 @@ public:
         }
     }
 
-    bool Response(int *returncode, map<string, string> *headers, char **body, int *bodylen){
+    bool Response(int *returncode, map<string, string> *headers, char **body, unsigned long *bodylen){
         @autoreleasepool {
             BOOL ret;
 
