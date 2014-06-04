@@ -86,7 +86,7 @@ int BasicHTTPServer::RemoveObserver(BasicHTTPObserver *observer){
 /**
  * SocketServerObserver
  */
-int BasicHTTPServer::DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf){
+int BasicHTTPServer::DataReceived(struct sockaddr_in *sender, size_t len, unsigned char *buf){
     //u8* pos = buf;
     //int poslen = len;
 
@@ -136,7 +136,7 @@ int BasicHTTPServer::DataReceived(struct sockaddr_in *sender, int len, unsigned 
     return ret;
 }
 
-int BasicHTTPServer::DataToSend(int *len, unsigned char **buf){
+ssize_t BasicHTTPServer::DataToSend(ssize_t *len, unsigned char **buf){
     if(mObservers.size() == 0){
     //    *len = 0;
         return -1;

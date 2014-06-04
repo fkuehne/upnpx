@@ -46,8 +46,8 @@ public:
     ~SocketServerConnection();
 
     SOCKET GetSocket();
-    int ReadDataFromSocket(struct sockaddr_in **sender);
-    int SendDataOnSocket(unsigned char *sendbuf, int len);
+    ssize_t ReadDataFromSocket(struct sockaddr_in **sender);
+    ssize_t SendDataOnSocket(unsigned char *sendbuf, size_t len);
 
     int ErrorOnSocket();
     bool isActive;

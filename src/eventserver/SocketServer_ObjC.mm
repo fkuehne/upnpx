@@ -54,7 +54,7 @@ public:
         mServer->RemoveObserver(this);
     }
 
-    int DataReceived(struct sockaddr_in *sender, int len, unsigned char *buf){
+    int DataReceived(struct sockaddr_in *sender, size_t len, unsigned char *buf){
         [NSRunLoop currentRunLoop];//Start our runloop
 
         @autoreleasepool {
@@ -65,7 +65,7 @@ public:
 
     }
 
-    int DataToSend(int *len, unsigned char **buf){
+    ssize_t DataToSend(ssize_t *len, unsigned char **buf){
         return -1;//no data to send
     }
 
@@ -130,7 +130,7 @@ private:
 }
 
 
--(int)dataIn:(unsigned char*)data length:(int)len fromIP:(NSString*)ipAddress fromPort:(unsigned short)port{
+-(int)dataIn:(unsigned char*)data length:(size_t)len fromIP:(NSString*)ipAddress fromPort:(unsigned short)port{
     int ret  = -1;
 
     SocketServer_ObjC_Observer* obs;
