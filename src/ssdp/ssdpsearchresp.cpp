@@ -112,7 +112,7 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
 
 
         //Workaround for MusicPal bug
-        int wrongloc = device->location.find("://127.0.0.1");
+        size_t wrongloc = device->location.find("://127.0.0.1");
         if(wrongloc > 0){
             //replace 127.0.0.1 with source ip address
             char ipbuf[255];
@@ -122,7 +122,7 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
         //end workaround
 
         //Workaround for another MusicPal bug
-        int wrongdev = device->urn.find("schemas-upnp-org:device:RenderingControl:1");
+        size_t wrongdev = device->urn.find("schemas-upnp-org:device:RenderingControl:1");
         if(wrongdev > 0){
             //replace schemas-upnp-org:device:RenderingControl:1 with schemas-upnp-org:service:RenderingControl:1
             char buf[] = "schemas-upnp-org:service:RenderingControl:1";
