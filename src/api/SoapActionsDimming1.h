@@ -33,26 +33,26 @@
 
 //SOAP
 
--(int)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget;
--(int)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget;
--(int)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus;
--(int)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel;
--(int)SetOnEffectWithnewOnEffect:(NSString*)newoneffect;
--(int)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel;
--(int)StepUp;
--(int)StepDown;
--(int)StartRampUp;
--(int)StartRampDown;
--(int)StopRamp;
--(int)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime;
--(int)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta;
--(int)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta;
--(int)SetRampRateWithnewRampRate:(NSString*)newramprate;
--(int)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate;
--(int)PauseRamp;
--(int)ResumeRamp;
--(int)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping;
--(int)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused;
--(int)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime;
+-(NSInteger)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget;
+-(NSInteger)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget;
+-(NSInteger)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus;
+-(NSInteger)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel;
+-(NSInteger)SetOnEffectWithnewOnEffect:(NSString*)newoneffect;
+-(NSInteger)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel;
+-(NSInteger)StepUp;
+-(NSInteger)StepDown;
+-(NSInteger)StartRampUp;
+-(NSInteger)StartRampDown;
+-(NSInteger)StopRamp;
+-(NSInteger)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime;
+-(NSInteger)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta;
+-(NSInteger)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta;
+-(NSInteger)SetRampRateWithnewRampRate:(NSString*)newramprate;
+-(NSInteger)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate;
+-(NSInteger)PauseRamp;
+-(NSInteger)ResumeRamp;
+-(NSInteger)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping;
+-(NSInteger)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused;
+-(NSInteger)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime;
 
 @end

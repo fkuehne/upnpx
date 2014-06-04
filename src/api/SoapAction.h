@@ -36,7 +36,7 @@
 @interface SoapAction : BasicParser
 
 -(id)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns;
--(int)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output;
+-(NSInteger)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output;
 
 -(void)setStringValueForFoundAsset:(NSString*)value;
 

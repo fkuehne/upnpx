@@ -148,7 +148,7 @@ int BasicHTTPServer::DataToSend(int *len, unsigned char **buf){
     map<string, string> headers;
     int returnCode;
     char* body = NULL;
-    int bodyLen;
+    unsigned long bodyLen;
 
     bool bret = observer->Response(&returnCode, &headers, &body, &bodyLen);
 

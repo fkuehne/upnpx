@@ -41,18 +41,18 @@
 
 //SOAP
 
--(int)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings;
--(int)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding;
--(int)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding;
--(int)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels;
--(int)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel;
--(int)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel;
--(int)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions;
--(int)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution;
--(int)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution;
--(int)GetImageURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImageURL:(NSMutableString*)retimageurl;
--(int)GetDefaultImageURLWithOutRetImageURL:(NSMutableString*)retimageurl;
--(int)GetImagePresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl;
--(int)GetDefaultImagePresentationURLWithOutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl;
+-(NSInteger)GetAvailableEncodingsWithOutRetAvailableEncodings:(NSMutableString*)retavailableencodings;
+-(NSInteger)GetDefaultEncodingWithOutRetEncoding:(NSMutableString*)retencoding;
+-(NSInteger)SetDefaultEncodingWithReqEncoding:(NSString*)reqencoding;
+-(NSInteger)GetAvailableCompressionLevelsWithOutRetAvailableCompressionLevels:(NSMutableString*)retavailablecompressionlevels;
+-(NSInteger)GetDefaultCompressionLevelWithOutRetCompressionLevel:(NSMutableString*)retcompressionlevel;
+-(NSInteger)SetDefaultCompressionLevelWithReqCompressionLevel:(NSString*)reqcompressionlevel;
+-(NSInteger)GetAvailableResolutionsWithOutRetAvailableResolutions:(NSMutableString*)retavailableresolutions;
+-(NSInteger)GetDefaultResolutionWithOutRetResolution:(NSMutableString*)retresolution;
+-(NSInteger)SetDefaultResolutionWithReqResolution:(NSString*)reqresolution;
+-(NSInteger)GetImageURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImageURL:(NSMutableString*)retimageurl;
+-(NSInteger)GetDefaultImageURLWithOutRetImageURL:(NSMutableString*)retimageurl;
+-(NSInteger)GetImagePresentationURLWithReqEncoding:(NSString*)reqencoding ReqCompression:(NSString*)reqcompression ReqResolution:(NSString*)reqresolution OutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl;
+-(NSInteger)GetDefaultImagePresentationURLWithOutRetImagePresentationURL:(NSMutableString*)retimagepresentationurl;
 
 @end

@@ -70,8 +70,8 @@
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device;
 
--(int)addObserver:(BasicUPnPServiceObserver*)obs;
--(int)removeObserver:(BasicUPnPServiceObserver*)obs;
+-(NSUInteger)addObserver:(BasicUPnPServiceObserver*)obs;
+-(NSUInteger)removeObserver:(BasicUPnPServiceObserver*)obs;
 -(BOOL)isObserver:(BasicUPnPServiceObserver*)obs;
 
 

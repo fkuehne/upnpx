@@ -40,8 +40,8 @@
 @implementation SoapActionsWANCableLinkConfig1
 
 
--(int)GetCableLinkConfigInfoWithOutNewCableLinkConfigState:(NSMutableString*)newcablelinkconfigstate OutNewLinkType:(NSMutableString*)newlinktype{
-    int ret = 0;
+-(NSInteger)GetCableLinkConfigInfoWithOutNewCableLinkConfigState:(NSMutableString*)newcablelinkconfigstate OutNewLinkType:(NSMutableString*)newlinktype{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -56,8 +56,8 @@
 }
 
 
--(int)GetDownstreamFrequencyWithOutNewDownstreamFrequency:(NSMutableString*)newdownstreamfrequency{
-    int ret = 0;
+-(NSInteger)GetDownstreamFrequencyWithOutNewDownstreamFrequency:(NSMutableString*)newdownstreamfrequency{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -72,8 +72,8 @@
 }
 
 
--(int)GetDownstreamModulationWithOutNewDownstreamModulation:(NSMutableString*)newdownstreammodulation{
-    int ret = 0;
+-(NSInteger)GetDownstreamModulationWithOutNewDownstreamModulation:(NSMutableString*)newdownstreammodulation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -88,8 +88,8 @@
 }
 
 
--(int)GetUpstreamFrequencyWithOutNewUpstreamFrequency:(NSMutableString*)newupstreamfrequency{
-    int ret = 0;
+-(NSInteger)GetUpstreamFrequencyWithOutNewUpstreamFrequency:(NSMutableString*)newupstreamfrequency{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -104,8 +104,8 @@
 }
 
 
--(int)GetUpstreamModulationWithOutNewUpstreamModulation:(NSMutableString*)newupstreammodulation{
-    int ret = 0;
+-(NSInteger)GetUpstreamModulationWithOutNewUpstreamModulation:(NSMutableString*)newupstreammodulation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -120,8 +120,8 @@
 }
 
 
--(int)GetUpstreamChannelIDWithOutNewUpstreamChannelID:(NSMutableString*)newupstreamchannelid{
-    int ret = 0;
+-(NSInteger)GetUpstreamChannelIDWithOutNewUpstreamChannelID:(NSMutableString*)newupstreamchannelid{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -136,8 +136,8 @@
 }
 
 
--(int)GetUpstreamPowerLevelWithOutNewUpstreamPowerLevel:(NSMutableString*)newupstreampowerlevel{
-    int ret = 0;
+-(NSInteger)GetUpstreamPowerLevelWithOutNewUpstreamPowerLevel:(NSMutableString*)newupstreampowerlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -152,8 +152,8 @@
 }
 
 
--(int)GetBPIEncryptionEnabledWithOutNewBPIEncryptionEnabled:(NSMutableString*)newbpiencryptionenabled{
-    int ret = 0;
+-(NSInteger)GetBPIEncryptionEnabledWithOutNewBPIEncryptionEnabled:(NSMutableString*)newbpiencryptionenabled{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -168,8 +168,8 @@
 }
 
 
--(int)GetConfigFileWithOutNewConfigFile:(NSMutableString*)newconfigfile{
-    int ret = 0;
+-(NSInteger)GetConfigFileWithOutNewConfigFile:(NSMutableString*)newconfigfile{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -184,8 +184,8 @@
 }
 
 
--(int)GetTFTPServerWithOutNewTFTPServer:(NSMutableString*)newtftpserver{
-    int ret = 0;
+-(NSInteger)GetTFTPServerWithOutNewTFTPServer:(NSMutableString*)newtftpserver{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

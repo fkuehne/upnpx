@@ -40,8 +40,8 @@
 @implementation SoapActionsDigitalSecurityCameraSettings1
 
 
--(int)SetAutomaticWhiteBalanceWithNewAutomaticWhiteBalance:(NSString*)newautomaticwhitebalance{
-    int ret = 0;
+-(NSInteger)SetAutomaticWhiteBalanceWithNewAutomaticWhiteBalance:(NSString*)newautomaticwhitebalance{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -56,8 +56,8 @@
 }
 
 
--(int)GetAutomaticWhiteBalanceWithOutRetAutomaticWhiteBalance:(NSMutableString*)retautomaticwhitebalance{
-    int ret = 0;
+-(NSInteger)GetAutomaticWhiteBalanceWithOutRetAutomaticWhiteBalance:(NSMutableString*)retautomaticwhitebalance{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -72,8 +72,8 @@
 }
 
 
--(int)SetFixedWhiteBalanceWithNewFixedWhiteBalance:(NSString*)newfixedwhitebalance{
-    int ret = 0;
+-(NSInteger)SetFixedWhiteBalanceWithNewFixedWhiteBalance:(NSString*)newfixedwhitebalance{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -88,8 +88,8 @@
 }
 
 
--(int)GetFixedWhiteBalanceWithOutRetFixedWhiteBalance:(NSMutableString*)retfixedwhitebalance{
-    int ret = 0;
+-(NSInteger)GetFixedWhiteBalanceWithOutRetFixedWhiteBalance:(NSMutableString*)retfixedwhitebalance{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -104,8 +104,8 @@
 }
 
 
--(int)GetAvailableRotationsWithOutRetAvailableRotations:(NSMutableString*)retavailablerotations{
-    int ret = 0;
+-(NSInteger)GetAvailableRotationsWithOutRetAvailableRotations:(NSMutableString*)retavailablerotations{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -120,8 +120,8 @@
 }
 
 
--(int)SetDefaultRotationWithNewRotation:(NSString*)newrotation{
-    int ret = 0;
+-(NSInteger)SetDefaultRotationWithNewRotation:(NSString*)newrotation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -136,8 +136,8 @@
 }
 
 
--(int)GetDefaultRotationWithOutRetRotation:(NSMutableString*)retrotation{
-    int ret = 0;
+-(NSInteger)GetDefaultRotationWithOutRetRotation:(NSMutableString*)retrotation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -152,8 +152,8 @@
 }
 
 
--(int)SetBrightnessWithNewBrightness:(NSString*)newbrightness{
-    int ret = 0;
+-(NSInteger)SetBrightnessWithNewBrightness:(NSString*)newbrightness{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -168,8 +168,8 @@
 }
 
 
--(int)GetBrightnessWithOutRetBrightness:(NSMutableString*)retbrightness{
-    int ret = 0;
+-(NSInteger)GetBrightnessWithOutRetBrightness:(NSMutableString*)retbrightness{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -184,8 +184,8 @@
 }
 
 
--(int)IncreaseBrightness{
-    int ret = 0;
+-(NSInteger)IncreaseBrightness{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -194,8 +194,8 @@
 }
 
 
--(int)DecreaseBrightness{
-    int ret = 0;
+-(NSInteger)DecreaseBrightness{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -204,8 +204,8 @@
 }
 
 
--(int)SetColorSaturationWithNewColorSaturation:(NSString*)newcolorsaturation{
-    int ret = 0;
+-(NSInteger)SetColorSaturationWithNewColorSaturation:(NSString*)newcolorsaturation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -220,8 +220,8 @@
 }
 
 
--(int)GetColorSaturationWithOutRetColorSaturation:(NSMutableString*)retcolorsaturation{
-    int ret = 0;
+-(NSInteger)GetColorSaturationWithOutRetColorSaturation:(NSMutableString*)retcolorsaturation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -236,8 +236,8 @@
 }
 
 
--(int)IncreaseColorSaturation{
-    int ret = 0;
+-(NSInteger)IncreaseColorSaturation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -246,8 +246,8 @@
 }
 
 
--(int)DecreaseColorSaturation{
-    int ret = 0;
+-(NSInteger)DecreaseColorSaturation{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

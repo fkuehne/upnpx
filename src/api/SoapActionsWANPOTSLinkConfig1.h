@@ -41,14 +41,14 @@
 
 //SOAP
 
--(int)SetISPInfoWithNewISPPhoneNumber:(NSString*)newispphonenumber NewISPInfo:(NSString*)newispinfo NewLinkType:(NSString*)newlinktype;
--(int)SetCallRetryInfoWithNewNumberOfRetries:(NSString*)newnumberofretries NewDelayBetweenRetries:(NSString*)newdelaybetweenretries;
--(int)GetISPInfoWithOutNewISPPhoneNumber:(NSMutableString*)newispphonenumber OutNewISPInfo:(NSMutableString*)newispinfo OutNewLinkType:(NSMutableString*)newlinktype;
--(int)GetCallRetryInfoWithOutNewNumberOfRetries:(NSMutableString*)newnumberofretries OutNewDelayBetweenRetries:(NSMutableString*)newdelaybetweenretries;
--(int)GetFclassWithOutNewFclass:(NSMutableString*)newfclass;
--(int)GetDataModulationSupportedWithOutNewDataModulationSupported:(NSMutableString*)newdatamodulationsupported;
--(int)GetDataProtocolWithOutNewDataProtocol:(NSMutableString*)newdataprotocol;
--(int)GetDataCompressionWithOutNewDataCompression:(NSMutableString*)newdatacompression;
--(int)GetPlusVTRCommandSupportedWithOutNewPlusVTRCommandSupported:(NSMutableString*)newplusvtrcommandsupported;
+-(NSInteger)SetISPInfoWithNewISPPhoneNumber:(NSString*)newispphonenumber NewISPInfo:(NSString*)newispinfo NewLinkType:(NSString*)newlinktype;
+-(NSInteger)SetCallRetryInfoWithNewNumberOfRetries:(NSString*)newnumberofretries NewDelayBetweenRetries:(NSString*)newdelaybetweenretries;
+-(NSInteger)GetISPInfoWithOutNewISPPhoneNumber:(NSMutableString*)newispphonenumber OutNewISPInfo:(NSMutableString*)newispinfo OutNewLinkType:(NSMutableString*)newlinktype;
+-(NSInteger)GetCallRetryInfoWithOutNewNumberOfRetries:(NSMutableString*)newnumberofretries OutNewDelayBetweenRetries:(NSMutableString*)newdelaybetweenretries;
+-(NSInteger)GetFclassWithOutNewFclass:(NSMutableString*)newfclass;
+-(NSInteger)GetDataModulationSupportedWithOutNewDataModulationSupported:(NSMutableString*)newdatamodulationsupported;
+-(NSInteger)GetDataProtocolWithOutNewDataProtocol:(NSMutableString*)newdataprotocol;
+-(NSInteger)GetDataCompressionWithOutNewDataCompression:(NSMutableString*)newdatacompression;
+-(NSInteger)GetPlusVTRCommandSupportedWithOutNewPlusVTRCommandSupported:(NSMutableString*)newplusvtrcommandsupported;
 
 @end

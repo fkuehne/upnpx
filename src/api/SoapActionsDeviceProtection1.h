@@ -10,18 +10,18 @@
 
 //SOAP
 
--(int)SendSetupMessageWithProtocolType:(NSString*)protocoltype InMessage:(NSString*)inmessage OutOutMessage:(NSMutableString*)outmessage;
--(int)GetSupportedProtocolsWithOutProtocolList:(NSMutableString*)protocollist;
--(int)GetAssignedRolesWithOutRoleList:(NSMutableString*)rolelist;
--(int)GetRolesForActionWithDeviceUDN:(NSString*)deviceudn ServiceId:(NSString*)serviceid ActionName:(NSString*)actionname OutRoleList:(NSMutableString*)rolelist OutRestrictedRoleList:(NSMutableString*)restrictedrolelist;
--(int)GetUserLoginChallengeWithProtocolType:(NSString*)protocoltype Name:(NSString*)name OutSalt:(NSMutableString*)salt OutChallenge:(NSMutableString*)challenge;
--(int)UserLoginWithProtocolType:(NSString*)protocoltype Challenge:(NSString*)challenge Authenticator:(NSString*)authenticator;
--(int)UserLogout;
--(int)GetACLDataWithOutACL:(NSMutableString*)acl;
--(int)AddIdentityListWithIdentityList:(NSString*)identitylist OutIdentityListResult:(NSMutableString*)identitylistresult;
--(int)RemoveIdentityWithIdentity:(NSString*)identity;
--(int)SetUserLoginPasswordWithProtocolType:(NSString*)protocoltype Name:(NSString*)name Stored:(NSString*)stored Salt:(NSString*)salt;
--(int)AddRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist;
--(int)RemoveRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist;
+-(NSInteger)SendSetupMessageWithProtocolType:(NSString*)protocoltype InMessage:(NSString*)inmessage OutOutMessage:(NSMutableString*)outmessage;
+-(NSInteger)GetSupportedProtocolsWithOutProtocolList:(NSMutableString*)protocollist;
+-(NSInteger)GetAssignedRolesWithOutRoleList:(NSMutableString*)rolelist;
+-(NSInteger)GetRolesForActionWithDeviceUDN:(NSString*)deviceudn ServiceId:(NSString*)serviceid ActionName:(NSString*)actionname OutRoleList:(NSMutableString*)rolelist OutRestrictedRoleList:(NSMutableString*)restrictedrolelist;
+-(NSInteger)GetUserLoginChallengeWithProtocolType:(NSString*)protocoltype Name:(NSString*)name OutSalt:(NSMutableString*)salt OutChallenge:(NSMutableString*)challenge;
+-(NSInteger)UserLoginWithProtocolType:(NSString*)protocoltype Challenge:(NSString*)challenge Authenticator:(NSString*)authenticator;
+-(NSInteger)UserLogout;
+-(NSInteger)GetACLDataWithOutACL:(NSMutableString*)acl;
+-(NSInteger)AddIdentityListWithIdentityList:(NSString*)identitylist OutIdentityListResult:(NSMutableString*)identitylistresult;
+-(NSInteger)RemoveIdentityWithIdentity:(NSString*)identity;
+-(NSInteger)SetUserLoginPasswordWithProtocolType:(NSString*)protocoltype Name:(NSString*)name Stored:(NSString*)stored Salt:(NSString*)salt;
+-(NSInteger)AddRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist;
+-(NSInteger)RemoveRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist;
 
 @end

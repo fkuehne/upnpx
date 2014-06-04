@@ -44,7 +44,7 @@
 
 
 @interface MediaPlaylist()
--(int)changeState:(MediaPlaylistState)newState;
+-(NSInteger)changeState:(MediaPlaylistState)newState;
 @end
 
 
@@ -88,8 +88,8 @@
 }
 
 
--(int)addObserver:(MediaPlaylistObserver*)obs{
-    int ret = 0;
+-(NSInteger)addObserver:(MediaPlaylistObserver*)obs{
+    NSInteger ret = 0;
 
     [mObservers addObject:obs];
     ret = [mObservers count];
@@ -98,8 +98,8 @@
 }
 
 
--(int)removeObserver:(MediaPlaylistObserver*)obs{
-    int ret = 0;
+-(NSInteger)removeObserver:(MediaPlaylistObserver*)obs{
+    NSInteger ret = 0;
 
     [mObservers removeObject:obs];
     ret = [mObservers count];
@@ -108,8 +108,8 @@
 }
 
 
--(int)loadWithMediaServer:(MediaServer1Device*)server forContainer:(MediaServer1ContainerObject*)selectedContainer{
-    int ret = 0;
+-(NSInteger)loadWithMediaServer:(MediaServer1Device*)server forContainer:(MediaServer1ContainerObject*)selectedContainer{
+    NSInteger ret = 0;
 
     //Sanity
     if(server == nil || selectedContainer == nil){
@@ -161,7 +161,7 @@
 }
 
 
--(int)setTrackByNumber:(int)track{
+-(NSInteger)setTrackByNumber:(int)track{
     if([playList count] > track){
         currentTrack = track;
     }else{
@@ -170,7 +170,7 @@
     return currentTrack;
 }
 
--(int)setTrackByID:(NSString*)objectID{
+-(NSInteger)setTrackByID:(NSString*)objectID{
     MediaServer1ItemObject* lobj = nil;
 
     //Set the current track
@@ -185,7 +185,7 @@
     return currentTrack;
 }
 
--(int)nextTrack{
+-(NSInteger)nextTrack{
     if(state == MediaPlaylistState_Playing && [playList count] > currentTrack + 1){
         currentTrack++;
     }else{
@@ -194,7 +194,7 @@
     return currentTrack;
 }
 
--(int)prevTrack{
+-(NSInteger)prevTrack{
     if(state == MediaPlaylistState_Playing && [playList count] > currentTrack - 1){
         if(currentTrack > 0){
             currentTrack--;
@@ -206,18 +206,18 @@
 }
 
 
--(int)stop{
+-(NSInteger)stop{
     return [self changeState:MediaPlaylistState_Stopped];
 }
 
 
--(int)play{
+-(NSInteger)play{
     return [self changeState:MediaPlaylistState_Playing];
 }
 
 
--(int)changeState:(MediaPlaylistState)newState{
-    int ret = 0;
+-(NSInteger)changeState:(MediaPlaylistState)newState{
+    NSInteger ret = 0;
 
     MediaPlaylistState oldState = state;
 

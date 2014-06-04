@@ -81,9 +81,9 @@
 
 
 
--(int)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output{
-    int len=0;
-    int ret = 0;
+-(NSInteger)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output{
+    NSUInteger len=0;
+    NSInteger ret = 0;
 
     _mOutput = output;//we need it as a member to fill it during parsing
 
@@ -106,7 +106,7 @@
                                                         timeoutInterval:15.0];
 
     [urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", _upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
-    [urlRequest setValue:[NSString stringWithFormat:@"%d", len] forHTTPHeaderField:@"CONTENT-LENGTH"];
+    [urlRequest setValue:[NSString stringWithFormat:@"%ld", len] forHTTPHeaderField:@"CONTENT-LENGTH"];
     [urlRequest setValue:@"text/xml;charset=\"utf-8\"" forHTTPHeaderField:@"CONTENT-TYPE"];
 
     /*

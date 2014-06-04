@@ -9,8 +9,8 @@
 @implementation SoapActionsDeviceProtection1
 
 
--(int)SendSetupMessageWithProtocolType:(NSString*)protocoltype InMessage:(NSString*)inmessage OutOutMessage:(NSMutableString*)outmessage{
-    int ret = 0;
+-(NSInteger)SendSetupMessageWithProtocolType:(NSString*)protocoltype InMessage:(NSString*)inmessage OutOutMessage:(NSMutableString*)outmessage{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -31,8 +31,8 @@
 }
 
 
--(int)GetSupportedProtocolsWithOutProtocolList:(NSMutableString*)protocollist{
-    int ret = 0;
+-(NSInteger)GetSupportedProtocolsWithOutProtocolList:(NSMutableString*)protocollist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -47,8 +47,8 @@
 }
 
 
--(int)GetAssignedRolesWithOutRoleList:(NSMutableString*)rolelist{
-    int ret = 0;
+-(NSInteger)GetAssignedRolesWithOutRoleList:(NSMutableString*)rolelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -63,8 +63,8 @@
 }
 
 
--(int)GetRolesForActionWithDeviceUDN:(NSString*)deviceudn ServiceId:(NSString*)serviceid ActionName:(NSString*)actionname OutRoleList:(NSMutableString*)rolelist OutRestrictedRoleList:(NSMutableString*)restrictedrolelist{
-    int ret = 0;
+-(NSInteger)GetRolesForActionWithDeviceUDN:(NSString*)deviceudn ServiceId:(NSString*)serviceid ActionName:(NSString*)actionname OutRoleList:(NSMutableString*)rolelist OutRestrictedRoleList:(NSMutableString*)restrictedrolelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -85,8 +85,8 @@
 }
 
 
--(int)GetUserLoginChallengeWithProtocolType:(NSString*)protocoltype Name:(NSString*)name OutSalt:(NSMutableString*)salt OutChallenge:(NSMutableString*)challenge{
-    int ret = 0;
+-(NSInteger)GetUserLoginChallengeWithProtocolType:(NSString*)protocoltype Name:(NSString*)name OutSalt:(NSMutableString*)salt OutChallenge:(NSMutableString*)challenge{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -107,8 +107,8 @@
 }
 
 
--(int)UserLoginWithProtocolType:(NSString*)protocoltype Challenge:(NSString*)challenge Authenticator:(NSString*)authenticator{
-    int ret = 0;
+-(NSInteger)UserLoginWithProtocolType:(NSString*)protocoltype Challenge:(NSString*)challenge Authenticator:(NSString*)authenticator{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -123,8 +123,8 @@
 }
 
 
--(int)UserLogout{
-    int ret = 0;
+-(NSInteger)UserLogout{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -133,8 +133,8 @@
 }
 
 
--(int)GetACLDataWithOutACL:(NSMutableString*)acl{
-    int ret = 0;
+-(NSInteger)GetACLDataWithOutACL:(NSMutableString*)acl{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -149,8 +149,8 @@
 }
 
 
--(int)AddIdentityListWithIdentityList:(NSString*)identitylist OutIdentityListResult:(NSMutableString*)identitylistresult{
-    int ret = 0;
+-(NSInteger)AddIdentityListWithIdentityList:(NSString*)identitylist OutIdentityListResult:(NSMutableString*)identitylistresult{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -171,8 +171,8 @@
 }
 
 
--(int)RemoveIdentityWithIdentity:(NSString*)identity{
-    int ret = 0;
+-(NSInteger)RemoveIdentityWithIdentity:(NSString*)identity{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -187,8 +187,8 @@
 }
 
 
--(int)SetUserLoginPasswordWithProtocolType:(NSString*)protocoltype Name:(NSString*)name Stored:(NSString*)stored Salt:(NSString*)salt{
-    int ret = 0;
+-(NSInteger)SetUserLoginPasswordWithProtocolType:(NSString*)protocoltype Name:(NSString*)name Stored:(NSString*)stored Salt:(NSString*)salt{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -203,8 +203,8 @@
 }
 
 
--(int)AddRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist{
-    int ret = 0;
+-(NSInteger)AddRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -219,8 +219,8 @@
 }
 
 
--(int)RemoveRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist{
-    int ret = 0;
+-(NSInteger)RemoveRolesForIdentityWithIdentity:(NSString*)identity RoleList:(NSString*)rolelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

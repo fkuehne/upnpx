@@ -32,8 +32,8 @@
 @implementation SoapActionsDimming1
 
 
--(int)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget{
-    int ret = 0;
+-(NSInteger)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -48,8 +48,8 @@
 }
 
 
--(int)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget{
-    int ret = 0;
+-(NSInteger)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -64,8 +64,8 @@
 }
 
 
--(int)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus{
-    int ret = 0;
+-(NSInteger)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -80,8 +80,8 @@
 }
 
 
--(int)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel{
-    int ret = 0;
+-(NSInteger)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -96,8 +96,8 @@
 }
 
 
--(int)SetOnEffectWithnewOnEffect:(NSString*)newoneffect{
-    int ret = 0;
+-(NSInteger)SetOnEffectWithnewOnEffect:(NSString*)newoneffect{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -112,8 +112,8 @@
 }
 
 
--(int)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel{
-    int ret = 0;
+-(NSInteger)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -128,8 +128,8 @@
 }
 
 
--(int)StepUp{
-    int ret = 0;
+-(NSInteger)StepUp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -138,8 +138,8 @@
 }
 
 
--(int)StepDown{
-    int ret = 0;
+-(NSInteger)StepDown{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -148,8 +148,8 @@
 }
 
 
--(int)StartRampUp{
-    int ret = 0;
+-(NSInteger)StartRampUp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -158,8 +158,8 @@
 }
 
 
--(int)StartRampDown{
-    int ret = 0;
+-(NSInteger)StartRampDown{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -168,8 +168,8 @@
 }
 
 
--(int)StopRamp{
-    int ret = 0;
+-(NSInteger)StopRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -178,8 +178,8 @@
 }
 
 
--(int)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime{
-    int ret = 0;
+-(NSInteger)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -194,8 +194,8 @@
 }
 
 
--(int)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta{
-    int ret = 0;
+-(NSInteger)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -210,8 +210,8 @@
 }
 
 
--(int)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta{
-    int ret = 0;
+-(NSInteger)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -226,8 +226,8 @@
 }
 
 
--(int)SetRampRateWithnewRampRate:(NSString*)newramprate{
-    int ret = 0;
+-(NSInteger)SetRampRateWithnewRampRate:(NSString*)newramprate{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -242,8 +242,8 @@
 }
 
 
--(int)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate{
-    int ret = 0;
+-(NSInteger)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -258,8 +258,8 @@
 }
 
 
--(int)PauseRamp{
-    int ret = 0;
+-(NSInteger)PauseRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -268,8 +268,8 @@
 }
 
 
--(int)ResumeRamp{
-    int ret = 0;
+-(NSInteger)ResumeRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -278,8 +278,8 @@
 }
 
 
--(int)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping{
-    int ret = 0;
+-(NSInteger)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -294,8 +294,8 @@
 }
 
 
--(int)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused{
-    int ret = 0;
+-(NSInteger)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -310,8 +310,8 @@
 }
 
 
--(int)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime{
-    int ret = 0;
+-(NSInteger)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;

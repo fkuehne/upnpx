@@ -41,15 +41,15 @@
 
 //SOAP
 
--(int)GetCableLinkConfigInfoWithOutNewCableLinkConfigState:(NSMutableString*)newcablelinkconfigstate OutNewLinkType:(NSMutableString*)newlinktype;
--(int)GetDownstreamFrequencyWithOutNewDownstreamFrequency:(NSMutableString*)newdownstreamfrequency;
--(int)GetDownstreamModulationWithOutNewDownstreamModulation:(NSMutableString*)newdownstreammodulation;
--(int)GetUpstreamFrequencyWithOutNewUpstreamFrequency:(NSMutableString*)newupstreamfrequency;
--(int)GetUpstreamModulationWithOutNewUpstreamModulation:(NSMutableString*)newupstreammodulation;
--(int)GetUpstreamChannelIDWithOutNewUpstreamChannelID:(NSMutableString*)newupstreamchannelid;
--(int)GetUpstreamPowerLevelWithOutNewUpstreamPowerLevel:(NSMutableString*)newupstreampowerlevel;
--(int)GetBPIEncryptionEnabledWithOutNewBPIEncryptionEnabled:(NSMutableString*)newbpiencryptionenabled;
--(int)GetConfigFileWithOutNewConfigFile:(NSMutableString*)newconfigfile;
--(int)GetTFTPServerWithOutNewTFTPServer:(NSMutableString*)newtftpserver;
+-(NSInteger)GetCableLinkConfigInfoWithOutNewCableLinkConfigState:(NSMutableString*)newcablelinkconfigstate OutNewLinkType:(NSMutableString*)newlinktype;
+-(NSInteger)GetDownstreamFrequencyWithOutNewDownstreamFrequency:(NSMutableString*)newdownstreamfrequency;
+-(NSInteger)GetDownstreamModulationWithOutNewDownstreamModulation:(NSMutableString*)newdownstreammodulation;
+-(NSInteger)GetUpstreamFrequencyWithOutNewUpstreamFrequency:(NSMutableString*)newupstreamfrequency;
+-(NSInteger)GetUpstreamModulationWithOutNewUpstreamModulation:(NSMutableString*)newupstreammodulation;
+-(NSInteger)GetUpstreamChannelIDWithOutNewUpstreamChannelID:(NSMutableString*)newupstreamchannelid;
+-(NSInteger)GetUpstreamPowerLevelWithOutNewUpstreamPowerLevel:(NSMutableString*)newupstreampowerlevel;
+-(NSInteger)GetBPIEncryptionEnabledWithOutNewBPIEncryptionEnabled:(NSMutableString*)newbpiencryptionenabled;
+-(NSInteger)GetConfigFileWithOutNewConfigFile:(NSMutableString*)newconfigfile;
+-(NSInteger)GetTFTPServerWithOutNewTFTPServer:(NSMutableString*)newtftpserver;
 
 @end
