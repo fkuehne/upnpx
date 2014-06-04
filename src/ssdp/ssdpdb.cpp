@@ -258,7 +258,7 @@ int SSDPDB::CacheControlLoop(){
     mRun = 1;
     SSDPDBDevice* thisdevice = NULL;
     vector<SSDPDBDevice*>::iterator it;
-    int nows;
+    time_t nows;
     u8 updated;
     while(mRun){
         sleep(CACHE_CONTROL_TIMEOUT);
