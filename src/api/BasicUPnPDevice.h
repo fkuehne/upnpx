@@ -51,6 +51,10 @@
     NSURL *baseURL;
     NSString *baseURLString;
     NSString *friendlyName;
+    NSString *modelDescription;
+    NSString *modelName;
+    NSString *modelNumber;
+    NSString *serialNumber;
     NSString *udn;
     NSString *usn;
     NSString *urn;
@@ -76,6 +80,10 @@
 @property(readwrite, retain) NSURL *baseURL;
 @property(readwrite, retain) NSString *baseURLString;
 @property(readwrite, retain) NSString *friendlyName;
+@property (nonatomic, retain) NSString *modelDescription;
+@property (nonatomic, retain) NSString *modelName;
+@property (nonatomic, retain) NSString *modelNumber;
+@property (nonatomic, retain) NSString *serialNumber;
 @property(readwrite, retain) NSString *udn;
 @property(readwrite, retain) NSString *usn;
 @property(readwrite, retain) NSString *urn;

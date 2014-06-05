@@ -60,6 +60,10 @@
 @synthesize smallIconURL;
 @synthesize smallIconDepth;
 @synthesize type;
+@synthesize modelDescription;
+@synthesize modelName;
+@synthesize modelNumber;
+@synthesize serialNumber;
 
 
 -(id)init{
