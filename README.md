@@ -1,18 +1,23 @@
 upnpx
 =====
 
-Fork of the discontinued upnpx library by Bruno Keymolen, Jonathan Guan, Mujtaba Hassanpur
+Fork of the discontinued upnpx library by Bruno Keymolen.
 
-Including various logic and stability improvements over the last version
-
-Copyright (c) 2013-2014, Felix Paul Kühne
-Copyright (c) 2013, Gleb Pinigin
-All rights reserved.
+Including various logic and stability improvements over the last version.
 
 =====
 
-Copyright (c) 2011-2013, Bruno Keymolen, Jonathan Guan, Mujtaba Hassanpur
+Copyright (c) 2011-2012, Bruno Keymolen
+
+Copyright (c) 2013, Jonathan Guan, Mujtaba Hassanpur, Gleb Pinigin
+
+Copyright (c) 2013-2014, Felix Paul Kühne
+
+Contributions by Andrejs Cernikovs (c) 2012, Sebastian Peischl (c) 2014, Sebastian Roth (c) 2014.
+
 All rights reserved.
+
+=====
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
