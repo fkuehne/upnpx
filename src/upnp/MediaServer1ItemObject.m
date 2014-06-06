@@ -60,6 +60,10 @@
 
     if (self) {
         resources = [[NSMutableArray alloc] init];
+
+        self.authors = [NSMutableArray new];
+        self.creators = [NSMutableArray new];
+        self.directors = [NSMutableArray new];
     }
 
     return self;
