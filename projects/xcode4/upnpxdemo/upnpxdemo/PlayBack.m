@@ -48,9 +48,7 @@ static PlayBack *_playback = nil;
          }
     }
 
-    [rend retain];
     renderer = rend;
-    [old release];
 
     //Add New Observer, if any
     if(renderer!=nil){
@@ -63,7 +61,7 @@ static PlayBack *_playback = nil;
 }
 
 
--(int)Play:(NSMutableArray*)playList position:(int)position{
+-(int)Play:(NSMutableArray*)playList position:(NSInteger)position{
     [self setPlaylist:playList];
     
     //Lazy Observer attach
@@ -76,7 +74,7 @@ static PlayBack *_playback = nil;
 }
 
 
--(int)Play:(int)position{
+-(int)Play:(NSInteger)position{
     //Do we have a Renderer & a playlist ?
     if(renderer == nil || playlist == nil){
         return -1;
@@ -89,8 +87,8 @@ static PlayBack *_playback = nil;
     pos = position;
 
     //Is it a Media1ServerItem ?
-    if(![[playlist objectAtIndex:pos] isContainer]){
-        MediaServer1ItemObject *item = [playlist objectAtIndex:pos];
+    if(![playlist[pos] isContainer]){
+        MediaServer1ItemObject *item = playlist[pos];
         
         //A few things are missing here:
         // - Find the right URI based on MIME type, do this via: [item resources], also check render capabilities 
@@ -116,7 +114,7 @@ static PlayBack *_playback = nil;
 //BasicUPnPServiceObserver
 -(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events{
     if(sender == [renderer avTransportService]){
-        NSString *newState = [events objectForKey:@"TransportState"];
+        NSString *newState = events[@"TransportState"];
         
         if([newState isEqualToString:@"STOPPED"]){
             //Do your stuff, play next song etc...

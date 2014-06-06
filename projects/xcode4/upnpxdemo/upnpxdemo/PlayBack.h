@@ -13,24 +13,24 @@
 #import "BasicUPnPService.h"
 
 @interface PlayBack : NSObject <BasicUPnPServiceObserver> {
-    MediaRenderer1Device *renderer;
+    MediaRenderer1Device *__weak renderer;
     MediaServer1Device *server;
     NSMutableArray *playlist; //MediaServer1BasicObject (can be: MediaServer1ContainerObject, MediaServer1ItemObject)
-    int pos;
+    NSInteger pos;
 }
 
 +(PlayBack*)GetInstance;
 
 -(void)setRenderer:(MediaRenderer1Device*)rend;
--(int)Play:(NSMutableArray*)playList position:(int)position;
--(int)Play:(int)position;
+-(int)Play:(NSMutableArray*)playList position:(NSInteger)position;
+-(int)Play:(NSInteger)position;
 
 //BasicUPnPServiceObserver
 -(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
 
-@property (retain) MediaServer1Device *server;
-@property (readonly) MediaRenderer1Device *renderer;
-@property (retain) NSMutableArray *playlist;
+@property (strong) MediaServer1Device *server;
+@property (weak, readonly) MediaRenderer1Device *renderer;
+@property (strong) NSMutableArray *playlist;
 
 @end
 
