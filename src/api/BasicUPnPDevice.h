@@ -81,6 +81,7 @@
 @property(readwrite, retain) NSURL *baseURL;
 @property(readwrite, retain) NSString *baseURLString;
 @property(readwrite, retain) NSString *friendlyName;
+@property (nonatomic, retain) NSString *manufacturer;
 @property (nonatomic, retain) NSString *modelDescription;
 @property (nonatomic, retain) NSString *modelName;
 @property (nonatomic, retain) NSString *modelNumber;

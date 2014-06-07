@@ -106,7 +106,7 @@
                                                         timeoutInterval:15.0];
 
     [urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", _upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
-    [urlRequest setValue:[NSString stringWithFormat:@"%ld", len] forHTTPHeaderField:@"CONTENT-LENGTH"];
+    [urlRequest setValue:[NSString stringWithFormat:@"%ld", (unsigned long)len] forHTTPHeaderField:@"CONTENT-LENGTH"];
     [urlRequest setValue:@"text/xml;charset=\"utf-8\"" forHTTPHeaderField:@"CONTENT-TYPE"];
 
     /*
