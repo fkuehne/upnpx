@@ -11,6 +11,10 @@
 #import "FolderViewController.h"
 #import "PlayBack.h"
 
+@interface RootViewController() <UPnPDBObserver>
+
+@end
+
 @implementation RootViewController
 
 @synthesize menuView;
@@ -23,9 +27,8 @@
     UPnPDB* db = [[UPnPManager GetInstance] DB];
     
     mDevices = [db rootDevices]; //BasicUPnPDevice
-    [mDevices retain];
     
-    [db addObserver:(UPnPDBObserver*)self];
+    [db addObserver:self];
     
     //Optional; set User Agent
     [[[UPnPManager GetInstance] SSDP] setUserAgentProduct:@"upnpxdemo/1.0" andOS:@"OSX"];
@@ -43,42 +46,13 @@
     [self.titleLabel setBackgroundColor:[UIColor clearColor]];
     [self.titleLabel setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:1.0]];
     [self.titleLabel setText:@""];
-    [self.titleLabel setTextAlignment:UITextAlignmentLeft];
+    [self.titleLabel setTextAlignment:NSTextAlignmentLeft];
 
     UIBarButtonItem *ttitle = [[UIBarButtonItem alloc] initWithCustomView:self.titleLabel];
 
-    NSArray *items = [NSArray arrayWithObjects:ttitle, nil]; 
+    NSArray *items = @[ttitle]; 
     self.toolbarItems = items; 
-    [ttitle release];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,77 +72,27 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
     // Configure the cell.
-    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    BasicUPnPDevice *device = mDevices[indexPath.row];
      [[cell textLabel] setText:[device friendlyName]];
     
-    NSLog(@"%d %@", indexPath.row, [device friendlyName]);
+    BOOL isMediaServer = [device.urn isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"];
+    cell.accessoryType = isMediaServer ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    
+    NSLog(@"%ld %@", (long)indexPath.row, [device friendlyName]);
     
     return cell;
 }
 
-
--(UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
-    
-    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
-    if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
-        return UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-    return UITableViewCellAccessoryNone;
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert)
-    {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BasicUPnPDevice *device = [mDevices objectAtIndex:indexPath.row];
+    BasicUPnPDevice *device = mDevices[indexPath.row];
     if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
         MediaServer1Device *server = (MediaServer1Device*)device;        
-        FolderViewController *targetViewController = [[[FolderViewController alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ] autorelease];
+        FolderViewController *targetViewController = [[FolderViewController alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ];
         [[self navigationController] pushViewController:targetViewController animated:YES];
         [[PlayBack GetInstance] setServer:server];
     }else if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaRenderer:1"]){
@@ -194,21 +118,15 @@
     // For example: self.myOutlet = nil;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
+#pragma mark - protocol UPnPDBObserver
 
-
-
-//protocol UPnPDBObserver
 -(void)UPnPDBWillUpdate:(UPnPDB*)sender{
-    NSLog(@"UPnPDBWillUpdate %d", [mDevices count]);
+    NSLog(@"UPnPDBWillUpdate %lu", (unsigned long)[mDevices count]);
 }
 
 -(void)UPnPDBUpdated:(UPnPDB*)sender{
-    NSLog(@"UPnPDBUpdated %d", [mDevices count]);
+    NSLog(@"UPnPDBUpdated %lu", (unsigned long)[mDevices count]);
     [menuView performSelectorOnMainThread : @ selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
