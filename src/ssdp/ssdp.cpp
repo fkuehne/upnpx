@@ -38,8 +38,9 @@
 #include "ssdp.h"
 #include "tools.h"
 
-
-
+#include <iostream>
+#include <string>
+#include <sstream>
 
 SSDP::SSDP():mMulticastSocket(INVALID_SOCKET), mUnicastSocket(INVALID_SOCKET), mReadLoop(0), mTTL(2), mOS("mac/1.0"), mProduct("upnpx/1.0"){
     mDB = new SSDPDB();
@@ -116,7 +117,7 @@ int SSDP::Start(){
 
 
     //Bind to all interface(s)
-    ret = bind(mMulticastSocket, (struct sockaddr*)&mSrcaddr, sizeof(struct sockaddr));
+    ret = ::bind(mMulticastSocket, (struct sockaddr*)&mSrcaddr, sizeof(struct sockaddr));
     if(ret < 0 && (errno == EACCES || errno == EADDRINUSE))
         printf("address in use\n");
     STATVAL(ret, 0, CLEAN_AND_EXIT);
@@ -162,7 +163,7 @@ int SSDP::Start(){
 
 
     //Bind to all interface(s)
-    ret = bind(mUnicastSocket, (struct sockaddr*)&mUnicastSrcaddr, sizeof(struct sockaddr));
+    ret = ::bind(mUnicastSocket, (struct sockaddr*)&mUnicastSrcaddr, sizeof(struct sockaddr));
     if(ret < 0 && (errno == EACCES || errno == EADDRINUSE))
         printf("address in use\n");
     STATVAL(ret, 0, CLEAN_AND_EXIT);
@@ -248,36 +249,15 @@ int SSDP::NotifyByeBye(){
 
 //Multicast M-Search
 int SSDP::Search(){
-    u32 seconds = 5;
-    const char *os=mOS.c_str();
-    const char *product=mProduct.c_str();
-    char buf[20048];
-
-    sprintf(buf, "M-SEARCH * HTTP/1.1\r\nMx: %d\r\nSt: ssdp:all\r\nMan: \"ssdp:discover\"\r\nUser-Agent: UPnP/1.1 %s %s\r\nConnection: close\r\nHost: 239.255.255.250:1900\r\n\r\n", seconds, os, product);
-
-    if(mMulticastSocket != INVALID_SOCKET)
-        sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
-    else
-        printf("invalid socket\n");
-
-    return 0;
+    return this->SendSearchRequest("ssdp:all");
 }
 
 int SSDP::SearchForMediaServer(){
-    u32 seconds = 5;
-    char target[]="urn:schemas-upnp-org:device:MediaServer:1";
-    const char *os=mOS.c_str();
-    const char *product=mProduct.c_str();
-    char buf[20048];
+    return this->SendSearchRequest("urn:schemas-upnp-org:device:MediaServer:1");
+}
 
-    sprintf(buf, "M-SEARCH * HTTP/1.1\r\nMx: %d\r\nSt: %s\r\nMan: \"ssdp:discover\"\r\nUser-Agent: UPnP/1.1 %s %s\r\nConnection: close\r\nHost: 239.255.255.250:1900\r\n\r\n", seconds, target, os, product);
-
-    if(mMulticastSocket != INVALID_SOCKET)
-        sendto(mMulticastSocket, buf, strlen(buf), 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
-    else
-        printf("invalid socket\n");
-
-    return 0;
+int SSDP::SearchForMediaRenderer(){
+    return this->SendSearchRequest("urn:schemas-upnp-org:device:MediaRenderer:1");
 }
 
 int SSDP::AddObserver(SSDPObserver* observer){
@@ -429,6 +409,27 @@ int SSDP::IncommingMessage(struct sockaddr* sender, u8* buf, u32 len){
     return 0;
 }
 
+int SSDP::SendSearchRequest(const char *target) {
+    std::stringstream str;
+    str << "M-SEARCH * HTTP/1.1\r\n";
+    str << "Mx: " << 5 << "\r\n";
+    str << "St: " << target << "\r\n";
+    str << "Man: \"ssdp:discover\"\r\n";
+    str << "User-Agent: UPnP/1.1 " << mOS << " " << mProduct << "\r\n";
+    str << "Connection: close\r\n";
+    str << "Host: 239.255.255.250:1900\r\n\r\n";
+
+    str.seekp(0, ios::end);
+    stringstream::pos_type length = str.tellp();
+    str.seekp(0, ios::beg);
+
+    if(mMulticastSocket != INVALID_SOCKET)
+        sendto(mMulticastSocket, str.str().c_str(), length, 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+    else
+        printf("invalid socket\n");
+
+    return 0;
+}
 
 SSDPDB* SSDP::GetDB(){
     return mDB;
