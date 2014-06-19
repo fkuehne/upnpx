@@ -63,6 +63,7 @@ public:
     int Advertise();
     int Search();
     int SearchForMediaServer();
+    int SearchForMediaRenderer();
     int NotifyAlive();
     int NotifyByeBye();
     void SetOS(const char* os);
@@ -90,6 +91,7 @@ private:
 private:
     int ReadLoop();
     int IncommingMessage(struct sockaddr* sender, u8* buf, u32 len);
+    int SendSearchRequest(const char* target);
 private:
     static void* sReadLoop(void* data);
 private:

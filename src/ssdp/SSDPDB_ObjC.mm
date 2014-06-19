@@ -134,6 +134,9 @@ private:
     return UPNP::GetInstance()->GetSSDP()->SearchForMediaServer();
 }
 
+-(int)searchForMediaRenderer{
+    return UPNP::GetInstance()->GetSSDP()->SearchForMediaRenderer();
+}
 
 -(NSUInteger)addObserver:(SSDPDB_ObjC_Observer*)obs{
     NSUInteger ret = 0;
