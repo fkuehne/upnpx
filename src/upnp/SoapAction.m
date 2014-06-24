@@ -127,6 +127,7 @@
     if([urlResponse statusCode] != 200){
         ret = 0-[urlResponse statusCode];
         NSString *rsp = [[NSString  alloc] initWithData:resp encoding:NSUTF8StringEncoding];
+        NSLog(@"Error (SoapAction): Got a non 200 response: %ld. Data: %@", (long)[urlResponse statusCode], rsp);
         [rsp release];
     }else{
         ret = 0;
