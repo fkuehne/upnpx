@@ -42,13 +42,23 @@
     
     [super viewDidLoad];
     
+    // Before we do anything, some devices do not support sorting and will fail if we try to sort on our request
+    NSString *sortCriteria = @"";
+    NSMutableString *outSortCaps = [[NSMutableString alloc] init];
+    [[m_device contentDirectory] GetSortCapabilitiesWithOutSortCaps:outSortCaps];
+    
+    if ([outSortCaps rangeOfString:@"dc:title"].location != NSNotFound)
+    {
+        sortCriteria = @"+dc:title";
+    }
+
     //Allocate NMSutableString's to read the results
     NSMutableString *outResult = [[NSMutableString alloc] init];
     NSMutableString *outNumberReturned = [[NSMutableString alloc] init];
     NSMutableString *outTotalMatches = [[NSMutableString alloc] init];
     NSMutableString *outUpdateID = [[NSMutableString alloc] init];
     
-    [[m_device contentDirectory] BrowseWithObjectID:m_rootId BrowseFlag:@"BrowseDirectChildren" Filter:@"*" StartingIndex:@"0" RequestedCount:@"0" SortCriteria:@"+dc:title" OutResult:outResult OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];  
+    [[m_device contentDirectory] BrowseWithObjectID:m_rootId BrowseFlag:@"BrowseDirectChildren" Filter:@"*" StartingIndex:@"0" RequestedCount:@"0" SortCriteria:sortCriteria OutResult:outResult OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];
 //    SoapActionsAVTransport1* _avTransport = [m_device avTransport];
 //    SoapActionsConnectionManager1* _connectionManager = [m_device connectionManager];
     
