@@ -911,8 +911,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = (
+					armv7,
+					armv7s,
+					arm64,
+					i386,
+				);
 			};
 			name = Debug;
 		};
@@ -924,7 +930,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = (
+					armv7,
+					armv7s,
+					arm64,
+					i386,
+				);
 			};
 			name = Release;
 		};
@@ -938,10 +951,19 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = UPNPX_IOS;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios ../../../src/common";
+<<<<<<< HEAD
+				VALID_ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
+=======
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+>>>>>>> upstream/master
 			};
 			name = Debug;
 		};
@@ -958,7 +980,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios ../../../src/common";
+<<<<<<< HEAD
+				VALID_ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
+=======
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+>>>>>>> upstream/master
 			};
 			name = Release;
 		};
