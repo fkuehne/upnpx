@@ -56,9 +56,24 @@
     if([startStop isEqualToString:@"ElementStart"]){
     }else{
         //Element name
-        NSString *name = [[NSString alloc] initWithString:currentElementName];
+        NSString *name = nil;
         //Element value
         NSString *value = elementAttributeDict[@"val"];
+
+        //NSLog(@"Parsing event: %@ with content: %@", currentElementName, elementAttributeDict);
+        if([currentElementName isEqualToString:@"Volume"]){               //Connect volume and channel in one event key
+            NSString *channel = elementAttributeDict[@"channel"];
+            if(channel){
+                name = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%@-%@", currentElementName, channel]];
+                if([channel isEqualToString:@"Master"]){
+                    events[@"Volume"] = value; // Add Master channel to key volume for basic backwards compatibility
+                }
+            }
+        }
+        if(!name){
+            name = [[NSString alloc] initWithString:currentElementName];
+        }
+
         //Add
         if(name != nil && value != nil){
             events[name] = value;
