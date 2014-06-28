@@ -60,7 +60,9 @@ public:
         @autoreleasepool {
             unsigned short port = sender->sin_port;
             NSString *ip = [[NSString alloc]  initWithCString:inet_ntoa(sender->sin_addr) encoding:NSASCIIStringEncoding];
-            return [mObjCObserver dataIn:buf length:len fromIP:ip fromPort:port];
+            int result = [mObjCObserver dataIn:buf length:len fromIP:ip fromPort:port];;
+            [ip release];
+            return result;
         }
 
     }

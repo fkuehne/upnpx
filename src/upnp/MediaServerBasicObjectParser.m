@@ -187,9 +187,9 @@
     [uriCollection release];
     uriCollection = [[NSMutableDictionary alloc] init];
 
-    self.creators = [NSMutableArray new];
-    self.authors = [NSMutableArray new];
-    self.directors = [NSMutableArray new];
+    _creators = [[NSMutableArray alloc] init];
+    _authors = [[NSMutableArray alloc] init];
+    _directors = [[NSMutableArray alloc] init];
 }
 
 

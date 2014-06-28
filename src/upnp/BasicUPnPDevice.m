@@ -117,8 +117,12 @@
     [manufacturer release];
     [manufacturerURL release];
     [manufacturerURLString release];
+    [modelDescription release];
+    [modelName release];
+    [modelNumber release];
     [modelURL release];
     [modelURLString release];
+    [serialNumber release];
     [udn release];
     [usn release];
     [urn release];

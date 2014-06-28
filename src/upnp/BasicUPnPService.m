@@ -174,8 +174,7 @@
     //Set the soap actions
     [soap release];
     if(ret == 0){
-        soap = [SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL];
-        //retain is not needed because we did alloc
+        soap = [[SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL] retain];
         isProcessed = YES;
     }else{
         isProcessed = NO;
