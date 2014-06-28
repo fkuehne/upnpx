@@ -72,10 +72,12 @@
 @property (readwrite, retain) NSString* udn;
 @property (readwrite, retain) NSString* friendlyName;
 @property (readwrite, retain) NSString* manufacturer;
+@property (readwrite, retain) NSString* manufacturerURLString;
 
 @property (nonatomic, retain) NSString *modelDescription;
 @property (nonatomic, retain) NSString *modelName;
 @property (nonatomic, retain) NSString *modelNumber;
+@property (nonatomic, retain) NSString *modelURLString;
 @property (nonatomic, retain) NSString *serialNumber;
 
 @end

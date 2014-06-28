@@ -266,6 +266,7 @@
         [media setObjectID:mediaID];
         [media setParentID:parentID];
         [media setTitle:mediaTitle];
+        [media setObjectClass:mediaClass];
         [media setArtist:artist];
         [media setAlbum:album];
         [media setDate:date];

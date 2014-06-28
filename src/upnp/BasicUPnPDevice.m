@@ -52,6 +52,8 @@
 @synthesize baseURLString;
 @synthesize friendlyName;
 @synthesize manufacturer;
+@synthesize manufacturerURL;
+@synthesize manufacturerURLString;
 @synthesize udn;
 @synthesize usn;
 @synthesize urn;
@@ -64,6 +66,8 @@
 @synthesize modelDescription;
 @synthesize modelName;
 @synthesize modelNumber;
+@synthesize modelURL;
+@synthesize modelURLString;
 @synthesize serialNumber;
 
 
@@ -111,6 +115,10 @@
     [baseURLString release];
     [friendlyName release];
     [manufacturer release];
+    [manufacturerURL release];
+    [manufacturerURLString release];
+    [modelURL release];
+    [modelURLString release];
     [udn release];
     [usn release];
     [urn release];
