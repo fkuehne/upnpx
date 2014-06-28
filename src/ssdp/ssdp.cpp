@@ -385,10 +385,10 @@ EXIT:
 
 
 int SSDP::IncommingMessage(struct sockaddr* sender, u8* buf, u32 len){
-    u8 *address;
+//    u8 *address;
     u16 port;
 
-    address = (u8*)sender->sa_data+2;
+//    address = (u8*)sender->sa_data+2;
     memcpy(&port, sender->sa_data, 2);
     port = ntohs(port);
 
