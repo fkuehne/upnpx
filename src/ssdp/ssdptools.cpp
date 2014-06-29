@@ -86,7 +86,7 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
     int colon2 = 0;
     int tel;
 
-    int lenleft;
+//    int lenleft;
 
     //Sanity
     if(uuid == NULL || len == 0){
@@ -98,7 +98,7 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
 
     memset(uuid, 0, sizeof(ssdpuuid));
 
-    lenleft = len;
+//    lenleft = len;
 
     //uuid
     colon1 = getchar(uuidraw, len, ':', 1);

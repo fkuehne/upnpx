@@ -146,6 +146,7 @@
         }
 
         mEventSubscribers[retUUID] = en;
+        [en release];
     }else{
         NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
     }

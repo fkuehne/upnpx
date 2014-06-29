@@ -242,7 +242,7 @@
     }
 
 
-    return soapaction;
+    return [soapaction autorelease];
 }
 
 @end

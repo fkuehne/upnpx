@@ -88,17 +88,19 @@
 }
 
 -(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
-    [self init];
-
-    isRoot = ssdp.isroot;
-    uuid = ssdp.uuid;
-    [uuid retain];
-    [self setUsn:ssdp.usn];
-    [self setUrn:ssdp.urn];
-    type = [NSString stringWithFormat:@"%@:%@", ssdp.type, ssdp.version];
-    [type retain];
-    xmlLocation = ssdp.location;
-    [xmlLocation retain];
+    self = [self init];
+    
+    if (self) {
+        isRoot = ssdp.isroot;
+        uuid = ssdp.uuid;
+        [uuid retain];
+        [self setUsn:ssdp.usn];
+        [self setUrn:ssdp.urn];
+        type = [NSString stringWithFormat:@"%@:%@", ssdp.type, ssdp.version];
+        [type retain];
+        xmlLocation = ssdp.location;
+        [xmlLocation retain];
+    }
 
     return self;
 }
@@ -117,8 +119,12 @@
     [manufacturer release];
     [manufacturerURL release];
     [manufacturerURLString release];
+    [modelDescription release];
+    [modelName release];
+    [modelNumber release];
     [modelURL release];
     [modelURLString release];
+    [serialNumber release];
     [udn release];
     [usn release];
     [urn release];
