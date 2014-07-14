@@ -43,6 +43,7 @@
 @synthesize isContainer;
 @synthesize objectClass;
 @synthesize albumArt;
+@synthesize artist;
 
 -(void)dealloc{
     [objectID release];
@@ -50,6 +51,7 @@
     [title release];
     [objectClass release];
     [albumArt release];
+    [artist release];
 
     [super dealloc];
 }

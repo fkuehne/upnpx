@@ -36,7 +36,6 @@
 #import "MediaServer1ItemRes.h"
 
 @interface MediaServer1ItemObject : MediaServer1BasicObject {
-    NSString *artist;
     NSString *album;
     NSString *date;
     NSString *genre;
@@ -56,7 +55,6 @@
 
 -(void)addRes:(MediaServer1ItemRes*) res;
 
-@property(retain, nonatomic) NSString *artist;
 @property(retain, nonatomic) NSString *album;
 @property(retain, nonatomic) NSString *date;
 @property(retain, nonatomic) NSString *genre;

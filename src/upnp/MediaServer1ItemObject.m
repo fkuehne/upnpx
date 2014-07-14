@@ -37,7 +37,6 @@
 
 @implementation MediaServer1ItemObject
 
-@synthesize artist;
 @synthesize album;
 @synthesize date;
 @synthesize genre;
@@ -81,7 +80,6 @@
 }
 
 -(void)dealloc{
-    [artist release];
     [album release];
     [date release];
     [genre release];
