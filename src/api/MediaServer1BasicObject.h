@@ -40,6 +40,7 @@
     NSString *objectClass;
     NSString *title;
     NSString *albumArt;
+    NSString *artist;
 
     BOOL isContainer;
 }
@@ -49,6 +50,7 @@
 @property (readwrite, retain)NSString *title;
 @property (readwrite, retain)NSString *objectClass;
 @property (readwrite)BOOL isContainer;
-@property(readwrite, retain) NSString *albumArt;
+@property (readwrite, retain) NSString *albumArt;
+@property (readwrite, retain) NSString *artist;
 
 @end
