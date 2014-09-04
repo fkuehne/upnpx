@@ -175,12 +175,23 @@ static NSString *ElementStop = @"ElementStop";
     if(parser == nil){
         return -1;
     }
+    
+    // iOS 8 changes behaviour based on reentrant parsing, requiring a 
+    // synchronous workaround.
+    // https://devforums.apple.com/message/1028271
+    __block BOOL pret;
+    dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(reentrantAvoidanceQueue, ^{
 
-    [parser setShouldProcessNamespaces:mSupportNamespaces];
-    [parser setDelegate:self];
+        [parser setShouldProcessNamespaces:mSupportNamespaces];
+        [parser setDelegate:self];
 
-    BOOL pret = [parser parse];
-    [parser setDelegate:nil];
+        pret = [parser parse];
+        [parser setDelegate:nil];
+            
+    });
+    
+    dispatch_sync(reentrantAvoidanceQueue, ^{ });
 
     return pret? 0: -1;
 }
