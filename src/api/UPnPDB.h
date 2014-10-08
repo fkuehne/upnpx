@@ -43,7 +43,8 @@
 /**
  * Observers
  */
-@protocol UPnPDBObserver
+@protocol UPnPDBObserver <NSObject>
+@optional
 -(void)UPnPDBWillUpdate:(UPnPDB*)sender;
 -(void)UPnPDBUpdated:(UPnPDB*)sender;
 @end
