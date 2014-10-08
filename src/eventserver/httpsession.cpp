@@ -112,21 +112,21 @@ int HTTPSession::ParseHeader(unsigned char* buf, int len){
     pos[space]=0;
     mMethod = (char*)pos;
     pos = pos + space + 1;
-    poslen = (buf + len) - pos;
+    poslen = (int)((buf + len) - pos);
 
     //Path
     space = getchar(pos, poslen, ' ');
     pos[space]=0;
     mPath = (char*)pos;
     pos = pos + space + 1;
-    poslen = (buf + len) - pos;
+    poslen = (int)((buf + len) - pos);
 
     //Version
     eol = getchar(pos, poslen, '\r');
     pos[eol]=0;
     mVersion = (char*)pos;
     pos = pos + eol + 2;
-    poslen = (buf + len) - pos;
+    poslen = (int)((buf + len) - pos);
 
     /*
      * Parse headers
@@ -184,12 +184,12 @@ int HTTPSession::ParseHeader(unsigned char* buf, int len){
         headerName = pheadername;//(char*)pos;
 
         //Content length ?
-        if( caseinstringcmp((u8*)pos, strlen((char*)pos), (u8*)"CONTENT-LENGTH", 14) == 0 ){
+        if( caseinstringcmp((u8*)pos, (int)strlen((char*)pos), (u8*)"CONTENT-LENGTH", 14) == 0 ){
             mContentlength = atoi((char*)pos + colon + 1);
         }
 
         pos = pos + eol + 2;
-        poslen = (buf + len) - pos;
+        poslen = (int)((buf + len) - pos);
 
         //add it to the map
         mHeaders[headerName] = headerValue;
