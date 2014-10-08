@@ -424,7 +424,7 @@ int SSDP::SendSearchRequest(const char *target) {
     str.seekp(0, ios::beg);
 
     if(mMulticastSocket != INVALID_SOCKET)
-        sendto(mMulticastSocket, str.str().c_str(), length, 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+        sendto(mMulticastSocket, str.str().c_str(), (unsigned long)length, 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
     else
         printf("invalid socket\n");
 
