@@ -113,7 +113,7 @@ int BasicHTTPServer::DataReceived(struct sockaddr_in *sender, size_t len, unsign
         thisSession = new HTTPSession(senderIP, senderPort);
         mSessions[sessionID] = thisSession;
     }
-    ret = thisSession->AddData(buf, len);
+    ret = thisSession->AddData(buf, (unsigned int)len);
 
     //Session has all data, send it to the observers
     if(ret == 0){

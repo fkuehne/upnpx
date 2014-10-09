@@ -183,14 +183,18 @@
         UPnPDBObserver *obs;
         NSEnumerator *listeners = [mObservers objectEnumerator];
         while((obs = [listeners nextObject])){
-            [obs UPnPDBWillUpdate:self];
+            if ([(NSObject*)obs respondsToSelector:@selector(UPnPDBWillUpdate:)]) {
+                [obs UPnPDBWillUpdate:self];
+            }
         }
 
         [rootDevices removeObjectsInArray:discardedItems];
 
         listeners = [mObservers objectEnumerator];
         while((obs = [listeners nextObject])){
-            [obs UPnPDBUpdated:self];
+            if ([(NSObject*)obs respondsToSelector:@selector(UPnPDBUpdated:)]) {
+                [obs UPnPDBUpdated:self];
+            }
         }
     }
     [discardedItems release];
@@ -285,7 +289,9 @@
                         //Inform the listeners so they know the rootDevices array might change
 
                 for (id<UPnPDBObserver> observer in mObservers) {
-                    [observer UPnPDBWillUpdate:self];
+                    if ([observer respondsToSelector:@selector(UPnPDBWillUpdate:)]) {
+                        [observer UPnPDBWillUpdate:self];
+                    }
                 }
 
                 while( [readyForDescription count] > 0){
@@ -305,7 +311,9 @@
                 }
 
                 for (id<UPnPDBObserver> observer in mObservers) {
-                    [observer UPnPDBUpdated:self];
+                    if ([observer respondsToSelector:@selector(UPnPDBUpdated:)]) {
+                        [observer UPnPDBUpdated:self];
+                    }
                 }
             }
 

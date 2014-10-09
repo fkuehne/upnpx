@@ -51,14 +51,14 @@ int createUUID(char uuid[UUID_LEN]){
     static u8 _rand_init = 0;
     static char randstate[2048];
     if(_rand_init == 0){
-        initstate(time(NULL), randstate, 2048);
+        initstate((unsigned int)time(NULL), randstate, 2048);
         setstate(randstate);
         _rand_init = 1;
     }
 
     u32 r[8];
     for(int x=0;x<8;x++){
-        r[x] = random();
+        r[x] = (unsigned int)random();
     }
     //Make repres
     //Fix this
@@ -90,7 +90,7 @@ u32 righttrim(u8* buf, u32 len){
     while(pos>=buf && *pos==' '){
         pos--;
     }
-    return (pos-buf)+1;
+    return (unsigned int)((pos-buf)+1);
 }
 
 
@@ -132,7 +132,7 @@ void trimspaces(u8** buf, u32* len){
     u32 l = *len;
     //left
     b = lefttrim(*buf, *len);
-    l = l - (b - *buf);
+    l = (int)(l - (b - *buf));
     //right
     l = righttrim(b, l);
 

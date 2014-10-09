@@ -234,6 +234,7 @@
         [media setObjectClass:mediaClass];
         [media setChildCount:childCount];
         [media setAlbumArt:albumArt];
+        [media setArtist:artist];
 
         [media setLongDescription:self.longDescription];
         [media setLastPlaybackPosition:self.lastPlaybackPosition];
