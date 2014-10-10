@@ -39,6 +39,10 @@
 #import "OrderedDictionary.h"
 #import "MediaServer1ItemRes.h"
 
+@interface MediaServerBasicObjectParser ()
+@property (nonatomic, readwrite, retain) NSString *resourceURI;
+@end
+
 @implementation MediaServerBasicObjectParser
 
 @synthesize mediaTitle;
@@ -60,6 +64,7 @@
 @synthesize icon;
 @synthesize bitrate;
 @synthesize albumArt;
+@synthesize resourceURI;
 
 
 /*
@@ -128,7 +133,7 @@
         [self addAsset:@[@"DIDL-Lite", @"item", @"lastPlaybackTime"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setLastPlaybacktime:) setStringValueObject:self];
         [self addAsset:@[@"DIDL-Lite", @"item", @"playbackCount"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setPlaybackCount:) setStringValueObject:self];
 
-        [self addAsset:@[@"DIDL-Lite", @"item", @"res"] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setUri:) setStringValueObject:self];
+        [self addAsset:@[@"DIDL-Lite", @"item", @"res"] callfunction:@selector(res:) functionObject:self setStringValueFunction:@selector(setResourceURI:) setStringValueObject:self];
     }
 
     return self;
@@ -159,6 +164,8 @@
     [uriCollection release];
     [resources release];
     [mediaObjects release];
+    
+    [resourceURI release];
    
     [super dealloc];
 }
@@ -302,37 +309,61 @@
 
 -(void)res:(NSString*)startStop{
     if([startStop isEqualToString:@"ElementStart"]){
-        //Get the attributes
-        [self setProtocolInfo:elementAttributeDict[@"protocolInfo"]];
-        [self setFrequency:elementAttributeDict[@"sampleFrequency"]];
-        [self setAudioChannels:elementAttributeDict[@"nrAudioChannels"]];
-
-        [self setSize:elementAttributeDict[@"size"]];
-        [self setDuration:elementAttributeDict[@"duration"]];
-        [self setBitrate:elementAttributeDict[@"bitrate"]];
-
-        [self setIcon:elementAttributeDict[@"icon"]];
-
-
-        //Add to the recource connection, there can be multiple resources per media item 
+        
+        NSString *resProtocolInfo = elementAttributeDict[@"protocolInfo"];
+        NSString *resFrequency = elementAttributeDict[@"sampleFrequency"];
+        NSString *resAudioChannels = elementAttributeDict[@"nrAudioChannels"];
+        NSString *resSize = elementAttributeDict[@"size"];
+        NSString *resDuration = elementAttributeDict[@"duration"];
+        NSString *resBitrate = elementAttributeDict[@"bitrate"];
+        NSString *resIcon = elementAttributeDict[@"icon"];
+        
+        //Add to the recource connection, there can be multiple resources per media item
         MediaServer1ItemRes *r = [[MediaServer1ItemRes alloc] init];
-        [r setBitrate: [bitrate intValue]];
-        [r setDuration: duration];
-        [r setNrAudioChannels: [audioChannels intValue]];
-        [r setProtocolInfo: protocolInfo];
-        [r setSize: [size longLongValue]];
-        [r setDurationInSeconds:[self _HMS2Seconds:duration]];
+        [r setBitrate: [resBitrate intValue]];
+        [r setDuration: resDuration];
+        [r setNrAudioChannels: [resAudioChannels intValue]];
+        [r setProtocolInfo: resProtocolInfo];
+        [r setSize: [resSize longLongValue]];
+        [r setDurationInSeconds:[self _HMS2Seconds:resDuration]];
         [resources addObject:r];
         [r release];
+        
+        
+        // Set the attributes for any non-image asset
+        if ([resProtocolInfo rangeOfString:@"image/"].location == NSNotFound) {
+            [self setProtocolInfo:resProtocolInfo];
+            [self setFrequency:resFrequency];
+            [self setAudioChannels:resAudioChannels];
 
-    }else
-        uriCollection[protocolInfo] = uri;//@todo: we overwrite uri's with same protocol info
+            [self setSize:resSize];
+            [self setDuration:resDuration];
+            [self setBitrate:resBitrate];
+
+            [self setIcon:resIcon];
+        }
+
+    }else{
+        NSString *protocolInfoString = elementAttributeDict[@"protocolInfo"];
+        uriCollection[protocolInfoString] = resourceURI;//@todo: we overwrite uri's with same protocol info
+        if ([protocolInfoString rangeOfString:@"image/"].location == NSNotFound) {
+            [self setUri:resourceURI];
+        }
+        resourceURI = nil;
+    }
 }
 
 -(void)setUri:(NSString*)s{
     [uri release];
     uri = s;
     [uri retain];
+}
+
+- (void)setResourceURI:(NSString *)r
+{
+    [resourceURI release];
+    resourceURI = r;
+    [resourceURI retain];
 }
 
 - (void)setCreator: (NSString *)value
