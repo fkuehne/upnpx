@@ -215,6 +215,7 @@ static NSString *ElementStop = @"ElementStop";
     BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
     if(asset != nil){
         elementAttributeDict = attributeDict;//make temprary available to derived classes
+        [elementAttributeDict retain];
 
         if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
             //we are interested in a string and we are looking for this
@@ -255,6 +256,8 @@ static NSString *ElementStop = @"ElementStop";
                 [[asset functionObject] performSelector:[asset function] withObject:ElementStop];
             }
         }
+        elementAttributeDict = nil;
+        [elementAttributeDict release];
     }
 
     if([elementName isEqualToString:[mElementStack lastObject]]){
