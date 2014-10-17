@@ -104,7 +104,17 @@
         //Parse LastChange
         NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
 
-        int ret = [lastChangeParser parseFromData:lastChange];
+        // iOS 8 changes behaviour based on reentrant parsing, requiring a
+        // synchronous workaround.
+        // https://devforums.apple.com/message/1028271
+        __block int ret;
+        
+        dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(reentrantAvoidanceQueue, ^{
+            ret = [lastChangeParser parseFromData:lastChange];
+        });
+        
+        dispatch_sync(reentrantAvoidanceQueue, ^{ });
         if(ret != 0){
             NSLog(@"Something went wrong during LastChange parsing");
         }
