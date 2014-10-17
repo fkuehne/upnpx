@@ -106,7 +106,7 @@
 
     NSString *callBack = [NSString stringWithFormat:@"<http://%@:%d/Event>", [server getIPAddress], [server getPort]];
 
-    [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.2.4" forHTTPHeaderField:@"USER-AGENT"];
+    [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.3.0" forHTTPHeaderField:@"USER-AGENT"];
     [urlRequest setValue:callBack forHTTPHeaderField:@"CALLBACK"];
     [urlRequest setValue:@"upnp:event" forHTTPHeaderField:@"NT"];
     [urlRequest setValue:@"Second-1800" forHTTPHeaderField:@"TIMEOUT"];
