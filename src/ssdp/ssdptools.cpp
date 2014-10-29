@@ -220,7 +220,7 @@ int cachecontroltoi(u8* s, u32 l){
     trimspaces(&s, &l);
     if(l >= 7 && caseinstringcmp(s, 7, (u8*)"max-age", 7) == 0){
         //search the =
-        p = getchar((u8*)buf, strlen(buf), '=');
+        p = getchar((u8*)buf, (unsigned int)strlen(buf), '=');
         if(p > 0){
             ret = atoi(buf+p+1);
         }

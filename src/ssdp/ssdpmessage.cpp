@@ -93,11 +93,11 @@ EXIT:
 int SSDPMessage::AddSignatureHeader(char* fieldname, char* fieldvalue){
     SSDP_HTTP_HEADER *thisHeader = (SSDP_HTTP_HEADER*)malloc(sizeof(SSDP_HTTP_HEADER));
     thisHeader->fieldname = (u8*)fieldname;
-    thisHeader->fieldnamelen = strlen(fieldname);
+    thisHeader->fieldnamelen = (unsigned int)strlen(fieldname);
     thisHeader->fieldvalue = (u8*)fieldvalue;
-    thisHeader->fieldvaluelen = strlen(fieldvalue);
+    thisHeader->fieldvaluelen = (unsigned int)strlen(fieldvalue);
     mHeaderSignature.push_back(thisHeader);
-    return mHeaderSignature.size();
+    return (int)mHeaderSignature.size();
 }
 
 

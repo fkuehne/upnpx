@@ -148,6 +148,13 @@ static NSString *ElementStop = @"ElementStop";
 
 -(int)parseFromData:(NSData*)data{
     @autoreleasepool {
+        if (data != nil) {
+            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSError *error = NULL;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
+            xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
+            data = [xml dataUsingEncoding:NSUTF8StringEncoding];
+        }
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
         [parser release];
@@ -162,9 +169,15 @@ static NSString *ElementStop = @"ElementStop";
         [[NSURLCache sharedURLCache] setMemoryCapacity:0];
         [[NSURLCache sharedURLCache] setDiskCapacity:0];
 
-        NSData *xml = [NSData dataWithContentsOfURL:url];
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xml];;
-
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        if (data != nil) {
+            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSError *error = NULL;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
+            xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
+            data = [xml dataUsingEncoding:NSUTF8StringEncoding];
+        }
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
         [parser release];
         return ret;
@@ -175,23 +188,12 @@ static NSString *ElementStop = @"ElementStop";
     if(parser == nil){
         return -1;
     }
-    
-    // iOS 8 changes behaviour based on reentrant parsing, requiring a 
-    // synchronous workaround.
-    // https://devforums.apple.com/message/1028271
-    __block BOOL pret;
-    dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
-    dispatch_async(reentrantAvoidanceQueue, ^{
 
-        [parser setShouldProcessNamespaces:mSupportNamespaces];
-        [parser setDelegate:self];
+    [parser setShouldProcessNamespaces:mSupportNamespaces];
+    [parser setDelegate:self];
 
-        pret = [parser parse];
-        [parser setDelegate:nil];
-            
-    });
-    
-    dispatch_sync(reentrantAvoidanceQueue, ^{ });
+    BOOL pret = [parser parse];
+    [parser setDelegate:nil];
 
     return pret? 0: -1;
 }
@@ -215,6 +217,7 @@ static NSString *ElementStop = @"ElementStop";
     BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
     if(asset != nil){
         elementAttributeDict = attributeDict;//make temprary available to derived classes
+        [elementAttributeDict retain];
 
         if([asset stringValueFunction] != nil && [asset stringValueObject] != nil){
             //we are interested in a string and we are looking for this
@@ -255,6 +258,8 @@ static NSString *ElementStop = @"ElementStop";
                 [[asset functionObject] performSelector:[asset function] withObject:ElementStop];
             }
         }
+        elementAttributeDict = nil;
+        [elementAttributeDict release];
     }
 
     if([elementName isEqualToString:[mElementStack lastObject]]){

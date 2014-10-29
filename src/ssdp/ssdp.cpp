@@ -360,7 +360,7 @@ int SSDP::ReadLoop(){
             if(FD_ISSET(mMulticastSocket, &mReadFDS)){
                 //Data
                 //printf("Data\n");
-                ret = recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+                ret = (int)recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
                 if(ret != SOCKET_ERROR){
                     //Be sure to only deliver full messages (!)
                     IncommingMessage((struct sockaddr*)&sender, buf, ret);
@@ -373,7 +373,7 @@ int SSDP::ReadLoop(){
             if(FD_ISSET(mUnicastSocket, &mReadFDS)){
                 //Data
                 //printf("Data\n");
-                ret = recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+                ret = (int)recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
                 if(ret != SOCKET_ERROR){
                     //Be sure to only deliver full messages (!)
                     IncommingMessage((struct sockaddr*)&sender, buf, ret);
@@ -428,7 +428,7 @@ int SSDP::SendSearchRequest(const char *target) {
     str.seekp(0, ios::beg);
 
     if(mMulticastSocket != INVALID_SOCKET)
-        sendto(mMulticastSocket, str.str().c_str(), length, 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
+        sendto(mMulticastSocket, str.str().c_str(), (unsigned long)length, 0, (struct sockaddr*)&mDstaddr , sizeof(struct sockaddr));
     else
         printf("invalid socket\n");
 
