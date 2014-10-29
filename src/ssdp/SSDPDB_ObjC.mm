@@ -138,6 +138,10 @@ private:
     return UPNP::GetInstance()->GetSSDP()->SearchForMediaRenderer();
 }
 
+-(int)searchForContentDirectory {
+    return UPNP::GetInstance()->GetSSDP()->SearchForContentDirectory();
+}
+
 -(NSUInteger)addObserver:(SSDPDB_ObjC_Observer*)obs{
     NSUInteger ret = 0;
     [self lock];

@@ -260,6 +260,10 @@ int SSDP::SearchForMediaRenderer(){
     return this->SendSearchRequest("urn:schemas-upnp-org:device:MediaRenderer:1");
 }
 
+int SSDP::SearchForContentDirectory(){
+    return this->SendSearchRequest("urn:schemas-upnp-org:service:ContentDirectory:1");
+}
+
 int SSDP::AddObserver(SSDPObserver* observer){
     RemoveObserver(observer);
     mObservers.push_back(observer);
