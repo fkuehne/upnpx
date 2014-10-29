@@ -64,6 +64,7 @@ public:
     int Search();
     int SearchForMediaServer();
     int SearchForMediaRenderer();
+    int SearchForContentDirectory();
     int NotifyAlive();
     int NotifyByeBye();
     void SetOS(const char* os);

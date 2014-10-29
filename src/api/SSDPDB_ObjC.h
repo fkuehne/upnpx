@@ -65,6 +65,7 @@
 -(int)searchSSDP;
 -(int)searchForMediaServer;
 -(int)searchForMediaRenderer;
+-(int)searchForContentDirectory;
 -(int)notifySSDPAlive;
 -(int)notifySSDPByeBye;
 -(NSUInteger)addObserver:(SSDPDB_ObjC_Observer*)obs;
