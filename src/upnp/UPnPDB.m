@@ -61,7 +61,7 @@
         readyForDescription = [[NSMutableArray alloc] init];//BasicUPnPDevice
         mObservers = [[NSMutableArray alloc] init];
 
-        [mSSDP addObserver:(SSDPDB_ObjC_Observer*)self];
+        [mSSDP addObserver:self];
 
         mHTTPThread = [[NSThread alloc] initWithTarget:self selector:@selector(httpThread:) object:nil];
         [mHTTPThread start];
@@ -72,7 +72,7 @@
 
 -(void)dealloc{
     [mHTTPThread cancel];
-    [mSSDP removeObserver:(SSDPDB_ObjC_Observer*)self];
+    [mSSDP removeObserver:self];
     [rootDevices removeAllObjects];
     [rootDevices release];
     rootDevices = nil;

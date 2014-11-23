@@ -142,7 +142,7 @@ private:
     return UPNP::GetInstance()->GetSSDP()->SearchForContentDirectory();
 }
 
--(NSUInteger)addObserver:(SSDPDB_ObjC_Observer*)obs{
+-(NSUInteger)addObserver:(id <SSDPDB_ObjC_Observer>)obs{
     NSUInteger ret = 0;
     [self lock];
     [mObservers addObject:obs];
@@ -151,7 +151,7 @@ private:
     return ret;
 }
 
--(NSUInteger)removeObserver:(SSDPDB_ObjC_Observer*)obs{
+-(NSUInteger)removeObserver:(id <SSDPDB_ObjC_Observer>)obs{
     NSUInteger ret = 0;
     [self lock];
     [mObservers removeObject:obs];
@@ -175,7 +175,7 @@ private:
     [NSRunLoop currentRunLoop];//Start our runloop
 
     @autoreleasepool {
-        SSDPDB_ObjC_Observer *obs;
+        id <SSDPDB_ObjC_Observer> obs;
 
         //Inform the listeners
         NSEnumerator *listeners = [mObservers objectEnumerator];
