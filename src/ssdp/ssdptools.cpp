@@ -85,6 +85,7 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
     int colon1 = 0;
     int colon2 = 0;
     int tel;
+    int skip=0;
 
 //    int lenleft;
 
@@ -116,16 +117,30 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
     }
 
     //Sanity, there must be a double colon
+    //Find the first '::' sequence and compute the number of semicolons to it
+    //store it in the skip variable, which is used for offsetting subsequent searches
+    //this is needed for some devices that have a semicolon in the name
     colon1 = getchar(uuidraw, len, ':', 2);
-    colon2 = getchar(uuidraw, len, ':', 3);
-    if(colon2-colon1 != 1){
+    colon2 = -1;
+    while (colon1 < len && colon2 == -1) {
+        colon2 = getchar(uuidraw, len, ':', 2+skip+1);
+        if (colon2-colon1 == 1) {
+            uuid->uuidlen=colon1;
+            colon1 = colon2;
+        } else {
+            colon1 = colon2;
+            colon2 = -1;
+            skip++;
+        }
+    }
+    if(colon2 == -1){
         ret = -2;
         goto EXIT;
     }
 
 
     //upnp, isroot 
-    colon1 = getchar(uuidraw, len, ':', 3);
+    colon1 = getchar(uuidraw, len, ':', 3+skip);
     if((len-colon1)>=15 && memcmp(uuidraw+colon1+1, "upnp:rootdevice", 15)==0 ){
         uuid->isrootdevice = 1;
         uuid->isdevice = 1;
@@ -135,7 +150,7 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
     }
 
     //Sanity, there must be 4 colons after
-    for(tel=4;tel<=7;tel++){
+    for(tel=4+skip;tel<=7+skip;tel++){
         colon1 = getchar(uuidraw, len, ':', tel);
         if(colon1 < 0){
             ret = -3;
@@ -145,8 +160,8 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
 
 
     //urn
-    colon1 = getchar(uuidraw, len, ':', 3);
-    colon2 = getchar(uuidraw, len, ':', 4);
+    colon1 = getchar(uuidraw, len, ':', 3+skip);
+    colon2 = getchar(uuidraw, len, ':', 4+skip);
     if((colon2-colon1)>=3 && memcmp(uuidraw+colon1+1, "urn", 3)!=0 ){
         ret = -4;
         goto EXIT;
@@ -154,16 +169,16 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
     uuid->fullurn = uuidraw+colon1+1;
     uuid->fullurnlen = len-colon1-1;
 
-    colon1 = getchar(uuidraw, len, ':', 4);
-    colon2 = getchar(uuidraw, len, ':', 5);
+    colon1 = getchar(uuidraw, len, ':', 4+skip);
+    colon2 = getchar(uuidraw, len, ':', 5+skip);
     uuid->urn=uuidraw+colon1+1;
     uuid->urnlen=colon2-colon1-1;
 
 
 
     //Device or service
-    colon1 = getchar(uuidraw, len, ':', 5);
-    colon2 = getchar(uuidraw, len, ':', 6);
+    colon1 = getchar(uuidraw, len, ':', 5+skip);
+    colon2 = getchar(uuidraw, len, ':', 6+skip);
     if( (colon2-colon1)>=6 && memcmp(uuidraw+colon1+1, "device", 6)==0){
         //device
         uuid->isdevice = 1;
@@ -177,8 +192,8 @@ int ParseUSN(u8* uuidraw, u32 len, ssdpuuid *uuid){
 
 
     //servicetype / devicetype
-    colon1 = getchar(uuidraw, len, ':', 6);
-    colon2 = getchar(uuidraw, len, ':', 7);
+    colon1 = getchar(uuidraw, len, ':', 6+skip);
+    colon2 = getchar(uuidraw, len, ':', 7+skip);
     uuid->type = uuidraw+colon1+1;
     uuid->typelen=colon2-colon1-1;
 
