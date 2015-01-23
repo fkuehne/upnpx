@@ -223,7 +223,9 @@
         if(eventUUID != nil){
             //NSLog(@"Service Re-Subsrcibed for events;uuid:%@, old uuid:%@", eventUUID, oldUUID);
             //Unsubscribe old
-            [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:oldUUID];
+            if (![eventUUID isEqual:oldUUID]) {
+                [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:oldUUID];
+            }
             [oldUUID release];
             [eventUUID retain];
             isSupportForEvents = YES;
