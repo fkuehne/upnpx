@@ -345,6 +345,8 @@ int SocketServer::ReadLoop(){
                     connection->ErrorOnSocket();
                     //We remove this one from our pool
                     connection->isActive = false;
+                }else if(FD_ISSET(thisSocket, &mWriteFDS)){
+                    connection->isActive = false;
                 }
             }
 
