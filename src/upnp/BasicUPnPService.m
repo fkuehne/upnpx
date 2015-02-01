@@ -53,7 +53,7 @@
 @synthesize isSupportForEvents;
 
 
--(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
+-(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
     self = [super init];
 
     if (self) {

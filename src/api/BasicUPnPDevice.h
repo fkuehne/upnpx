@@ -67,10 +67,10 @@
 }
 
 
--(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
--(int)loadDeviceDescriptionFromXML;
+-(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
+@property (NS_NONATOMIC_IOSONLY, readonly) int loadDeviceDescriptionFromXML;
 -(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn;
--(NSMutableDictionary*)getServices;//BasicUPnPService[]
+@property (NS_NONATOMIC_IOSONLY, getter=getServices, readonly, copy) NSMutableDictionary *services;//BasicUPnPService[]
 
 @property(readonly) bool isRoot;
 @property(readwrite) bool isFound;

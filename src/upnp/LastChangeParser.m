@@ -37,7 +37,7 @@
 
 @implementation LastChangeParser
 
--(id)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
+-(instancetype)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
     self = [super init];
 
     if (self) {

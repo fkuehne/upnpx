@@ -16,7 +16,7 @@
 -(NSInteger)GetRolesForActionWithDeviceUDN:(NSString*)deviceudn ServiceId:(NSString*)serviceid ActionName:(NSString*)actionname OutRoleList:(NSMutableString*)rolelist OutRestrictedRoleList:(NSMutableString*)restrictedrolelist;
 -(NSInteger)GetUserLoginChallengeWithProtocolType:(NSString*)protocoltype Name:(NSString*)name OutSalt:(NSMutableString*)salt OutChallenge:(NSMutableString*)challenge;
 -(NSInteger)UserLoginWithProtocolType:(NSString*)protocoltype Challenge:(NSString*)challenge Authenticator:(NSString*)authenticator;
--(NSInteger)UserLogout;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger UserLogout;
 -(NSInteger)GetACLDataWithOutACL:(NSMutableString*)acl;
 -(NSInteger)AddIdentityListWithIdentityList:(NSString*)identitylist OutIdentityListResult:(NSMutableString*)identitylistresult;
 -(NSInteger)RemoveIdentityWithIdentity:(NSString*)identity;

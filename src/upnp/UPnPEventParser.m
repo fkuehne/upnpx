@@ -48,7 +48,7 @@
 @synthesize events;
 @synthesize elementValue;
 
--(id)init{
+-(instancetype)init{
     self = [super initWithNamespaceSupport:YES];
 
     if (self) {

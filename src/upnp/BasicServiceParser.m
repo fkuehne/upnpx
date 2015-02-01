@@ -46,7 +46,7 @@
 @synthesize service;
 
 
--(id)initWithUPnPService:(BasicUPnPService*)upnpservice{
+-(instancetype)initWithUPnPService:(BasicUPnPService*)upnpservice{
     self = [super init];
 
     if (self) {

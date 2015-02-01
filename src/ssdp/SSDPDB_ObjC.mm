@@ -74,7 +74,7 @@ private:
 
 @synthesize SSDPObjCDevices;
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
 
@@ -229,7 +229,7 @@ private:
 @synthesize port;
 
 
--(id)initWithCPPDevice:(void*)cppDevice{
+-(instancetype)initWithCPPDevice:(void*)cppDevice{
     self = [super init];
 
     if (self) {

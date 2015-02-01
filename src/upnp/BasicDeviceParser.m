@@ -99,7 +99,7 @@
  **/
 
 
--(id)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice{
+-(instancetype)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice{
     self = [super init];
 
     if (self) {

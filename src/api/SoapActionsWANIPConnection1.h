@@ -41,9 +41,9 @@
 
 -(NSInteger)SetConnectionTypeWithNewConnectionType:(NSString*)newconnectiontype;
 -(NSInteger)GetConnectionTypeInfoWithOutNewConnectionType:(NSMutableString*)newconnectiontype OutNewPossibleConnectionTypes:(NSMutableString*)newpossibleconnectiontypes;
--(NSInteger)RequestConnection;
--(NSInteger)RequestTermination;
--(NSInteger)ForceTermination;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger RequestConnection;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger RequestTermination;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger ForceTermination;
 -(NSInteger)SetAutoDisconnectTimeWithNewAutoDisconnectTime:(NSString*)newautodisconnecttime;
 -(NSInteger)SetIdleDisconnectTimeWithNewIdleDisconnectTime:(NSString*)newidledisconnecttime;
 -(NSInteger)SetWarnDisconnectDelayWithNewWarnDisconnectDelay:(NSString*)newwarndisconnectdelay;

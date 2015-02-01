@@ -56,7 +56,7 @@
 @implementation SoapAction
 
 
--(id)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns{
+-(instancetype)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns{
     self = [super initWithNamespaceSupport:YES];
 
     if (self) {

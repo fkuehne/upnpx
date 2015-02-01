@@ -66,21 +66,21 @@
     SoapActionsWANIPv6FirewallControl1 *mIPv6FirewallControl;
 }
 
--(SoapActionsWANPOTSLinkConfig1*)potsLinkConfig;
--(SoapActionsWANDSLLinkConfig1*)dslLinkConfig;
--(SoapActionsWANCableLinkConfig1*)cableLinkConfig;
--(SoapActionsWANEthernetLinkConfig1*)ethernetLinkConfig;
--(SoapActionsWANPPPConnection1*)pppConnection;
--(SoapActionsWANIPConnection2*)ipConnection;
--(SoapActionsWANIPv6FirewallControl1*)ipv6FirewallControl;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANPOTSLinkConfig1 *potsLinkConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANDSLLinkConfig1 *dslLinkConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANCableLinkConfig1 *cableLinkConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANEthernetLinkConfig1 *ethernetLinkConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANPPPConnection1 *pppConnection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANIPConnection2 *ipConnection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANIPv6FirewallControl1 *ipv6FirewallControl;
 
--(BasicUPnPService*)potsLinkConfigService;
--(BasicUPnPService*)dslLinkConfigService;
--(BasicUPnPService*)cableLinkConfigService;
--(BasicUPnPService*)ethernetLinkConfigService;
--(BasicUPnPService*)pppConnectionService;
--(BasicUPnPService*)ipConnectionService;
--(BasicUPnPService*)ipv6FirewallControlService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *potsLinkConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *dslLinkConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *cableLinkConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *ethernetLinkConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *pppConnectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *ipConnectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *ipv6FirewallControlService;
 
 
 @end

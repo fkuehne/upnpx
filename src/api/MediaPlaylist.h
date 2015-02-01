@@ -74,13 +74,13 @@ typedef enum MediaPlaylistState{
 
 -(NSInteger)loadWithMediaServer:(MediaServer1Device*)server forContainer:(MediaServer1ContainerObject*)selectedContainer;
 
--(NSInteger)stop;
--(NSInteger)play;
--(NSInteger)nextTrack;
--(NSInteger)prevTrack;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger stop;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger play;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger nextTrack;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger prevTrack;
 -(NSInteger)setTrackByNumber:(int)track;
 -(NSInteger)setTrackByID:(NSString*)objectID;
--(MediaServer1ItemObject*)GetCurrentTrackItem;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) MediaServer1ItemObject *GetCurrentTrackItem;
 
 @property(readonly) NSMutableArray *playList;
 @property(readonly) int currentTrack;

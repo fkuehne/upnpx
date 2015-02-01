@@ -55,14 +55,14 @@
 }
 
 
--(id)init;
+-(instancetype)init NS_DESIGNATED_INITIALIZER;
 -(void)dealloc;
 -(void)start;
 -(void)stop;
 -(void)addObserver:(SocketServer_ObjC_Observer*)obs;
 -(void)removeObserver:(SocketServer_ObjC_Observer*)obs;
--(NSString*)getIPAddress;
--(unsigned short)getPort;
+@property (NS_NONATOMIC_IOSONLY, getter=getIPAddress, readonly, copy) NSString *IPAddress;
+@property (NS_NONATOMIC_IOSONLY, getter=getPort, readonly) unsigned short port;
 -(int)dataIn:(unsigned char*)data length:(size_t)len fromIP:(NSString*)ipAddress fromPort:(unsigned short)port;
 
 @end

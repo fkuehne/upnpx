@@ -45,7 +45,7 @@
     SoapActionsSwitchPower1 *mSwitchPower;
 }
 
--(SoapActionsSwitchPower1*)switchPower;
--(BasicUPnPService*)switchPowerService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsSwitchPower1 *switchPower;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *switchPowerService;
 
 @end

@@ -50,7 +50,7 @@
 
 @synthesize rootDevices;
 
--(id)initWithSSDP:(SSDPDB_ObjC*)ssdp{
+-(instancetype)initWithSSDP:(SSDPDB_ObjC*)ssdp{
     self = [super init];
 
     if (self) {

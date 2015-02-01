@@ -42,10 +42,10 @@
     SoapActionsDimming1 *mDimming;
 }
 
--(SoapActionsSwitchPower1*)switchPower;
--(SoapActionsDimming1*)dimming;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsSwitchPower1 *switchPower;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDimming1 *dimming;
 
--(BasicUPnPService*)switchPowerService;
--(BasicUPnPService*)dimmingService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *switchPowerService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *dimmingService;
 
 @end

@@ -50,11 +50,11 @@
 -(NSInteger)GetDefaultRotationWithOutRetRotation:(NSMutableString*)retrotation;
 -(NSInteger)SetBrightnessWithNewBrightness:(NSString*)newbrightness;
 -(NSInteger)GetBrightnessWithOutRetBrightness:(NSMutableString*)retbrightness;
--(NSInteger)IncreaseBrightness;
--(NSInteger)DecreaseBrightness;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger IncreaseBrightness;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger DecreaseBrightness;
 -(NSInteger)SetColorSaturationWithNewColorSaturation:(NSString*)newcolorsaturation;
 -(NSInteger)GetColorSaturationWithOutRetColorSaturation:(NSMutableString*)retcolorsaturation;
--(NSInteger)IncreaseColorSaturation;
--(NSInteger)DecreaseColorSaturation;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger IncreaseColorSaturation;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger DecreaseColorSaturation;
 
 @end

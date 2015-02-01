@@ -55,10 +55,10 @@
     SoapActionsWANPPPConnection1 *mPPPConnection;
 }
 
--(SoapActionsWANIPConnection1*)ipConnection;
--(SoapActionsWANPPPConnection1*)pppConnection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANIPConnection1 *ipConnection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANPPPConnection1 *pppConnection;
 
--(BasicUPnPService*)ipConnectionService;
--(BasicUPnPService*)pppConnectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *ipConnectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *pppConnectionService;
 
 @end

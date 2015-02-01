@@ -71,7 +71,7 @@
 @synthesize serialNumber;
 
 
--(id)init{
+-(instancetype)init{
     self = [super init];
 
     if (self) {
@@ -87,7 +87,7 @@
     return self;
 }
 
--(id)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
+-(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
     self = [self init];
     
     if (self) {

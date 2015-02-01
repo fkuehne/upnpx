@@ -45,8 +45,8 @@
     SoapActionsLayer3Forwarding1 *mLayer3Forwarding;
 }
 
--(SoapActionsLayer3Forwarding1*)layer3Forwarding;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsLayer3Forwarding1 *layer3Forwarding;
 
--(BasicUPnPService*)layer3ForwardingService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *layer3ForwardingService;
 
 @end

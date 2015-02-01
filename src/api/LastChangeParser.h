@@ -39,6 +39,6 @@
     NSMutableDictionary *events;
 }
 
--(id)initWithEventDictionary:(NSMutableDictionary*)foundEvents;
+-(instancetype)initWithEventDictionary:(NSMutableDictionary*)foundEvents NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -41,15 +41,15 @@
     BasicUPnPService* upnpservice;//provides the URL's for the actions and events
 }
 
--(id)initWithService:(BasicUPnPService*)service;
+-(instancetype)initWithService:(BasicUPnPService*)service NS_DESIGNATED_INITIALIZER;
 
 //SOAP 
 -(NSInteger)listPesets:(NSMutableString*)presetsRet;
 -(NSInteger)listPresetsForInstance:(int)instanceID presetsOut:(NSMutableString*)presetsRet;
 
--(NSInteger)getVolume;
+@property (NS_NONATOMIC_IOSONLY, getter=getVolume, readonly) NSInteger volume;
 -(NSInteger)getVolumeForInstance:(int)instanceID  andChannel:(NSString*)channel;
--(NSInteger)getVolumeDB;
+@property (NS_NONATOMIC_IOSONLY, getter=getVolumeDB, readonly) NSInteger volumeDB;
 -(NSInteger)getVolumeDBForInstance:(int)instanceID  andChannel:(NSString*)channel;
 
 

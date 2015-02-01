@@ -70,8 +70,8 @@
     NSMutableArray *resources;
 }
 
--(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray;
--(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray itemsOnly:(BOOL)onlyItems;
+-(instancetype)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray;
+-(instancetype)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray itemsOnly:(BOOL)onlyItems NS_DESIGNATED_INITIALIZER;
 
 -(void)container:(NSString*)startStop;
 -(void)item:(NSString*)startStop;
