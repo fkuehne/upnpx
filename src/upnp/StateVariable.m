@@ -43,7 +43,7 @@
 @synthesize dataTypeString;
 
 
--(id)init{
+-(instancetype)init{
     self = [super init];
 
     if (self) {

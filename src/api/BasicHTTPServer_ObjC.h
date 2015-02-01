@@ -53,12 +53,12 @@
     NSMutableArray *mObservers;//BasicHTTPServer_ObjC_Observer
 }
 
--(int)start;
--(int)stop;
+@property (NS_NONATOMIC_IOSONLY, readonly) int start;
+@property (NS_NONATOMIC_IOSONLY, readonly) int stop;
 -(void)addObserver:(BasicHTTPServer_ObjC_Observer*)observer;
 -(void)removeObserver:(BasicHTTPServer_ObjC_Observer*)observer;
--(NSMutableArray*)getObservers;
--(NSString*)getIPAddress;
--(unsigned short)getPort;
+@property (NS_NONATOMIC_IOSONLY, getter=getObservers, readonly, copy) NSMutableArray *observers;
+@property (NS_NONATOMIC_IOSONLY, getter=getIPAddress, readonly, copy) NSString *IPAddress;
+@property (NS_NONATOMIC_IOSONLY, getter=getPort, readonly) unsigned short port;
 
 @end

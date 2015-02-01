@@ -53,7 +53,7 @@
 @synthesize stringCache;
 @synthesize stringValueObject;
 
--(id)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj{
+-(instancetype)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj{
     self = [super init];
 
     if (self) {

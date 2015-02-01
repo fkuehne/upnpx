@@ -176,7 +176,7 @@ public:
 
 @implementation BasicHTTPServer_ObjC
 
--(id)init{
+-(instancetype)init{
     self = [super init];
 
     if (self) {

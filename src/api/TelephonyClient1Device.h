@@ -55,15 +55,15 @@
     SoapActionsDeviceProtection1 *mDeviceProtection;
 }
 
--(SoapActionsMediaManagement1*)mediaManagement;
--(SoapActionsMessaging1*)messaging;
--(SoapActionsInputConfig1*)inputConfig;
--(SoapActionsDeviceProtection1*)deviceProtection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsMediaManagement1 *mediaManagement;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsMessaging1 *messaging;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsInputConfig1 *inputConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDeviceProtection1 *deviceProtection;
 
--(BasicUPnPService*)mediaManagementService;
--(BasicUPnPService*)messagingService;
--(BasicUPnPService*)inputConfigService;
--(BasicUPnPService*)deviceProtectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *mediaManagementService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *messagingService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *inputConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *deviceProtectionService;
 
 
 

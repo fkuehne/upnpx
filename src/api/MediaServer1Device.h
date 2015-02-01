@@ -51,12 +51,12 @@
     SoapActionsContentDirectory1 *mContentDirectory;
 }
 
--(SoapActionsAVTransport1*)avTransport;
--(SoapActionsConnectionManager1*)connectionManager;
--(SoapActionsContentDirectory1*)contentDirectory;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsAVTransport1 *avTransport;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsConnectionManager1 *connectionManager;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsContentDirectory1 *contentDirectory;
 
--(BasicUPnPService*)avTransportService;
--(BasicUPnPService*)connectionManagerService;
--(BasicUPnPService*)contentDirectoryService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *avTransportService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *connectionManagerService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *contentDirectoryService;
 
 @end

@@ -15,7 +15,7 @@
 -(NSInteger)ChangeMonopolizerWithCurrentMonopolizer:(NSString*)currentmonopolizer SecretKey:(NSString*)secretkey TargetCallID:(NSString*)targetcallid NewMonopolizer:(NSString*)newmonopolizer;
 -(NSInteger)ChangeTelCPNameWithCurrentTelCPName:(NSString*)currenttelcpname CurrentSecretKey:(NSString*)currentsecretkey NewTelCPName:(NSString*)newtelcpname OutNewSecretKey:(NSMutableString*)newsecretkey OutExpires:(NSMutableString*)expires;
 -(NSInteger)ClearCallBackWithCallBackID:(NSString*)callbackid;
--(NSInteger)ClearCallLogs;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger ClearCallLogs;
 -(NSInteger)GetCallBackInfoWithOutCallBackInfo:(NSMutableString*)callbackinfo;
 -(NSInteger)GetCallInfoWithTelCPName:(NSString*)telcpname SecretKey:(NSString*)secretkey TargetCallID:(NSString*)targetcallid OutCallInfoList:(NSMutableString*)callinfolist;
 -(NSInteger)GetCallLogsWithOutCallLogs:(NSMutableString*)calllogs;

@@ -58,18 +58,18 @@
     SoapActionsConfigurationManagement1 *mConfigurationManagement;
 }
 
--(SoapActionsCallManagement1*)callManagement;
--(SoapActionsMessaging1*)messaging;
--(SoapActionsInputConfig1*)inputConfig;
--(SoapActionsDeviceProtection1*)deviceProtection;
--(SoapActionsConfigurationManagement1*)configurationManagement;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsCallManagement1 *callManagement;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsMessaging1 *messaging;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsInputConfig1 *inputConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDeviceProtection1 *deviceProtection;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsConfigurationManagement1 *configurationManagement;
 
 
--(BasicUPnPService*)callManagementService;
--(BasicUPnPService*)messagingService;
--(BasicUPnPService*)inputConfigService;
--(BasicUPnPService*)deviceProtectionService;
--(BasicUPnPService*)configurationManagementService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *callManagementService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *messagingService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *inputConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *deviceProtectionService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *configurationManagementService;
 
 
 

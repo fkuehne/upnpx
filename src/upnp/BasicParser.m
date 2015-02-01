@@ -46,11 +46,11 @@ static NSString *ElementStart = @"ElementStart";
 static NSString *ElementStop = @"ElementStop";
 
 
--(id)init{
+-(instancetype)init{
     return [self initWithNamespaceSupport:NO];
 }
 
--(id)initWithNamespaceSupport:(BOOL)namespaceSupport{
+-(instancetype)initWithNamespaceSupport:(BOOL)namespaceSupport{
     self = [super init];
 
     if (self) {

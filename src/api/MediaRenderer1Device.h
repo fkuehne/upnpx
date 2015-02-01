@@ -63,17 +63,17 @@
     MediaPlaylist *playList;
 }
 
--(SoapActionsAVTransport1*)avTransport;
--(SoapActionsRenderingControl1*)renderingControl;
--(SoapActionsConnectionManager1*)connectionManager;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsAVTransport1 *avTransport;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsRenderingControl1 *renderingControl;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsConnectionManager1 *connectionManager;
 
--(BasicUPnPService*)avTransportService;
--(BasicUPnPService*)renderingControlService;
--(BasicUPnPService*)connectionManagerService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *avTransportService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *renderingControlService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *connectionManagerService;
 
 -(BOOL)supportProtocol:(NSString*)protocolInfo withCache:(BOOL)useCache;
 
--(int)play;
+@property (NS_NONATOMIC_IOSONLY, readonly) int play;
 -(int)playWithMedia:(MediaServer1BasicObject*)media;
 
 @property(readonly) MediaPlaylist *playList;

@@ -17,7 +17,7 @@
 
 @synthesize titleLabel;
 
--(id)initWithMediaDevice:(MediaServer1Device*)device andHeader:(NSString*)header andRootId:(NSString*)rootId{
+-(instancetype)initWithMediaDevice:(MediaServer1Device*)device andHeader:(NSString*)header andRootId:(NSString*)rootId{
     self = [super init];
     
     if (self) {

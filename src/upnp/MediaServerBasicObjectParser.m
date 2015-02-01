@@ -90,12 +90,12 @@
 /**
  * All Objects;Items + Containers
  */
--(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray{
+-(instancetype)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray{
     return [self initWithMediaObjectArray:mediaObjectsArray itemsOnly:NO];
 }
 
 
--(id)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray itemsOnly:(BOOL)onlyItems{
+-(instancetype)initWithMediaObjectArray:(NSMutableArray*)mediaObjectsArray itemsOnly:(BOOL)onlyItems{
     self = [super initWithNamespaceSupport:YES];
 
     if (self) {

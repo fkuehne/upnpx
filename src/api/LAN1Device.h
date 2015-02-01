@@ -45,7 +45,7 @@
     SoapActionsLANHostConfigManagement1 *mLanHostConfigManagement;
 }
 
--(SoapActionsLANHostConfigManagement1*)lanHostConfigManagement;
--(BasicUPnPService*)lanHostConfigManagementService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsLANHostConfigManagement1 *lanHostConfigManagement;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *lanHostConfigManagementService;
 
 @end

@@ -39,7 +39,7 @@
 @implementation SoapActionsRendering
 
 
--(id)initWithService:(BasicUPnPService*)service{
+-(instancetype)initWithService:(BasicUPnPService*)service{
     self = [super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
                            eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
                       upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];

@@ -38,7 +38,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 
 @implementation OrderedDictionary
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -48,7 +48,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
     return self;
 }
 
-- (id)initWithCapacity:(NSUInteger)capacity
+- (instancetype)initWithCapacity:(NSUInteger)capacity
 {
     self = [super init];
     if (self != nil)

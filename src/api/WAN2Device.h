@@ -46,8 +46,8 @@
     SoapActionsWANCommonInterfaceConfig1 *mCommonInterfaceConfig;
 }
 
--(SoapActionsWANCommonInterfaceConfig1*)commonInterfaceConfig;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsWANCommonInterfaceConfig1 *commonInterfaceConfig;
 
--(BasicUPnPService*)commonInterfaceConfigService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *commonInterfaceConfigService;
 
 @end

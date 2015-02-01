@@ -53,12 +53,12 @@
     SoapActionsDigitalSecurityCameraMotionImage1 *mDigitalSecurityCameraMotionImage;
 }
 
--(SoapActionsDigitalSecurityCameraSettings1*)digitalSecurityCameraSettings;
--(SoapActionsDigitalSecurityCameraStillImage1*)digitalSecurityCameraStillImage;
--(SoapActionsDigitalSecurityCameraMotionImage1*)digitalSecurityCameraMotionImage;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDigitalSecurityCameraSettings1 *digitalSecurityCameraSettings;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDigitalSecurityCameraStillImage1 *digitalSecurityCameraStillImage;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsDigitalSecurityCameraMotionImage1 *digitalSecurityCameraMotionImage;
 
--(BasicUPnPService*)digitalSecurityCameraSettingsService;
--(BasicUPnPService*)digitalSecurityCameraStillImageService;
--(BasicUPnPService*)digitalSecurityCameraMotionImageService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *digitalSecurityCameraSettingsService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *digitalSecurityCameraStillImageService;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *digitalSecurityCameraMotionImageService;
 
 @end
