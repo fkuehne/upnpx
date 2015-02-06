@@ -38,7 +38,7 @@
 #include <unistd.h>
 
 
-#define SERVER_BUFFER_STEP 2048
+#define SERVER_BUFFER_STEP 4096
 
 SocketServerConnection::SocketServerConnection(SOCKET socket, struct sockaddr_in *sender){
     mSocket = socket;
