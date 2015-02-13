@@ -93,6 +93,10 @@ int SSDP::Start(){
     ret = setsockopt(mMulticastSocket, SOL_SOCKET, SO_REUSEPORT, (char*)&optval, 4);
     STATVAL(ret, 0, CLEAN_AND_EXIT);
 
+    //Never generate SIGPIPE on broken write
+    optval = 1;
+    ret = setsockopt(mMulticastSocket, SOL_SOCKET, SO_NOSIGPIPE, (void *)&optval, sizeof(int));
+    STATVAL(ret, 0, CLEAN_AND_EXIT);
 
     //Disable loopback
     optval = 0;
