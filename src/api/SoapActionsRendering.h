@@ -41,7 +41,7 @@
     BasicUPnPService* upnpservice;//provides the URL's for the actions and events
 }
 
--(instancetype)initWithService:(BasicUPnPService*)service NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithService:(BasicUPnPService*)service;
 
 //SOAP 
 -(NSInteger)listPesets:(NSMutableString*)presetsRet;

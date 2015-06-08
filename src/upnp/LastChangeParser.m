@@ -38,7 +38,7 @@
 @implementation LastChangeParser
 
 -(instancetype)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
-    self = [super init];
+    self = [super initWithNamespaceSupport:NO];
 
     if (self) {
         /* TODO: events -> retain property */

@@ -53,7 +53,7 @@
     StateVariable *mStatevarCache;
 }
 
--(instancetype)initWithUPnPService:(BasicUPnPService*)upnpservice NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithUPnPService:(BasicUPnPService*)upnpservice;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) int parse;
 -(void)serviceTag:(NSString*)startStop;

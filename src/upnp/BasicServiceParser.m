@@ -45,9 +45,8 @@
 @synthesize controlURL;
 @synthesize service;
 
-
 -(instancetype)initWithUPnPService:(BasicUPnPService*)upnpservice{
-    self = [super init];
+    self = [super initWithNamespaceSupport:NO];
 
     if (self) {
         /* TODO: service -> retain property */

@@ -98,9 +98,8 @@
  </root>
  **/
 
-
 -(instancetype)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice{
-    self = [super init];
+    self = [super initWithNamespaceSupport:NO];
 
     if (self) {
         /* TODO: set device as retain property */
