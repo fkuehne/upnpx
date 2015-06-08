@@ -163,11 +163,21 @@ private:
 -(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os{
     if(os != nil){
         const char *c_os = [os cStringUsingEncoding:NSASCIIStringEncoding];
-        UPNP::GetInstance()->GetSSDP()->SetOS(c_os);
+        if (c_os == NULL)
+            return;
+
+        SSDP *ssdp = UPNP::GetInstance()->GetSSDP();
+        if (ssdp != NULL)
+            ssdp->SetOS(c_os);
     }
     if(product != nil){
         const char *c_product = [product cStringUsingEncoding:NSASCIIStringEncoding];
-        UPNP::GetInstance()->GetSSDP()->SetProduct(c_product);
+        if (c_product == NULL)
+            return;
+
+        SSDP* ssdp = UPNP::GetInstance()->GetSSDP();
+        if (ssdp != NULL)
+            ssdp->SetProduct(c_product);
     }
 }
 
