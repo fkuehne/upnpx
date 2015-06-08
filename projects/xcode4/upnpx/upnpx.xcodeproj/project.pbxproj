@@ -25,7 +25,6 @@
 		15055EA11391E2C1003DE49F /* SoapActionsMessaging1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */; };
 		15055EA21391E2C1003DE49F /* TelephonyClient1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */; };
 		15055EA31391E2C1003DE49F /* TelephonyServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */; };
-		1541026313D2762A000894ED /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1541026113D2762A000894ED /* OrderedDictionary.h */; };
 		1541026413D2762A000894ED /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1541026213D2762A000894ED /* OrderedDictionary.m */; };
 		154978C71393D863008A5BD4 /* BinaryLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C51393D863008A5BD4 /* BinaryLight1Device.h */; };
 		154978C81393D863008A5BD4 /* DimmableLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C61393D863008A5BD4 /* DimmableLight1Device.h */; };
@@ -187,6 +186,7 @@
 		15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */; };
 		15C44F47132C45B60013D453 /* SoapActionsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F39132C45B60013D453 /* SoapActionsRenderingControl1.h */; };
 		15C44F48132C45B60013D453 /* UPnPManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F3A132C45B60013D453 /* UPnPManager.h */; };
+		7DCA8D9F1B25A7D700946349 /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,7 +208,6 @@
 		15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsMessaging1.m; path = ../../../../src/upnp/SoapActionsMessaging1.m; sourceTree = "<group>"; };
 		15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyClient1Device.m; path = ../../../../src/upnp/TelephonyClient1Device.m; sourceTree = "<group>"; };
 		15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyServer1Device.m; path = ../../../../src/upnp/TelephonyServer1Device.m; sourceTree = "<group>"; };
-		1541026113D2762A000894ED /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../../src/upnp/OrderedDictionary.h; sourceTree = "<group>"; };
 		1541026213D2762A000894ED /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = ../../../../src/upnp/OrderedDictionary.m; sourceTree = "<group>"; };
 		154978C51393D863008A5BD4 /* BinaryLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryLight1Device.h; path = ../../../../src/api/BinaryLight1Device.h; sourceTree = "<group>"; };
 		154978C61393D863008A5BD4 /* DimmableLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DimmableLight1Device.h; path = ../../../../src/api/DimmableLight1Device.h; sourceTree = "<group>"; };
@@ -372,6 +371,7 @@
 		15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsContentDirectory1.h; path = ../../../../src/api/SoapActionsContentDirectory1.h; sourceTree = "<group>"; };
 		15C44F39132C45B60013D453 /* SoapActionsRenderingControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRenderingControl1.h; path = ../../../../src/api/SoapActionsRenderingControl1.h; sourceTree = "<group>"; };
 		15C44F3A132C45B60013D453 /* UPnPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPManager.h; path = ../../../../src/api/UPnPManager.h; sourceTree = "<group>"; };
+		7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../../src/api/OrderedDictionary.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +507,7 @@
 		15BAC504132C2E7800F5C41A /* api */ = {
 			isa = PBXGroup;
 			children = (
+				7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */,
 				150045191412A00C00ED553F /* MediaServer1ItemRes.h */,
 				1556AB1C1393DC480059635A /* BasicDeviceParser.h */,
 				1556AB1D1393DC480059635A /* BasicServiceParser.h */,
@@ -586,7 +587,6 @@
 		15BAC506132C2F8C00F5C41A /* upnp */ = {
 			isa = PBXGroup;
 			children = (
-				1541026113D2762A000894ED /* OrderedDictionary.h */,
 				1541026213D2762A000894ED /* OrderedDictionary.m */,
 				15055E941391E2C1003DE49F /* SoapActionsCallManagement1.m */,
 				15055E951391E2C1003DE49F /* SoapActionsConfigurationManagement1.m */,
@@ -666,6 +666,7 @@
 				15C44DA5132C30000013D453 /* httpsession.h in Headers */,
 				15C44DA6132C30000013D453 /* SocketServer_ObjC.h in Headers */,
 				15C44DA9132C30000013D453 /* socketserver.h in Headers */,
+				7DCA8D9F1B25A7D700946349 /* OrderedDictionary.h in Headers */,
 				15C44DAB132C30000013D453 /* socketserverconnection.h in Headers */,
 				15C44DAC132C30000013D453 /* socketServerobserver.h in Headers */,
 				15C44DB1132C300A0013D453 /* osal.h in Headers */,
@@ -751,7 +752,6 @@
 				1556AB291393DC480059635A /* SoapActionsSwitchPower1.h in Headers */,
 				1556AB2A1393DC480059635A /* StateVariableList.h in Headers */,
 				1556AB2B1393DC480059635A /* StateVariableRange.h in Headers */,
-				1541026313D2762A000894ED /* OrderedDictionary.h in Headers */,
 				1500451A1412A00C00ED553F /* MediaServer1ItemRes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
