@@ -55,50 +55,62 @@ static NSString *ElementStop = @"ElementStop";
 
     if (self) {
         mSupportNamespaces = namespaceSupport;
-        mElementStack = [[NSMutableArray alloc] init];
-        mAssets = [[NSMutableArray alloc] init];
+        @synchronized(self) {
+            mElementStack = [[NSMutableArray alloc] init];
+            mAssets = [[NSMutableArray alloc] init];
+        }
     }
 
     return self;
 }
 
 -(void)dealloc{
-    [mElementStack release];
-    [mAssets release];
+    @synchronized(self) {
+        [mElementStack release];
+        [mAssets release];
+    }
     [super dealloc];
 }
 
 -(int)addAsset:(NSArray*)path callfunction:(SEL)function functionObject:(id)funcObj setStringValueFunction:(SEL)valueFunction setStringValueObject:(id)obj;{
     BasicParserAsset* asset = [[BasicParserAsset alloc] initWithPath:path setStringValueFunction:valueFunction setStringValueObject:obj callFunction:function functionObject:funcObj];
-    [mAssets addObject:asset];
+    @synchronized(self) {
+        [mAssets addObject:asset];
+    }
     [asset release];
     return 0;
 }
 
 
 -(void)clearAllAssets{
-    [mAssets removeAllObjects];
+    @synchronized(self) {
+        [mAssets removeAllObjects];
+    }
 }
-
-
 
 -(BasicParserAsset*)getAssetForElementStack:(NSMutableArray*)stack{
     BasicParserAsset* ret = nil;
     BasicParserAsset* asset = nil;
+    NSArray *elementStack;
+    NSArray *assets;
 
-    NSEnumerator *enumer = [mAssets objectEnumerator];
+    @synchronized (self) {
+        elementStack = [stack copy];
+        assets = [mAssets copy];
+    }
+    NSEnumerator *enumer = [assets objectEnumerator];
     while((asset = [enumer nextObject])){
         //Full compares go first
-        if([[asset path] isEqualToArray:stack]){
+        if([[asset path] isEqualToArray:elementStack]){
             ret = asset;
             break;
         }else{
             // * -> leafX -> leafY
             //Maybe we have a wildchar, that means that the path after the wildchar must match
             if([(NSString*)[asset path][0] isEqualToString:@"*"]){
-                if([stack count] >= [[asset path] count]){
+                if([elementStack count] >= [[asset path] count]){
                     //Path ends with
-                    NSMutableArray *lastStackPath = [[NSMutableArray alloc] initWithArray:stack];
+                    NSMutableArray *lastStackPath = [[NSMutableArray alloc] initWithArray:elementStack];
                     NSMutableArray *lastAssetPath = [[NSMutableArray alloc] initWithArray:[asset path]];
                     //cut the * from our asset path
                     [lastAssetPath removeObjectAtIndex:0];
@@ -120,9 +132,9 @@ static NSString *ElementStop = @"ElementStop";
             }
             // leafX -> leafY -> *
             if([(NSString*)[[asset path] lastObject] isEqualToString:@"*"]){
-                if([stack count] == [[asset path] count] && [stack count] > 1){
+                if([elementStack count] == [[asset path] count] && [elementStack count] > 1){
                     //Path start with
-                    NSMutableArray *beginStackPath = [[NSMutableArray alloc] initWithArray:stack];
+                    NSMutableArray *beginStackPath = [[NSMutableArray alloc] initWithArray:elementStack];
                     NSMutableArray *beginAssetPath = [[NSMutableArray alloc] initWithArray:[asset path]];
                     //Cut the last entry (which is * in one array and <element> in the other
                     [beginStackPath removeLastObject];
@@ -144,7 +156,6 @@ static NSString *ElementStop = @"ElementStop";
 
     return ret;
 }
-
 
 -(int)parseFromData:(NSData*)data{
     @autoreleasepool {
@@ -211,7 +222,9 @@ static NSString *ElementStop = @"ElementStop";
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
     //NSLog(@"open=%@", elementName);
-    [mElementStack addObject:elementName];
+    @synchronized(self) {
+        [mElementStack addObject:elementName];
+    }
 
     //Check if we are looking for this asset
     BasicParserAsset* asset = [self getAssetForElementStack:mElementStack];
@@ -262,8 +275,15 @@ static NSString *ElementStop = @"ElementStop";
         [elementAttributeDict release];
     }
 
-    if([elementName isEqualToString:[mElementStack lastObject]]){
-        [mElementStack removeLastObject];
+    NSString *lastObject;
+    @synchronized(self) {
+        lastObject = [mElementStack lastObject];
+    }
+
+    if([elementName isEqualToString:lastObject]){
+        @synchronized(self) {
+            [mElementStack removeLastObject];
+        }
     }else{
         //XML structure error (!)
         NSLog(@"XML wrong formatted (!)");
