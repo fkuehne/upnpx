@@ -160,12 +160,11 @@ static NSString *ElementStop = @"ElementStop";
 -(int)parseFromData:(NSData*)data{
     @autoreleasepool {
         if (data != nil) {
-            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
             NSError *error = NULL;
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
             data = [xml dataUsingEncoding:NSUTF8StringEncoding];
-            [xml release];
         }
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
@@ -183,12 +182,11 @@ static NSString *ElementStop = @"ElementStop";
 
         NSData *data = [NSData dataWithContentsOfURL:url];
         if (data != nil) {
-            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
             NSError *error = NULL;
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
             data = [xml dataUsingEncoding:NSUTF8StringEncoding];
-            [xml release];
         }
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
