@@ -95,8 +95,8 @@ static NSString *ElementStop = @"ElementStop";
     NSArray *assets;
 
     @synchronized (self) {
-        elementStack = [stack copy];
-        assets = [mAssets copy];
+        elementStack = [[stack copy] autorelease];
+        assets = [[mAssets copy] autorelease];
     }
     NSEnumerator *enumer = [assets objectEnumerator];
     while((asset = [enumer nextObject])){
@@ -160,7 +160,7 @@ static NSString *ElementStop = @"ElementStop";
 -(int)parseFromData:(NSData*)data{
     @autoreleasepool {
         if (data != nil) {
-            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
             NSError *error = NULL;
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
@@ -182,7 +182,7 @@ static NSString *ElementStop = @"ElementStop";
 
         NSData *data = [NSData dataWithContentsOfURL:url];
         if (data != nil) {
-            NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
             NSError *error = NULL;
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
