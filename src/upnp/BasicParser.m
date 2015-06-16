@@ -95,8 +95,8 @@ static NSString *ElementStop = @"ElementStop";
     NSArray *assets;
 
     @synchronized (self) {
-        elementStack = [stack copy];
-        assets = [mAssets copy];
+        elementStack = [[stack copy] autorelease];
+        assets = [[mAssets copy] autorelease];
     }
     NSEnumerator *enumer = [assets objectEnumerator];
     while((asset = [enumer nextObject])){
@@ -165,6 +165,7 @@ static NSString *ElementStop = @"ElementStop";
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
             data = [xml dataUsingEncoding:NSUTF8StringEncoding];
+            [xml release];
         }
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
@@ -187,6 +188,7 @@ static NSString *ElementStop = @"ElementStop";
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*$\\r?\\n" options:NSRegularExpressionAnchorsMatchLines error:&error];
             xml = [regex stringByReplacingMatchesInString:xml options:0 range:NSMakeRange(0, [xml length]) withTemplate:@""];
             data = [xml dataUsingEncoding:NSUTF8StringEncoding];
+            [xml release];
         }
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         int ret = [self startParser:parser];
