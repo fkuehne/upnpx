@@ -162,7 +162,9 @@ int SSDPParser::Parse(struct sockaddr* sender, u8* buf, u32 len){
             thisHeader->fieldvaluelen = (unsigned int)(linelen-(thisHeader->fieldvalue - pos));
             //Trim spaces
             trimspaces(&(thisHeader->fieldname), &(thisHeader->fieldnamelen));
-            trimspaces(&(thisHeader->fieldvalue), &(thisHeader->fieldvaluelen));
+            if(linelen > (thisHeader->fieldvalue - pos)) {
+                trimspaces(&(thisHeader->fieldvalue), &(thisHeader->fieldvaluelen));
+            }
             mHeaders.push_back(thisHeader);
         }
 
