@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'upnpx'
-  s.version  = '1.3.3'
+  s.version  = '1.3.4'
   s.license  = 'BSD'
   s.summary  = 'Open Source Mac OS X / iOS Cocoa UPnP Stack.'
   s.homepage = 'https://github.com/fkuehne/upnpx'
