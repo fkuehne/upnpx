@@ -2,6 +2,8 @@ Pod::Spec.new do |s|
   s.name     = 'upnpx'
   s.version  = '1.3.4'
   s.license  = 'BSD'
+  s.ios.deployment_target = "6.1"
+  s.osx.deployment_target = "10.6"
   s.summary  = 'Open Source Mac OS X / iOS Cocoa UPnP Stack.'
   s.homepage = 'https://github.com/fkuehne/upnpx'
   s.authors  = { 'Felix Paul Kühne' => 'fkuehne@videolan.org', 'Bruno Keymolen' => 'bruno.keymolen@gmail.com', 'Paul Williamson' => 'squarefrog@gmail.com' }
