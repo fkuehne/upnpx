@@ -69,7 +69,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -78,12 +78,11 @@
     // Configure the cell.
     BasicUPnPDevice *device = mDevices[indexPath.row];
      [[cell textLabel] setText:[device friendlyName]];
-    
     BOOL isMediaServer = [device.urn isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"];
     cell.accessoryType = isMediaServer ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-    
-    NSLog(@"%ld %@", (long)indexPath.row, [device friendlyName]);
-    
+
+    NSLog(@"%ld %@, urn '%@'", (long)indexPath.row, [device friendlyName], device.urn);
+
     return cell;
 }
 
