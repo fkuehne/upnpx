@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.library          = 'stdc++'
   s.xcconfig = {
        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
-       'CLANG_CXX_LIBRARY' => 'libstdc++',
-       'OTHER_LDFLAGS' => '-weak_library /usr/lib/libstdc++.dylib'
+       'CLANG_CXX_LIBRARY' => 'libstdc++'
   }
   s.requires_arc = false
+  s.libraries = 'c++'
 end
