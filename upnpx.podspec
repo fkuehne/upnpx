@@ -19,10 +19,10 @@ Pod::Spec.new do |s|
   s.ios.public_header_files = 'src/api/*.h', 'src/port/ios/*.h'
   s.tvos.public_header_files = 'src/api/*.h', 'src/port/ios/*.h'
   s.osx.public_header_files = 'src/api/*.h', 'src/port/macos/*.h'
-  s.library          = 'stdc++'
+  s.library          = 'c++'
   s.xcconfig = {
        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
-       'CLANG_CXX_LIBRARY' => 'libstdc++'
+       'CLANG_CXX_LIBRARY' => 'libc++'
   }
   s.requires_arc = false
   s.libraries = 'c++'
