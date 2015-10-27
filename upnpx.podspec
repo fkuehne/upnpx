@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '1.3.5'
   s.license  = 'BSD'
   s.ios.deployment_target = "6.1"
-  s.osx.deployment_target = "10.6"
+  s.osx.deployment_target = "10.7"
   s.tvos.deployment_target = '9.0'
   s.summary  = 'Open Source Mac OS X / iOS Cocoa UPnP Stack.'
   s.homepage = 'https://github.com/fkuehne/upnpx'
