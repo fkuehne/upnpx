@@ -108,15 +108,20 @@
         // synchronous workaround.
         // https://devforums.apple.com/message/1028271
         __block int ret;
-        
-        dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
-        dispatch_async(reentrantAvoidanceQueue, ^{
-            ret = [lastChangeParser parseFromData:lastChange];
-        });
-        
-        dispatch_sync(reentrantAvoidanceQueue, ^{ });
-        if(ret != 0){
-            NSLog(@"Something went wrong during LastChange parsing");
+
+        if ([lastChange length] > 0) {
+            dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
+            dispatch_async(reentrantAvoidanceQueue, ^{
+                ret = [lastChangeParser parseFromData:lastChange];
+            });
+
+            dispatch_sync(reentrantAvoidanceQueue, ^{ });
+            if(ret != 0) {
+                NSLog(@"Something went wrong during LastChange parsing");
+            }
+            else {
+                NSLog(@"LastChange parsing completed");
+            }
         }
     }
 }
