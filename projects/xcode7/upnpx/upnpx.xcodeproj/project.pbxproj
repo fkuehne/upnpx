@@ -1082,9 +1082,9 @@
 		4EB7CE601C1AD16000768FF0 /* osal.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44DAE132C300A0013D453 /* osal.h */; };
 		4EB7CE681C1AD3E200768FF0 /* UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7CE671C1AD3E200768FF0 /* UIImage.m */; };
 		4EB7CE691C1AD3F700768FF0 /* UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7CE671C1AD3E200768FF0 /* UIImage.m */; };
-		4EB7CE6A1C1AD4B500768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; };
-		4EB7CE6B1C1AD4B500768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; };
-		4EB7CE6C1C1AD4B600768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; };
+		4EB7CE6A1C1AD4B500768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EB7CE6B1C1AD4B500768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EB7CE6C1C1AD4B600768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DCA8D9F1B25A7D700946349 /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */; };
 /* End PBXBuildFile section */
 
@@ -1911,6 +1911,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB7CE6C1C1AD4B600768FF0 /* upnpx.h in Headers */,
 				4EB7CC6B1C1ACA6C00768FF0 /* SoapActionsLayer3Forwarding1.h in Headers */,
 				4EB7CC5E1C1ACA6C00768FF0 /* SSDPDB_ObjC.h in Headers */,
 				4EB7CC5F1C1ACA6C00768FF0 /* StateVariable.h in Headers */,
@@ -1963,7 +1964,6 @@
 				4EB7CC6C1C1ACA6C00768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
 				4EB7CC741C1ACA6C00768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CC731C1ACA6C00768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
-				4EB7CE6C1C1AD4B600768FF0 /* upnpx.h in Headers */,
 				4EB7CC551C1ACA6C00768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CC461C1ACA6C00768FF0 /* TelephonyClient1Device.h in Headers */,
 				4EB7CC3A1C1ACA6C00768FF0 /* SoapActionsRendering.h in Headers */,
@@ -2010,6 +2010,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB7CE6B1C1AD4B500768FF0 /* upnpx.h in Headers */,
 				4EB7CD471C1AD0D300768FF0 /* SoapActionsLayer3Forwarding1.h in Headers */,
 				4EB7CD481C1AD0D300768FF0 /* SSDPDB_ObjC.h in Headers */,
 				4EB7CD491C1AD0D300768FF0 /* StateVariable.h in Headers */,
@@ -2062,7 +2063,6 @@
 				4EB7CD781C1AD0D300768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
 				4EB7CD791C1AD0D300768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CD7A1C1AD0D300768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
-				4EB7CE6B1C1AD4B500768FF0 /* upnpx.h in Headers */,
 				4EB7CD7B1C1AD0D300768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CD7C1C1AD0D300768FF0 /* TelephonyClient1Device.h in Headers */,
 				4EB7CD7D1C1AD0D300768FF0 /* SoapActionsRendering.h in Headers */,
@@ -2109,6 +2109,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB7CE6A1C1AD4B500768FF0 /* upnpx.h in Headers */,
 				4EB7CE051C1AD16000768FF0 /* SoapActionsLayer3Forwarding1.h in Headers */,
 				4EB7CE061C1AD16000768FF0 /* SSDPDB_ObjC.h in Headers */,
 				4EB7CE071C1AD16000768FF0 /* StateVariable.h in Headers */,
@@ -2161,7 +2162,6 @@
 				4EB7CE361C1AD16000768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
 				4EB7CE371C1AD16000768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CE381C1AD16000768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
-				4EB7CE6A1C1AD4B500768FF0 /* upnpx.h in Headers */,
 				4EB7CE391C1AD16000768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CE3A1C1AD16000768FF0 /* TelephonyClient1Device.h in Headers */,
 				4EB7CE3B1C1AD16000768FF0 /* SoapActionsRendering.h in Headers */,
@@ -3452,6 +3452,7 @@
 				4EB7CC331C1ACA0C00768FF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EB7CDA41C1AD0D300768FF0 /* Build configuration list for PBXNativeTarget "upnpx (tvOS)" */ = {
 			isa = XCConfigurationList;
