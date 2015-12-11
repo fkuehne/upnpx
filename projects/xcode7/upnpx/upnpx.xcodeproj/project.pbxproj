@@ -185,6 +185,10 @@
 		15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */; };
 		15C44F47132C45B60013D453 /* SoapActionsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F39132C45B60013D453 /* SoapActionsRenderingControl1.h */; };
 		15C44F48132C45B60013D453 /* UPnPManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15C44F3A132C45B60013D453 /* UPnPManager.h */; };
+		4E0A1E3D1C1AE8B800BB3B31 /* iphoneport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0A1E3C1C1AE8B800BB3B31 /* iphoneport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E0A1E3F1C1AE8CE00BB3B31 /* iphoneport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0A1E3E1C1AE8CE00BB3B31 /* iphoneport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E0A1E411C1AE8EA00BB3B31 /* iphoneport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0A1E401C1AE8EA00BB3B31 /* iphoneport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E0A1E431C1AE8F200BB3B31 /* UIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0A1E421C1AE8F200BB3B31 /* UIImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E85E68F1C1AC6E8004601E0 /* BasicHTTPServer_ObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15C44D93132C30000013D453 /* BasicHTTPServer_ObjC.mm */; };
 		4E85E6901C1AC6E8004601E0 /* basichttpserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C44D94132C30000013D453 /* basichttpserver.cpp */; };
 		4E85E6911C1AC6E8004601E0 /* httpsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C44D96132C30000013D453 /* httpsession.cpp */; };
@@ -1269,6 +1273,11 @@
 		15C44F38132C45B60013D453 /* SoapActionsContentDirectory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsContentDirectory1.h; path = ../../../../src/api/SoapActionsContentDirectory1.h; sourceTree = "<group>"; };
 		15C44F39132C45B60013D453 /* SoapActionsRenderingControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsRenderingControl1.h; path = ../../../../src/api/SoapActionsRenderingControl1.h; sourceTree = "<group>"; };
 		15C44F3A132C45B60013D453 /* UPnPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPManager.h; path = ../../../../src/api/UPnPManager.h; sourceTree = "<group>"; };
+		4E0A1E3C1C1AE8B800BB3B31 /* iphoneport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iphoneport.h; path = ../../../src/port/ios/iphoneport.h; sourceTree = "<group>"; };
+		4E0A1E3E1C1AE8CE00BB3B31 /* iphoneport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iphoneport.h; path = ../../../src/port/ios/iphoneport.h; sourceTree = "<group>"; };
+		4E0A1E401C1AE8EA00BB3B31 /* iphoneport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iphoneport.h; path = ../../../src/port/macos/iphoneport.h; sourceTree = "<group>"; };
+		4E0A1E421C1AE8F200BB3B31 /* UIImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIImage.h; path = ../../../src/port/macos/UIImage.h; sourceTree = "<group>"; };
+		4E0A1E441C1AE90900BB3B31 /* UIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIImage.m; path = ../../../src/port/macos/UIImage.m; sourceTree = "<group>"; };
 		4E85E7481C1AC6E8004601E0 /* libupnpx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libupnpx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E85E8041C1AC7FF004601E0 /* libupnpx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libupnpx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB7CC2C1C1ACA0C00768FF0 /* upnpx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = upnpx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1336,6 +1345,11 @@
 		15BAC4E9132C22BA00F5C41A = {
 			isa = PBXGroup;
 			children = (
+				4E0A1E441C1AE90900BB3B31 /* UIImage.m */,
+				4E0A1E421C1AE8F200BB3B31 /* UIImage.h */,
+				4E0A1E401C1AE8EA00BB3B31 /* iphoneport.h */,
+				4E0A1E3E1C1AE8CE00BB3B31 /* iphoneport.h */,
+				4E0A1E3C1C1AE8B800BB3B31 /* iphoneport.h */,
 				15BAC4F9132C22BA00F5C41A /* sources */,
 				4EB7CC2D1C1ACA0C00768FF0 /* upnpx */,
 				15BAC4F6132C22BA00F5C41A /* Frameworks */,
@@ -1976,6 +1990,7 @@
 				4EB7CC4A1C1ACA6C00768FF0 /* LAN1Device.h in Headers */,
 				4EB7CC3B1C1ACA6C00768FF0 /* SoapActionsSwitchPower1.h in Headers */,
 				4EB7CC611C1ACA6C00768FF0 /* UPnPEventParser.h in Headers */,
+				4E0A1E3F1C1AE8CE00BB3B31 /* iphoneport.h in Headers */,
 				4EB7CC941C1ACA8500768FF0 /* ssdpmsearch.h in Headers */,
 				4EB7CC8B1C1ACA8500768FF0 /* ssdpdb.h in Headers */,
 				4EB7CC781C1ACA7800768FF0 /* tools.h in Headers */,
@@ -2074,6 +2089,7 @@
 				4EB7CD831C1AD0D300768FF0 /* UPnPDB.h in Headers */,
 				4EB7CD841C1AD0D300768FF0 /* LAN1Device.h in Headers */,
 				4EB7CD851C1AD0D300768FF0 /* SoapActionsSwitchPower1.h in Headers */,
+				4E0A1E3D1C1AE8B800BB3B31 /* iphoneport.h in Headers */,
 				4EB7CD861C1AD0D300768FF0 /* UPnPEventParser.h in Headers */,
 				4EB7CD871C1AD0D300768FF0 /* ssdpmsearch.h in Headers */,
 				4EB7CD881C1AD0D300768FF0 /* ssdpdb.h in Headers */,
@@ -2174,6 +2190,8 @@
 				4EB7CE421C1AD16000768FF0 /* LAN1Device.h in Headers */,
 				4EB7CE431C1AD16000768FF0 /* SoapActionsSwitchPower1.h in Headers */,
 				4EB7CE441C1AD16000768FF0 /* UPnPEventParser.h in Headers */,
+				4E0A1E411C1AE8EA00BB3B31 /* iphoneport.h in Headers */,
+				4E0A1E431C1AE8F200BB3B31 /* UIImage.h in Headers */,
 				4EB7CE451C1AD16000768FF0 /* ssdpmsearch.h in Headers */,
 				4EB7CE461C1AD16000768FF0 /* ssdpdb.h in Headers */,
 				4EB7CE471C1AD16000768FF0 /* tools.h in Headers */,
@@ -2848,6 +2866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB7CE691C1AD3F700768FF0 /* UIImage.m in Sources */,
 				4EB7CDAB1C1AD16000768FF0 /* SoapActionsMessaging1.m in Sources */,
 				4EB7CDAC1C1AD16000768FF0 /* MediaServer1ItemObject.m in Sources */,
 				4EB7CDAD1C1AD16000768FF0 /* CocoaTools.m in Sources */,
@@ -2917,7 +2936,6 @@
 				4EB7CDED1C1AD16000768FF0 /* BasicParserAsset.m in Sources */,
 				4EB7CDEE1C1AD16000768FF0 /* MediaServer1BasicObject.m in Sources */,
 				4EB7CDEF1C1AD16000768FF0 /* StateVariableList.m in Sources */,
-				4EB7CE691C1AD3F700768FF0 /* UIImage.m in Sources */,
 				4EB7CDF01C1AD16000768FF0 /* MediaServer1ContainerObject.m in Sources */,
 				4EB7CDF11C1AD16000768FF0 /* WANConnection1Device.m in Sources */,
 				4EB7CDF21C1AD16000768FF0 /* SoapActionsSwitchPower1.m in Sources */,
@@ -3102,6 +3120,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";
@@ -3157,6 +3176,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";
@@ -3209,6 +3229,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";
@@ -3266,6 +3287,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";
@@ -3321,6 +3343,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";
@@ -3379,6 +3402,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpx/upnpx-Prefix.pch";

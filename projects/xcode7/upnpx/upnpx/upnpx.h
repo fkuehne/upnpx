@@ -7,18 +7,10 @@
 //
 
 
-//! Project version number for upnpx.
-FOUNDATION_EXPORT double upnpxVersionNumber;
-
-//! Project version string for upnpx.
-FOUNDATION_EXPORT const unsigned char upnpxVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <upnpx/PublicHeader.h>>
-
 #import <upnpx/BasicDeviceParser.h>
 #import <upnpx/BasicHTTPServer_ObjC.h>
 #import <upnpx/BasicParser.h>
-#import <upnpx/BasicParserAsset.h>>
+#import <upnpx/BasicParserAsset.h>
 #import <upnpx/BasicServiceParser.h>
 #import <upnpx/BasicUPnPDevice.h>
 #import <upnpx/BasicUPnPService.h>
