@@ -38,17 +38,23 @@
 #import "SoapAction.h"
 #import "UPnPEvents.h"
 
-@class BasicUPnPServiceObserver, BasicUPnPService;
+
+@class BasicUPnPServiceObserver;
+@class BasicUPnPService;
+@class StateVariable;
+
 
 @protocol BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
+
+- (void)basicUPnPService:(BasicUPnPService *)service receivedEvents:(NSDictionary *)events;
+
 @end
 
 
 @interface BasicUPnPService : NSObject <UPnPEvents_Observer> {
     SSDPDBDevice_ObjC *ssdpdevice;
 
-    BOOL isProcessed;
+    BOOL isSetUp;
     BOOL isSupportForEvents;
 
     NSString *baseURLString;
@@ -62,25 +68,11 @@
     NSString *urn;
     NSString *eventUUID;
 
-    NSMutableDictionary *stateVariables;//StateVariable
-    NSMutableArray *mObservers;//BasicUPnPServiceObserver
+    NSMutableDictionary<NSString *, StateVariable *> *stateVariables;
+    NSMutableArray<BasicUPnPServiceObserver> *mObservers;
 
     NSRecursiveLock *mMutex;
 }
-
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device NS_DESIGNATED_INITIALIZER;
-
--(NSUInteger)addObserver:(BasicUPnPServiceObserver*)obs;
--(NSUInteger)removeObserver:(BasicUPnPServiceObserver*)obs;
--(BOOL)isObserver:(BasicUPnPServiceObserver*)obs;
-
-
-//Process is called by the ServiceFactory after basic parsing is done and succeeded
-//The BasicUPnPService (this) members are set with the right values
-//Further processing is service dependent and must be handled by the derived classes 
-//The return value must be 0 when implenented
-@property (NS_NONATOMIC_IOSONLY, readonly) int process;//in C++ this should be a pure virtual function
-
 
 @property (readwrite, retain) NSURL* baseURL;
 @property (readwrite, retain) NSString* baseURLString;
@@ -92,7 +84,24 @@
 @property (readonly) NSMutableDictionary *stateVariables;
 @property (readonly) SoapAction *soap;
 @property (readwrite, retain) NSString* urn;
-@property (readwrite) BOOL isProcessed;
-@property (readwrite) BOOL isSupportForEvents;
+@property (readwrite) BOOL isSetUp;
+@property (readwrite) BOOL isSubscribedForEvents;
+
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)device NS_DESIGNATED_INITIALIZER;
+
+- (NSUInteger)addObserver:(BasicUPnPServiceObserver *)obs;
+- (NSUInteger)removeObserver:(BasicUPnPServiceObserver *)obs;
+- (BOOL)isObserver:(BasicUPnPServiceObserver *)obs;
+
+//Process is called by the ServiceFactory after basic parsing is done and succeeded
+//The BasicUPnPService (this) members are set with the right values
+//Further processing is service dependent and must be handled by the derived classes 
+- (BOOL)setup;
+
+/**
+ Can be called if service is not subscribed for events to retry subscription once more
+ @returns YES is subscription or resubscription was successfull
+ */
+- (BOOL)subscribeOrResubscribeForEvents;
 
 @end

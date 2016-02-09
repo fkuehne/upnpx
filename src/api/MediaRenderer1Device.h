@@ -78,7 +78,4 @@
 
 @property(readonly) MediaPlaylist *playList;
 
-//BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
-
 @end

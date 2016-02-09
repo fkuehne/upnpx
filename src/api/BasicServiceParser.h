@@ -55,7 +55,8 @@
 
 -(instancetype)initWithUPnPService:(BasicUPnPService*)upnpservice;
 
-@property (NS_NONATOMIC_IOSONLY, readonly) int parse;
+- (int)parse;
+
 -(void)serviceTag:(NSString*)startStop;
 -(void)stateVariable:(NSString*)startStop;
 -(void)setAllowedValue:(NSString*)value;

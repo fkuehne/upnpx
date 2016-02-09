@@ -203,8 +203,8 @@
 
     //Get service
     thisService = services[serviceUrn];
-    if(thisService != nil){
-        [thisService process];//can be called several times, we need to be sure it is done
+    if (thisService != nil) {
+        [thisService setup];    // can be called several times, we need to be sure it is done
     }
 
     return thisService;
