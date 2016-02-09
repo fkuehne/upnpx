@@ -198,32 +198,23 @@
     return 0;
 }
 
-
-
--(int)playWithMedia:(MediaServer1BasicObject*)media{
-
-
+- (int)playWithMedia:(MediaServer1BasicObject*)media{
     [playList setTrackByID:[media objectID]];
-
     return [self play];
 }
 
+#pragma mark - <BasicUPnPServiceObserver>
 
-
-//BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events{
-    if(sender == [self avTransportService]){
+- (void)basicUPnPService:(BasicUPnPService *)service receivedEvents:(NSDictionary *)events {
+    if (service == [self avTransportService]) {
         NSString *newState = events[@"TransportState"];
-
-        if([newState isEqualToString:@"STOPPED"]){
+        if ([newState isEqualToString:@"STOPPED"]) {
             NSInteger i = [playList nextTrack];
-            if(i >= 0){
+            if (i >= 0) {
                 [self play];
             }
         }
     }
 }
-
-
 
 @end

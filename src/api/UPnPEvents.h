@@ -42,7 +42,7 @@
 @protocol UPnPEvents_Observer
 -(void)UPnPEvent:(NSDictionary*)events;
 -(NSURL*)GetUPnPEventURL;
--(void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed;
+-(void)subscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed;
 @end
 
 
@@ -70,8 +70,8 @@
 -(void)start;
 -(void)stop;
 
--(NSString*)Subscribe:(UPnPEvents_Observer*)subscriber;
--(void)UnSubscribe:(NSString*)uuid;
+-(NSString*)subscribe:(UPnPEvents_Observer*)subscriber;
+-(void)unsubscribe:(NSString*)uuid;
 
 -(void)ManageSubscriptionTimeouts:(NSTimer*)timer;
 

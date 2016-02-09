@@ -90,9 +90,7 @@
     [mTimeoutTimer invalidate];
 }
 
-
-
--(NSString*)Subscribe:(UPnPEvents_Observer*)subscriber{
+-(NSString*)subscribe:(UPnPEvents_Observer *)subscriber {
     //Send Event subscription over HTTP
     NSString *retUUID = nil;
     NSString *timeOut = nil;
@@ -155,10 +153,11 @@
     return retUUID;
 }
 
--(void)UnSubscribe:(NSString*)uuid{
-    if (!uuid) {
+- (void)unsubscribe:(NSString *)uuid {
+    if (uuid == nil) {
         return;
     }
+
     [mMutex lock];
     [mEventSubscribers removeObjectForKey:uuid];
     [mMutex unlock];
@@ -286,7 +285,7 @@
         }
         [mMutex unlock];
         if(entry){
-            [[entry observer] SubscriptionTimerExpiresIn:(int)(tm - entry.subscriptiontime) timeoutSubscription:entry.timeout timeSubscription:entry.subscriptiontime];
+            [[entry observer] subscriptionTimerExpiresIn:(int)(tm - entry.subscriptiontime) timeoutSubscription:entry.timeout timeSubscription:entry.subscriptiontime];
             [entry release];
         }
     }
