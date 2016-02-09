@@ -178,17 +178,16 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
     return 0;
 }
 
-- (int)playWithMedia:(MediaServer1BasicObject *)media {
+- (int)playWithMedia:(MediaServer1BasicObject*)media{
     [playList setTrackByID:[media objectID]];
     return [self play];
 }
 
 #pragma mark - BasicUPnPServiceObserver
 
-- (void)UPnPEvent:(BasicUPnPService *)sender events:(NSDictionary *)events {
-    if (sender == [self avTransportService]) {
+- (void)basicUPnPService:(BasicUPnPService *)service receivedEvents:(NSDictionary *)events {
+    if (service == [self avTransportService]) {
         NSString *newState = events[@"TransportState"];
-
         if ([newState isEqualToString:@"STOPPED"]) {
             NSInteger i = [playList nextTrack];
             if (i >= 0) {

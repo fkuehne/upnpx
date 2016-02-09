@@ -73,9 +73,8 @@
     [super dealloc];
 }
 
-
--(int)parse{
-    int ret;
+- (int)parse {
+    int ret = 0;
 
     /*
      * 1. First parse the Device Description XML
@@ -98,20 +97,19 @@
 
     //Do we have a Base URL, if not creare one
     //Base URL
-    if([service baseURLString] == nil){
+    if ([service baseURLString] == nil) {
         //Create one based on [device xmlLocation] 
         NSURL *loc = [NSURL URLWithString:[[service ssdpdevice] location] ];
         if(loc != nil){
             [service setBaseURL:loc];
         }
-    }else{
+    }
+    else {
         NSURL *loc = [NSURL URLWithString:[service baseURLString]];
         if(loc != nil){
             [service setBaseURL:loc];
         }
     }
-
-
 
     /*
      * 2. Parse the Service Description XML ([service descriptionURL])
@@ -133,16 +131,11 @@
     NSURL *serviceDescUrl = [NSURL URLWithString:[service descriptionURL] relativeToURL:[service baseURL] ];
     ret = [super parseFromURL:serviceDescUrl];
 
-
-
     return ret;
 }
 
-
-
-
--(void)serviceTag:(NSString*)startStop{
-    if([startStop isEqualToString:@"ElementStop"]){
+- (void)serviceTag:(NSString*)startStop {
+    if([startStop isEqualToString:@"ElementStop"]) {
         //Is our cached servicetype the same as the one in the ssdp description, if so we can initialize the upnp service object
         if([serviceType compare:[[service ssdpdevice] urn] ] == NSOrderedSame){
             //found, copy
