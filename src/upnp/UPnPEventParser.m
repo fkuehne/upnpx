@@ -116,12 +116,12 @@
             });
 
             dispatch_sync(reentrantAvoidanceQueue, ^{ });
-            if(ret != 0) {
-                NSLog(@"Something went wrong during LastChange parsing");
+            if (ret != 0) {
+                NSLog(@"[UPnP] Something went wrong during LastChange parsing");
             }
-            else {
-                NSLog(@"LastChange parsing completed");
-            }
+//            else {
+//                NSLog(@"LastChange parsing completed");
+//            }
         }
     }
 }
