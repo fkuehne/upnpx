@@ -56,8 +56,6 @@
 - (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)device {
     self = [super init];
     if (self) {
-        NSLog(@"[UPnP] BasicUPnPService - initWithSSDPDevice - %@", [device urn]);
-
         mMutex = [[NSRecursiveLock alloc] init];
 
         /* TODO: device -> retain property */
