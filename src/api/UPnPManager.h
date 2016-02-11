@@ -43,15 +43,15 @@
 
 @interface UPnPManager : NSObject
 
-+(UPnPManager*)GetInstance;
++ (UPnPManager *)GetInstance;
 
--(instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 
-@property(readonly) SSDPDB_ObjC *SSDP;
-@property(readonly) UPnPDB *DB;
-@property(retain, nonatomic) DeviceFactory* deviceFactory;
-@property(retain, nonatomic) MediaRenderer1Device *defaultMediaRenderer1;
-@property(readonly) UPnPEvents *upnpEvents;
-@property(readonly) MediaPlaylist *defaultPlaylist;
+@property (readonly) SSDPDB_ObjC *SSDP;
+@property (readonly) UPnPDB *DB;
+@property (retain, nonatomic) DeviceFactory* deviceFactory;
+@property (retain, nonatomic) MediaRenderer1Device *defaultMediaRenderer1;
+@property (readonly) UPnPEvents *upnpEvents;
+@property (readonly) MediaPlaylist *defaultPlaylist;
 
 @end
