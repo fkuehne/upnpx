@@ -91,14 +91,13 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 }
 
 -(NSString *)subscribe:(UPnPEvents_Observer *)subscriber {
-    //Send Event subscription over HTTP
     NSString *retUUID = nil;
     NSString *timeOut = nil;
 
-    //Construct the HTML SUBSCRIBE 
-    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
-                                                            cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                                        timeoutInterval:15.0];
+    //Construct the HTML SUBSCRIBE
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
+                                                              cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                          timeoutInterval:15.0];
 
 
 
@@ -107,9 +106,9 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.3.1" forHTTPHeaderField:@"USER-AGENT"];
     [urlRequest setValue:callBack forHTTPHeaderField:@"CALLBACK"];
     [urlRequest setValue:@"upnp:event" forHTTPHeaderField:@"NT"];
-    [urlRequest setValue:[NSString stringWithFormat:@"Second-%lu", kEventSubscriptionTimeoutInSeconds] forHTTPHeaderField:@"TIMEOUT"];
+    [urlRequest setValue:[NSString stringWithFormat:@"Second-%lu", kEventSubscriptionTimeoutInSeconds]
+      forHTTPHeaderField:@"TIMEOUT"];
 
-    //SUBSCRIBE (Synchronous)
     [urlRequest setHTTPMethod:@"SUBSCRIBE"];
 
     NSLog(@"[UPnP] Subscribing for GENA notifications to URL: %@", [subscriber GetUPnPEventURL]);
@@ -143,29 +142,49 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
                 en.timeout = 300;
             }
         }
-        NSLog(@"[UPnP - GENA] Subscribed successfully < uuid: %@ | timeout: %d >", retUUID, en.timeout);
+        NSLog(@"[UPnP-GENA] Subscribed successfully < uuid: %@ | timeout: %d >", retUUID, en.timeout);
 
         mEventSubscribers[retUUID] = en;
         [en release];
     }
     else {
-        NSLog(@"[UPnP - GENA] Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
+        NSLog(@"[UPnP-GENA] Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
     }
     [mMutex unlock];
 
     return retUUID;
 }
 
-- (void)unsubscribe:(NSString *)uuid {
+- (void)unsubscribe:(UPnPEvents_Observer *)subscriber withSID:(NSString *)uuid {
     if (uuid == nil) {
         return;
     }
 
-    NSLog(@"[UPnP - GENA] Unsubscribing from GENA notifications < %@ >", uuid);
-
+    // Remove from subscribers
     [mMutex lock];
     [mEventSubscribers removeObjectForKey:uuid];
     [mMutex unlock];
+
+    // Construct the HTML Request
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
+                                                              cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                          timeoutInterval:15.0];
+
+    //    UNSUBSCRIBE dude HTTP/1.1
+    //    Host: iamtheproxy:203
+    //    SID: uuid:kj9d4fae-7dec-11d0-a765-00a0c91e6bf6
+    [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.3.1" forHTTPHeaderField:@"USER-AGENT"];
+    [urlRequest setValue:uuid forHTTPHeaderField:@"SID"];
+
+    [urlRequest setHTTPMethod:@"UNSUBSCRIBE"];
+
+    NSLog(@"[UPnP-GENA] Unsubscribing from GENA notifications < %@ >", uuid);
+
+    NSHTTPURLResponse *urlResponse = nil;
+    [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
+    if ([urlResponse statusCode] == 200) {
+        NSLog(@"[UPnP-GENA] Successfully unsubscribed from GENA notifivations < %@ >", uuid);
+    }
 }
 
 /*
@@ -173,7 +192,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
  * BasicHTTPServer_ObjC_Observer
  */
 - (BOOL)canProcessMethod:(BasicHTTPServer_ObjC *)sender requestMethod:(NSString *)method {
-    NSLog(@"[UPnP - GENA] Incoming event < reqMethod: %@ >", method);
+    NSLog(@"[UPnP-GENA] Incoming event < reqMethod: %@ >", method);
 
     if ([method caseInsensitiveCompare:@"NOTIFY"] == NSOrderedSame) {
         return YES;
@@ -200,7 +219,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     [parser reinit];
 
     NSString *eventXML = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
-    //NSLog(@"[UPnP - GENA] Request body XML: %@", eventXML);
+    //NSLog(@"[UPnP-GENA] Request body XML: %@", eventXML);
 
     //Check if the body ends with '0' zero's, MediaTomb does this and the parser does not like it, so cut 0's
     char zbuf[10];
@@ -267,18 +286,20 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 
 
 - (void)manageSubscriptionTimeouts:(NSTimer *)timer {
-    //NSLog(@"ManageSubscriptionTimeouts");
     double tm = [[NSDate date]timeIntervalSince1970];
+
     ObserverEntry *entry = nil;
     NSMutableArray *remove = [[NSMutableArray alloc] init];
     NSMutableArray *notify = [[NSMutableArray alloc] init];
+
     [mMutex lock];
     NSString *uuid;
     for (uuid in mEventSubscribers) {
         entry = mEventSubscribers[uuid];
-        if(tm - entry.subscriptiontime >= (double)(entry.timeout)){
+        if (tm - entry.subscriptiontime >= (double)(entry.timeout)) {
             [remove addObject:uuid];
-        }else if(tm - entry.subscriptiontime > (double)(entry.timeout/2)){
+        }
+        else if (tm - entry.subscriptiontime > (double)(entry.timeout/2)) {
             [notify addObject:uuid];
         }
     }
