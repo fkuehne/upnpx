@@ -119,22 +119,24 @@
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
 
 
-
     NSHTTPURLResponse *urlResponse;
     NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
 
-    //Check the Server Return Code @TODO
-    if([urlResponse statusCode] != 200){
-        ret = 0-[urlResponse statusCode];
+    // Check the Server Return Code @TODO
+    if ([urlResponse statusCode] != 200) {
+        ret = -[urlResponse statusCode];
         NSString *rsp = [[NSString  alloc] initWithData:resp encoding:NSUTF8StringEncoding];
-        NSLog(@"Error (SoapAction): Got a non 200 response: %ld. Data: %@", (long)[urlResponse statusCode], rsp);
+        NSLog(@"[UPnP] Error (SoapAction): Got a non 200 response: %ld. Data: %@", (long)[urlResponse statusCode], rsp);
         [rsp release];
-        if (ret == 0) ret = -408;
-    }else{
+        if (ret == 0) {
+            ret = -408; // Why 408?
+        }
+    }
+    else {
         ret = 0;
     }
 
-    if(ret == 0 && [resp length] > 0 ){
+    if (ret == 0 && [resp length] > 0 ) {
         //Parse result
         //Clear the assets becuase the action can be re-used
         [self clearAllAssets];
@@ -145,7 +147,6 @@
 
         //uShare Issues here, can not handle names like 'Bj~rk
         ret = [super parseFromData:resp];
-
     }
 
     [body release];

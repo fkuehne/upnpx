@@ -35,7 +35,11 @@
 #import "UPnPEvents.h"
 
 
+static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
+
+
 @implementation ObserverEntry
+
 @synthesize observer;
 @synthesize timeout;
 @synthesize subscriptiontime;
@@ -50,26 +54,21 @@
 
 @implementation UPnPEvents
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
-
     if (self) {
         mMutex = [[NSRecursiveLock alloc] init];
         mEventSubscribers = [[NSMutableDictionary alloc] init];
-        parser =[[UPnPEventParser alloc] init];
+        parser = [[UPnPEventParser alloc] init];
 
         server = [[BasicHTTPServer_ObjC alloc] init];
         [server start];
-        [server addObserver:(BasicHTTPServer_ObjC_Observer*)self];
-
-
+        [server addObserver:(BasicHTTPServer_ObjC_Observer *)self];
     }
-
     return self;
 }
 
-
--(void)dealloc{
+- (void)dealloc {
     [mTimeoutTimer release];
     [server stop];
     [server release];
@@ -80,23 +79,24 @@
     [super dealloc];
 }
 
--(void)start{
+- (void)start {
     //Start the subscription timer
-    mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(ManageSubscriptionTimeouts:) userInfo:nil repeats:YES];
+    mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(manageSubscriptionTimeouts:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:mTimeoutTimer forMode:NSDefaultRunLoopMode];
 }
--(void)stop{
+
+- (void)stop {
     //Stop the subscription timer
     [mTimeoutTimer invalidate];
 }
 
--(NSString*)subscribe:(UPnPEvents_Observer *)subscriber {
+-(NSString *)subscribe:(UPnPEvents_Observer *)subscriber {
     //Send Event subscription over HTTP
     NSString *retUUID = nil;
     NSString *timeOut = nil;
 
     //Construct the HTML SUBSCRIBE 
-    NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
+    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:[subscriber GetUPnPEventURL]
                                                             cachePolicy:NSURLRequestReloadIgnoringCacheData
                                                         timeoutInterval:15.0];
 
@@ -107,22 +107,22 @@
     [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.3.1" forHTTPHeaderField:@"USER-AGENT"];
     [urlRequest setValue:callBack forHTTPHeaderField:@"CALLBACK"];
     [urlRequest setValue:@"upnp:event" forHTTPHeaderField:@"NT"];
-    [urlRequest setValue:@"Second-1800" forHTTPHeaderField:@"TIMEOUT"];
+    [urlRequest setValue:[NSString stringWithFormat:@"Second-%lu", kEventSubscriptionTimeoutInSeconds] forHTTPHeaderField:@"TIMEOUT"];
 
     //SUBSCRIBE (Synchronous)
     [urlRequest setHTTPMethod:@"SUBSCRIBE"];
 
-    NSHTTPURLResponse *urlResponse;
+    NSLog(@"[UPnP] Subscribing for GENA notifications to URL: %@", [subscriber GetUPnPEventURL]);
 
+    NSHTTPURLResponse *urlResponse = nil;
     [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
-
-    if([urlResponse statusCode] == 200){
+    if ([urlResponse statusCode] == 200) {
         NSDictionary *allReturnedHeaders = [urlResponse allHeaderFields];
-        for(NSString* key in allReturnedHeaders){
-            if([key caseInsensitiveCompare:@"SID"] == NSOrderedSame){
+        for (NSString *key in allReturnedHeaders) {
+            if ([key caseInsensitiveCompare:@"SID"] == NSOrderedSame) {
                 retUUID = [NSString stringWithString:allReturnedHeaders[key]];
             }
-            if([key caseInsensitiveCompare:@"TIMEOUT"] == NSOrderedSame){
+            if ([key caseInsensitiveCompare:@"TIMEOUT"] == NSOrderedSame) {
                 timeOut = [NSString stringWithString:allReturnedHeaders[key]];
             }
         }
@@ -130,23 +130,26 @@
 
     //Add to the subscription Dictionary
     [mMutex lock];
-    if(retUUID){
+    if (retUUID) {
         ObserverEntry *en = [[ObserverEntry alloc] init];
 
         en.observer = subscriber;
-        en.subscriptiontime = [[NSDate date]timeIntervalSince1970];
+        en.subscriptiontime = [[NSDate date] timeIntervalSince1970];
 
         NSRange r = [timeOut rangeOfString:@"Second-"];
-        if(r.length > 0){
-            en.timeout = [[timeOut substringFromIndex:r.location+r.length] intValue];
-            if(en.timeout < 300)
+        if (r.length > 0) {
+            en.timeout = [[timeOut substringFromIndex:r.location + r.length] intValue];
+            if (en.timeout < 300) {
                 en.timeout = 300;
+            }
         }
+        NSLog(@"[UPnP - GENA] Subscribed successfully < uuid: %@ | timeout: %d >", retUUID, en.timeout);
 
         mEventSubscribers[retUUID] = en;
         [en release];
-    }else{
-        NSLog(@"Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
+    }
+    else {
+        NSLog(@"[UPnP - GENA] Cannot subscribe for events, server return code : %ld", (long)[urlResponse statusCode]);
     }
     [mMutex unlock];
 
@@ -158,107 +161,112 @@
         return;
     }
 
+    NSLog(@"[UPnP - GENA] Unsubscribing from GENA notifications < %@ >", uuid);
+
     [mMutex lock];
     [mEventSubscribers removeObjectForKey:uuid];
     [mMutex unlock];
 }
 
-
 /*
  * Incomming HTTP events
  * BasicHTTPServer_ObjC_Observer
  */
--(BOOL)canProcessMethod:(BasicHTTPServer_ObjC*)sender requestMethod:(NSString*)method{
-    BOOL ret = NO;
+- (BOOL)canProcessMethod:(BasicHTTPServer_ObjC *)sender requestMethod:(NSString *)method {
+    NSLog(@"[UPnP - GENA] Incoming event < reqMethod: %@ >", method);
 
-    if([method caseInsensitiveCompare:@"NOTIFY"] == NSOrderedSame ){
-        ret = YES;
+    if ([method caseInsensitiveCompare:@"NOTIFY"] == NSOrderedSame) {
+        return YES;
     }
 
-    return ret;
+    return NO;
 }
 
 //Request / Response is always synchronized 
--(BOOL)request:(BasicHTTPServer_ObjC*)sender method:(NSString*)method path:(NSString*)path version:(NSString*)version headers:(NSDictionary*)headers body:(NSData*)body{
-    BOOL ret = NO;
+- (BOOL)request:(BasicHTTPServer_ObjC *)sender
+         method:(NSString *)method
+           path:(NSString *)path
+        version:(NSString *)version
+        headers:(NSDictionary *)headers
+           body:(NSData *)body {
+    BOOL result = NO;
 
     NSString *uuid = headers[@"SID"];
-    if(uuid == nil){
+    if (uuid == nil) {
         return NO;
     }
-
 
     //Parse the return
     [parser reinit];
 
+    NSString *eventXML = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
+    //NSLog(@"[UPnP - GENA] Request body XML: %@", eventXML);
 
     //Check if the body ends with '0' zero's, MediaTomb does this and the parser does not like it, so cut 0's
     char zbuf[10];
     int cut = 0;
-    if([body length] > 10){
-        NSRange r;
-        r.length = 10;
-        r.location = [body length] - 10;
+    if ([body length] > 10) {
+        NSRange r = NSMakeRange([body length] - 10, 10);
         [body getBytes:zbuf range:r];
         int x = 9;
-        while(zbuf[x] == 0){
+        while (zbuf[x] == 0) {
             x--;
-            if(x<0){
+            if (x < 0) {
                 break;
             }
         }
-        cut =  9-x;
+        cut = 9 - x;
     }
 
 
-    NSString *bs = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding ];
+    NSString *bs = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
     [bs release];
 
     int parserret;
-    if(cut > 0){
-        NSData *tmpbody = [[NSData alloc]  initWithBytes:[body bytes] length:[body length]-cut];
+    if (cut > 0) {
+        NSData *tmpbody = [[NSData alloc] initWithBytes:[body bytes] length:[body length] - cut];
         parserret = [parser parseFromData:tmpbody];
         [tmpbody release];
-    }else{
+    }
+    else {
         parserret = [parser parseFromData:body];
     }
 
-    if(parserret == 0){
-        //ok
-        //
+    if (parserret == 0) {
+        // ok
         [mMutex lock];
         UPnPEvents_Observer *thisObserver = nil;
         ObserverEntry *entry = mEventSubscribers[uuid];
-        if(entry != nil){
+        if (entry != nil) {
             thisObserver = entry.observer;
             [thisObserver retain];
         }
         [mMutex unlock];
-        if(thisObserver != nil){
+        if (thisObserver != nil) {
             [thisObserver UPnPEvent:[parser events]];
             [thisObserver release];
         }
     }
 
-
-    return ret;
+    return result;
 }
 
 //Request / Response is always synchronized 
--(BOOL)response:(BasicHTTPServer_ObjC*)sender returncode:(int*)returncode headers:(NSMutableDictionary*)retHeaders body:(NSMutableData*)retBody{
-    BOOL ret = YES;
-
+- (BOOL)response:(BasicHTTPServer_ObjC*)sender
+      returncode:(int *)returnCode
+         headers:(NSMutableDictionary *)retHeaders
+            body:(NSMutableData *)retBody {
+    BOOL result = YES;
 
     [retBody setLength:0];
     [retHeaders removeAllObjects];
-    *returncode = 200;
+    *returnCode = 200;
 
-
-    return ret;
+    return result;
 }
 
 
--(void)ManageSubscriptionTimeouts:(NSTimer*)timer{
+- (void)manageSubscriptionTimeouts:(NSTimer *)timer {
     //NSLog(@"ManageSubscriptionTimeouts");
     double tm = [[NSDate date]timeIntervalSince1970];
     ObserverEntry *entry = nil;
@@ -280,12 +288,14 @@
     for (uuid in notify) {
         [mMutex lock];
         entry = mEventSubscribers[uuid];
-        if(entry){
+        if (entry) {
             [entry retain];
         }
         [mMutex unlock];
-        if(entry){
-            [[entry observer] subscriptionTimerExpiresIn:(int)(tm - entry.subscriptiontime) timeoutSubscription:entry.timeout timeSubscription:entry.subscriptiontime];
+        if (entry) {
+            [[entry observer] subscriptionTimerExpiresIn:(int)(tm - entry.subscriptiontime)
+                                     timeoutSubscription:entry.timeout
+                                        timeSubscription:entry.subscriptiontime];
             [entry release];
         }
     }
