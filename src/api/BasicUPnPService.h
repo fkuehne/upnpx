@@ -55,7 +55,7 @@
     SSDPDBDevice_ObjC *ssdpdevice;
 
     BOOL isSetUp;
-    BOOL isSupportForEvents;
+    BOOL isSubscribedForEvents;
 
     NSString *baseURLString;
     NSURL *baseURL;

@@ -40,21 +40,24 @@
 
 //Observer
 @protocol UPnPEvents_Observer
--(void)UPnPEvent:(NSDictionary*)events;
--(NSURL*)GetUPnPEventURL;
--(void)subscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed;
+
+- (void)UPnPEvent:(NSDictionary *)events;
+- (NSURL *)GetUPnPEventURL;
+- (void)subscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed;
+
 @end
 
 
-@interface ObserverEntry : NSObject{
-    UPnPEvents_Observer* observer;
+@interface ObserverEntry : NSObject {
+    UPnPEvents_Observer *observer;
     int timeout;
     double subscriptiontime;
 }
--(void)dealloc;
-@property (readwrite, retain) UPnPEvents_Observer* observer;
-@property (readwrite) int timeout;;
+
+@property (readwrite, retain) UPnPEvents_Observer *observer;
+@property (readwrite) int timeout;
 @property (readwrite) double subscriptiontime;
+
 @end
 
 
