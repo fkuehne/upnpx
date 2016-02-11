@@ -75,7 +75,7 @@
         isSetUp = NO;
         isSubscribedForEvents = NO;
 
-        stateVariables = [[NSMutableDictionary alloc] init];//StateVariable
+        stateVariables = [[NSMutableDictionary alloc] init];
 
         NSLog(@"[UPnP-Observers] created observer array");
         mObservers = [[NSMutableArray alloc] init];

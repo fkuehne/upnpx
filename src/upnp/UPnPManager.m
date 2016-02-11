@@ -34,6 +34,7 @@
 
 #import "UPnPManager.h"
 
+
 @interface UPnPManager () {
     SSDPDB_ObjC *SSDP;
     UPnPDB *DB;
@@ -43,7 +44,9 @@
     MediaRenderer1Device *defaultMediaRenderer1;
     MediaPlaylist *defaultPlaylist;
 }
+
 @end
+
 
 @implementation UPnPManager
 
@@ -54,7 +57,7 @@
 @synthesize defaultMediaRenderer1;
 @synthesize defaultPlaylist;
 
-+(UPnPManager*)GetInstance{
++ (UPnPManager *)GetInstance {
     static UPnPManager *instance = nil;
     static dispatch_once_t onceToken;
 
@@ -64,12 +67,9 @@
     return instance;
 }
 
--(instancetype)init{
-
+- (instancetype)init {
     self = [super init];
-
     if (self) {
-
         upnpEvents = [[UPnPEvents alloc] init];
         deviceFactory = [[DeviceFactory alloc] init];
         SSDP = [[SSDPDB_ObjC alloc] init];
@@ -83,12 +83,15 @@
     return self;
 }
 
--(void)dealloc{
-    if (upnpEvents)
+- (void)dealloc {
+    if (upnpEvents != nil) {
         [upnpEvents stop];
-    if (SSDP)
+    }
+    if (SSDP != nil) {
         [SSDP stopSSDP];
-    [SSDP release];
+        [SSDP release];
+    }
+
     [DB release];
     [deviceFactory release];
     [upnpEvents release];
