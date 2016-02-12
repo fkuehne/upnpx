@@ -88,7 +88,7 @@
 
 - (void)dealloc {
     if (eventUUID != nil) {
-        [[[UPnPManager GetInstance] upnpEvents] unsubscribe:eventUUID];
+        [[[UPnPManager GetInstance] upnpEvents] unsubscribe:self withSID:eventUUID];
     }
 
     [mObservers release];
@@ -192,7 +192,7 @@
                 NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
                 // Unsubscribe old
                 if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
-                    [[[UPnPManager GetInstance] upnpEvents] unsubscribe:oldUUID];
+                    [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
                 }
                 [oldUUID release];
             }
