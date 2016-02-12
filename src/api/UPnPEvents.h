@@ -70,13 +70,13 @@
 }
 
 
--(void)start;
--(void)stop;
+- (void)start;
+- (void)stop;
 
--(NSString*)subscribe:(UPnPEvents_Observer*)subscriber;
--(void)unsubscribe:(NSString*)uuid;
+- (NSString *)subscribe:(UPnPEvents_Observer *)subscriber;
+- (void)unsubscribe:(UPnPEvents_Observer *)subscriber withSID:(NSString *)uuid;
 
--(void)ManageSubscriptionTimeouts:(NSTimer*)timer;
+- (void)manageSubscriptionTimeouts:(NSTimer *)timer;
 
 
 //BasicHTTPServer_ObjC_Observer
