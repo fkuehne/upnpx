@@ -71,11 +71,11 @@
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *renderingControlService;
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *connectionManagerService;
 
--(BOOL)supportProtocol:(NSString*)protocolInfo withCache:(BOOL)useCache;
+- (BOOL)supportProtocol:(NSString *)protocolInfo withCache:(BOOL)useCache;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) int play;
--(int)playWithMedia:(MediaServer1BasicObject*)media;
+- (int)playWithMedia:(MediaServer1BasicObject *)media;
 
-@property(readonly) MediaPlaylist *playList;
+@property (readonly) MediaPlaylist *playList;
 
 @end
