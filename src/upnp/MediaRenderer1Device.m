@@ -68,12 +68,12 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
     [super dealloc];
 }
 
-- (BOOL)supportProtocol:(NSString *)protocolInfo withCache:(BOOL)useCache {
+- (BOOL)supportProtocol:(NSString*)protocolInfo withCache:(BOOL)useCache {
     BOOL ret = NO;
     
-    //Cache the protocolInfo
+    // Cache the protocolInfo
     if (useCache == YES && mProtocolInfoSink != nil && mProtocolInfoSource != nil) {
-        //Don't do soap
+        // Don't do soap
     }
     else {
         if (mProtocolInfoSink == nil) {
@@ -94,40 +94,40 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
 
 #pragma mark - Services
 
-- (BasicUPnPService *)avTransportService {
+- (BasicUPnPService*)avTransportService{
     return [self getServiceForType:UPnPServiceURN_AVTransport1];
 }
 
-- (BasicUPnPService *)renderingControlService {
+- (BasicUPnPService*)renderingControlService{
     return [self getServiceForType:UPnPServiceURN_RenderingControl1];
 }
 
-- (BasicUPnPService *)connectionManagerService{
+- (BasicUPnPService*)connectionManagerService{
     return [self getServiceForType:UPnPServiceURN_ConnectionManager1];
 }
 
 #pragma mark - Soap Actions
 
 - (SoapActionsAVTransport1 *)avTransport {
-    if (mAvTransport == nil) {
-        mAvTransport = (SoapActionsAVTransport1 *)[[self getServiceForType:UPnPServiceURN_AVTransport1] soap];
+    if(mAvTransport == nil) {
+        mAvTransport = (SoapActionsAVTransport1 *)[[self getServiceForType:@"urn:schemas-upnp-org:service:AVTransport:1"] soap];
         [mAvTransport retain];
     }
     return mAvTransport;
 }
 
 - (SoapActionsRenderingControl1 *)renderingControl {
-    if (mRenderingControl == nil) {
-        mRenderingControl = (SoapActionsRenderingControl1 *)[[self getServiceForType:UPnPServiceURN_RenderingControl1] soap];
+    if(mRenderingControl == nil) {
+        mRenderingControl = (SoapActionsRenderingControl1 *)[[self getServiceForType:@"urn:schemas-upnp-org:service:RenderingControl:1"] soap];
         [mRenderingControl retain];
     }
     return mRenderingControl;
 }
 
 
-- (SoapActionsConnectionManager1 *)connectionManager{
-    if (mConnectionManager == nil) {
-        mConnectionManager = (SoapActionsConnectionManager1 *)[[self getServiceForType:UPnPServiceURN_ConnectionManager1] soap];
+- (SoapActionsConnectionManager1 *)connectionManager {
+    if(mConnectionManager == nil) {
+        mConnectionManager = (SoapActionsConnectionManager1 *)[[self getServiceForType:@"urn:schemas-upnp-org:service:ConnectionManager:1"] soap];
         [mConnectionManager retain];
     }
     return mConnectionManager;
@@ -139,26 +139,35 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
     [playList stop];
 
     if ([[self avTransportService] isObserver:(BasicUPnPServiceObserver *)self] == NO) {
-        [[self avTransportService] addObserver:(BasicUPnPServiceObserver *)self];               //Lazy observer attach
+        [[self avTransportService] addObserver:(BasicUPnPServiceObserver *)self];    //Lazy observer attach
     }
 
-    //Set the device to play the current track 
+    // Set the device to play the current track 
     MediaServer1ItemObject* mediaItem = [playList GetCurrentTrackItem];
 
-    //Metadata
+    // Metadata
     NSMutableString *metaData = [[NSMutableString alloc] init];
     NSMutableString *outTotalMatches = [[NSMutableString alloc] init];
     NSMutableString *outNumberReturned = [[NSMutableString alloc] init];
     NSMutableString *outUpdateID = [[NSMutableString alloc] init];
 
-    //Get the metadata, we need to supply it when playback
-    [[[playList mediaServer] contentDirectory] BrowseWithObjectID:[mediaItem objectID] BrowseFlag:@"BrowseMetadata" Filter:@"*" StartingIndex:@"0" RequestedCount:@"1" SortCriteria:@"+dc:title" OutResult:metaData OutNumberReturned:outNumberReturned OutTotalMatches:outTotalMatches OutUpdateID:outUpdateID];
+    // Get the metadata, we need to supply it when playback
+    [[[playList mediaServer] contentDirectory] BrowseWithObjectID:[mediaItem objectID]
+                                                       BrowseFlag:@"BrowseMetadata"
+                                                           Filter:@"*"
+                                                    StartingIndex:@"0"
+                                                   RequestedCount:@"1"
+                                                     SortCriteria:@"+dc:title"
+                                                        OutResult:metaData
+                                                OutNumberReturned:outNumberReturned
+                                                  OutTotalMatches:outTotalMatches
+                                                      OutUpdateID:outUpdateID];
 
     [outTotalMatches release];
     [outUpdateID release];
     [outNumberReturned release];
 
-    if ([self supportProtocol:[mediaItem protocolInfo] withCache:YES] == YES) {
+    if ([self supportProtocol:[mediaItem protocolInfo] withCache:YES]) {
         [[self avTransport] SetPlayModeWithInstanceID:@"0" NewPlayMode:@"NORMAL"];
 
 //        [[self avTransport] StopWithInstanceID:@"0"];//Causes the playlist to goto next
@@ -167,7 +176,7 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
         [[self avTransport] PlayWithInstanceID:@"0" Speed:@"1"];
     }
     else {
-        NSLog(@"Does not support protocol: %@", [mediaItem protocolInfo]);
+        NSLog(@"[UPnP] Does not support protocol: %@", [mediaItem protocolInfo]);
     }
 
     [metaData release];
@@ -178,7 +187,7 @@ NSString *const UPnPMediaRenderer1DeviceURN = @"urn:schemas-upnp-org:device:Medi
     return 0;
 }
 
-- (int)playWithMedia:(MediaServer1BasicObject*)media{
+- (int)playWithMedia:(MediaServer1BasicObject *)media {
     [playList setTrackByID:[media objectID]];
     return [self play];
 }

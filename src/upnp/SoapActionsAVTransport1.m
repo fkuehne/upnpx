@@ -32,15 +32,19 @@
 @implementation SoapActionsAVTransport1
 
 
--(NSInteger)SetAVTransportURIWithInstanceID:(NSString*)instanceid CurrentURI:(NSString*)currenturi CurrentURIMetaData:(NSString*)currenturimetadata{
+- (NSInteger)SetAVTransportURIWithInstanceID:(NSString *)instanceid
+                                  CurrentURI:(NSString *)currenturi
+                          CurrentURIMetaData:(NSString *)currenturimetadata {
     NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = @[@"InstanceID", @"CurrentURI", @"CurrentURIMetaData"];
-    parameterObjects = @[instanceid, currenturi, currenturimetadata];
+    parameterKeys = @[ @"InstanceID", @"CurrentURI", @"CurrentURIMetaData" ];
+    parameterObjects = @[ instanceid ?: @"0",
+                          currenturi ?: @"",
+                          currenturimetadata ?: @""];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetAVTransportURI" parameters:parameters returnValues:output];
