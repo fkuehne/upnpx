@@ -52,7 +52,9 @@
 }
 
 
--(NSInteger)SetNextAVTransportURIWithInstanceID:(NSString*)instanceid NextURI:(NSString*)nexturi NextURIMetaData:(NSString*)nexturimetadata{
+- (NSInteger)SetNextAVTransportURIWithInstanceID:(NSString*)instanceid
+                                         NextURI:(NSString*)nexturi
+                                 NextURIMetaData:(NSString*)nexturimetadata {
     NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
@@ -60,7 +62,9 @@
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
     parameterKeys = @[@"InstanceID", @"NextURI", @"NextURIMetaData"];
-    parameterObjects = @[instanceid, nexturi, nexturimetadata];
+    parameterObjects = @[ instanceid ?: @"0",
+                          nexturi ?: @"",
+                          nexturimetadata ?: @""];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetNextAVTransportURI" parameters:parameters returnValues:output];
