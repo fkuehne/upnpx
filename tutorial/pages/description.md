@@ -8,9 +8,9 @@
 **upnpx** does the description step in the background so that integrators do not have to deal with it. 
 The [`BasicUPnPDevice`](../../src/api/BasicUPnPDevice.h) pointers we get from the [`UPnPDB`](../../src/api/UPnPDB.h) during [Device Discovery](discovery.md) already contains the device description and capabilities. **upnpx** did the necessary HTTP requests and parsed the Device and Service Description XML's for all 'known' Devices found during the **SSDP** Discovery. 
 
-Check the Factory [DeviceFactory.m](../../src/upnp/DeviceFactory.m) for a list of current supported devices. This list can quite easily be extended with the help of the automated code generator [`scpdcodegenerator.xcodeproj`](../../projects/scpdcodegenerator) which takes **scdp** XML descriptions, from the UPnP standard, as input. See the tutorial to [add a new device](new-device.md).
+Check the Factory [`DeviceFactory.m`](../../src/upnp/DeviceFactory.m) for a list of current supported devices. This list can quite easily be extended with the help of the automated code generator [`scpdcodegenerator.xcodeproj`](../../projects/scpdcodegenerator) which takes **scdp** XML descriptions, from the UPnP standard, as input. See the tutorial to [add a new device](new-device.md).
 
-Since the `UPnPDB` only returns the device base class [`BasicUPnPDevice`](../../src/api/BasicUPnPDevice.h) you need to implement a little logic to get access to the higher level device classes. The trick is to check the type and to cast the base class. See the following code (extract from the example's [`RootViewController`](../../projects/xcode7/upnpxdemo/upnpxdemo/RootViewController.m#L89-L97)):
+Since the `UPnPDB` only returns the device base class [`BasicUPnPDevice.h`](../../src/api/BasicUPnPDevice.h) you need to implement a little logic to get access to the higher level device classes. The trick is to check the type and to cast the base class. See the following code (extract from the example's [`RootViewController`](../../projects/xcode7/upnpxdemo/upnpxdemo/RootViewController.m#L89-L97)):
 
 ```Objective-C
 //In this example we are interested in MediaServer1Devices
