@@ -36,10 +36,10 @@
 #import "UPnPManager.h"
 #import "BasicDeviceParser.h"
 
-@interface BasicUPnPDevice()
-    -(void)syncServices;
-@end
 
+@interface BasicUPnPDevice()
+- (void)syncServices;
+@end
 
 @implementation BasicUPnPDevice
 
@@ -71,7 +71,7 @@
 @synthesize serialNumber;
 
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
 
     if (self) {
@@ -87,7 +87,7 @@
     return self;
 }
 
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)ssdp {
     self = [self init];
     
     if (self) {
@@ -105,7 +105,7 @@
     return self;
 }
 
--(void)dealloc{
+- (void)dealloc {
 
     [services removeAllObjects];
     [services release];
@@ -135,9 +135,9 @@
     [super dealloc];
 }
 
--(int)loadDeviceDescriptionFromXML{
+- (int)loadDeviceDescriptionFromXML {
     int ret = 0;
-    if(xmlLocation == nil || [xmlLocation length] < 5){
+    if (xmlLocation == nil || [xmlLocation length] < 5) {
         return -1;
     }
 
@@ -145,12 +145,10 @@
     ret = [parser parse];
     [parser release];
 
-
     return ret;
 }
 
-
--(void)syncServices{
+- (void)syncServices {
     @autoreleasepool {
         //Sync 'services'
         SSDPDBDevice_ObjC *ssdpService = nil;
@@ -160,18 +158,19 @@
         NSMutableDictionary *toRemove = [[NSMutableDictionary alloc] initWithDictionary:services];
         NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
 
-        for(int x = 0;x < [ssdpservices count];x++){
+        for(int x = 0;x < [ssdpservices count];x++) {
             ssdpService = ssdpservices[x];
             upnpService = services[[ssdpService urn]];
 
-            if(upnpService == nil){
+            if (upnpService == nil) {
                 //We don't have the service, create a new one
                 upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
 
                 //we delay initialization of the service until we need it [upnpService process];
                 toAdd[[upnpService urn]] = upnpService;
                 [upnpService release];
-            }else{
+            }
+            else {
                 //remove from toremove
                 [toRemove removeObjectForKey:[ssdpService urn]];
             }
@@ -191,27 +190,23 @@
     }
 }
 
--(NSMutableDictionary*)getServices{ //BasicUPnPService[]
+- (NSMutableDictionary *)getServices{ //BasicUPnPService[]
     [self syncServices];
     return services;
 }
 
--(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn{
+- (BasicUPnPService *)getServiceForType:(NSString *)serviceUrn {
     BasicUPnPService *thisService = nil;
 
     [self syncServices];
 
     //Get service
     thisService = services[serviceUrn];
-    if(thisService != nil){
+    if (thisService != nil) {
         [thisService process];//can be called several times, we need to be sure it is done
     }
 
     return thisService;
 }
-
-
-
-
 
 @end

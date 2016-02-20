@@ -42,6 +42,7 @@
 #import "MediaPlaylist.h"
 #import "MediaServer1BasicObject.h"
 
+
 /*
  * Services:
  * M - RenderingControl:1.0 
@@ -49,6 +50,7 @@
  * O - AVTransport:1.0 
  */
 
+FOUNDATION_EXPORT NSString *const UPnPMediaRenderer1DeviceURN;
 
 @interface MediaRenderer1Device : BasicUPnPDevice <BasicUPnPServiceObserver> {
     SoapActionsAVTransport1 *mAvTransport;
@@ -67,18 +69,20 @@
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsRenderingControl1 *renderingControl;
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) SoapActionsConnectionManager1 *connectionManager;
 
+#pragma mark - Provided Services
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *avTransportService;
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *renderingControlService;
 @property (NS_NONATOMIC_IOSONLY, readonly, strong) BasicUPnPService *connectionManagerService;
 
--(BOOL)supportProtocol:(NSString*)protocolInfo withCache:(BOOL)useCache;
+- (BOOL)supportProtocol:(NSString *)protocolInfo withCache:(BOOL)useCache;
 
+#pragma mark - Playing Media
 @property (NS_NONATOMIC_IOSONLY, readonly) int play;
--(int)playWithMedia:(MediaServer1BasicObject*)media;
+- (int)playWithMedia:(MediaServer1BasicObject *)media;
 
 @property(readonly) MediaPlaylist *playList;
 
-//BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
+#pragma mark - BasicUPnPServiceObserver
+- (void)UPnPEvent:(BasicUPnPService *)sender events:(NSDictionary*)events;
 
 @end
