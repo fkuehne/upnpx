@@ -33,6 +33,8 @@
 
 #import <Foundation/Foundation.h>
 
+//TODO: Frank Gregor started these constant includes due to get rid of all the 'magic strings' to prevent possible error sources.
+//      This isn't a complete transition. I started with just the services I needed for my project.
 #import "UPnPServiceConstantsAVTransport1.h"
 #import "UPnPServiceConstantsRenderingControl1.h"
 #import "UPnPServiceConstantsConnectionManager1.h"
