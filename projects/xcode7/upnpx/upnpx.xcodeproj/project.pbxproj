@@ -1090,6 +1090,60 @@
 		4EB7CE6B1C1AD4B500768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EB7CE6C1C1AD4B600768FF0 /* upnpx.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB7CC2E1C1ACA0C00768FF0 /* upnpx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DCA8D9F1B25A7D700946349 /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */; };
+		FD65B9741C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9751C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9761C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9771C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9781C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9791C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */; };
+		FD65B9821C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9831C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9841C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9851C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9861C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9871C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */; };
+		FD65B9881C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B9891C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B98A1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B98B1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B98C1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B98D1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */; };
+		FD65B9901C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9911C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9921C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9931C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9941C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9951C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */; };
+		FD65B9961C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B9971C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B9981C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B9991C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B99A1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B99B1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */; };
+		FD65B99E1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B99F1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B9A01C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B9A11C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B9A21C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B9A31C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */; };
+		FD65B9A41C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9A51C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9A61C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9A71C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9A81C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9A91C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */; };
+		FD65B9AC1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9AD1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9AE1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9AF1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9B01C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9B11C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */; };
+		FD65B9B21C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
+		FD65B9B31C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
+		FD65B9B41C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
+		FD65B9B51C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
+		FD65B9B61C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
+		FD65B9B71C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1288,6 +1342,15 @@
 		4EB7CE651C1AD16000768FF0 /* upnpx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = upnpx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB7CE671C1AD3E200768FF0 /* UIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIImage.m; path = ../../../../src/port/macos/UIImage.m; sourceTree = "<group>"; };
 		7DCA8D9E1B25A7D700946349 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../../src/api/OrderedDictionary.h; sourceTree = "<group>"; };
+		FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPServiceConstants.h; path = ../../../../src/upnp/UPnPServiceConstants.h; sourceTree = "<group>"; };
+		FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPServiceConstantsAVTransport1.h; path = ../../../../src/upnp/UPnPServiceConstantsAVTransport1.h; sourceTree = "<group>"; };
+		FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPServiceConstantsAVTransport1.m; path = ../../../../src/upnp/UPnPServiceConstantsAVTransport1.m; sourceTree = "<group>"; };
+		FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPServiceConstantsRenderingControl1.h; path = ../../../../src/upnp/UPnPServiceConstantsRenderingControl1.h; sourceTree = "<group>"; };
+		FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPServiceConstantsRenderingControl1.m; path = ../../../../src/upnp/UPnPServiceConstantsRenderingControl1.m; sourceTree = "<group>"; };
+		FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPServiceConstantsConnectionManager1.h; path = ../../../../src/upnp/UPnPServiceConstantsConnectionManager1.h; sourceTree = "<group>"; };
+		FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPServiceConstantsConnectionManager1.m; path = ../../../../src/upnp/UPnPServiceConstantsConnectionManager1.m; sourceTree = "<group>"; };
+		FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPnPServiceConstantsContentDirectory1.h; path = ../../../../src/upnp/UPnPServiceConstantsContentDirectory1.h; sourceTree = "<group>"; };
+		FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPnPServiceConstantsContentDirectory1.m; path = ../../../../src/upnp/UPnPServiceConstantsContentDirectory1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1548,32 +1611,6 @@
 		15BAC506132C2F8C00F5C41A /* upnp */ = {
 			isa = PBXGroup;
 			children = (
-				1541026213D2762A000894ED /* OrderedDictionary.m */,
-				15055E941391E2C1003DE49F /* SoapActionsCallManagement1.m */,
-				15055E951391E2C1003DE49F /* SoapActionsConfigurationManagement1.m */,
-				15055E961391E2C1003DE49F /* SoapActionsDeviceProtection1.m */,
-				15055E971391E2C1003DE49F /* SoapActionsInputConfig1.m */,
-				15055E981391E2C1003DE49F /* SoapActionsMediaManagement1.m */,
-				15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */,
-				15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */,
-				15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */,
-				15584047139134E900A734E7 /* DigitalSecurityCamera1Device.m */,
-				15584048139134E900A734E7 /* InternetGateway2Device.m */,
-				15584049139134E900A734E7 /* LAN1Device.m */,
-				1558404A139134E900A734E7 /* SoapActionsDigitalSecurityCameraMotionImage1.m */,
-				1558404B139134E900A734E7 /* SoapActionsDigitalSecurityCameraSettings1.m */,
-				1558404C139134E900A734E7 /* SoapActionsDigitalSecurityCameraStillImage1.m */,
-				1558404D139134E900A734E7 /* SoapActionsLANHostConfigManagement1.m */,
-				1558404E139134E900A734E7 /* SoapActionsLayer3Forwarding1.m */,
-				1558404F139134E900A734E7 /* SoapActionsWANCableLinkConfig1.m */,
-				15584050139134E900A734E7 /* SoapActionsWANCommonInterfaceConfig1.m */,
-				15584051139134E900A734E7 /* SoapActionsWANDSLLinkConfig1.m */,
-				15584052139134E900A734E7 /* SoapActionsWANEthernetLinkConfig1.m */,
-				15584053139134E900A734E7 /* SoapActionsWANIPConnection2.m */,
-				15584054139134E900A734E7 /* SoapActionsWANIPv6FirewallControl1.m */,
-				15584055139134E900A734E7 /* SoapActionsWANPOTSLinkConfig1.m */,
-				15584056139134E900A734E7 /* WAN2Device.m */,
-				15584057139134E900A734E7 /* WANConnection2Device.m */,
 				15C44DFB132C30490013D453 /* BasicDeviceParser.m */,
 				15C44DFD132C30490013D453 /* BasicParser.m */,
 				15C44DFF132C30490013D453 /* BasicParserAsset.m */,
@@ -1583,7 +1620,10 @@
 				15C44E07132C30490013D453 /* BinaryLight1Device.m */,
 				15C44E09132C30490013D453 /* CocoaTools.m */,
 				15C44E0B132C30490013D453 /* DeviceFactory.m */,
+				15584047139134E900A734E7 /* DigitalSecurityCamera1Device.m */,
 				15C44E0C132C30490013D453 /* DimmableLigh1tDevice.m */,
+				15584048139134E900A734E7 /* InternetGateway2Device.m */,
+				15584049139134E900A734E7 /* LAN1Device.m */,
 				15C44E0F132C30490013D453 /* LastChangeParser.m */,
 				15C44E11132C30490013D453 /* MediaPlaylist.m */,
 				15C44E13132C30490013D453 /* MediaRenderer1Device.m */,
@@ -1591,26 +1631,58 @@
 				15C44E17132C30490013D453 /* MediaServer1ContainerObject.m */,
 				15C44E19132C30490013D453 /* MediaServer1Device.m */,
 				15C44E1B132C30490013D453 /* MediaServer1ItemObject.m */,
+				15004515141298E900ED553F /* MediaServer1ItemRes.m */,
 				15C44E1D132C30490013D453 /* MediaServerBasicObjectParser.m */,
+				1541026213D2762A000894ED /* OrderedDictionary.m */,
 				15C44E21132C30490013D453 /* SoapAction.m */,
 				15C44E25132C30490013D453 /* SoapActionsAVTransport1.m */,
+				15055E941391E2C1003DE49F /* SoapActionsCallManagement1.m */,
+				15055E951391E2C1003DE49F /* SoapActionsConfigurationManagement1.m */,
 				15C44E27132C30490013D453 /* SoapActionsConnectionManager1.m */,
 				15C44E29132C30490013D453 /* SoapActionsContentDirectory1.m */,
+				15055E961391E2C1003DE49F /* SoapActionsDeviceProtection1.m */,
+				1558404A139134E900A734E7 /* SoapActionsDigitalSecurityCameraMotionImage1.m */,
+				1558404B139134E900A734E7 /* SoapActionsDigitalSecurityCameraSettings1.m */,
+				1558404C139134E900A734E7 /* SoapActionsDigitalSecurityCameraStillImage1.m */,
 				15C44E2B132C30490013D453 /* SoapActionsDimming1.m */,
+				15055E971391E2C1003DE49F /* SoapActionsInputConfig1.m */,
+				1558404D139134E900A734E7 /* SoapActionsLANHostConfigManagement1.m */,
+				1558404E139134E900A734E7 /* SoapActionsLayer3Forwarding1.m */,
+				15055E981391E2C1003DE49F /* SoapActionsMediaManagement1.m */,
+				15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */,
 				15C44E2D132C30490013D453 /* SoapActionsRendering.m */,
 				15C44E2F132C30490013D453 /* SoapActionsRenderingControl1.m */,
 				15C44E31132C30490013D453 /* SoapActionsSwitchPower1.m */,
+				1558404F139134E900A734E7 /* SoapActionsWANCableLinkConfig1.m */,
+				15584050139134E900A734E7 /* SoapActionsWANCommonInterfaceConfig1.m */,
+				15584051139134E900A734E7 /* SoapActionsWANDSLLinkConfig1.m */,
+				15584052139134E900A734E7 /* SoapActionsWANEthernetLinkConfig1.m */,
 				15C44E33132C30490013D453 /* SoapActionsWANIPConnection1.m */,
+				15584053139134E900A734E7 /* SoapActionsWANIPConnection2.m */,
+				15584054139134E900A734E7 /* SoapActionsWANIPv6FirewallControl1.m */,
+				15584055139134E900A734E7 /* SoapActionsWANPOTSLinkConfig1.m */,
 				15C44E35132C30490013D453 /* SoapActionsWANPPPConnection1.m */,
 				15C44E37132C30490013D453 /* StateVariable.m */,
 				15C44E39132C30490013D453 /* StateVariableList.m */,
 				15C44E3B132C30490013D453 /* StateVariableRange.m */,
+				15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */,
+				15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */,
 				15C44E3E132C30490013D453 /* UPnPDB.m */,
 				15C44E40132C30490013D453 /* UPnPEventParser.m */,
 				15C44E42132C30490013D453 /* UPnPEvents.m */,
 				15C44E44132C30490013D453 /* UPnPManager.m */,
+				FD65B9721C78EBDD00AA5E50 /* UPnPServiceConstants.h */,
+				FD65B9801C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h */,
+				FD65B9811C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m */,
+				FD65B99C1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h */,
+				FD65B99D1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m */,
+				FD65B9AA1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h */,
+				FD65B9AB1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m */,
+				FD65B98E1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h */,
+				FD65B98F1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m */,
+				15584056139134E900A734E7 /* WAN2Device.m */,
 				15C44E46132C30490013D453 /* WANConnection1Device.m */,
-				15004515141298E900ED553F /* MediaServer1ItemRes.m */,
+				15584057139134E900A734E7 /* WANConnection2Device.m */,
 			);
 			name = upnp;
 			sourceTree = "<group>";
@@ -1633,6 +1705,7 @@
 			files = (
 				15C44D9F132C30000013D453 /* basichttpobserver.h in Headers */,
 				15C44DA3132C30000013D453 /* basichttpserver.h in Headers */,
+				FD65B99E1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				15C44DA5132C30000013D453 /* httpsession.h in Headers */,
 				15C44DA6132C30000013D453 /* SocketServer_ObjC.h in Headers */,
 				15C44DA9132C30000013D453 /* socketserver.h in Headers */,
@@ -1646,6 +1719,7 @@
 				15C44DDF132C302D0013D453 /* ssdpdbdevice.h in Headers */,
 				15C44DE0132C302D0013D453 /* ssdpdbobserver.h in Headers */,
 				15C44DE2132C302D0013D453 /* ssdphttp.h in Headers */,
+				FD65B9821C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				15C44DE4132C302D0013D453 /* ssdpmessage.h in Headers */,
 				15C44DE6132C302D0013D453 /* ssdpmsearch.h in Headers */,
 				15C44DE8132C302D0013D453 /* ssdpnotify.h in Headers */,
@@ -1682,6 +1756,7 @@
 				15C44F46132C45B60013D453 /* SoapActionsContentDirectory1.h in Headers */,
 				15C44F47132C45B60013D453 /* SoapActionsRenderingControl1.h in Headers */,
 				15C44F48132C45B60013D453 /* UPnPManager.h in Headers */,
+				FD65B9741C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				15583F2F138F448E00A734E7 /* MediaServerBasicObjectParser.h in Headers */,
 				155840321391349900A734E7 /* DigitalSecurityCamera1Device.h in Headers */,
 				155840331391349900A734E7 /* InternetGateway2Device.h in Headers */,
@@ -1707,12 +1782,14 @@
 				15055E8C1391E2A4003DE49F /* SoapActionsConfigurationManagement1.h in Headers */,
 				15055E8D1391E2A4003DE49F /* SoapActionsDeviceProtection1.h in Headers */,
 				15055E8E1391E2A4003DE49F /* SoapActionsInputConfig1.h in Headers */,
+				FD65B9AC1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
 				15055E8F1391E2A4003DE49F /* SoapActionsMediaManagement1.h in Headers */,
 				15055E901391E2A4003DE49F /* SoapActionsMessaging1.h in Headers */,
 				15055E911391E2A4003DE49F /* TelephonyClient1Device.h in Headers */,
 				15055E921391E2A4003DE49F /* TelephonyServer1Device.h in Headers */,
 				154978C71393D863008A5BD4 /* BinaryLight1Device.h in Headers */,
 				154978C81393D863008A5BD4 /* DimmableLight1Device.h in Headers */,
+				FD65B9901C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				1556AB241393DC480059635A /* BasicDeviceParser.h in Headers */,
 				1556AB251393DC480059635A /* BasicServiceParser.h in Headers */,
 				1556AB261393DC480059635A /* CocoaTools.h in Headers */,
@@ -1731,6 +1808,7 @@
 			files = (
 				4E85E6E91C1AC6E8004601E0 /* basichttpobserver.h in Headers */,
 				4E85E6EA1C1AC6E8004601E0 /* basichttpserver.h in Headers */,
+				FD65B99F1C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				4E85E6EB1C1AC6E8004601E0 /* httpsession.h in Headers */,
 				4E85E6EC1C1AC6E8004601E0 /* SocketServer_ObjC.h in Headers */,
 				4E85E6ED1C1AC6E8004601E0 /* socketserver.h in Headers */,
@@ -1744,6 +1822,7 @@
 				4E85E6F51C1AC6E8004601E0 /* ssdpdbdevice.h in Headers */,
 				4E85E6F61C1AC6E8004601E0 /* ssdpdbobserver.h in Headers */,
 				4E85E6F71C1AC6E8004601E0 /* ssdphttp.h in Headers */,
+				FD65B9831C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				4E85E6F81C1AC6E8004601E0 /* ssdpmessage.h in Headers */,
 				4E85E6F91C1AC6E8004601E0 /* ssdpmsearch.h in Headers */,
 				4E85E6FA1C1AC6E8004601E0 /* ssdpnotify.h in Headers */,
@@ -1780,6 +1859,7 @@
 				4E85E71A1C1AC6E8004601E0 /* SoapActionsContentDirectory1.h in Headers */,
 				4E85E71B1C1AC6E8004601E0 /* SoapActionsRenderingControl1.h in Headers */,
 				4E85E71C1C1AC6E8004601E0 /* UPnPManager.h in Headers */,
+				FD65B9751C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				4E85E71D1C1AC6E8004601E0 /* MediaServerBasicObjectParser.h in Headers */,
 				4E85E71E1C1AC6E8004601E0 /* DigitalSecurityCamera1Device.h in Headers */,
 				4E85E71F1C1AC6E8004601E0 /* InternetGateway2Device.h in Headers */,
@@ -1805,12 +1885,14 @@
 				4E85E7331C1AC6E8004601E0 /* SoapActionsConfigurationManagement1.h in Headers */,
 				4E85E7341C1AC6E8004601E0 /* SoapActionsDeviceProtection1.h in Headers */,
 				4E85E7351C1AC6E8004601E0 /* SoapActionsInputConfig1.h in Headers */,
+				FD65B9AD1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
 				4E85E7361C1AC6E8004601E0 /* SoapActionsMediaManagement1.h in Headers */,
 				4E85E7371C1AC6E8004601E0 /* SoapActionsMessaging1.h in Headers */,
 				4E85E7381C1AC6E8004601E0 /* TelephonyClient1Device.h in Headers */,
 				4E85E7391C1AC6E8004601E0 /* TelephonyServer1Device.h in Headers */,
 				4E85E73A1C1AC6E8004601E0 /* BinaryLight1Device.h in Headers */,
 				4E85E73B1C1AC6E8004601E0 /* DimmableLight1Device.h in Headers */,
+				FD65B9911C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				4E85E73C1C1AC6E8004601E0 /* BasicDeviceParser.h in Headers */,
 				4E85E73D1C1AC6E8004601E0 /* BasicServiceParser.h in Headers */,
 				4E85E73E1C1AC6E8004601E0 /* CocoaTools.h in Headers */,
@@ -1829,6 +1911,7 @@
 			files = (
 				4E85E7A51C1AC7FF004601E0 /* basichttpobserver.h in Headers */,
 				4E85E7A61C1AC7FF004601E0 /* basichttpserver.h in Headers */,
+				FD65B9A01C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				4E85E7A71C1AC7FF004601E0 /* httpsession.h in Headers */,
 				4E85E7A81C1AC7FF004601E0 /* SocketServer_ObjC.h in Headers */,
 				4E85E7A91C1AC7FF004601E0 /* socketserver.h in Headers */,
@@ -1842,6 +1925,7 @@
 				4E85E7B11C1AC7FF004601E0 /* ssdpdbdevice.h in Headers */,
 				4E85E7B21C1AC7FF004601E0 /* ssdpdbobserver.h in Headers */,
 				4E85E7B31C1AC7FF004601E0 /* ssdphttp.h in Headers */,
+				FD65B9841C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				4E85E7B41C1AC7FF004601E0 /* ssdpmessage.h in Headers */,
 				4E85E7B51C1AC7FF004601E0 /* ssdpmsearch.h in Headers */,
 				4E85E7B61C1AC7FF004601E0 /* ssdpnotify.h in Headers */,
@@ -1878,6 +1962,7 @@
 				4E85E7D61C1AC7FF004601E0 /* SoapActionsContentDirectory1.h in Headers */,
 				4E85E7D71C1AC7FF004601E0 /* SoapActionsRenderingControl1.h in Headers */,
 				4E85E7D81C1AC7FF004601E0 /* UPnPManager.h in Headers */,
+				FD65B9761C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				4E85E7D91C1AC7FF004601E0 /* MediaServerBasicObjectParser.h in Headers */,
 				4E85E7DA1C1AC7FF004601E0 /* DigitalSecurityCamera1Device.h in Headers */,
 				4E85E7DB1C1AC7FF004601E0 /* InternetGateway2Device.h in Headers */,
@@ -1903,12 +1988,14 @@
 				4E85E7EF1C1AC7FF004601E0 /* SoapActionsConfigurationManagement1.h in Headers */,
 				4E85E7F01C1AC7FF004601E0 /* SoapActionsDeviceProtection1.h in Headers */,
 				4E85E7F11C1AC7FF004601E0 /* SoapActionsInputConfig1.h in Headers */,
+				FD65B9AE1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
 				4E85E7F21C1AC7FF004601E0 /* SoapActionsMediaManagement1.h in Headers */,
 				4E85E7F31C1AC7FF004601E0 /* SoapActionsMessaging1.h in Headers */,
 				4E85E7F41C1AC7FF004601E0 /* TelephonyClient1Device.h in Headers */,
 				4E85E7F51C1AC7FF004601E0 /* TelephonyServer1Device.h in Headers */,
 				4E85E7F61C1AC7FF004601E0 /* BinaryLight1Device.h in Headers */,
 				4E85E7F71C1AC7FF004601E0 /* DimmableLight1Device.h in Headers */,
+				FD65B9921C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				4E85E7F81C1AC7FF004601E0 /* BasicDeviceParser.h in Headers */,
 				4E85E7F91C1AC7FF004601E0 /* BasicServiceParser.h in Headers */,
 				4E85E7FA1C1AC7FF004601E0 /* CocoaTools.h in Headers */,
@@ -1936,6 +2023,7 @@
 				4EB7CC471C1ACA6C00768FF0 /* TelephonyServer1Device.h in Headers */,
 				4EB7CC421C1ACA6C00768FF0 /* SoapActionsDeviceProtection1.h in Headers */,
 				4EB7CC3C1C1ACA6C00768FF0 /* StateVariableList.h in Headers */,
+				FD65B9AF1C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
 				4EB7CC691C1ACA6C00768FF0 /* SoapActionsDigitalSecurityCameraStillImage1.h in Headers */,
 				4EB7CC531C1ACA6C00768FF0 /* MediaServer1Device.h in Headers */,
 				4EB7CC511C1ACA6C00768FF0 /* MediaServer1BasicObject.h in Headers */,
@@ -1954,6 +2042,7 @@
 				4EB7CC641C1ACA6C00768FF0 /* SoapActionsConnectionManager1.h in Headers */,
 				4EB7CC501C1ACA6C00768FF0 /* MediaRenderer1Device.h in Headers */,
 				4EB7CC391C1ACA6C00768FF0 /* SoapActionsDimming1.h in Headers */,
+				FD65B9771C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				4EB7CC411C1ACA6C00768FF0 /* SoapActionsConfigurationManagement1.h in Headers */,
 				4EB7CC3F1C1ACA6C00768FF0 /* DimmableLight1Device.h in Headers */,
 				4EB7CC581C1ACA6C00768FF0 /* BasicParser.h in Headers */,
@@ -1968,6 +2057,7 @@
 				4EB7CC6A1C1ACA6C00768FF0 /* SoapActionsLANHostConfigManagement1.h in Headers */,
 				4EB7CC4B1C1ACA6C00768FF0 /* WAN2Device.h in Headers */,
 				4EB7CC651C1ACA6C00768FF0 /* SoapActionsContentDirectory1.h in Headers */,
+				FD65B9931C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				4EB7CC4E1C1ACA6C00768FF0 /* DeviceFactory.h in Headers */,
 				4EB7CC521C1ACA6C00768FF0 /* MediaServer1ContainerObject.h in Headers */,
 				4EB7CC571C1ACA6C00768FF0 /* BasicHTTPServer_ObjC.h in Headers */,
@@ -1978,6 +2068,7 @@
 				4EB7CC6C1C1ACA6C00768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
 				4EB7CC741C1ACA6C00768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CC731C1ACA6C00768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
+				FD65B9A11C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				4EB7CC551C1ACA6C00768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CC461C1ACA6C00768FF0 /* TelephonyClient1Device.h in Headers */,
 				4EB7CC3A1C1ACA6C00768FF0 /* SoapActionsRendering.h in Headers */,
@@ -2004,6 +2095,7 @@
 				4EB7CC8E1C1ACA8500768FF0 /* ssdpdbobserver.h in Headers */,
 				4EB7CC901C1ACA8500768FF0 /* ssdphttp.h in Headers */,
 				4EB7CC981C1ACA8500768FF0 /* ssdpnotifyalive.h in Headers */,
+				FD65B9851C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				4EB7CC921C1ACA8500768FF0 /* ssdpmessage.h in Headers */,
 				4EB7CC881C1ACA8500768FF0 /* ssdp.h in Headers */,
 				4EB7CC791C1ACA7E00768FF0 /* basichttpobserver.h in Headers */,
@@ -2036,6 +2128,7 @@
 				4EB7CD4E1C1AD0D300768FF0 /* TelephonyServer1Device.h in Headers */,
 				4EB7CD4F1C1AD0D300768FF0 /* SoapActionsDeviceProtection1.h in Headers */,
 				4EB7CD501C1AD0D300768FF0 /* StateVariableList.h in Headers */,
+				FD65B9B01C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
 				4EB7CD511C1AD0D300768FF0 /* SoapActionsDigitalSecurityCameraStillImage1.h in Headers */,
 				4EB7CD521C1AD0D300768FF0 /* MediaServer1Device.h in Headers */,
 				4EB7CD531C1AD0D300768FF0 /* MediaServer1BasicObject.h in Headers */,
@@ -2054,6 +2147,7 @@
 				4EB7CD601C1AD0D300768FF0 /* SoapActionsConnectionManager1.h in Headers */,
 				4EB7CD611C1AD0D300768FF0 /* MediaRenderer1Device.h in Headers */,
 				4EB7CD621C1AD0D300768FF0 /* SoapActionsDimming1.h in Headers */,
+				FD65B9781C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				4EB7CD631C1AD0D300768FF0 /* SoapActionsConfigurationManagement1.h in Headers */,
 				4EB7CD641C1AD0D300768FF0 /* DimmableLight1Device.h in Headers */,
 				4EB7CD651C1AD0D300768FF0 /* BasicParser.h in Headers */,
@@ -2068,6 +2162,7 @@
 				4EB7CD6E1C1AD0D300768FF0 /* SoapActionsLANHostConfigManagement1.h in Headers */,
 				4EB7CD6F1C1AD0D300768FF0 /* WAN2Device.h in Headers */,
 				4EB7CD701C1AD0D300768FF0 /* SoapActionsContentDirectory1.h in Headers */,
+				FD65B9941C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				4EB7CD711C1AD0D300768FF0 /* DeviceFactory.h in Headers */,
 				4EB7CD721C1AD0D300768FF0 /* MediaServer1ContainerObject.h in Headers */,
 				4EB7CD731C1AD0D300768FF0 /* BasicHTTPServer_ObjC.h in Headers */,
@@ -2078,6 +2173,7 @@
 				4EB7CD781C1AD0D300768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
 				4EB7CD791C1AD0D300768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CD7A1C1AD0D300768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
+				FD65B9A21C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				4EB7CD7B1C1AD0D300768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CD7C1C1AD0D300768FF0 /* TelephonyClient1Device.h in Headers */,
 				4EB7CD7D1C1AD0D300768FF0 /* SoapActionsRendering.h in Headers */,
@@ -2104,6 +2200,7 @@
 				4EB7CD921C1AD0D300768FF0 /* ssdpdbobserver.h in Headers */,
 				4EB7CD931C1AD0D300768FF0 /* ssdphttp.h in Headers */,
 				4EB7CD941C1AD0D300768FF0 /* ssdpnotifyalive.h in Headers */,
+				FD65B9861C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				4EB7CD951C1AD0D300768FF0 /* ssdpmessage.h in Headers */,
 				4EB7CD961C1AD0D300768FF0 /* ssdp.h in Headers */,
 				4EB7CD971C1AD0D300768FF0 /* basichttpobserver.h in Headers */,
@@ -2137,6 +2234,7 @@
 				4EB7CE0D1C1AD16000768FF0 /* SoapActionsDeviceProtection1.h in Headers */,
 				4EB7CE0E1C1AD16000768FF0 /* StateVariableList.h in Headers */,
 				4EB7CE0F1C1AD16000768FF0 /* SoapActionsDigitalSecurityCameraStillImage1.h in Headers */,
+				FD65B9871C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.h in Headers */,
 				4EB7CE101C1AD16000768FF0 /* MediaServer1Device.h in Headers */,
 				4EB7CE111C1AD16000768FF0 /* MediaServer1BasicObject.h in Headers */,
 				4EB7CE121C1AD16000768FF0 /* UPnPEvents.h in Headers */,
@@ -2176,10 +2274,12 @@
 				4EB7CE341C1AD16000768FF0 /* SoapActionsWANIPConnection2.h in Headers */,
 				4EB7CE351C1AD16000768FF0 /* SoapActionsAVTransport1.h in Headers */,
 				4EB7CE361C1AD16000768FF0 /* SoapActionsWANCableLinkConfig1.h in Headers */,
+				FD65B9951C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.h in Headers */,
 				4EB7CE371C1AD16000768FF0 /* SoapActionsWANPPPConnection1.h in Headers */,
 				4EB7CE381C1AD16000768FF0 /* SoapActionsWANPOTSLinkConfig1.h in Headers */,
 				4EB7CE391C1AD16000768FF0 /* MediaServerBasicObjectParser.h in Headers */,
 				4EB7CE3A1C1AD16000768FF0 /* TelephonyClient1Device.h in Headers */,
+				FD65B9791C78EBDD00AA5E50 /* UPnPServiceConstants.h in Headers */,
 				4EB7CE3B1C1AD16000768FF0 /* SoapActionsRendering.h in Headers */,
 				4EB7CE3C1C1AD16000768FF0 /* BinaryLight1Device.h in Headers */,
 				4EB7CE3D1C1AD16000768FF0 /* StateVariableRange.h in Headers */,
@@ -2189,6 +2289,8 @@
 				4EB7CE411C1AD16000768FF0 /* UPnPDB.h in Headers */,
 				4EB7CE421C1AD16000768FF0 /* LAN1Device.h in Headers */,
 				4EB7CE431C1AD16000768FF0 /* SoapActionsSwitchPower1.h in Headers */,
+				FD65B9B11C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.h in Headers */,
+				FD65B9A31C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.h in Headers */,
 				4EB7CE441C1AD16000768FF0 /* UPnPEventParser.h in Headers */,
 				4E0A1E411C1AE8EA00BB3B31 /* iphoneport.h in Headers */,
 				4E0A1E431C1AE8F200BB3B31 /* UIImage.h in Headers */,
@@ -2418,6 +2520,7 @@
 				15C44DF2132C302D0013D453 /* ssdpsearchreq.cpp in Sources */,
 				15C44DF4132C302D0013D453 /* ssdpsearchresp.cpp in Sources */,
 				15C44DF6132C302D0013D453 /* ssdptools.cpp in Sources */,
+				FD65B9881C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				15C44DF8132C302D0013D453 /* upnp.cpp in Sources */,
 				15C44E48132C30490013D453 /* BasicDeviceParser.m in Sources */,
 				15C44E4A132C30490013D453 /* BasicParser.m in Sources */,
@@ -2441,6 +2544,7 @@
 				15C44E72132C30490013D453 /* SoapActionsAVTransport1.m in Sources */,
 				15C44E74132C30490013D453 /* SoapActionsConnectionManager1.m in Sources */,
 				15C44E76132C30490013D453 /* SoapActionsContentDirectory1.m in Sources */,
+				FD65B9B21C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				15C44E78132C30490013D453 /* SoapActionsDimming1.m in Sources */,
 				15C44E7A132C30490013D453 /* SoapActionsRendering.m in Sources */,
 				15C44E7C132C30490013D453 /* SoapActionsRenderingControl1.m in Sources */,
@@ -2458,6 +2562,7 @@
 				15584058139134E900A734E7 /* DigitalSecurityCamera1Device.m in Sources */,
 				15584059139134E900A734E7 /* InternetGateway2Device.m in Sources */,
 				1558405A139134E900A734E7 /* LAN1Device.m in Sources */,
+				FD65B9961C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				1558405B139134E900A734E7 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */,
 				1558405C139134E900A734E7 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */,
 				1558405D139134E900A734E7 /* SoapActionsDigitalSecurityCameraStillImage1.m in Sources */,
@@ -2481,6 +2586,7 @@
 				15055EA21391E2C1003DE49F /* TelephonyClient1Device.m in Sources */,
 				15055EA31391E2C1003DE49F /* TelephonyServer1Device.m in Sources */,
 				1541026413D2762A000894ED /* OrderedDictionary.m in Sources */,
+				FD65B9A41C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				15004517141298EA00ED553F /* MediaServer1ItemRes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2512,6 +2618,7 @@
 				4E85E6A31C1AC6E8004601E0 /* ssdpsearchreq.cpp in Sources */,
 				4E85E6A41C1AC6E8004601E0 /* ssdpsearchresp.cpp in Sources */,
 				4E85E6A51C1AC6E8004601E0 /* ssdptools.cpp in Sources */,
+				FD65B9891C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				4E85E6A61C1AC6E8004601E0 /* upnp.cpp in Sources */,
 				4E85E6A71C1AC6E8004601E0 /* BasicDeviceParser.m in Sources */,
 				4E85E6A81C1AC6E8004601E0 /* BasicParser.m in Sources */,
@@ -2535,6 +2642,7 @@
 				4E85E6BA1C1AC6E8004601E0 /* SoapActionsAVTransport1.m in Sources */,
 				4E85E6BB1C1AC6E8004601E0 /* SoapActionsConnectionManager1.m in Sources */,
 				4E85E6BC1C1AC6E8004601E0 /* SoapActionsContentDirectory1.m in Sources */,
+				FD65B9B31C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				4E85E6BD1C1AC6E8004601E0 /* SoapActionsDimming1.m in Sources */,
 				4E85E6BE1C1AC6E8004601E0 /* SoapActionsRendering.m in Sources */,
 				4E85E6BF1C1AC6E8004601E0 /* SoapActionsRenderingControl1.m in Sources */,
@@ -2552,6 +2660,7 @@
 				4E85E6CB1C1AC6E8004601E0 /* DigitalSecurityCamera1Device.m in Sources */,
 				4E85E6CC1C1AC6E8004601E0 /* InternetGateway2Device.m in Sources */,
 				4E85E6CD1C1AC6E8004601E0 /* LAN1Device.m in Sources */,
+				FD65B9971C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				4E85E6CE1C1AC6E8004601E0 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */,
 				4E85E6CF1C1AC6E8004601E0 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */,
 				4E85E6D01C1AC6E8004601E0 /* SoapActionsDigitalSecurityCameraStillImage1.m in Sources */,
@@ -2575,6 +2684,7 @@
 				4E85E6E21C1AC6E8004601E0 /* TelephonyClient1Device.m in Sources */,
 				4E85E6E31C1AC6E8004601E0 /* TelephonyServer1Device.m in Sources */,
 				4E85E6E41C1AC6E8004601E0 /* OrderedDictionary.m in Sources */,
+				FD65B9A51C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				4E85E6E51C1AC6E8004601E0 /* MediaServer1ItemRes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2585,6 +2695,7 @@
 			files = (
 				4EB7CE681C1AD3E200768FF0 /* UIImage.m in Sources */,
 				4E85E74B1C1AC7FF004601E0 /* BasicHTTPServer_ObjC.mm in Sources */,
+				FD65B9981C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				4E85E74C1C1AC7FF004601E0 /* basichttpserver.cpp in Sources */,
 				4E85E74D1C1AC7FF004601E0 /* httpsession.cpp in Sources */,
 				4E85E74E1C1AC7FF004601E0 /* SocketServer_ObjC.mm in Sources */,
@@ -2594,6 +2705,7 @@
 				4E85E7521C1AC7FF004601E0 /* main.mm in Sources */,
 				4E85E7531C1AC7FF004601E0 /* ssdp.cpp in Sources */,
 				4E85E7541C1AC7FF004601E0 /* SSDPDB_ObjC.mm in Sources */,
+				FD65B9B41C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				4E85E7551C1AC7FF004601E0 /* ssdpdb.cpp in Sources */,
 				4E85E7561C1AC7FF004601E0 /* ssdpdbdevice.cpp in Sources */,
 				4E85E7571C1AC7FF004601E0 /* ssdphttp.cpp in Sources */,
@@ -2628,6 +2740,7 @@
 				4E85E7741C1AC7FF004601E0 /* MediaServerBasicObjectParser.m in Sources */,
 				4E85E7751C1AC7FF004601E0 /* SoapAction.m in Sources */,
 				4E85E7761C1AC7FF004601E0 /* SoapActionsAVTransport1.m in Sources */,
+				FD65B9A61C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				4E85E7771C1AC7FF004601E0 /* SoapActionsConnectionManager1.m in Sources */,
 				4E85E7781C1AC7FF004601E0 /* SoapActionsContentDirectory1.m in Sources */,
 				4E85E7791C1AC7FF004601E0 /* SoapActionsDimming1.m in Sources */,
@@ -2638,6 +2751,7 @@
 				4E85E77E1C1AC7FF004601E0 /* SoapActionsWANPPPConnection1.m in Sources */,
 				4E85E77F1C1AC7FF004601E0 /* StateVariable.m in Sources */,
 				4E85E7801C1AC7FF004601E0 /* StateVariableList.m in Sources */,
+				FD65B98A1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				4E85E7811C1AC7FF004601E0 /* StateVariableRange.m in Sources */,
 				4E85E7821C1AC7FF004601E0 /* UPnPDB.m in Sources */,
 				4E85E7831C1AC7FF004601E0 /* UPnPEventParser.m in Sources */,
@@ -2701,6 +2815,7 @@
 				4EB7CC871C1ACA8500768FF0 /* ssdp.cpp in Sources */,
 				4EB7CC7B1C1ACA7E00768FF0 /* basichttpserver.cpp in Sources */,
 				4EB7CC811C1ACA7E00768FF0 /* socketserver.cpp in Sources */,
+				FD65B98B1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				4EB7CCD41C1ACA8F00768FF0 /* SoapAction.m in Sources */,
 				4EB7CCAF1C1ACA8F00768FF0 /* TelephonyClient1Device.m in Sources */,
 				4EB7CCAC1C1ACA8F00768FF0 /* SoapActionsInputConfig1.m in Sources */,
@@ -2724,6 +2839,7 @@
 				4EB7CCA41C1ACA8500768FF0 /* ssdptools.cpp in Sources */,
 				4EB7CCBF1C1ACA8F00768FF0 /* SoapActionsWANPOTSLinkConfig1.m in Sources */,
 				4EB7CCC71C1ACA8F00768FF0 /* BasicUPnPService.m in Sources */,
+				FD65B9B51C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				4EB7CC801C1ACA7E00768FF0 /* SocketServer_ObjC.mm in Sources */,
 				4EB7CCC51C1ACA8F00768FF0 /* BasicServiceParser.m in Sources */,
 				4EB7CCB51C1ACA8F00768FF0 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */,
@@ -2741,6 +2857,7 @@
 				4EB7CCBD1C1ACA8F00768FF0 /* SoapActionsWANIPConnection2.m in Sources */,
 				4EB7CCA61C1ACA8500768FF0 /* upnp.cpp in Sources */,
 				4EB7CCCD1C1ACA8F00768FF0 /* MediaPlaylist.m in Sources */,
+				FD65B9991C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				4EB7CCD81C1ACA8F00768FF0 /* SoapActionsDimming1.m in Sources */,
 				4EB7CCAD1C1ACA8F00768FF0 /* SoapActionsMediaManagement1.m in Sources */,
 				4EB7CCD31C1ACA8F00768FF0 /* MediaServerBasicObjectParser.m in Sources */,
@@ -2764,6 +2881,7 @@
 				4EB7CCCE1C1ACA8F00768FF0 /* MediaRenderer1Device.m in Sources */,
 				4EB7CCB41C1ACA8F00768FF0 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */,
 				4EB7CCC31C1ACA8F00768FF0 /* BasicParser.m in Sources */,
+				FD65B9A71C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				4EB7CCE31C1ACA8F00768FF0 /* UPnPEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2795,6 +2913,7 @@
 				4EB7CD011C1AD0D300768FF0 /* ssdp.cpp in Sources */,
 				4EB7CD021C1AD0D300768FF0 /* basichttpserver.cpp in Sources */,
 				4EB7CD031C1AD0D300768FF0 /* socketserver.cpp in Sources */,
+				FD65B98C1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				4EB7CD041C1AD0D300768FF0 /* SoapAction.m in Sources */,
 				4EB7CD051C1AD0D300768FF0 /* TelephonyClient1Device.m in Sources */,
 				4EB7CD061C1AD0D300768FF0 /* SoapActionsInputConfig1.m in Sources */,
@@ -2818,6 +2937,7 @@
 				4EB7CD181C1AD0D300768FF0 /* ssdptools.cpp in Sources */,
 				4EB7CD191C1AD0D300768FF0 /* SoapActionsWANPOTSLinkConfig1.m in Sources */,
 				4EB7CD1A1C1AD0D300768FF0 /* BasicUPnPService.m in Sources */,
+				FD65B9B61C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				4EB7CD1B1C1AD0D300768FF0 /* SocketServer_ObjC.mm in Sources */,
 				4EB7CD1C1C1AD0D300768FF0 /* BasicServiceParser.m in Sources */,
 				4EB7CD1D1C1AD0D300768FF0 /* SoapActionsDigitalSecurityCameraSettings1.m in Sources */,
@@ -2835,6 +2955,7 @@
 				4EB7CD291C1AD0D300768FF0 /* SoapActionsWANIPConnection2.m in Sources */,
 				4EB7CD2A1C1AD0D300768FF0 /* upnp.cpp in Sources */,
 				4EB7CD2B1C1AD0D300768FF0 /* MediaPlaylist.m in Sources */,
+				FD65B99A1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				4EB7CD2C1C1AD0D300768FF0 /* SoapActionsDimming1.m in Sources */,
 				4EB7CD2D1C1AD0D300768FF0 /* SoapActionsMediaManagement1.m in Sources */,
 				4EB7CD2E1C1AD0D300768FF0 /* MediaServerBasicObjectParser.m in Sources */,
@@ -2858,6 +2979,7 @@
 				4EB7CD401C1AD0D300768FF0 /* MediaRenderer1Device.m in Sources */,
 				4EB7CD411C1AD0D300768FF0 /* SoapActionsDigitalSecurityCameraMotionImage1.m in Sources */,
 				4EB7CD421C1AD0D300768FF0 /* BasicParser.m in Sources */,
+				FD65B9A81C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				4EB7CD431C1AD0D300768FF0 /* UPnPEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2868,6 +2990,7 @@
 			files = (
 				4EB7CE691C1AD3F700768FF0 /* UIImage.m in Sources */,
 				4EB7CDAB1C1AD16000768FF0 /* SoapActionsMessaging1.m in Sources */,
+				FD65B99B1C78F2B900AA5E50 /* UPnPServiceConstantsRenderingControl1.m in Sources */,
 				4EB7CDAC1C1AD16000768FF0 /* MediaServer1ItemObject.m in Sources */,
 				4EB7CDAD1C1AD16000768FF0 /* CocoaTools.m in Sources */,
 				4EB7CDAE1C1AD16000768FF0 /* httpsession.cpp in Sources */,
@@ -2877,6 +3000,7 @@
 				4EB7CDB21C1AD16000768FF0 /* ssdpnotify.cpp in Sources */,
 				4EB7CDB31C1AD16000768FF0 /* TelephonyServer1Device.m in Sources */,
 				4EB7CDB41C1AD16000768FF0 /* DigitalSecurityCamera1Device.m in Sources */,
+				FD65B9B71C78F51200AA5E50 /* UPnPServiceConstantsContentDirectory1.m in Sources */,
 				4EB7CDB51C1AD16000768FF0 /* BasicDeviceParser.m in Sources */,
 				4EB7CDB61C1AD16000768FF0 /* SoapActionsWANCableLinkConfig1.m in Sources */,
 				4EB7CDB71C1AD16000768FF0 /* ssdpsearchresp.cpp in Sources */,
@@ -2911,6 +3035,7 @@
 				4EB7CDD41C1AD16000768FF0 /* SoapActionsConnectionManager1.m in Sources */,
 				4EB7CDD51C1AD16000768FF0 /* ssdphttp.cpp in Sources */,
 				4EB7CDD61C1AD16000768FF0 /* ssdptools.cpp in Sources */,
+				FD65B9A91C78F35A00AA5E50 /* UPnPServiceConstantsConnectionManager1.m in Sources */,
 				4EB7CDD71C1AD16000768FF0 /* SoapActionsWANPOTSLinkConfig1.m in Sources */,
 				4EB7CDD81C1AD16000768FF0 /* BasicUPnPService.m in Sources */,
 				4EB7CDD91C1AD16000768FF0 /* SocketServer_ObjC.mm in Sources */,
@@ -2921,6 +3046,7 @@
 				4EB7CDDE1C1AD16000768FF0 /* SoapActionsDigitalSecurityCameraStillImage1.m in Sources */,
 				4EB7CDDF1C1AD16000768FF0 /* ssdpsearchreq.cpp in Sources */,
 				4EB7CDE01C1AD16000768FF0 /* SoapActionsDeviceProtection1.m in Sources */,
+				FD65B98D1C78F24A00AA5E50 /* UPnPServiceConstantsAVTransport1.m in Sources */,
 				4EB7CDE11C1AD16000768FF0 /* UPnPManager.m in Sources */,
 				4EB7CDE21C1AD16000768FF0 /* StateVariableRange.m in Sources */,
 				4EB7CDE31C1AD16000768FF0 /* SoapActionsWANPPPConnection1.m in Sources */,
