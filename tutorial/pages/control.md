@@ -14,7 +14,7 @@ The exact capabilities for a device are defined by the UPnP Standard or by the v
 
 This section demonstrates how to write a MediaServer control in order to browse its media data.
 
-Screenshots taken from the [Xcode 7 Example Project](https://github.com/phranck/upnpx/tree/master/projects/xcode7).
+Screenshots taken from the [Xcode 7 Example Project](../../projects/xcode7).
 
 ![Demo Screen 1](images/demo_screen_1.png)![Demo Screen 3](images/demo_screen_3.png)
 

@@ -9,7 +9,7 @@
 
 Although it is possible to work with unknown devices and service through the Base classes [`BasicUPnPDevice.h`](../../src/api/BasicUPnPDevice.h) and [`BasicUPnPService.h`](../../src/api/BasicUPnPService.h) it is adviced to add full support for your new device to the stack. This will save you work in the long run. 
 
-Part of the source tree is the project [scpdcodegenerator](https://github.com/phranck/upnpx/tree/master/projects/scpdcodegenerator) which is a command line tool made to generate the service Soap Action classes from the XML descriptions.
+Part of the source tree is the project [scpdcodegenerator](../../projects/scpdcodegenerator) which is a command line tool made to generate the service Soap Action classes from the XML descriptions.
 
 The following section explains the steps to add a new device.
 
