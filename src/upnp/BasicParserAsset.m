@@ -53,9 +53,8 @@
 @synthesize stringCache;
 @synthesize stringValueObject;
 
--(instancetype)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj{
+- (instancetype)initWithPath:(NSArray *)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj {
     self = [super init];
-
     if (self) {
         /* TODO: path -> retain property */
         path = thePath;
@@ -70,15 +69,16 @@
         [self setStringCache:s];
         [s release];
     }
-
     return self;
 }
 
--(void)dealloc{
+- (instancetype)init { @throw nil; }
+
+- (void)dealloc {
     [path release];
     [stringCache release];
+
     [super dealloc];
 }
-
 
 @end

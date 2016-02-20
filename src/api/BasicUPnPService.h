@@ -37,11 +37,12 @@
 #import "StateVariable.h"
 #import "SoapAction.h"
 #import "UPnPEvents.h"
+#import "UPnPServiceConstants.h"
 
 @class BasicUPnPServiceObserver, BasicUPnPService;
 
 @protocol BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events;
+- (void)UPnPEvent:(BasicUPnPService *)sender events:(NSDictionary *)events;
 @end
 
 
@@ -68,11 +69,12 @@
     NSRecursiveLock *mMutex;
 }
 
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)device NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
--(NSUInteger)addObserver:(BasicUPnPServiceObserver*)obs;
--(NSUInteger)removeObserver:(BasicUPnPServiceObserver*)obs;
--(BOOL)isObserver:(BasicUPnPServiceObserver*)obs;
+- (NSUInteger)addObserver:(BasicUPnPServiceObserver *)obs;
+- (NSUInteger)removeObserver:(BasicUPnPServiceObserver *)obs;
+- (BOOL)isObserver:(BasicUPnPServiceObserver *)obs;
 
 
 //Process is called by the ServiceFactory after basic parsing is done and succeeded
@@ -82,16 +84,16 @@
 @property (NS_NONATOMIC_IOSONLY, readonly) int process;//in C++ this should be a pure virtual function
 
 
-@property (readwrite, retain) NSURL* baseURL;
-@property (readwrite, retain) NSString* baseURLString;
-@property (readwrite, retain) NSString* descriptionURL;
-@property (readwrite, retain) NSString* eventURL;
-@property (readwrite, retain) NSString* controlURL;
-@property (readwrite, retain) NSString* serviceType;
+@property (readwrite, retain) NSURL *baseURL;
+@property (readwrite, retain) NSString *baseURLString;
+@property (readwrite, retain) NSString *descriptionURL;
+@property (readwrite, retain) NSString *eventURL;
+@property (readwrite, retain) NSString *controlURL;
+@property (readwrite, retain) NSString *serviceType;
 @property (readonly, retain) SSDPDBDevice_ObjC *ssdpdevice;
 @property (readonly) NSMutableDictionary *stateVariables;
 @property (readonly) SoapAction *soap;
-@property (readwrite, retain) NSString* urn;
+@property (readwrite, retain) NSString *urn;
 @property (readwrite) BOOL isProcessed;
 @property (readwrite) BOOL isSupportForEvents;
 

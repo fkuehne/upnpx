@@ -97,7 +97,8 @@
     unsigned short port;
 }
 
--(instancetype)initWithCPPDevice:(void*)cppDevice NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCPPDevice:(void *)cppDevice NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @property(readonly) bool isdevice;
 @property(readonly) bool isroot;
