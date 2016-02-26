@@ -31,34 +31,37 @@
 //
 // **********************************************************************************
 
+
 #import "UPnPDB.h"
 #import "UPnPManager.h"
 
-@interface UPnPDB() {
-    NSMutableArray *readyForDescription;//BasicUPnPDevice (only some info is known)
-    NSMutableArray *rootDevices;//BasicUPnPDevice (full info is known)
+
+@interface UPnPDB () <SSDPDB_ObjC_Observer> {
+    NSMutableArray<BasicUPnPDevice *> *readyForDescription; ///< Devices only some info is known about
+    NSMutableArray<BasicUPnPDevice *> *rootDevices; ///< Devices which full info is known
     NSRecursiveLock *mMutex;
     SSDPDB_ObjC *mSSDP;
     NSMutableArray *mObservers;
     NSThread *mHTTPThread;
 }
 
--(BasicUPnPDevice*)addToDescriptionQueue:(SSDPDBDevice_ObjC*)ssdpdevice;
+- (BasicUPnPDevice *)addToDescriptionQueue:(SSDPDBDevice_ObjC *)ssdpdevice;
+
 @end
+
 
 @implementation UPnPDB
 
 @synthesize rootDevices;
 
--(instancetype)initWithSSDP:(SSDPDB_ObjC*)ssdp{
+- (instancetype)initWithSSDP:(SSDPDB_ObjC *)ssdp {
     self = [super init];
-
     if (self) {
         /* TODO: SSDP property is not retained. Possible issue? */
         mSSDP = ssdp;
         mMutex = [[NSRecursiveLock alloc] init];
-        rootDevices = [[NSMutableArray alloc] init];//BasicUPnPDevice
-        readyForDescription = [[NSMutableArray alloc] init];//BasicUPnPDevice
+        rootDevices = [[NSMutableArray alloc] init];
+        readyForDescription = [[NSMutableArray alloc] init];
         mObservers = [[NSMutableArray alloc] init];
 
         [mSSDP addObserver:self];
@@ -66,11 +69,10 @@
         mHTTPThread = [[NSThread alloc] initWithTarget:self selector:@selector(httpThread:) object:nil];
         [mHTTPThread start];
     }
-
     return self;
 }
 
--(void)dealloc{
+- (void)dealloc {
     [mHTTPThread cancel];
     [mSSDP removeObserver:self];
     [rootDevices removeAllObjects];
@@ -83,16 +85,15 @@
     [super dealloc];
 }
 
--(void)lock{
+- (void)lock {
     [mMutex lock];
 }
 
--(void)unlock{
+- (void)unlock {
     [mMutex unlock];
 }
 
-
--(NSUInteger)addObserver:(UPnPDBObserver*)obs{
+- (NSUInteger)addObserver:(id <UPnPDBObserver> *)obs {
     NSUInteger ret = 0;
     [self lock];
     [mObservers addObject:obs];
@@ -101,7 +102,7 @@
     return ret;
 }
 
--(NSUInteger)removeObserver:(UPnPDBObserver*)obs{
+- (NSUInteger)removeObserver:(id <UPnPDBObserver> *)obs {
     NSUInteger ret = 0;
     if ([mMutex tryLock]) {
         [mObservers removeObject:obs];
@@ -111,60 +112,53 @@
     return ret;
 }
 
-
-/**
- * SSDPDB_ObjC_Observer
- */
+#pragma mark - <SSDPDB_ObjC_Observer>
 
 //The SSDPObjCDevices array might change (this is sent before SSDPDBUpdated)
--(void)SSDPDBWillUpdate:(SSDPDB_ObjC*)sender{
+- (void)SSDPDBWillUpdate:(SSDPDB_ObjC *)sender {
     [self lock];//Protect the rootDevices tree
 //    NSLog(@"UPnPDB [SSDPDBWillUpdate - rootDevices count]=%d",[rootDevices count]);
 }
 
-
 //The SSDPObjCDevices array is updated
--(void)SSDPDBUpdated:(SSDPDB_ObjC*)sender{
+- (void)SSDPDBUpdated:(SSDPDB_ObjC *)sender {
     //NSLog(@"UPnPDB [ SSDPDBUpdated- rootDevices count]=%d",[rootDevices count]);
 
-    /*
-     * Sync [sender SSDPObjCDevices] with rootDevices
-     */
+    // Sync [sender SSDPObjCDevices] with rootDevices
     NSEnumerator *ssdpenum;
     NSEnumerator *rootenum;
     SSDPDBDevice_ObjC *ssdpdevice;
     BasicUPnPDevice *upnpdevice;
     //Flag all rootdevices as 'notfound'
     rootenum = [rootDevices objectEnumerator];
-    while((upnpdevice = [rootenum nextObject])){
-        upnpdevice.isFound=NO;
+    while ((upnpdevice = [rootenum nextObject])) {
+        upnpdevice.isFound = NO;
     }
-    BOOL found;
+    BOOL found = NO;
 
     //flag all devices still in ssdp as 'found'
     ssdpenum = [[sender SSDPObjCDevices] objectEnumerator];
-    while((ssdpdevice = [ssdpenum nextObject])){
-
-        if(ssdpdevice.isroot == FALSE && ssdpdevice.isdevice == TRUE){// ssdpdevice.isroot == TRUE){ //@TODO;do something with the embedded devices (they have (or can have) another uuid)
+    while ((ssdpdevice = [ssdpenum nextObject])) {
+        if (ssdpdevice.isroot == FALSE && ssdpdevice.isdevice == TRUE) {// ssdpdevice.isroot == TRUE){ //@TODO;do something with the embedded devices (they have (or can have) another uuid)
             //Search it in our root devices
-            if([rootDevices count] == 0){
+            if ([rootDevices count] == 0) {
                 //add ssdp device to queue, an emty UPnP device is created and schedulled for description
                 [self addToDescriptionQueue:ssdpdevice];
-            }else{
+            }
+            else {
                 found = NO;
                 rootenum = [rootDevices objectEnumerator];
-                while((upnpdevice = [rootenum nextObject])){
-                    if( [ssdpdevice.usn compare:upnpdevice.usn] == NSOrderedSame ){
-                        upnpdevice.isFound=YES;
+                while ((upnpdevice = [rootenum nextObject])) {
+                    if ([ssdpdevice.usn compare:upnpdevice.usn] == NSOrderedSame) {
+                        upnpdevice.isFound = YES;
                         found = YES;
                         break;
                     }
                 }
-                if(found == NO){
+                if (found == NO) {
                     //add ssdp device to queue, an emty UPnP device is created and schedulled for description
                     [self addToDescriptionQueue:ssdpdevice];
                 }
-
             }
         }
     }
@@ -172,21 +166,21 @@
     //remove all non found devices
     NSMutableArray *discardedItems = [[NSMutableArray alloc] init];
     rootenum = [rootDevices objectEnumerator];
-    while((upnpdevice = [rootenum nextObject])){
-        if(upnpdevice.isFound==NO){
+    while ((upnpdevice = [rootenum nextObject])) {
+        if (upnpdevice.isFound == NO) {
             [discardedItems addObject:upnpdevice];
         }
     }
 
-    if([discardedItems count] > 0){
+    if ([discardedItems count] > 0) {
         //Inform the listeners so they know the rootDevices array might change
         UPnPDBObserver *obs;
         NSEnumerator *listeners;
 
         if ([mMutex tryLock]) {
             listeners = [mObservers objectEnumerator];
-            while((obs = [listeners nextObject])){
-                if ([(NSObject*)obs respondsToSelector:@selector(UPnPDBWillUpdate:)]) {
+            while ((obs = [listeners nextObject])) {
+                if ([(NSObject *)obs respondsToSelector:@selector(UPnPDBWillUpdate:)]) {
                     [obs UPnPDBWillUpdate:self];
                 }
             }
@@ -197,8 +191,8 @@
 
         if ([mMutex tryLock]) {
             listeners = [mObservers objectEnumerator];
-            while((obs = [listeners nextObject])){
-                if ([(NSObject*)obs respondsToSelector:@selector(UPnPDBUpdated:)]) {
+            while ((obs = [listeners nextObject])){
+                if ([(NSObject *)obs respondsToSelector:@selector(UPnPDBUpdated:)]) {
                     [obs UPnPDBUpdated:self];
                 }
             }
@@ -207,24 +201,23 @@
     }
     [discardedItems release];
     [self unlock];
-
 }
 
--(BasicUPnPDevice*)addToDescriptionQueue:(SSDPDBDevice_ObjC*)ssdpdevice{
+- (BasicUPnPDevice *)addToDescriptionQueue:(SSDPDBDevice_ObjC *)ssdpdevice {
     [self lock];
 
     BasicUPnPDevice *upnpdevice;
     BOOL found = NO;
 
     NSEnumerator *descenum = [readyForDescription objectEnumerator];
-    while((upnpdevice = [descenum nextObject])){
-        if( [ssdpdevice.usn compare:upnpdevice.usn] == NSOrderedSame ){
+    while ((upnpdevice = [descenum nextObject])) {
+        if ([ssdpdevice.usn compare:upnpdevice.usn] == NSOrderedSame) {
             found = YES;
             break;
         }
     }
 
-    if(found == NO){
+    if (found == NO) {
         //new one, add to queue
         //this is the only place we create BacicUPnP (or derived classes) devices
         upnpdevice = [[[UPnPManager GetInstance] deviceFactory] allocDeviceForSSDPDevice:ssdpdevice];
@@ -238,19 +231,17 @@
     return upnpdevice;//carefull, it is possible upnpevice will be deleted before the caller can use it
 }
 
-
-//return SSDPDBDevice_ObjC[]
--(NSArray*)getSSDPServicesFor:(BasicUPnPDevice*)device{
+- (NSArray<SSDPDBDevice_ObjC *> *)getSSDPServicesFor:(BasicUPnPDevice *)device {
     [self lock];
     [mSSDP lock];
     NSMutableArray *services = [[[NSMutableArray alloc] init] autorelease];
 
     SSDPDBDevice_ObjC *ssdpdevice;
     NSEnumerator *ssdpenum = [[mSSDP SSDPObjCDevices] objectEnumerator];
-    while((ssdpdevice = [ssdpenum nextObject])){
-        if([ssdpdevice isservice] == 1){
-            if( [[ssdpdevice uuid] isEqual:[device uuid]]){
-                [services addObject:ssdpdevice];//change string to service
+    while ((ssdpdevice = [ssdpenum nextObject])) {
+        if ([ssdpdevice isservice] == 1) {
+            if ([[ssdpdevice uuid] isEqual:[device uuid]]) {
+                [services addObject:ssdpdevice];    // change string to service
             }
         }
     }
@@ -261,18 +252,17 @@
     return services;
 }
 
-//return SSDPDBDevice_ObjC[] services
--(NSArray*)getSSDPServicesForUUID:(NSString*)uuid{
+- (NSArray<SSDPDBDevice_ObjC *> *)getSSDPServicesForUUID:(NSString *)uuid {
     [self lock];
     [mSSDP lock];
     NSMutableArray *services = [[[NSMutableArray alloc] init] autorelease];
 
-    SSDPDBDevice_ObjC *ssdpdevice;
+    SSDPDBDevice_ObjC *ssdpdevice = nil;
     NSEnumerator *ssdpenum = [[mSSDP SSDPObjCDevices] objectEnumerator];
-    while((ssdpdevice = [ssdpenum nextObject])){
-        if([ssdpdevice isservice] == 1){
-            if( [uuid isEqual:[ssdpdevice uuid]]){
-                [services addObject:ssdpdevice];//change string to service
+    while ((ssdpdevice = [ssdpenum nextObject])) {
+        if ([ssdpdevice isservice] == 1) {
+            if ([uuid isEqual:[ssdpdevice uuid]]) {
+                [services addObject:ssdpdevice]; // change string to service
             }
         }
     }
@@ -283,13 +273,10 @@
     return services;
 }
 
-
-//Thread
--(void)httpThread:(id)argument{
-
-    while(1){
+- (void)httpThread:(id)argument {
+    while (YES) {
         @autoreleasepool {
-            if([readyForDescription count] > 0){
+            if ([readyForDescription count] > 0) {
                 //    NSLog(@"process queue httpThread:(id)argument, %d", [readyForDescription count]);
                 BasicUPnPDevice *upnpdevice;
                 //NSEnumerator *descenum = [readyForDescription objectEnumerator];
@@ -305,7 +292,7 @@
                     [self unlock];
                 }
 
-                while( [readyForDescription count] > 0){
+                while ([readyForDescription count] > 0) {
                     upnpdevice = readyForDescription[0];
                     //fill the upnpdevice with info from the XML
                     int ret = [upnpdevice loadDeviceDescriptionFromXML];
@@ -318,7 +305,6 @@
                         [self unlock];
                     }
                     [readyForDescription removeObjectAtIndex:0];
-
                 }
 
                 if ([mMutex tryLock]) {

@@ -77,7 +77,6 @@
 
         stateVariables = [[NSMutableDictionary alloc] init];
 
-        NSLog(@"[UPnP-Observers] created observer array");
         mObservers = [[NSMutableArray alloc] init];
 
         //We still need to initialze this class with information from the location URL given by the ssdp 'device'
@@ -122,7 +121,7 @@
 - (NSUInteger)addObserver:(BasicUPnPServiceObserver *)obs {
     NSUInteger ret = 0;
 
-    NSLog(@"[UPnP-Observers] added observer");
+//    NSLog(@"[UPnP-Observers] added observer");
     [mMutex lock];
     [mObservers addObject:obs];
     ret = [mObservers count];
@@ -133,7 +132,7 @@
 
 - (NSUInteger)removeObserver:(BasicUPnPServiceObserver *)obs {
     NSUInteger ret = 0;
-    NSLog(@"[UPnP-Observers] removed observer");
+//    NSLog(@"[UPnP-Observers] removed observer");
     [mMutex lock];
     [mObservers removeObject:obs];
     ret = [mObservers count];
