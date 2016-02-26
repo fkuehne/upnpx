@@ -36,8 +36,12 @@
 #import "UPnPManager.h"
 #import "BasicDeviceParser.h"
 
-@interface BasicUPnPDevice()
-    -(void)syncServices;
+
+@interface BasicUPnPDevice () {
+    NSMutableArray *mObservers;
+    NSRecursiveLock *mMutex;
+}
+
 @end
 
 
@@ -71,25 +75,26 @@
 @synthesize serialNumber;
 
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
-
     if (self) {
-        //NSLog(@"BasicUPnPDevice - init");
-        services = [[NSMutableDictionary alloc] init];//Key=urn string, Object=BasicUPnPService 
+        services = [NSMutableDictionary<NSString *, BasicUPnPService *> new];
         lastUpdated = [NSDate timeIntervalSinceReferenceDate];
         smallIconWidth = 0;
         smallIconHeight = 0;
         baseURL = nil;
         baseURLString = nil;
-    }
 
+        mObservers = [NSMutableArray new];
+        mMutex = [[NSRecursiveLock alloc] init];
+
+        [[[UPnPManager GetInstance] DB] addObserver:self];
+    }
     return self;
 }
 
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp{
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)ssdp {
     self = [self init];
-    
     if (self) {
         isRoot = ssdp.isroot;
         uuid = ssdp.uuid;
@@ -101,11 +106,11 @@
         xmlLocation = ssdp.location;
         [xmlLocation retain];
     }
-
     return self;
 }
 
--(void)dealloc{
+- (void)dealloc {
+    [[[UPnPManager GetInstance] DB] removeObserver:self];
 
     [services removeAllObjects];
     [services release];
@@ -135,9 +140,9 @@
     [super dealloc];
 }
 
--(int)loadDeviceDescriptionFromXML{
+- (int)loadDeviceDescriptionFromXML {
     int ret = 0;
-    if(xmlLocation == nil || [xmlLocation length] < 5){
+    if (xmlLocation == nil || [xmlLocation length] < 5) {
         return -1;
     }
 
@@ -145,44 +150,63 @@
     ret = [parser parse];
     [parser release];
 
-
     return ret;
 }
 
+- (NSUInteger)addObserver:(id <BasicUPnPDeviceObserver>)obs {
+    NSUInteger ret = 0;
+    [mMutex lock];
+    [mObservers addObject:obs];
+    ret = [mObservers count];
+    [mMutex unlock];
+    return ret;
+}
 
--(void)syncServices{
+- (NSUInteger)removeObserver:(id <BasicUPnPDeviceObserver>)obs {
+    NSUInteger ret = 0;
+    if ([mMutex tryLock]) {
+        [mObservers removeObject:obs];
+        ret = [mObservers count];
+        [mMutex unlock];
+    }
+    return ret;
+}
+
+/**
+ Synchronizes local collection of services with avaiable SSDP "devices"
+ @return YES if services were updated, otherwise NO
+ */
+- (BOOL)syncServices {
     @autoreleasepool {
         //Sync 'services'
         SSDPDBDevice_ObjC *ssdpService = nil;
         BasicUPnPService *upnpService = nil;
-        NSArray *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid];//SSDPDBDevice_ObjC[]
+        NSArray<SSDPDBDevice_ObjC *> *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid];
 
-        NSMutableDictionary *toRemove = [[NSMutableDictionary alloc] initWithDictionary:services];
-        NSMutableDictionary *toAdd = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *toRemove = [services mutableCopy];
+        NSMutableDictionary *toAdd = [NSMutableDictionary new];
 
-        for(int x = 0;x < [ssdpservices count];x++){
-            ssdpService = ssdpservices[x];
-            upnpService = services[[ssdpService urn]];
-
-            if(upnpService == nil){
-                //We don't have the service, create a new one
+        for (SSDPDBDevice_ObjC *ssdpService in ssdpservices) {
+            upnpService = services[ssdpService.urn];
+            if (upnpService == nil) {
+                // We don't have the service, create a new one
                 upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
 
-                //we delay initialization of the service until we need it [upnpService process];
-                toAdd[[upnpService urn]] = upnpService;
+                // We delay initialization of the service until we need it [upnpService process];
+                toAdd[upnpService.urn] = upnpService;
                 [upnpService release];
-            }else{
-                //remove from toremove
+            }
+            else {
+                //remove from toRemove
                 [toRemove removeObjectForKey:[ssdpService urn]];
             }
         }
 
-        //toAdd and toRemove are filled now, first remove services if needed
-        NSString *key;
-        for (key in toRemove) {
+        // toAdd and toRemove are filled now, first remove services if needed
+        for (NSString *key in toRemove) {
             [services removeObjectForKey:key];
         }
-        for (key in toAdd) {
+        for (NSString *key in toAdd) {
             services[key] = toAdd[key];
         }
 
@@ -191,12 +215,12 @@
     }
 }
 
--(NSMutableDictionary*)getServices{ //BasicUPnPService[]
+- (NSMutableDictionary<NSString *, BasicUPnPService *> *)getServices {
     [self syncServices];
     return services;
 }
 
--(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn{
+- (BasicUPnPService *)getServiceForType:(NSString *)serviceUrn {
     BasicUPnPService *thisService = nil;
 
     [self syncServices];
@@ -210,8 +234,20 @@
     return thisService;
 }
 
+#pragma mark - <UPnPDBObserver>
 
-
-
+- (void)UPnPDBUpdated:(UPnPDB *)sender {
+    BOOL isChanged = [self syncServices];
+    if (isChanged) {
+        if ([mMutex tryLock]) {
+            NSEnumerator<id <BasicUPnPDeviceObserver>> *listeners = [mObservers objectEnumerator];
+            NSObject <BasicUPnPDeviceObserver> *observer = nil;
+            while ((observer = [listeners nextObject])) {
+                [observer deviceServicesDidUpdate:self];
+            }
+            [self unlock];
+        }
+    }
+}
 
 @end
