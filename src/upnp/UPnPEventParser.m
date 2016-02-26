@@ -40,6 +40,7 @@
  </e:propertyset>
 */
 
+
 #import "UPnPEventParser.h"
 
 
@@ -48,39 +49,33 @@
 @synthesize events;
 @synthesize elementValue;
 
--(instancetype)init{
+- (instancetype)init {
     self = [super initWithNamespaceSupport:YES];
-
     if (self) {
         events = [[NSMutableDictionary alloc] init];
 
         lastChangeParser = nil;
 
-        //Device is the root device
+        // Device is the root device
         [self addAsset:@[@"propertyset", @"property", @"LastChange"] callfunction:@selector(lastChangeElement:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
         [self addAsset:@[@"propertyset", @"property", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:@selector(setElementValue:) setStringValueObject:self];
     }
-
     return self;
 }
 
-
--(void)dealloc{
+- (void)dealloc {
     [lastChangeParser release];
     [elementValue release];
     [events release];
     [super dealloc];
 }
 
-
--(void)reinit{
+- (void)reinit {
     [events removeAllObjects];
 }
 
-
--(void)propertyName:(NSString*)startStop{
-    if([startStop isEqualToString:@"ElementStart"]){
-    }else{
+- (void)propertyName:(NSString *)startStop {
+    if ([startStop isEqualToString:@"ElementStart"] == NO) {
         //Element name
         NSString *name = [[NSString alloc] initWithString:currentElementName];
         //Element value
@@ -93,16 +88,16 @@
     }
 }
 
--(void)lastChangeElement:(NSString*)startStop{
-    if(lastChangeParser == nil){
+- (void)lastChangeElement:(NSString *)startStop {
+    if (lastChangeParser == nil) {
         lastChangeParser = [[LastChangeParser alloc] initWithEventDictionary:events];
     }
 
-    if([startStop isEqualToString:@"ElementStart"]){
-    }else{
+    if ([startStop isEqualToString:@"ElementStart"] == NO) {
         //NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
         //Parse LastChange
         NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *elementValueCopy = [elementValue copy];
 
         // iOS 8 changes behaviour based on reentrant parsing, requiring a
         // synchronous workaround.
@@ -118,10 +113,8 @@
             dispatch_sync(reentrantAvoidanceQueue, ^{ });
             if (ret != 0) {
                 NSLog(@"[UPnP] Something went wrong during LastChange parsing");
+                NSLog(@"[UPnP] Raw data: %@", elementValueCopy);
             }
-//            else {
-//                NSLog(@"LastChange parsing completed");
-//            }
         }
     }
 }
