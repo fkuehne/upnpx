@@ -36,9 +36,10 @@
 
 @interface NSString (UPnPExtentions)
 
--(NSString*)XMLUnEscape;
--(NSString*)XMLEscape;
--(int)HMS2Seconds;
-+(NSString*)Seconds2HMS:(int)seconds;
+- (NSString *)XMLUnEscape;
+- (NSString *)XMLEscape;
+
+- (int)HMS2Seconds;
++ (NSString *)Seconds2HMS:(int)seconds;
 
 @end

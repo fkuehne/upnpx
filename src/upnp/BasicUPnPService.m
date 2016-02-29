@@ -53,9 +53,8 @@
 @synthesize isSupportForEvents;
 
 
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)device{
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)device {
     self = [super init];
-
     if (self) {
         NSLog(@"BasicUPnPService - initWithSSDPDevice - %@", [device urn] );
 
@@ -85,14 +84,15 @@
         //We still need to initialze this class with information from the location URL given by the ssdp 'device'
         //this is done in 'process'
     }
-
     return self;
 }
 
--(void)dealloc{
+- (instancetype)init { @throw nil; }
+
+- (void)dealloc {
     NSLog(@"BasicUPnPService - dealloc - %@", [ssdpdevice urn]);
 
-    if(eventUUID != nil){
+    if(eventUUID != nil) {
         [[[UPnPManager GetInstance] upnpEvents] UnSubscribe:eventUUID ];
     }
 
@@ -124,8 +124,7 @@
     [super dealloc];
 }
 
-
--(NSUInteger)addObserver:(BasicUPnPServiceObserver*)obs{
+- (NSUInteger)addObserver:(BasicUPnPServiceObserver *)obs {
     NSUInteger ret = 0;
 
     [mMutex lock];
@@ -136,7 +135,7 @@
     return ret;
 }
 
--(NSUInteger)removeObserver:(BasicUPnPServiceObserver*)obs{
+- (NSUInteger)removeObserver:(BasicUPnPServiceObserver *)obs {
     NSUInteger ret = 0;
 
     [mMutex lock];
@@ -147,22 +146,21 @@
     return ret;
 }
 
--(BOOL)isObserver:(BasicUPnPServiceObserver*)obs{
+- (BOOL)isObserver:(BasicUPnPServiceObserver *)obs {
     BOOL ret = NO;
+    
     [mMutex lock];
     ret = [mObservers containsObject:obs];
     [mMutex unlock];
 
     return ret;
-
 }
 
-
-//Can be overriden by subclasses if they need ohter kind of parsing
--(int)process{
+// Can be overriden by subclasses if they need ohter kind of parsing
+- (int)process {
     int ret = 0;
 
-    if(isProcessed == YES){
+    if (isProcessed == YES) {
         return 1;
     }
 
@@ -173,17 +171,18 @@
 
     //Set the soap actions
     [soap release];
-    if(ret == 0){
+    if (ret == 0) {
         soap = [[SoapAction soapActionWithURN:urn andBaseNSURL:baseURL andControlURL:controlURL andEventURL:eventURL] retain];
         isProcessed = YES;
-    }else{
+    }
+    else {
         isProcessed = NO;
     }
 
     //Start listening for events
-    if(eventURL){
-        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self];
-        if(eventUUID != nil){
+    if (eventURL) {
+        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer *)self];
+        if (eventUUID != nil) {
     //        NSLog(@"Service Subsrcibed for events;uuid:%@", eventUUID);
             [eventUUID retain];
             isSupportForEvents = YES;
@@ -193,34 +192,20 @@
     return ret;
 }
 
-
-//UPnPEvents_Observer
--(void)UPnPEvent:(NSDictionary*)events{
-    BasicUPnPServiceObserver *obs = nil;
-
-    [mMutex lock];
-    NSEnumerator *listeners = [mObservers objectEnumerator];
-    while(obs = [listeners nextObject]){
-        [obs UPnPEvent:self events:events];
-    }
-    [mMutex unlock];
-}
-
--(NSURL*)GetUPnPEventURL{
+- (NSURL *)GetUPnPEventURL {
     NSURL *ret = nil;
-    if(eventURL){
+    if (eventURL) {
         ret = [NSURL URLWithString:eventURL relativeToURL:baseURL];
     }
     return ret;
 }
 
--(void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed{
-
+- (void)SubscriptionTimerExpiresIn:(int)seconds timeoutSubscription:(int)timeout timeSubscription:(double)subscribed {
     //Re-Subscribe
-    if(eventURL){
+    if (eventURL) {
         NSString *oldUUID = eventUUID;
-        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer*)self];
-        if(eventUUID != nil){
+        eventUUID = [[[UPnPManager GetInstance] upnpEvents] Subscribe:(UPnPEvents_Observer *)self];
+        if (eventUUID != nil) {
             //NSLog(@"Service Re-Subsrcibed for events;uuid:%@, old uuid:%@", eventUUID, oldUUID);
             //Unsubscribe old
             if (![eventUUID isEqual:oldUUID]) {
@@ -232,4 +217,18 @@
         }
     }
 }
+
+#pragma mark - UPnPEvents_Observer
+
+- (void)UPnPEvent:(NSDictionary *)events {
+    BasicUPnPServiceObserver *obs = nil;
+    
+    [mMutex lock];
+    NSEnumerator *listeners = [mObservers objectEnumerator];
+    while(obs = [listeners nextObject]){
+        [obs UPnPEvent:self events:events];
+    }
+    [mMutex unlock];
+}
+
 @end

@@ -37,7 +37,8 @@
 
 @interface BasicParserAsset : NSObject
 
--(instancetype)initWithPath:(NSArray*)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPath:(NSArray *)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (readwrite, retain) NSArray *path;
 @property (readonly) SEL function;

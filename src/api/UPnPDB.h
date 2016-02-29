@@ -45,25 +45,26 @@
  */
 @protocol UPnPDBObserver <NSObject>
 @optional
--(void)UPnPDBWillUpdate:(UPnPDB*)sender;
--(void)UPnPDBUpdated:(UPnPDB*)sender;
+- (void)UPnPDBWillUpdate:(UPnPDB *)sender;
+- (void)UPnPDBUpdated:(UPnPDB *)sender;
 @end
 
 
 
 @interface UPnPDB : NSObject <SSDPDB_ObjC_Observer>
 
--(instancetype)initWithSSDP:(SSDPDB_ObjC*)ssdp NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSSDP:(SSDPDB_ObjC *)ssdp NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
--(void)lock;
--(void)unlock;
--(void)httpThread:(id)argument;
+- (void)lock;
+- (void)unlock;
+- (void)httpThread:(id)argument;
 
--(NSUInteger)addObserver:(id<UPnPDBObserver>)observer;
--(NSUInteger)removeObserver:(id<UPnPDBObserver>)observer;
+- (NSUInteger)addObserver:(id<UPnPDBObserver>)observer;
+- (NSUInteger)removeObserver:(id<UPnPDBObserver>)observer;
 
--(NSArray*)getSSDPServicesFor:(BasicUPnPDevice*)device;//Returns NSArray[SSDPDBDevice_ObjC*] devices
--(NSArray*)getSSDPServicesForUUID:(NSString*)uuid;//Returns NSArray[SSDPDBDevice_ObjC*] devices
+- (NSArray *)getSSDPServicesFor:(BasicUPnPDevice*)device;           //Returns NSArray[SSDPDBDevice_ObjC*] devices
+- (NSArray *)getSSDPServicesForUUID:(NSString *)uuid;               //Returns NSArray[SSDPDBDevice_ObjC*] devices
 
 @property(readonly, retain) NSMutableArray *rootDevices;
 

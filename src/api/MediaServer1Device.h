@@ -45,6 +45,8 @@
  * O - AVTransport:1.0 
  */
 
+FOUNDATION_EXPORT NSString *const UPnPMediaServer1DeviceURN;
+
 @interface MediaServer1Device : BasicUPnPDevice {
     SoapActionsAVTransport1 *mAvTransport;
     SoapActionsConnectionManager1 *mConnectionManager;
