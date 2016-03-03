@@ -246,7 +246,7 @@
             while ((observer = [listeners nextObject])) {
                 [observer deviceServicesDidUpdate:self];
             }
-            [self unlock];
+            [mMutex unlock];
         }
     }
 }
