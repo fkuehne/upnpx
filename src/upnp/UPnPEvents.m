@@ -237,10 +237,6 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
         cut = 9 - x;
     }
 
-
-    NSString *bs = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
-    [bs release];
-
     int parserret;
     if (cut > 0) {
         NSData *tmpbody = [[NSData alloc] initWithBytes:[body bytes] length:[body length] - cut];
