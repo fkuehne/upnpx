@@ -92,6 +92,11 @@ public:
 
     bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen){
 
+        if (strlen(body) < bodylen) {
+            NSLog(@"[UPnP] ERROR: real bodylen is %d, received bodylen is %d \n Content: %s", bodylen, strlen(body), body);
+            bodylen = strlen(body);
+        }
+
         @autoreleasepool {
             NSString *oMethod = [[NSString alloc] initWithCString:method->c_str() encoding:NSASCIIStringEncoding];
             NSString *oPath = [[NSString alloc] initWithCString:path->c_str() encoding:NSASCIIStringEncoding];
