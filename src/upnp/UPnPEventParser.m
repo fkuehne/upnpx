@@ -42,6 +42,7 @@
 
 
 #import "UPnPEventParser.h"
+#import "NSString+UPnPExtentions.h"
 
 
 @implementation UPnPEventParser
@@ -94,8 +95,9 @@
     }
 
     if (NO == [startStop isEqualToString:@"ElementStart"]) {
-        //NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
-        //Parse LastChange
+
+        elementValue = [self stringByCorrectingElementString:elementValue];
+
         NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
         NSString *elementValueCopy = [elementValue copy];
 
@@ -119,6 +121,47 @@
     }
 }
 
+- (NSString *)stringByCorrectingElementString:(NSString *)elementValue {
+    NSString * const kNextTrackMetadataPattern = @"<NextAVTransportURIMetaData val=\"([\\s\\S]+?)\"\\/>";
+    NSString * const kNextTrackBeginningPart = @"<NextAVTransportURIMetaData val=\"";
+    NSString * const kNextTrackEndingPart = @"\"/>";
 
+    NSMutableString *resultString = [elementValue mutableCopy];
+
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:kNextTrackMetadataPattern
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
+    NSTextCheckingResult *result = [regex firstMatchInString:elementValue options:NSMatchingReportCompletion range:NSMakeRange(0, [elementValue length])];
+    if (result != nil && result.range.length > 0) {
+        NSMutableString *foundPart = [[elementValue substringWithRange:result.range] mutableCopy];
+
+        // Cutting beginning and ending parts
+        {
+            NSRange range = [foundPart rangeOfString:kNextTrackBeginningPart];
+            if (range.location != NSNotFound) {
+                [foundPart replaceCharactersInRange:range withString:@""];
+            }
+        }
+        {
+            NSRange range = [foundPart rangeOfString:kNextTrackEndingPart options:NSBackwardsSearch];
+            if (range.location != NSNotFound) {
+                [foundPart replaceCharactersInRange:range withString:@""];
+            }
+        }
+        // Escape
+        if (NO == [foundPart hasPrefix:@"&lt;"]) {
+            [foundPart replaceCharactersInRange:NSMakeRange(0, [foundPart length]) withString:[foundPart XMLEscape]];
+            // Append beginning and end parts
+            [foundPart insertString:kNextTrackBeginningPart atIndex:0];
+            [foundPart appendString:kNextTrackEndingPart];
+
+            [resultString replaceCharactersInRange:result.range withString:foundPart];
+        }
+    }
+
+    return resultString;
+}
 
 @end
