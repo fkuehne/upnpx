@@ -42,11 +42,23 @@
 @synthesize protocolInfo;
 @synthesize size;
 @synthesize durationInSeconds;
+@synthesize frequency;
+@synthesize iconPath;
+@synthesize uri;
 
 -(void)dealloc{
     [duration release];
     [protocolInfo release];
+    [iconPath release];
+    [uri release];
     [super dealloc];
+}
+
+- (NSString *)description {
+    NSString *description = [super description];
+    description = [description stringByAppendingFormat:@"bitrate %i, frequency %f, duration %@, nrAudioChannels %i, protocolInfo %@, size %lld, durationInSeconds %i, iconPath %@, uri %@",
+                   bitrate, frequency, duration, nrAudioChannels, protocolInfo, size, durationInSeconds, iconPath, uri];
+    return description;
 }
 
 @end

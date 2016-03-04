@@ -46,19 +46,25 @@
 //</res>
 
 @interface MediaServer1ItemRes : NSObject {
-    int bitrate;
     NSString *duration;
-    int nrAudioChannels;
     NSString *protocolInfo;
+    NSString *iconPath;
+    NSURL *uri;
+    int bitrate;
+    int nrAudioChannels;
     long long int size;
     int durationInSeconds;
+    float frequency;
 }
 
-@property(readwrite) int bitrate;
-@property(retain, nonatomic) NSString *duration;
-@property(readwrite) int nrAudioChannels;
-@property(retain, nonatomic) NSString *protocolInfo;
-@property(readwrite) long long int size;
-@property(readwrite) int durationInSeconds;
+@property(nonatomic, retain) NSString *duration;
+@property(nonatomic, retain) NSString *protocolInfo;
+@property(nonatomic, retain) NSString *iconPath;
+@property(nonatomic, retain) NSURL *uri;
+@property(nonatomic) int bitrate;
+@property(nonatomic) int nrAudioChannels;
+@property(nonatomic) long long int size;
+@property(nonatomic) int durationInSeconds;
+@property(nonatomic) float frequency;
 
 @end
