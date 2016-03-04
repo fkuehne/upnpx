@@ -40,23 +40,25 @@
  * Interface
  */
 @protocol BasicHTTPServer_ObjC_Observer
+
 //Methods to hook into the HTTP Server
--(BOOL)canProcessMethod:(BasicHTTPServer_ObjC*)sender requestMethod:(NSString*)method;
--(BOOL)request:(BasicHTTPServer_ObjC*)sender method:(NSString*)method path:(NSString*)path version:(NSString*)version headers:(NSDictionary*)headers body:(NSData*)body;
--(BOOL)response:(BasicHTTPServer_ObjC*)sender returncode:(int*)returncode headers:(NSMutableDictionary*)headers body:(NSMutableData*)body;
+- (BOOL)canProcessMethod:(BasicHTTPServer_ObjC *)sender requestMethod:(NSString *)method;
+- (BOOL)request:(BasicHTTPServer_ObjC *)sender method:(NSString *)method path:(NSString *)path version:(NSString *)version headers:(NSDictionary *)headers body:(NSData*)body;
+- (BOOL)response:(BasicHTTPServer_ObjC *)sender returncode:(int *)returncode headers:(NSMutableDictionary *)headers body:(NSMutableData *)body;
+
 @end
 
 
 @interface BasicHTTPServer_ObjC : NSObject {
 @private
-    void* httpServerWrapper;
+    void *httpServerWrapper;
     NSMutableArray *mObservers;//BasicHTTPServer_ObjC_Observer
 }
 
 @property (NS_NONATOMIC_IOSONLY, readonly) int start;
 @property (NS_NONATOMIC_IOSONLY, readonly) int stop;
--(void)addObserver:(BasicHTTPServer_ObjC_Observer*)observer;
--(void)removeObserver:(BasicHTTPServer_ObjC_Observer*)observer;
+-(void)addObserver:(BasicHTTPServer_ObjC_Observer *)observer;
+-(void)removeObserver:(BasicHTTPServer_ObjC_Observer *)observer;
 @property (NS_NONATOMIC_IOSONLY, getter=getObservers, readonly, copy) NSMutableArray *observers;
 @property (NS_NONATOMIC_IOSONLY, getter=getIPAddress, readonly, copy) NSString *IPAddress;
 @property (NS_NONATOMIC_IOSONLY, getter=getPort, readonly) unsigned short port;

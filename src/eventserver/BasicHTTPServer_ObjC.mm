@@ -38,40 +38,39 @@
 #include "basichttpobserver.h"
 
 
-
-class BasicHTTPObserver_wrapper:public BasicHTTPObserver {
+class BasicHTTPObserver_wrapper : public BasicHTTPObserver {
 private:
     BasicHTTPServer_ObjC* mObjCServer;
     BasicHTTPServer *mCPPServer;
     NSArray *mObjCObservers;
 
 public:
-    BasicHTTPObserver_wrapper(BasicHTTPServer_ObjC* objcServer){
+    BasicHTTPObserver_wrapper (BasicHTTPServer_ObjC *objcServer) {
         mObjCServer = objcServer;
         mObjCObservers = [objcServer getObservers];//BasicHTTPServer_ObjC_Observer
         mCPPServer = new BasicHTTPServer(52809);
         mCPPServer->AddObserver(this);
     }
 
-    ~BasicHTTPObserver_wrapper(){
+    ~BasicHTTPObserver_wrapper() {
         mCPPServer->RemoveObserver(this);
         delete(mCPPServer);
     }
 
-    BasicHTTPServer* GetServer(){
+    BasicHTTPServer* GetServer() {
         return mCPPServer;
     }
 
-    int Start(){
+    int Start() {
         return mCPPServer->Start();
     }
 
-    int Stop(){
+    int Stop() {
         return mCPPServer->Stop();
     }
 
     //Observer functions
-    bool CanProcessMethod(string *method){
+    bool CanProcessMethod(string *method) {
         [NSRunLoop currentRunLoop];//Start our runloop
 
         @autoreleasepool {
@@ -90,9 +89,9 @@ public:
         }
     }
 
-    bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen){
+    bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen) {
 
-        if (strlen(body) < bodylen) {
+        if (strlen(body) != bodylen) {
             NSLog(@"[UPnP] ERROR: real bodylen is %d, received bodylen is %d \n Content: %s", bodylen, strlen(body), body);
             bodylen = strlen(body);
         }
@@ -112,14 +111,14 @@ public:
                 [header release];
             }
             NSData *oBody = nil;
-            if(bodylen >= 0){
+            if (bodylen >= 0) {
                 oBody = [[NSData alloc] initWithBytes:body length:bodylen];
             }
 
             BOOL ret = NO;
             BasicHTTPServer_ObjC_Observer *obs = nil;
             NSEnumerator *obsenum = [mObjCObservers objectEnumerator];
-            while((obs = [obsenum nextObject])){
+            while ((obs = [obsenum nextObject])) {
                 ret = [obs request:mObjCServer method:oMethod path:oPath version:oVersion headers:oHeaders body:oBody];
             }
 
@@ -129,12 +128,11 @@ public:
             [oHeaders release];
             [oBody release];
 
-
-            return (ret==YES? true: false);
+            return (bool)ret;
         }
     }
 
-    bool Response(int *returncode, map<string, string> *headers, char **body, unsigned long *bodylen){
+    bool Response (int *returncode, map<string, string> *headers, char **body, unsigned long *bodylen) {
         @autoreleasepool {
             BOOL ret = NO;
 
@@ -148,7 +146,7 @@ public:
             string name;
 
             BasicHTTPServer_ObjC_Observer *obs = nil;
-            if([mObjCObservers count] > 0){
+            if ([mObjCObservers count] > 0) {
                 //Only the first observer can respond
                 obs = mObjCObservers[0];
 
@@ -156,16 +154,16 @@ public:
                 [oHeaders removeAllObjects];
                 [oBody setLength:0];
                 ret = [obs response:mObjCServer returncode:&oReturnCode headers:oHeaders body:oBody];
-                if(ret == YES){
+                if (ret) {
                     *returncode = oReturnCode;
                     *bodylen = [oBody length];
-                    if(*bodylen > 0){
-                        *body = (char*)malloc([oBody length]);//must be deleted by the caller (!!!)
+                    if (*bodylen > 0) {
+                        *body = (char *)malloc([oBody length]);//must be deleted by the caller (!!!)
                         memcpy(*body, [oBody bytes], [oBody length]);
                     }
-                    for(id key in oHeaders){
-                        value = [(NSString*)oHeaders[key] cStringUsingEncoding: NSASCIIStringEncoding];
-                        name = [(NSString*)key cStringUsingEncoding: NSASCIIStringEncoding];
+                    for (id key in oHeaders) {
+                        value = [(NSString *)oHeaders[key] cStringUsingEncoding: NSASCIIStringEncoding];
+                        name = [(NSString *)key cStringUsingEncoding: NSASCIIStringEncoding];
                         (*headers)[name] = value;
                     }
                 }
@@ -174,14 +172,14 @@ public:
             [oHeaders release];
             [oBody release];
 
-            return (ret==YES?true:false);
+            return (bool)ret;
         }
     }
 };
 
 @implementation BasicHTTPServer_ObjC
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
 
     if (self) {
@@ -192,7 +190,7 @@ public:
     return self;
 }
 
--(void)dealloc{
+- (void)dealloc {
     [self stop];
     if (httpServerWrapper) {
         delete((BasicHTTPObserver_wrapper*)httpServerWrapper);
@@ -202,33 +200,33 @@ public:
     [super dealloc];
 }
 
--(int)start{
+- (int)start {
     return ((BasicHTTPObserver_wrapper*)httpServerWrapper)->Start();
 }
 
--(int)stop{
+- (int)stop {
     return ((BasicHTTPObserver_wrapper*)httpServerWrapper)->Stop();
 }
 
--(void)addObserver:(BasicHTTPServer_ObjC_Observer*)observer{
+- (void)addObserver:(BasicHTTPServer_ObjC_Observer *)observer {
     [mObservers addObject:observer];
 }
 
--(void)removeObserver:(BasicHTTPServer_ObjC_Observer*)observer{
+- (void)removeObserver:(BasicHTTPServer_ObjC_Observer *)observer {
     [mObservers removeObject:observer];
 }
 
--(NSMutableArray*)getObservers{
+- (NSMutableArray *)getObservers {
     return mObservers;
 }
 
--(NSString*)getIPAddress{
+- (NSString *)getIPAddress {
     char *ip = ((BasicHTTPObserver_wrapper*)httpServerWrapper)->GetServer()->GetSocketServer()->getServerIPAddress();
 
     return @(ip);
 }
 
--(unsigned short)getPort{
+- (unsigned short)getPort {
     return ((BasicHTTPObserver_wrapper*)httpServerWrapper)->GetServer()->GetSocketServer()->getServerPort();
 }
 

@@ -75,7 +75,7 @@
 }
 
 - (void)propertyName:(NSString *)startStop {
-    if ([startStop isEqualToString:@"ElementStart"] == NO) {
+    if (NO == [startStop isEqualToString:@"ElementStart"]) {
         //Element name
         NSString *name = [[NSString alloc] initWithString:currentElementName];
         //Element value
@@ -93,7 +93,7 @@
         lastChangeParser = [[LastChangeParser alloc] initWithEventDictionary:events];
     }
 
-    if ([startStop isEqualToString:@"ElementStart"] == NO) {
+    if (NO == [startStop isEqualToString:@"ElementStart"]) {
         //NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
         //Parse LastChange
         NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
@@ -109,8 +109,8 @@
             dispatch_async(reentrantAvoidanceQueue, ^{
                 ret = [lastChangeParser parseFromData:lastChange];
             });
+            dispatch_sync(reentrantAvoidanceQueue, ^{});
 
-            dispatch_sync(reentrantAvoidanceQueue, ^{ });
             if (ret != 0) {
                 NSLog(@"[UPnP] Something went wrong during LastChange parsing");
                 NSLog(@"[UPnP] Raw data: %@", elementValueCopy);
