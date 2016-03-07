@@ -120,7 +120,10 @@
 
 
     NSHTTPURLResponse *urlResponse;
-    NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:nil];
+    NSError *error = nil;
+    NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
+    self.response = urlResponse;
+    self.error = error;
 
     // Check the Server Return Code @TODO
     if ([urlResponse statusCode] != 200) {
