@@ -47,6 +47,7 @@
     @autoreleasepool {
         returnStr = [self stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&apos;" withString:@"'"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"'"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"'"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"'"];
@@ -54,7 +55,10 @@
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"\n"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#xA;" withString:@"\n"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"\r"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#xD;" withString:@"\r"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x9;" withString:@"\t"];
 
         returnStr = [[NSString alloc] initWithString:returnStr];
     }
@@ -70,26 +74,34 @@
     NSString *returnStr = nil;
 
     @autoreleasepool {
+        // Disabled for correct double escaping
+
         //First remove all eventually escape codes because it makes it impossible to distinguish during unescape
-        returnStr = [self stringByReplacingOccurrencesOfString:@"&amp;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"."];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"."];
+//        returnStr = [self stringByReplacingOccurrencesOfString:@"&amp;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&apos;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x39;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x92;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x96;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&gt;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&lt;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#10;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#xA;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#13;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#xD;" withString:@"."];
 
         //Escape
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&" withString: @"&amp;"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"'" withString:@"&#x27;"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"'" withString:@"&apos;"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
         returnStr = [returnStr stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\n" withString:@"&#10;"];
-        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\r" withString:@"&#13;"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\n" withString:@"&#xA;"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\r" withString:@"&#xD;"];
+        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"\t" withString:@"&#x9;"];
+
+        //Also for line breaks you need to use &#xA; &#xD; and &#x9; for tab, if you need these characters in an attribute.
 
         returnStr = [[NSString alloc] initWithString:returnStr];
     }
