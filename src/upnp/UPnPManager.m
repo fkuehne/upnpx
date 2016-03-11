@@ -35,6 +35,9 @@
 #import "UPnPManager.h"
 
 
+static NSTimeInterval const kSSDPRestartDelay = 0.1;
+
+
 @interface UPnPManager () {
     SSDPDB_ObjC *SSDP;
     UPnPDB *DB;
@@ -43,6 +46,8 @@
 
     MediaRenderer1Device *defaultMediaRenderer1;
     MediaPlaylist *defaultPlaylist;
+
+    BOOL _inProcessOfRestart;
 }
 
 @end
@@ -76,6 +81,8 @@
         DB = [[UPnPDB alloc] initWithSSDP:SSDP];
         defaultPlaylist = [[MediaPlaylist alloc] init];
 
+        _inProcessOfRestart = NO;
+
         [SSDP startSSDP];
         [upnpEvents start];
     }
@@ -100,5 +107,37 @@
     [super dealloc];
 }
 
+- (void)restartSSDPSearchWithCompletionBlock:(void(^)())completionBlock {
+    @synchronized(self) {
+        if (_inProcessOfRestart) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSSDPRestartDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (completionBlock != nil) {
+                    completionBlock();
+                }
+            });
+            return;
+        }
+
+        _inProcessOfRestart = YES;
+
+        if (upnpEvents != nil) {
+            [upnpEvents stop];
+        }
+        if (SSDP != nil) {
+            [SSDP stopSSDP];
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSSDPRestartDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SSDP startSSDP];
+            [upnpEvents start];
+
+            if (completionBlock != nil) {
+                completionBlock();
+            }
+        });
+
+        _inProcessOfRestart = NO;
+    }
+}
 
 @end

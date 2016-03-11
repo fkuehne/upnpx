@@ -54,4 +54,6 @@
 @property (readonly) UPnPEvents *upnpEvents;
 @property (readonly) MediaPlaylist *defaultPlaylist;
 
+- (void)restartSSDPSearchWithCompletionBlock:(void(^)())completionBlock;
+
 @end
