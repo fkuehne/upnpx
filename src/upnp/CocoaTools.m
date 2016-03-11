@@ -71,13 +71,13 @@
         return self;
     }
 
-    NSString *returnStr = nil;
+    NSString *returnStr = [self copy];
 
     @autoreleasepool {
         // Disabled for correct double escaping
 
         //First remove all eventually escape codes because it makes it impossible to distinguish during unescape
-//        returnStr = [self stringByReplacingOccurrencesOfString:@"&amp;" withString:@"."];
+//        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&amp;" withString:@"."];
 //        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"."];
 //        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&apos;" withString:@"."];
 //        returnStr = [returnStr stringByReplacingOccurrencesOfString:@"&#x27;" withString:@"."];
