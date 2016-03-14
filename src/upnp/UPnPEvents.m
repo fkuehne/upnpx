@@ -88,6 +88,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 - (void)stop {
     //Stop the subscription timer
     [mTimeoutTimer invalidate];
+    mTimeoutTimer = nil;
 }
 
 -(NSString *)subscribe:(UPnPEvents_Observer *)subscriber {
