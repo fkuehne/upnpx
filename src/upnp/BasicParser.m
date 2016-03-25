@@ -183,6 +183,7 @@ static NSString *ElementStop = @"ElementStop";
         [[NSURLCache sharedURLCache] setMemoryCapacity:0];
         [[NSURLCache sharedURLCache] setDiskCapacity:0];
 
+#warning Change to Async request, sometimes it blocks main thread!
         NSData *data = [NSData dataWithContentsOfURL:url];
         if (data != nil) {
             NSString *xml = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
