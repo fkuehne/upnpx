@@ -220,7 +220,6 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     [parser reinit];
 
     NSString *eventXML = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
-    //NSLog(@"[UPnP-GENA] Request body XML: %@", eventXML);
 
     //Check if the body ends with '0' zero's, MediaTomb does this and the parser does not like it, so cut 0's
     char zbuf[10];
@@ -246,6 +245,10 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     }
     else {
         parserret = [parser parseFromData:body];
+    }
+
+    if ([parser.events count] == 0) {
+        NSLog(@"[UPnP-GENA] Received empty <LastChange></LastChange> event");
     }
 
     if (parserret == 0) {
