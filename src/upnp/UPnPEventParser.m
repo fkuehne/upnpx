@@ -122,7 +122,7 @@
 }
 
 - (NSString *)stringByCorrectingElementString:(NSString *)elementValue {
-    NSString * const kNextTrackMetadataPattern = @"<NextAVTransportURIMetaData val=\"([\\s\\S]+?)\"\\/>";
+    NSString * const kNextTrackMetadataPattern = @"<NextAVTransportURIMetaData val=\"([\\s\\S]*?)\"\\/>";
     NSString * const kNextTrackBeginningPart = @"<NextAVTransportURIMetaData val=\"";
     NSString * const kNextTrackEndingPart = @"\"/>";
 
