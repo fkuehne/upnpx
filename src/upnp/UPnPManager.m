@@ -120,16 +120,12 @@ static NSTimeInterval const kSSDPRestartDelay = 0.1;
 
         _inProcessOfRestart = YES;
 
-        if (upnpEvents != nil) {
-            [upnpEvents stop];
-        }
         if (SSDP != nil) {
             [SSDP stopSSDP];
         }
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSSDPRestartDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [SSDP startSSDP];
-            [upnpEvents start];
 
             if (completionBlock != nil) {
                 completionBlock();
