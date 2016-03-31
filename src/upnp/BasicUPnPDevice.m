@@ -40,6 +40,8 @@
 @interface BasicUPnPDevice () {
     NSMutableArray *mObservers;
     NSRecursiveLock *mMutex;
+
+    NSRecursiveLock *servicesLock;
 }
 @end
 
@@ -86,6 +88,7 @@
 
         mObservers = [NSMutableArray new];
         mMutex = [[NSRecursiveLock alloc] init];
+        servicesLock = [[NSRecursiveLock alloc] init];
 
         [[[UPnPManager GetInstance] DB] addObserver:self];
     }
@@ -115,6 +118,7 @@
     [services removeAllObjects];
     [services release];
     services = nil;
+    [servicesLock release];
 
     [uuid release];
     [xmlLocation release];
@@ -183,35 +187,37 @@
         BasicUPnPService *upnpService = nil;
         NSArray<SSDPDBDevice_ObjC *> *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid];
 
-        NSMutableDictionary *toRemove = [services mutableCopy];
-        NSMutableDictionary *toAdd = [NSMutableDictionary new];
+        @synchronized (servicesLock) {
+            NSMutableDictionary *toRemove = [services mutableCopy];
+            NSMutableDictionary *toAdd = [NSMutableDictionary new];
 
-        for (SSDPDBDevice_ObjC *ssdpService in ssdpservices) {
-            upnpService = services[ssdpService.urn];
-            if (upnpService == nil) {
-                // We don't have the service, create a new one
-                upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
+            for (SSDPDBDevice_ObjC *ssdpService in ssdpservices) {
+                upnpService = services[ssdpService.urn];
+                if (upnpService == nil) {
+                    // We don't have the service, create a new one
+                    upnpService = [[BasicUPnPService alloc] initWithSSDPDevice:ssdpService];
 
-                // We delay initialization of the service until we need it [upnpService process];
-                toAdd[upnpService.urn] = upnpService;
-                [upnpService release];
+                    // We delay initialization of the service until we need it [upnpService process];
+                    toAdd[upnpService.urn] = upnpService;
+                    [upnpService release];
+                }
+                else {
+                    //remove from toRemove
+                    [toRemove removeObjectForKey:[ssdpService urn]];
+                }
             }
-            else {
-                //remove from toRemove
-                [toRemove removeObjectForKey:[ssdpService urn]];
+
+            // toAdd and toRemove are filled now, first remove services if needed
+            for (NSString *key in toRemove) {
+                [services removeObjectForKey:key];
             }
-        }
+            for (NSString *key in toAdd) {
+                services[key] = toAdd[key];
+            }
 
-        // toAdd and toRemove are filled now, first remove services if needed
-        for (NSString *key in toRemove) {
-            [services removeObjectForKey:key];
+            [toRemove release];
+            [toAdd release];
         }
-        for (NSString *key in toAdd) {
-            services[key] = toAdd[key];
-        }
-
-        [toRemove release];
-        [toAdd release];
     }
     return YES;
 }
@@ -227,9 +233,11 @@
     [self syncServices];
 
     //Get service
-    thisService = services[serviceUrn];
-    if (thisService != nil) {
-        [thisService setup];    // can be called several times, we need to be sure it is done
+    @synchronized (servicesLock) {
+        thisService = services[serviceUrn];
+        if (thisService != nil) {
+            [thisService setup];    // can be called several times, we need to be sure it is done
+        }
     }
 
     return thisService;
