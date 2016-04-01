@@ -93,6 +93,21 @@
     [mMutex unlock];
 }
 
+- (void)clearRootDevices {
+    NSLog(@"UPnPDB:clearRootDevices");
+    [self lock];
+
+    [rootDevices removeAllObjects];
+
+    for (id<UPnPDBObserver> observer in mObservers) {
+        if ([observer respondsToSelector:@selector(UPnPDBUpdated:)]) {
+            [observer UPnPDBUpdated:self];
+        }
+    }
+
+    [self unlock];
+}
+
 - (NSUInteger)addObserver:(id <UPnPDBObserver> *)obs {
     NSUInteger ret = 0;
     [self lock];

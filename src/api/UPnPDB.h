@@ -58,6 +58,7 @@
 
 - (void)lock;
 - (void)unlock;
+- (void)clearRootDevices;
 - (void)httpThread:(id)argument;
 
 - (NSUInteger)addObserver:(id <UPnPDBObserver>)observer;

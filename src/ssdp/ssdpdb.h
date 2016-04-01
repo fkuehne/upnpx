@@ -63,6 +63,8 @@ public:
     int DeleteDevicesByUuid(u8* uuid, u32 uuidlen);
     vector<SSDPDBDevice*> GetDevices();
 
+    void RemoveAllDevices();
+
     void Lock();
     void Unlock();
     void DeviceUpdate(SSDPDBDevice* device);
