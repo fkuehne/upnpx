@@ -154,6 +154,28 @@ private:
     return ret;
 }
 
+- (void)clearDevices {
+    [self lock];
+
+    //Inform the listeners
+    id <SSDPDB_ObjC_Observer> obs;
+    NSEnumerator *listeners = [mObservers objectEnumerator];
+    while ((obs = [listeners nextObject])) {
+        [obs SSDPDBWillUpdate:self];
+    }
+
+    [self.SSDPObjCDevices removeAllObjects];
+
+    listeners = [mObservers objectEnumerator];
+    while ((obs = [listeners nextObject])) {
+        [obs SSDPDBUpdated:self];
+    }
+
+    [self unlock];
+
+    UPNP::GetInstance()->GetSSDP()->GetDB()->RemoveAllDevices();
+}
+
 -(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os{
     if(os != nil){
         const char *c_os = [os cStringUsingEncoding:NSASCIIStringEncoding];
