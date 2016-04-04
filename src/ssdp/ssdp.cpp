@@ -314,8 +314,8 @@ int SSDP::ReadLoop(){
     timeout.tv_sec = 5;
     timeout.tv_usec = 0;
 
-    u8 buf[4096];
-    int bufsize = 4096;
+    const int bufsize = 4096;
+    u8 buf[bufsize];
 
     struct sockaddr_in sender;
     socklen_t senderlen = sizeof(struct sockaddr);
@@ -324,6 +324,8 @@ int SSDP::ReadLoop(){
 
     //Read UDP answers
     while (mReadLoop) {
+        memset(buf, 0, bufsize);
+
         //(Re)set file descriptor
         FD_ZERO(&mReadFDS);
         FD_ZERO(&mWriteFDS);
