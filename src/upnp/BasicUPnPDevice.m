@@ -51,6 +51,7 @@
 
 @synthesize isRoot;
 @synthesize isFound;
+@synthesize isLoadingDescriptionXML;
 @synthesize uuid;
 @synthesize lastUpdated;
 @synthesize xmlLocation;

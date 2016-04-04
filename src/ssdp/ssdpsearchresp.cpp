@@ -67,14 +67,13 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
     ret=GetHeaderValueFromCollection(msgheaders, (u8*)"USN", 3, &usn, &usnlen);
     if(ret != 0 || usnlen<=0){
         ret = -1;
-        goto EXIT;
+        return ret;
     }
 
     ret = ParseUSN(usn, usnlen, &uuid);
     if(ret < 0){
-        goto EXIT;//Unknown format
+        return ret;
     }
-
 
     mDB->Lock();
 
@@ -149,7 +148,5 @@ int SSDPSearchResp::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEADE
 
     mDB->Unlock();
 
-
-EXIT:
     return ret;
 }

@@ -53,6 +53,7 @@
 @private
     bool isRoot;
     bool isFound;
+    bool isLoadingDescriptionXML;
     double lastUpdated;
     NSMutableDictionary *services; //Key=urn string, Object=BasicUPnPService 
     NSString *uuid;
@@ -79,6 +80,7 @@
 
 @property (readonly) bool isRoot;
 @property (readwrite) bool isFound;
+@property (readwrite) bool isLoadingDescriptionXML;
 @property (readwrite) double lastUpdated;
 @property (readonly) NSString *uuid;
 @property (readonly) NSString *type;
