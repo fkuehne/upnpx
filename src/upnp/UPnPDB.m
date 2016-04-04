@@ -82,6 +82,7 @@
     rootDevices = nil;
     [readyForDescription release];
     readyForDescription = nil;
+    [xmlLoadingQueue cancelAllOperations];
     [xmlLoadingQueue release];
     xmlLoadingQueue = nil;
     [mMutex release];
