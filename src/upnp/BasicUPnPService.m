@@ -174,35 +174,42 @@
     }
 
     //Start listening for events
-    [self subscribeOrResubscribeForEvents];
+    [self subscribeOrResubscribeForEventsWithCompletion:nil];
 
     return isSetUp;
 }
 
-- (BOOL)subscribeOrResubscribeForEvents {
+- (void)subscribeOrResubscribeForEventsWithCompletion:(void (^)(BOOL success))completion {
     if (eventURL) {
         NSString *oldUUID = eventUUID;
-        eventUUID = [[[UPnPManager GetInstance] upnpEvents] subscribe:(UPnPEvents_Observer*)self];
-        if (eventUUID != nil) {
-            if (oldUUID == nil) {
-                NSLog(@"[UPnP] Service subscribed for events. uuid:%@", eventUUID);
-            }
-            else {
-                NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
-                // Unsubscribe old
-                if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
-                    [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
+        [[[UPnPManager GetInstance] upnpEvents] subscribe:(UPnPEvents_Observer*)self
+            completion:^(NSString * _Nullable eventUUID) {
+            if (eventUUID != nil) {
+                if (oldUUID == nil) {
+                    NSLog(@"[UPnP] Service subscribed for events. uuid:%@", eventUUID);
                 }
-                [oldUUID release];
+                else {
+                    NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
+                    // Unsubscribe old
+                    if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
+                        [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
+                    }
+                    [oldUUID release];
+                }
+                [eventUUID retain];
+                self.isSubscribedForEvents = YES;
             }
-            [eventUUID retain];
-            isSubscribedForEvents = YES;
-
-            return YES;
+            
+            if (completion != nil) {
+                completion(self.isSubscribedForEvents);
+            }
+        }];
+    }
+    else {
+        if (completion != nil) {
+            completion(NO);
         }
     }
-    
-    return NO;
 }
 
 #pragma mark - <UPnPEvents_Observer>
@@ -229,7 +236,7 @@
 - (void)subscriptionTimerExpiresIn:(int)seconds
                timeoutSubscription:(int)timeout
                   timeSubscription:(double)subscribed {
-    [self subscribeOrResubscribeForEvents];
+    [self subscribeOrResubscribeForEventsWithCompletion:nil];
 }
 
 @end
