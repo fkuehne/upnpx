@@ -99,8 +99,8 @@
 
 /**
 + Can be called if service is not subscribed for events to retry subscription once more
-+ @returns YES is subscription or resubscription was successfull
++ @param completion handler with result of operation result
 + */
-- (BOOL)subscribeOrResubscribeForEvents;
+- (void)subscribeOrResubscribeForEventsWithCompletion:(void (^)(BOOL success))completion;
 
 @end
