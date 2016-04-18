@@ -73,7 +73,7 @@
 - (void)start;
 - (void)stop;
 
-- (NSString *)subscribe:(UPnPEvents_Observer *)subscriber;
+- (void)subscribe:(UPnPEvents_Observer *)subscriber completion:(void (^)(NSString * __nullable uuid))completion;
 - (void)unsubscribe:(UPnPEvents_Observer *)subscriber withSID:(NSString *)uuid;
 
 - (void)manageSubscriptionTimeouts:(NSTimer *)timer;
