@@ -210,9 +210,11 @@
 
             // toAdd and toRemove are filled now, first remove services if needed
             for (NSString *key in toRemove) {
+                NSLog(@"[UPnP] Sync Service (%@). Removing %@", self.friendlyName, key);
                 [services removeObjectForKey:key];
             }
             for (NSString *key in toAdd) {
+                NSLog(@"[UPnP] Sync Service (%@). Adding %@", self.friendlyName, key);
                 services[key] = toAdd[key];
             }
 
@@ -238,6 +240,9 @@
         thisService = services[serviceUrn];
         if (thisService != nil) {
             [thisService setup];    // can be called several times, we need to be sure it is done
+        }
+        else {
+            NSLog(@"[UPnP] %s Can't find service of type %@", __FUNCTION__, serviceUrn);
         }
     }
 
