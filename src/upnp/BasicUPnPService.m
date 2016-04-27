@@ -186,7 +186,8 @@
     if (eventURL) {
         NSString *oldUUID = eventUUID;
         [[[UPnPManager GetInstance] upnpEvents] subscribe:(UPnPEvents_Observer*)self
-                                               completion:^(NSString * _Nullable eventUUID) {
+                                               completion:^(NSString * _Nullable newEventUUID) {
+                                                   eventUUID = [newEventUUID retain];
                                                    if (eventUUID != nil) {
                                                        if (oldUUID == nil) {
                                                            NSLog(@"[UPnP] Service subscribed for events. uuid:%@", eventUUID);
@@ -199,7 +200,6 @@
                                                            }
                                                            [oldUUID release];
                                                        }
-                                                       [eventUUID retain];
                                                        self.isSubscribedForEvents = YES;
                                                    }
                                                    
