@@ -183,26 +183,26 @@
     if (eventURL) {
         NSString *oldUUID = eventUUID;
         [[[UPnPManager GetInstance] upnpEvents] subscribe:(UPnPEvents_Observer*)self
-            completion:^(NSString * _Nullable eventUUID) {
-            if (eventUUID != nil) {
-                if (oldUUID == nil) {
-                    NSLog(@"[UPnP] Service subscribed for events. uuid:%@", eventUUID);
-                }
-                else {
-                    NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
-                    // Unsubscribe old
-                    if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
-                        [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
+            completion:^(NSString * _Nullable newEventUUID) {
+                eventUUID = [newEventUUID retain];
+                if (eventUUID != nil) {
+                    if (oldUUID == nil) {
+                        NSLog(@"[UPnP] Service subscribed for events. uuid:%@", eventUUID);
                     }
-                    [oldUUID release];
+                    else {
+                        NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
+                        // Unsubscribe old
+                        if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
+                            [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
+                        }
+                        [oldUUID release];
+                    }
+                    self.isSubscribedForEvents = YES;
                 }
-                [eventUUID retain];
-                self.isSubscribedForEvents = YES;
-            }
-            
-            if (completion != nil) {
-                completion(self.isSubscribedForEvents);
-            }
+                
+                if (completion != nil) {
+                    completion(self.isSubscribedForEvents);
+                }
         }];
     }
     else {
