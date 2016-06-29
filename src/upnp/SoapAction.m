@@ -87,74 +87,77 @@
 
     _mOutput = output;//we need it as a member to fill it during parsing
 
-    //SOAP Message to Send
-    NSMutableString *body = [[NSMutableString alloc] init];
-    [body appendString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>"];
-    [body appendString:@"<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"];
-    [body appendString:@"<s:Body>"];
-    [body appendFormat:@"<u:%@ xmlns:u=\"%@\">", soapAction, _upnpNameSpace];
-    for (id key in parameters) {
-        [body appendFormat:@"<%@>%@</%@>", key, parameters[key], key];
-    }
-    [body appendFormat:@"</u:%@>", soapAction];
-    [body appendFormat:@"</s:Body></s:Envelope>"];
-    len = [body length];
+    @autoreleasepool {
 
-    //Construct the HTML POST 
-    NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:_actionURL
-                                                            cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                                        timeoutInterval:15.0];
-
-    [urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", _upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
-    [urlRequest setValue:[NSString stringWithFormat:@"%ld", (unsigned long)len] forHTTPHeaderField:@"CONTENT-LENGTH"];
-    [urlRequest setValue:@"text/xml;charset=\"utf-8\"" forHTTPHeaderField:@"CONTENT-TYPE"];
-
-    /*
-    [urlRequest setValue:@"" forHTTPHeaderField:@"Accept-Language"];
-    [urlRequest setValue:@"" forHTTPHeaderField:@"Accept-Encoding"];
-    */
-
-    //POST (Synchronous)
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-
-
-    NSHTTPURLResponse *urlResponse;
-    NSError *error = nil;
-    NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
-    self.response = urlResponse;
-    self.error = error;
-
-    // Check the Server Return Code @TODO
-    if ([urlResponse statusCode] != 200) {
-        ret = -[urlResponse statusCode];
-        NSString *rsp = [[NSString  alloc] initWithData:resp encoding:NSUTF8StringEncoding];
-        NSLog(@"[UPnP] Error (SoapAction): Got a non 200 response: %ld. Data: %@", (long)[urlResponse statusCode], rsp);
-        [rsp release];
-        if (ret == 0) {
-            ret = -408; // Why 408?
+        //SOAP Message to Send
+        NSMutableString *body = [[NSMutableString alloc] init];
+        [body appendString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>"];
+        [body appendString:@"<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"];
+        [body appendString:@"<s:Body>"];
+        [body appendFormat:@"<u:%@ xmlns:u=\"%@\">", soapAction, _upnpNameSpace];
+        for (id key in parameters) {
+            [body appendFormat:@"<%@>%@</%@>", key, parameters[key], key];
         }
-    }
-    else {
-        ret = 0;
-    }
+        [body appendFormat:@"</u:%@>", soapAction];
+        [body appendFormat:@"</s:Body></s:Envelope>"];
+        len = [body length];
 
-    if (ret == 0 && [resp length] > 0 ) {
-        //Parse result
-        //Clear the assets becuase the action can be re-used
-        [self clearAllAssets];
-        NSString *responseGroupTag = [NSString stringWithFormat:@"%@Response", soapAction];
-        for (id key in output) {
-            [self addAsset:@[@"Envelope", @"Body", responseGroupTag, (NSString*)key] callfunction:nil functionObject:nil setStringValueFunction:@selector(setStringValueForFoundAsset:) setStringValueObject:self];
+        //Construct the HTML POST 
+        NSMutableURLRequest* urlRequest=[NSMutableURLRequest requestWithURL:_actionURL
+                                                                cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                            timeoutInterval:60.0];
+
+        [urlRequest setValue:[NSString stringWithFormat:@"\"%@#%@\"", _upnpNameSpace, soapAction] forHTTPHeaderField:@"SOAPACTION"];
+        [urlRequest setValue:[NSString stringWithFormat:@"%ld", (unsigned long)len] forHTTPHeaderField:@"CONTENT-LENGTH"];
+        [urlRequest setValue:@"text/xml;charset=\"utf-8\"" forHTTPHeaderField:@"CONTENT-TYPE"];
+
+        /*
+        [urlRequest setValue:@"" forHTTPHeaderField:@"Accept-Language"];
+        [urlRequest setValue:@"" forHTTPHeaderField:@"Accept-Encoding"];
+        */
+
+        //POST (Synchronous)
+        [urlRequest setHTTPMethod:@"POST"];
+        [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+
+
+        NSHTTPURLResponse *urlResponse;
+        NSError *error = nil;
+        NSData *resp = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
+        self.response = urlResponse;
+        self.error = error;
+
+        // Check the Server Return Code @TODO
+        if ([urlResponse statusCode] != 200) {
+            ret = -[urlResponse statusCode];
+            NSString *rsp = [[NSString  alloc] initWithData:resp encoding:NSUTF8StringEncoding];
+            NSLog(@"[UPnP] Error (SoapAction): Got a non 200 response: %ld. Data: %@", (long)[urlResponse statusCode], rsp);
+            [rsp release];
+            if (ret == 0) {
+                ret = -408; // Why 408?
+            }
+        }
+        else {
+            ret = 0;
         }
 
-        //uShare Issues here, can not handle names like 'Bj~rk
-        ret = [super parseFromData:resp];
+        if (ret == 0 && [resp length] > 0 ) {
+            //Parse result
+            //Clear the assets becuase the action can be re-used
+            [self clearAllAssets];
+            NSString *responseGroupTag = [NSString stringWithFormat:@"%@Response", soapAction];
+            for (id key in output) {
+                [self addAsset:@[@"Envelope", @"Body", responseGroupTag, (NSString*)key] callfunction:nil functionObject:nil setStringValueFunction:@selector(setStringValueForFoundAsset:) setStringValueObject:self];
+            }
+
+            //uShare Issues here, can not handle names like 'Bj~rk
+            ret = [super parseFromData:resp];
+        }
+
+        [body release];
+
+        _mOutput = nil;
     }
-
-    [body release];
-
-    _mOutput = nil;
 
     return ret;
 }
