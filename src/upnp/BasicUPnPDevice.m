@@ -216,7 +216,7 @@
     return YES;
 }
 
-- (NSMutableDictionary *)getServices{ //BasicUPnPService[]
+- (NSMutableDictionary<NSString *, BasicUPnPService *> *)getServices {
     [self syncServices];
     return services;
 }
