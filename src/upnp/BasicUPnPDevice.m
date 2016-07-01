@@ -184,7 +184,6 @@
 - (BOOL)syncServices {
     @autoreleasepool {
         //Sync 'services'
-        SSDPDBDevice_ObjC *ssdpService = nil;
         BasicUPnPService *upnpService = nil;
         NSArray<SSDPDBDevice_ObjC *> *ssdpservices = [[[UPnPManager GetInstance] DB] getSSDPServicesForUUID:uuid];
 

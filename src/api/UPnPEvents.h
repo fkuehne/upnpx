@@ -36,6 +36,8 @@
 #import "BasicHTTPServer_ObjC.h"
 #import "UPnPEventParser.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class UPnPEvents_Observer;
 
 //Observer
@@ -85,3 +87,5 @@
 -(BOOL)response:(BasicHTTPServer_ObjC*)sender returncode:(int*)returncode headers:(NSMutableDictionary*)headers body:(NSMutableData*)body;
 
 @end
+
+NS_ASSUME_NONNULL_END
