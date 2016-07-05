@@ -153,19 +153,21 @@ int SSDPParser::Parse(struct sockaddr* sender, u8* buf, u32 len){
             while(pos[colon] != ':' && colon < linelen){
                 colon++;
             }
-
+            
             //Add the header to our collection
             SSDP_HTTP_HEADER *thisHeader = (SSDP_HTTP_HEADER*)malloc(sizeof(SSDP_HTTP_HEADER));
             thisHeader->fieldname = pos;
             thisHeader->fieldnamelen = colon;
-            thisHeader->fieldvalue = lefttrim(pos+colon+1, linelen-colon-1);
-            thisHeader->fieldvaluelen = (unsigned int)(linelen-(thisHeader->fieldvalue - pos));
+            thisHeader->fieldvalue = pos+colon+1;
+            if (colon<linelen) {
+                thisHeader->fieldvaluelen = linelen-colon-1;
+            } else {
+                thisHeader->fieldvaluelen = 0;
+            }
             //Trim spaces
             trimspaces(&(thisHeader->fieldname), &(thisHeader->fieldnamelen));
-            if(linelen > (thisHeader->fieldvalue - pos)) {
-                trimspaces(&(thisHeader->fieldvalue), &(thisHeader->fieldvaluelen));
-            }
-            mHeaders.push_back(thisHeader);
+            trimspaces(&(thisHeader->fieldvalue), &(thisHeader->fieldvaluelen));
+            mHeaders.push_back(thisHeader);			
         }
 
         pos = newpos;
