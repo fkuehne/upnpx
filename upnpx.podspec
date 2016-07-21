@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'upnpx'
-  s.version  = '1.4.0a1'
+  s.version  = '1.4.0a2'
   s.license  = 'BSD'
   s.ios.deployment_target = "6.1"
   s.osx.deployment_target = "10.7"
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.osx.public_header_files = 'src/api/*.h', 'src/port/macos/*.h'
   s.library          = 'c++'
   s.xcconfig = {
-       'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
+       'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
        'CLANG_CXX_LIBRARY' => 'libc++'
   }
   s.requires_arc = false
