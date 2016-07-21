@@ -75,6 +75,9 @@
 @synthesize modelURLString;
 @synthesize serialNumber;
 
+@synthesize ipAddress;
+@synthesize dmhAudyssey;
+@synthesize dmhAudysseyPort;
 
 - (instancetype)init {
     self = [super init];
@@ -109,6 +112,9 @@
         [type retain];
         xmlLocation = ssdp.location;
         [xmlLocation retain];
+        
+        ipAddress = [NSString stringWithFormat:@"%d.%d.%d.%d", (Byte)ssdp.ip, (Byte)(ssdp.ip >> 8), (Byte)(ssdp.ip >> 16), (Byte)(ssdp.ip >> 24)];
+        [ipAddress retain];
     }
     return self;
 }
@@ -141,6 +147,10 @@
     [smallIcon release];
     [type release];
     [smallIconURL release];
+    
+    [ipAddress release];
+    [dmhAudyssey release];
+    [dmhAudysseyPort release];
 
     [super dealloc];
 }

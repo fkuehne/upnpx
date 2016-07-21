@@ -81,6 +81,8 @@
 - (void)SSDPDBUpdate;
 - (void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os;
 
+- (void)deleteDevice:(NSString *)uuid;
+
 @end
 
 /**
