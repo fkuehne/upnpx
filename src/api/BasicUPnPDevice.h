@@ -76,6 +76,10 @@
     int smallIconWidth;
     int smallIconDepth;
     NSString *smallIconURL;
+    
+    NSString *ipAddress;
+    NSString *dmhAudyssey;
+    NSString *dmhAudysseyPort;
 }
 
 @property (readonly) bool isRoot;
@@ -107,6 +111,10 @@
 @property (readwrite, retain) NSString *smallIconURL;
 
 @property (NS_NONATOMIC_IOSONLY, copy, getter=getServices, readonly) NSMutableDictionary<NSString *, BasicUPnPService *> *services;
+
+@property (readonly) NSString *ipAddress;
+@property (nonatomic, retain) NSString *dmhAudyssey;
+@property (nonatomic, retain) NSString *dmhAudysseyPort;
 
 - (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
 - (BasicUPnPService *)getServiceForType:(NSString*)serviceUrn;
