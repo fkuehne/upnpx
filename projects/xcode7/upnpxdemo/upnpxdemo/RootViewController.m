@@ -49,6 +49,8 @@
 
     NSArray *items = @[ttitle]; 
     self.toolbarItems = items;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadData)];
 }
 
 - (void)reloadData {
