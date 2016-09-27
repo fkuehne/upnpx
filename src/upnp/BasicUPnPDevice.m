@@ -37,7 +37,7 @@
 #import "BasicDeviceParser.h"
 
 
-@interface BasicUPnPDevice () {
+@interface BasicUPnPDevice () <UPnPDBObserver> {
     NSMutableArray *mObservers;
     NSRecursiveLock *mMutex;
 

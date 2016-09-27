@@ -75,7 +75,7 @@ private:
     self = [super init];
     if (self) {
         mMutex = [[NSRecursiveLock alloc] init];
-        mObservers = [[NSMutableArray alloc] init];
+        mObservers = [[NSMutableArray<SSDPDB_ObjC_Observer> alloc] init];
         SSDPObjCDevices = [[NSMutableArray alloc] init];
 
         mWrapper = new SSDPDB_Observer_wrapper(self);

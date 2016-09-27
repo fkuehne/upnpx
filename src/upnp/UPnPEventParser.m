@@ -126,30 +126,28 @@
     NSString * const kNextTrackBeginningPart = @"<NextAVTransportURIMetaData val=\"";
     NSString * const kNextTrackEndingPart = @"\"/>";
 
-    NSMutableString *resultString = [elementValue mutableCopy];
+    NSMutableString *resultString = [self.elementValue mutableCopy];
 
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression
                                   regularExpressionWithPattern:kNextTrackMetadataPattern
                                   options:NSRegularExpressionCaseInsensitive
                                   error:&error];
-    NSTextCheckingResult *result = [regex firstMatchInString:elementValue options:NSMatchingReportCompletion range:NSMakeRange(0, [elementValue length])];
+    NSTextCheckingResult *result = [regex firstMatchInString:self.elementValue options:NSMatchingReportCompletion range:NSMakeRange(0, [self.elementValue length])];
     if (result != nil && result.range.length > 0) {
-        NSMutableString *foundPart = [[elementValue substringWithRange:result.range] mutableCopy];
+        NSMutableString *foundPart = [[self.elementValue substringWithRange:result.range] mutableCopy];
 
         // Cutting beginning and ending parts
-        {
-            NSRange range = [foundPart rangeOfString:kNextTrackBeginningPart];
-            if (range.location != NSNotFound) {
-                [foundPart replaceCharactersInRange:range withString:@""];
-            }
+        NSRange range = [foundPart rangeOfString:kNextTrackBeginningPart];
+        if (range.location != NSNotFound) {
+            [foundPart replaceCharactersInRange:range withString:@""];
         }
-        {
-            NSRange range = [foundPart rangeOfString:kNextTrackEndingPart options:NSBackwardsSearch];
-            if (range.location != NSNotFound) {
-                [foundPart replaceCharactersInRange:range withString:@""];
-            }
+        
+        range = [foundPart rangeOfString:kNextTrackEndingPart options:NSBackwardsSearch];
+        if (range.location != NSNotFound) {
+            [foundPart replaceCharactersInRange:range withString:@""];
         }
+        
         // Escape
         if (NO == [foundPart hasPrefix:@"&lt;"]) {
             [foundPart replaceCharactersInRange:NSMakeRange(0, [foundPart length]) withString:[foundPart XMLEscape]];

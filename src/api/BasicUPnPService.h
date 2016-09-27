@@ -88,6 +88,8 @@
 
 - (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC *)device NS_DESIGNATED_INITIALIZER;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (NSUInteger)addObserver:(BasicUPnPServiceObserver *)obs;
 - (NSUInteger)removeObserver:(BasicUPnPServiceObserver *)obs;
 - (BOOL)isObserver:(BasicUPnPServiceObserver *)obs;

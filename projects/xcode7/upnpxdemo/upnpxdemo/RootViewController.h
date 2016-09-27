@@ -10,18 +10,11 @@
 
 #import "UPnPDB.h"
 
-@interface RootViewController : UITableViewController <UPnPDBObserver>{
-    UITableView *__weak menuView;
-    NSArray *mDevices; //BasicUPnPDevice*
-    UILabel *titleLabel;
-}
+@interface RootViewController : UITableViewController <UPnPDBObserver>
 
-@property (weak) IBOutlet UITableView *menuView;
-@property (strong) UILabel *titleLabel;
+@property(strong, nonatomic) NSArray<BasicUPnPDevice *> *mDevices;
 
-//protocol UPnPDBObserver
--(void)UPnPDBWillUpdate:(UPnPDB*)sender;
--(void)UPnPDBUpdated:(UPnPDB*)sender;
-
+@property(weak, nonatomic) IBOutlet UITableView *menuView;
+@property(strong, nonatomic) UILabel *titleLabel;
 
 @end
