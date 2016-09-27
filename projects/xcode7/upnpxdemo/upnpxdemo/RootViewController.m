@@ -17,16 +17,13 @@
 
 @implementation RootViewController
 
-@synthesize menuView;
-@synthesize titleLabel;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     UPnPDB* db = [[UPnPManager GetInstance] DB];
     
-    mDevices = [db rootDevices]; //BasicUPnPDevice
+    self.mDevices = [db rootDevices]; //BasicUPnPDevice
     
     [db addObserver:self];
     
@@ -51,7 +48,11 @@
     UIBarButtonItem *ttitle = [[UIBarButtonItem alloc] initWithCustomView:self.titleLabel];
 
     NSArray *items = @[ttitle]; 
-    self.toolbarItems = items; 
+    self.toolbarItems = items;
+}
+
+- (void)reloadData {
+    [self.menuView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 // Customize the number of sections in the table view.
@@ -62,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [mDevices count];
+    return self.mDevices.count;
 }
 
 // Customize the appearance of table view cells.
@@ -76,7 +77,7 @@
     }
 
     // Configure the cell.
-    BasicUPnPDevice *device = mDevices[indexPath.row];
+    BasicUPnPDevice *device = self.mDevices[indexPath.row];
      [[cell textLabel] setText:[device friendlyName]];
     BOOL isMediaServer = [device.urn isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"];
     cell.accessoryType = isMediaServer ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
@@ -88,7 +89,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BasicUPnPDevice *device = mDevices[indexPath.row];
+    BasicUPnPDevice *device = self.mDevices[indexPath.row];
     if([[device urn] isEqualToString:@"urn:schemas-upnp-org:device:MediaServer:1"]){
         MediaServer1Device *server = (MediaServer1Device*)device;        
         FolderViewController *targetViewController = [[FolderViewController alloc] initWithMediaDevice:server andHeader:@"root" andRootId:@"0" ];
@@ -101,32 +102,16 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
-
 #pragma mark - protocol UPnPDBObserver
 
--(void)UPnPDBWillUpdate:(UPnPDB*)sender{
-    NSLog(@"UPnPDBWillUpdate %lu", (unsigned long)[mDevices count]);
+-(void)UPnPDBWillUpdate:(UPnPDB*)sender {
+    NSLog(@"UPnPDBWillUpdate %lu", (unsigned long)self.mDevices.count);
 }
 
--(void)UPnPDBUpdated:(UPnPDB*)sender{
-    NSLog(@"UPnPDBUpdated %lu", (unsigned long)[mDevices count]);
-    [menuView performSelectorOnMainThread : @ selector(reloadData) withObject:nil waitUntilDone:YES];
+-(void)UPnPDBUpdated:(UPnPDB*)sender {
+    NSLog(@"UPnPDBUpdated %lu", (unsigned long)self.mDevices.count);
+
+    [self reloadData];
 }
 
 @end

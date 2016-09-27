@@ -44,11 +44,6 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 @synthesize timeout;
 @synthesize subscriptiontime;
 
--(void)dealloc{
-    [observer release];
-    [super dealloc];
-}
-
 @end
 
 
@@ -91,7 +86,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     mTimeoutTimer = nil;
 }
 
--(void)subscribe:(UPnPEvents_Observer *)subscriber completion:(void (^)(NSString * __nullable uuid))completion {
+-(void)subscribe:(id<UPnPEvents_Observer>)subscriber completion:(void (^)(NSString * __nullable uuid))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *retUUID = nil;
         NSString *timeOut = nil;
@@ -106,7 +101,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
         [urlRequest setValue:@"iOS UPnP/1.1 UPNPX/1.3.1" forHTTPHeaderField:@"USER-AGENT"];
         [urlRequest setValue:callBack forHTTPHeaderField:@"CALLBACK"];
         [urlRequest setValue:@"upnp:event" forHTTPHeaderField:@"NT"];
-        [urlRequest setValue:[NSString stringWithFormat:@"Second-%lu", kEventSubscriptionTimeoutInSeconds]
+        [urlRequest setValue:[NSString stringWithFormat:@"Second-%lu", (unsigned long)kEventSubscriptionTimeoutInSeconds]
           forHTTPHeaderField:@"TIMEOUT"];
 
         [urlRequest setHTTPMethod:@"SUBSCRIBE"];
@@ -159,7 +154,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     });
 }
 
-- (void)unsubscribe:(UPnPEvents_Observer *)subscriber withSID:(NSString *)uuid {
+- (void)unsubscribe:(id<UPnPEvents_Observer>)subscriber withSID:(NSString *)uuid {
     if (uuid == nil) {
         return;
     }
@@ -224,8 +219,6 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     //Parse the return
     [parser reinit];
 
-    NSString *eventXML = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
-
     //Check if the body ends with '0' zero's, MediaTomb does this and the parser does not like it, so cut 0's
     char zbuf[10];
     int cut = 0;
@@ -259,16 +252,14 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     if (parserret == 0) {
         // ok
         [mMutex lock];
-        UPnPEvents_Observer *thisObserver = nil;
+        id<UPnPEvents_Observer> thisObserver = nil;
         ObserverEntry *entry = mEventSubscribers[uuid];
         if (entry != nil) {
             thisObserver = entry.observer;
-            [thisObserver retain];
         }
         [mMutex unlock];
         if (thisObserver != nil) {
             [thisObserver UPnPEvent:[parser events]];
-            [thisObserver release];
         }
     }
 

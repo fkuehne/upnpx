@@ -110,23 +110,18 @@ static PlayBack *_playback = nil;
     return 0;
 }
 
+#pragma mark - BasicUPnPServiceObserver
 
-//BasicUPnPServiceObserver
--(void)UPnPEvent:(BasicUPnPService*)sender events:(NSDictionary*)events{
-    if(sender == [renderer avTransportService]){
+- (void)basicUPnPService:(BasicUPnPService *)service receivedEvents:(NSDictionary *)events {
+    if (service == self.renderer.avTransportService) {
         NSString *newState = events[@"TransportState"];
         
-        if([newState isEqualToString:@"STOPPED"]){
-            //Do your stuff, play next song etc...
+        if ([newState isEqualToString:@"STOPPED"]) {
+            // Do you stuff, play next song etc...
             NSLog(@"Event: 'STOPPED', Play next track of playlist.");
-           [self Play:pos+1]; //Next
+            [self Play:pos+1]; //Next
         }
     }
 }
-
-
-
-
-
 
 @end

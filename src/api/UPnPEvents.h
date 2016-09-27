@@ -38,8 +38,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class UPnPEvents_Observer;
-
 //Observer
 @protocol UPnPEvents_Observer
 
@@ -51,12 +49,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface ObserverEntry : NSObject {
-    UPnPEvents_Observer *observer;
+    id<UPnPEvents_Observer> observer;
     int timeout;
     double subscriptiontime;
 }
 
-@property (readwrite, retain) UPnPEvents_Observer *observer;
+@property (readwrite, strong) id<UPnPEvents_Observer> observer;
 @property (readwrite) int timeout;
 @property (readwrite) double subscriptiontime;
 
@@ -75,8 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)start;
 - (void)stop;
 
-- (void)subscribe:(UPnPEvents_Observer *)subscriber completion:(void (^)(NSString * __nullable uuid))completion;
-- (void)unsubscribe:(UPnPEvents_Observer *)subscriber withSID:(NSString *)uuid;
+- (void)subscribe:(id<UPnPEvents_Observer>)subscriber completion:(void (^)(NSString * __nullable uuid))completion;
+- (void)unsubscribe:(id<UPnPEvents_Observer>)subscriber withSID:(NSString *)uuid;
 
 - (void)manageSubscriptionTimeouts:(NSTimer *)timer;
 

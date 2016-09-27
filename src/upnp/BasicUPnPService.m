@@ -77,15 +77,13 @@
 
         stateVariables = [[NSMutableDictionary alloc] init];
 
-        mObservers = [[NSMutableArray alloc] init];
+        mObservers = [[NSMutableArray<BasicUPnPServiceObserver> alloc] init];
 
         //We still need to initialze this class with information from the location URL given by the ssdp 'device'
         //this is done in 'setup'
     }
     return self;
 }
-
-- (instancetype)init { @throw nil; }
 
 - (void)dealloc {
     if (eventUUID != nil) {
@@ -185,7 +183,7 @@
 - (void)subscribeOrResubscribeForEventsWithCompletion:(void (^)(BOOL success))completion {
     if (eventURL) {
         NSString *oldUUID = eventUUID;
-        [[[UPnPManager GetInstance] upnpEvents] subscribe:(UPnPEvents_Observer*)self
+        [[[UPnPManager GetInstance] upnpEvents] subscribe:self
                                                completion:^(NSString * _Nullable newEventUUID) {
                                                    eventUUID = [newEventUUID retain];
                                                    if (eventUUID != nil) {
@@ -196,7 +194,7 @@
                                                            NSLog(@"[UPnP] service re-subscribed for events. uuid:%@, old uuid:%@", eventUUID, oldUUID);
                                                            // Unsubscribe old
                                                            if (oldUUID != nil && [eventUUID isEqual:oldUUID] == NO) {
-                                                               [[[UPnPManager GetInstance] upnpEvents] unsubscribe:(UPnPEvents_Observer *)self withSID:oldUUID];
+                                                               [[[UPnPManager GetInstance] upnpEvents] unsubscribe:self withSID:oldUUID];
                                                            }
                                                            [oldUUID release];
                                                        }
