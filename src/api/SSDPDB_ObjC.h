@@ -39,8 +39,10 @@
  * Interface
  */
 @protocol SSDPDB_ObjC_Observer
--(void)SSDPDBUpdated:(SSDPDB_ObjC*)sender;
--(void)SSDPDBWillUpdate:(SSDPDB_ObjC*)sender;
+
+- (void)SSDPDBUpdated:(SSDPDB_ObjC *)sender;
+- (void)SSDPDBWillUpdate:(SSDPDB_ObjC *)sender;
+
 @end
 
 
@@ -49,16 +51,18 @@
  */
 @interface SSDPDB_ObjC : NSObject {
 @public
-    NSMutableArray *mObservers;
+    NSMutableArray<SSDPDB_ObjC_Observer> *mObservers;
+
 @private
-    void* mWrapper;
+    void *mWrapper;
     NSRecursiveLock *mMutex;
     NSMutableArray *SSDPObjCDevices;
 }
 
+@property(readonly, retain) NSMutableArray *SSDPObjCDevices;
 
--(void)lock;
--(void)unlock;
+- (void)lock;
+- (void)unlock;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) int startSSDP;
 @property (NS_NONATOMIC_IOSONLY, readonly) int stopSSDP;
@@ -68,18 +72,20 @@
 @property (NS_NONATOMIC_IOSONLY, readonly) int searchForContentDirectory;
 @property (NS_NONATOMIC_IOSONLY, readonly) int notifySSDPAlive;
 @property (NS_NONATOMIC_IOSONLY, readonly) int notifySSDPByeBye;
--(NSUInteger)addObserver:(id <SSDPDB_ObjC_Observer>)obs;
--(NSUInteger)removeObserver:(id <SSDPDB_ObjC_Observer>)obs;
--(void)SSDPDBUpdate;
--(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os;
 
-@property(readonly, retain) NSMutableArray *SSDPObjCDevices;
+- (NSUInteger)addObserver:(id <SSDPDB_ObjC_Observer>)obs;
+- (NSUInteger)removeObserver:(id <SSDPDB_ObjC_Observer>)obs;
+
+- (void)clearDevices;
+
+- (void)SSDPDBUpdate;
+- (void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os;
 
 @end
 
 /**
- * Device class
- */
+ Device class
+*/
 @interface SSDPDBDevice_ObjC : NSObject {
 @private
     bool isdevice;
@@ -97,20 +103,20 @@
     unsigned short port;
 }
 
-- (instancetype)initWithCPPDevice:(void *)cppDevice NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCPPDevice:(void*)cppDevice NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
-@property(readonly) bool isdevice;
-@property(readonly) bool isroot;
-@property(readonly) bool isservice;
-@property(readonly) NSString *uuid;
-@property(readonly) NSString *urn;
-@property(readonly) NSString *usn;
-@property(readonly) NSString *type;
-@property(readonly) NSString *version;
-@property(readonly) NSString *host;
-@property(readonly) NSString *location;
-@property(readonly) unsigned int ip;
-@property(readonly) unsigned short port;
+@property (readonly) bool isdevice;
+@property (readonly) bool isroot;
+@property (readonly) bool isservice;
+@property (readonly) NSString *uuid;
+@property (readonly) NSString *urn;
+@property (readonly) NSString *usn;
+@property (readonly) NSString *type;
+@property (readonly) NSString *version;
+@property (readonly) NSString *host;
+@property (readonly) NSString *location;
+@property (readonly) unsigned int ip;
+@property (readonly) unsigned short port;
 
 @end

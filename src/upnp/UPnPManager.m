@@ -34,6 +34,10 @@
 
 #import "UPnPManager.h"
 
+
+static NSTimeInterval const kSSDPRestartDelay = 0.1;
+
+
 @interface UPnPManager () {
     SSDPDB_ObjC *SSDP;
     UPnPDB *DB;
@@ -42,8 +46,12 @@
 
     MediaRenderer1Device *defaultMediaRenderer1;
     MediaPlaylist *defaultPlaylist;
+
+    BOOL _inProcessOfRestart;
 }
+
 @end
+
 
 @implementation UPnPManager
 
@@ -54,7 +62,7 @@
 @synthesize defaultMediaRenderer1;
 @synthesize defaultPlaylist;
 
-+(UPnPManager*)GetInstance{
++ (UPnPManager *)GetInstance {
     static UPnPManager *instance = nil;
     static dispatch_once_t onceToken;
 
@@ -64,17 +72,16 @@
     return instance;
 }
 
--(instancetype)init{
-
+- (instancetype)init {
     self = [super init];
-
     if (self) {
-
         upnpEvents = [[UPnPEvents alloc] init];
         deviceFactory = [[DeviceFactory alloc] init];
         SSDP = [[SSDPDB_ObjC alloc] init];
         DB = [[UPnPDB alloc] initWithSSDP:SSDP];
         defaultPlaylist = [[MediaPlaylist alloc] init];
+
+        _inProcessOfRestart = NO;
 
         [SSDP startSSDP];
         [upnpEvents start];
@@ -83,12 +90,15 @@
     return self;
 }
 
--(void)dealloc{
-    if (upnpEvents)
+- (void)dealloc {
+    if (upnpEvents != nil) {
         [upnpEvents stop];
-    if (SSDP)
+    }
+    if (SSDP != nil) {
         [SSDP stopSSDP];
-    [SSDP release];
+        [SSDP release];
+    }
+
     [DB release];
     [deviceFactory release];
     [upnpEvents release];
@@ -97,5 +107,37 @@
     [super dealloc];
 }
 
+- (void)clearAllDevices {
+    [SSDP clearDevices];
+    [DB clearRootDevices];
+}
+
+- (void)restartSSDPSearchWithCompletionBlock:(void(^)())completionBlock {
+    @synchronized(self) {
+        if (_inProcessOfRestart) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSSDPRestartDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (completionBlock != nil) {
+                    completionBlock();
+                }
+            });
+            return;
+        }
+
+        _inProcessOfRestart = YES;
+
+        if (SSDP != nil) {
+            [SSDP stopSSDP];
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSSDPRestartDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SSDP startSSDP];
+            _inProcessOfRestart = NO;
+
+            if (completionBlock != nil) {
+                completionBlock();
+            }
+        });
+    }
+}
 
 @end

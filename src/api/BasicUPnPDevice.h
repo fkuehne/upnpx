@@ -38,10 +38,22 @@
 
 #import "iphoneport.h"
 
+
+@class BasicUPnPDevice;
+
+
+@protocol BasicUPnPDeviceObserver <NSObject>
+
+- (void)deviceServicesDidUpdate:(BasicUPnPDevice *)device;
+
+@end
+
+
 @interface BasicUPnPDevice : NSObject {
 @private
     bool isRoot;
     bool isFound;
+    bool isLoadingDescriptionXML;
     double lastUpdated;
     NSMutableDictionary *services; //Key=urn string, Object=BasicUPnPService 
     NSString *uuid;
@@ -66,21 +78,16 @@
     NSString *smallIconURL;
 }
 
-
--(instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
-@property (NS_NONATOMIC_IOSONLY, readonly) int loadDeviceDescriptionFromXML;
--(BasicUPnPService*)getServiceForType:(NSString*)serviceUrn;
-@property (NS_NONATOMIC_IOSONLY, getter=getServices, readonly, copy) NSMutableDictionary *services;//BasicUPnPService[]
-
-@property(readonly) bool isRoot;
-@property(readwrite) bool isFound;
-@property(readwrite) double lastUpdated;
-@property(readonly) NSString *uuid;
-@property(readonly) NSString *type;
-@property(readonly) NSString *xmlLocation;
-@property(readwrite, retain) NSURL *baseURL;
-@property(readwrite, retain) NSString *baseURLString;
-@property(readwrite, retain) NSString *friendlyName;
+@property (readonly) bool isRoot;
+@property (readwrite) bool isFound;
+@property (readwrite) bool isLoadingDescriptionXML;
+@property (readwrite) double lastUpdated;
+@property (readonly) NSString *uuid;
+@property (readonly) NSString *type;
+@property (readonly) NSString *xmlLocation;
+@property (readwrite, retain) NSURL *baseURL;
+@property (readwrite, retain) NSString *baseURLString;
+@property (readwrite, retain) NSString *friendlyName;
 @property (nonatomic, retain) NSString *manufacturer;
 @property (nonatomic, retain) NSURL *manufacturerURL;
 @property (nonatomic, retain) NSString *manufacturerURLString;
@@ -90,13 +97,23 @@
 @property (nonatomic, retain) NSURL *modelURL;
 @property (nonatomic, retain) NSString *modelURLString;
 @property (nonatomic, retain) NSString *serialNumber;
-@property(readwrite, retain) NSString *udn;
-@property(readwrite, retain) NSString *usn;
-@property(readwrite, retain) NSString *urn;
-@property(readwrite, retain) UIImage *smallIcon;
-@property(readwrite) int smallIconHeight;
-@property(readwrite) int smallIconWidth;
-@property(readwrite) int smallIconDepth;
-@property(readwrite, retain) NSString *smallIconURL;
+@property (readwrite, retain) NSString *udn;
+@property (readwrite, retain) NSString *usn;
+@property (readwrite, retain) NSString *urn;
+@property (readwrite, retain) UIImage *smallIcon;
+@property (readwrite) int smallIconHeight;
+@property (readwrite) int smallIconWidth;
+@property (readwrite) int smallIconDepth;
+@property (readwrite, retain) NSString *smallIconURL;
+
+@property (NS_NONATOMIC_IOSONLY, copy, getter=getServices, readonly) NSMutableDictionary<NSString *, BasicUPnPService *> *services;
+
+- (instancetype)initWithSSDPDevice:(SSDPDBDevice_ObjC*)ssdp;
+- (BasicUPnPService *)getServiceForType:(NSString*)serviceUrn;
+
+- (int)loadDeviceDescriptionFromXML;
+
+- (NSUInteger)addObserver:(id <BasicUPnPDeviceObserver>)obs;
+- (NSUInteger)removeObserver:(id <BasicUPnPDeviceObserver>)obs;
 
 @end

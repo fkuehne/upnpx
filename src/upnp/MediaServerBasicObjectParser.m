@@ -308,7 +308,7 @@
 
 
 -(void)res:(NSString*)startStop{
-    if([startStop isEqualToString:@"ElementStart"]){
+    if([startStop isEqualToString:@"ElementStop"]){
         
         NSString *resProtocolInfo = elementAttributeDict[@"protocolInfo"];
         NSString *resFrequency = elementAttributeDict[@"sampleFrequency"];
@@ -326,6 +326,9 @@
         [r setProtocolInfo: resProtocolInfo];
         [r setSize: [resSize longLongValue]];
         [r setDurationInSeconds:[self _HMS2Seconds:resDuration]];
+        [r setFrequency:[resFrequency floatValue]];
+        [r setIconPath:icon];
+        [r setUri:[NSURL URLWithString:resourceURI]];
         [resources addObject:r];
         [r release];
         
@@ -343,12 +346,9 @@
             [self setIcon:resIcon];
         }
 
-    }else{
         NSString *protocolInfoString = elementAttributeDict[@"protocolInfo"];
         uriCollection[protocolInfoString] = resourceURI;//@todo: we overwrite uri's with same protocol info
-        if ([protocolInfoString rangeOfString:@"image/"].location == NSNotFound) {
-            [self setUri:resourceURI];
-        }
+        [self setUri:resourceURI];
         resourceURI = nil;
     }
 }

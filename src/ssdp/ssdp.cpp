@@ -208,7 +208,7 @@ EXIT:
 int SSDP::Stop(){
     mReadLoop = 0;
     //@TODO: leave multicast groups
-    if(mMulticastSocket > 0){
+    if (mMulticastSocket > 0) {
         close(mMulticastSocket);
         mMulticastSocket = INVALID_SOCKET;
         close(mUnicastSocket);
@@ -314,16 +314,18 @@ int SSDP::ReadLoop(){
     timeout.tv_sec = 5;
     timeout.tv_usec = 0;
 
-    u8 buf[4096];
-    int bufsize = 4096;
+    const int bufsize = 4096;
+    u8 buf[bufsize];
 
     struct sockaddr_in sender;
     socklen_t senderlen = sizeof(struct sockaddr);
 
-    int maxsock = mMulticastSocket>mUnicastSocket?mMulticastSocket:mUnicastSocket;
+    int maxsock = mMulticastSocket > mUnicastSocket ? mMulticastSocket : mUnicastSocket;
 
     //Read UDP answers
-    while(mReadLoop){
+    while (mReadLoop) {
+        memset(buf, 0, bufsize);
+
         //(Re)set file descriptor
         FD_ZERO(&mReadFDS);
         FD_ZERO(&mWriteFDS);
@@ -349,31 +351,32 @@ int SSDP::ReadLoop(){
         timeout.tv_usec = 0;
 
         ret = select(maxsock+1, &mReadFDS, 0, &mExceptionFDS, &timeout);
-        if(ret == SOCKET_ERROR){
+        if (ret == SOCKET_ERROR) {
             printf("Socket error!\n");
             break;
-        }else if(ret != 0){
+        }
+        else if (ret != 0) {
             //Multicast
-            if(FD_ISSET(mMulticastSocket, &mExceptionFDS)){
+            if (FD_ISSET(mMulticastSocket, &mExceptionFDS)) {
                 printf("Error on Multicast socket, continue\n");
             }
-            if(FD_ISSET(mMulticastSocket, &mReadFDS)){
+            if (FD_ISSET(mMulticastSocket, &mReadFDS)) {
                 //Data
                 //printf("Data\n");
-                ret = (int)recvfrom(mMulticastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+                ret = (int)recvfrom(mMulticastSocket, buf, bufsize, MSG_WAITALL, (struct sockaddr*)&sender, &senderlen);
                 if(ret != SOCKET_ERROR){
                     //Be sure to only deliver full messages (!)
                     IncommingMessage((struct sockaddr*)&sender, buf, ret);
                 }
             }
             //Unicast
-            if(FD_ISSET(mUnicastSocket, &mExceptionFDS)){
+            if (FD_ISSET(mUnicastSocket, &mExceptionFDS)) {
                 printf("Error on Unicast socket, continue\n");
             }
-            if(FD_ISSET(mUnicastSocket, &mReadFDS)){
+            if (FD_ISSET(mUnicastSocket, &mReadFDS)) {
                 //Data
                 //printf("Data\n");
-                ret = (int)recvfrom(mUnicastSocket, buf, bufsize, 0, (struct sockaddr*)&sender, &senderlen);
+                ret = (int)recvfrom(mUnicastSocket, buf, bufsize, MSG_WAITALL, (struct sockaddr*)&sender, &senderlen);
                 if(ret != SOCKET_ERROR){
                     //Be sure to only deliver full messages (!)
                     IncommingMessage((struct sockaddr*)&sender, buf, ret);

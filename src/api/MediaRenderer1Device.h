@@ -80,9 +80,6 @@ FOUNDATION_EXPORT NSString *const UPnPMediaRenderer1DeviceURN;
 @property (NS_NONATOMIC_IOSONLY, readonly) int play;
 - (int)playWithMedia:(MediaServer1BasicObject *)media;
 
-@property(readonly) MediaPlaylist *playList;
-
-#pragma mark - BasicUPnPServiceObserver
-- (void)UPnPEvent:(BasicUPnPService *)sender events:(NSDictionary*)events;
+@property (readonly) MediaPlaylist *playList;
 
 @end

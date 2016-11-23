@@ -35,6 +35,9 @@
 
 @interface SoapAction : BasicParser
 
+@property (nonatomic, strong) NSURLResponse *response;
+@property (nonatomic, strong) NSError *error;
+
 -(instancetype)initWithActionURL:(NSURL*)aUrl eventURL:(NSURL*)eUrl upnpnamespace:(NSString*)ns NS_DESIGNATED_INITIALIZER;
 -(NSInteger)action:(NSString*)soapAction parameters:(NSDictionary*)parameters returnValues:(NSDictionary*)output;
 

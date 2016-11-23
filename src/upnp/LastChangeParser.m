@@ -37,9 +37,8 @@
 
 @implementation LastChangeParser
 
--(instancetype)initWithEventDictionary:(NSMutableDictionary*)foundEvents{
+- (instancetype)initWithEventDictionary:(NSMutableDictionary *)foundEvents {
     self = [super initWithNamespaceSupport:NO];
-
     if (self) {
         /* TODO: events -> retain property */
         events = foundEvents;
@@ -48,20 +47,15 @@
         [self addAsset:@[@"Event", @"InstanceID"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"Event", @"InstanceID", @"*"] callfunction:@selector(propertyName:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
     }
-
     return self;
 }
 
--(void)propertyName:(NSString*)startStop{
-    if([startStop isEqualToString:@"ElementStart"]){
-    }else{
-        //Element name
+- (void)propertyName:(NSString *)startStop {
+    if (NO == [startStop isEqualToString:@"ElementStart"]) {
         NSString *name = nil;
-        //Element value
         NSString *value = elementAttributeDict[@"val"];
 
-        //NSLog(@"Parsing event: %@ with content: %@", currentElementName, elementAttributeDict);
-        if([currentElementName isEqualToString:@"Volume"]){               //Connect volume and channel in one event key
+        if ([currentElementName isEqualToString:@"Volume"]) { // Connect volume and channel in one event key
             NSString *channel = elementAttributeDict[@"channel"];
             if(channel){
                 name = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%@-%@", currentElementName, channel]];
@@ -70,12 +64,12 @@
                 }
             }
         }
-        if(!name){
+        if (name == nil) {
             name = [[NSString alloc] initWithString:currentElementName];
         }
 
         //Add
-        if(name != nil && value != nil){
+        if (name != nil && value != nil) {
             events[name] = value;
         }
 

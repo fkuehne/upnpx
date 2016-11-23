@@ -41,7 +41,7 @@ int GetHeaderValueFromCollection(vector<SSDP_HTTP_HEADER*> headers, u8* fieldnam
     int found=0;
 
     vector<SSDP_HTTP_HEADER*>::const_iterator it;
-    SSDP_HTTP_HEADER *hdr;
+    SSDP_HTTP_HEADER *hdr = nullptr;
 
     if(headers.size() <= 0){
         ret = -1;

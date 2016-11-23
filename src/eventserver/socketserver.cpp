@@ -345,9 +345,21 @@ int SocketServer::ReadLoop(){
                     connection->ErrorOnSocket();
                     //We remove this one from our pool
                     connection->isActive = false;
-                }else if(FD_ISSET(thisSocket, &mWriteFDS)){
-                    connection->isActive = false;
                 }
+                /* Closing socket if it has no data to read is bad. One reason is because it needs some time before it can be read.
+                   Situation:
+                    - open new socket
+                    - FD_ISSET(thisSocket, &mReadFDS) == 0
+                    - FD_ISSET(thisSocket, &mExceptionFDS) == 1 as socket is ready to be written to
+                    - connection->isActive = false; -> socket closes in code below
+                    - we lose all data from socket
+                   Solution:
+                    - don't close socket if it is not opened for reading, wait for another cycles until it becomes avaialable for it
+                    - it will be closed when no data are to be read
+                 */
+                /*else if(FD_ISSET(thisSocket, &mWriteFDS)){
+                    connection->isActive = false;
+                }*/
             }
 
             //check for closed sockets
