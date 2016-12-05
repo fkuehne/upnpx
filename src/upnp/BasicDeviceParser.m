@@ -56,9 +56,6 @@
 @synthesize modelURLString;
 @synthesize serialNumber;
 
-@synthesize dmhAudyssey;
-@synthesize dmhAudysseyPort;
-
 /****
  © 2002 Contributing Members of the UPnP™ Forum. All Rights Reserved.
  UPnP Basic: Device Template Version 1.01 2
@@ -130,9 +127,6 @@
         [self addAsset:@[@"root", @"device", @"serialNumber"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setSerialNumber:) setStringValueObject:self];
         [self addAsset:@[@"root", @"device", @"manufacturer"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturer:) setStringValueObject:self];
         [self addAsset:@[@"root", @"device", @"manufacturerURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturerURLString:) setStringValueObject:self];
-        
-        [self addAsset:@[@"root", @"device", @"DMH:X_Audyssey"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDmhAudyssey:) setStringValueObject:self];
-        [self addAsset:@[@"root", @"device", @"DMH:X_AudysseyPort"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setDmhAudysseyPort:) setStringValueObject:self];
 
         [self addAsset:@[@"root", @"device", @"iconList", @"icon"] callfunction:@selector(iconFound:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"root", @"device", @"iconList", @"icon", @"mimetype"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconMime:) setStringValueObject:self];
@@ -175,9 +169,6 @@
     [modelNumber release];
     [modelURLString release];
     [serialNumber release];
-    
-    [dmhAudyssey release];
-    [dmhAudysseyPort release];
 
     [super dealloc];
 }
@@ -298,9 +289,6 @@
             [device setModelNumber:modelNumber];
             [device setModelURLString:modelURLString];
             [device setSerialNumber:serialNumber];
-            
-            [device setDmhAudyssey:dmhAudyssey];
-            [device setDmhAudysseyPort:dmhAudysseyPort];
         }
     }
 }

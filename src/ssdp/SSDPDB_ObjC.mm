@@ -234,13 +234,6 @@ private:
     }
 }
 
-- (void)deleteDevice:(NSString *)uuid
-{
-    unsigned char *string = (unsigned char *)[uuid UTF8String];
-    unsigned int length = (unsigned int)uuid.length;
-    UPNP::GetInstance()->GetSSDP()->GetDB()->DeleteDevicesByUuid(string, length);
-}
-
 @end
 
 /**

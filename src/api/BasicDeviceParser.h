@@ -54,9 +54,6 @@
     NSString *modelName;
     NSString *modelNumber;
     NSString *serialNumber;
-    
-    NSString *dmhAudyssey;
-    NSString *dmhAudysseyPort;
 }
 
 -(instancetype)initWithUPnPDevice:(BasicUPnPDevice*)upnpdevice NS_DESIGNATED_INITIALIZER;
@@ -82,8 +79,5 @@
 @property (nonatomic, retain) NSString *modelNumber;
 @property (nonatomic, retain) NSString *modelURLString;
 @property (nonatomic, retain) NSString *serialNumber;
-
-@property (nonatomic, retain) NSString *dmhAudyssey;
-@property (nonatomic, retain) NSString *dmhAudysseyPort;
 
 @end
