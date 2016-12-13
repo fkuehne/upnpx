@@ -217,7 +217,7 @@ int SSDPParser::ReadLine(u8 *buf, u32 len, u8 **restbuf, u32 *restlen){
         pos++;
     }
     // \r\n or eof
-    if(pos > buf){
+    if(pos > buf && pos < (u8*)(buf+(len-1))) {
         pos++;
         pos++;
         *restlen = (unsigned int)((buf+len)-pos);
