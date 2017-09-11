@@ -41,7 +41,7 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 11.0f, self.navigationController.view.frame.size.width, 21.0f)];
     [self.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
     [self.titleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.titleLabel setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:1.0]];
+    [self.titleLabel setTextColor:[UIColor blackColor]];
     [self.titleLabel setText:@""];
     [self.titleLabel setTextAlignment:NSTextAlignmentLeft];
 

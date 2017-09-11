@@ -216,13 +216,13 @@ int SSDPParser::ReadLine(u8 *buf, u32 len, u8 **restbuf, u32 *restlen){
     if( !pos )
         return -1;
     // \r\n or eof
-    *restlen = len - (u32)(pos + 2 - buf);
+    *restlen = (unsigned int)strlen((const char *)pos) - 2;
 
     if( *restlen == 0 ){
         ret = -1;//eof
     }else{
         *restbuf = pos + 2;
-        ret = *restlen;
+        ret = len - *restlen - 2;
     }
 
     return ret;
