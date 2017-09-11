@@ -212,23 +212,19 @@ int SSDPParser::ReadLine(u8 *buf, u32 len, u8 **restbuf, u32 *restlen){
     }
 
     //Search the \r\n
-    u8 *pos = buf;
-    while((pos < (u8*)(buf+(len-1)) ) && (*pos != '\r' && *(pos+1) != '\n')){
-        pos++;
-    }
+    u8 *pos = strnstr(buf, "\r\n", len);
+    if( !pos )
+        return -1;
     // \r\n or eof
-    if(pos > buf && pos < (u8*)(buf+(len-1))) {
-        pos++;
-        pos++;
-        *restlen = (unsigned int)((buf+len)-pos);
-        if( *restlen == 0 ){
-            ret = -1;//eof
-        }else{
-            *restbuf = pos;
-            ret = (unsigned int)((pos-buf)-2);
-        }
-    }else{
+
+    pos++;
+    pos++;
+    *restlen = (unsigned int)((buf+len)-pos);
+    if( *restlen == 0 ){
         ret = -1;//eof
+    }else{
+        *restbuf = pos;
+        ret = (unsigned int)((pos-buf)-2);
     }
 
     return ret;
