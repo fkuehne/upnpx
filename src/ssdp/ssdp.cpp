@@ -256,14 +256,6 @@ int SSDP::Search(){
     return this->SendSearchRequest("ssdp:all");
 }
 
-int SSDP::SearchForBelkinDevice(){
-    return this->SendSearchRequest("urn:Belkin:device:controllee:1");
-}
-
-int SSDP::SearchForRootDevice(){
-    return this->SendSearchRequest("upnp:rootdevice");
-}
-
 int SSDP::SearchForMediaServer(){
     return this->SendSearchRequest("urn:schemas-upnp-org:device:MediaServer:1");
 }

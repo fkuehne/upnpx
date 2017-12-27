@@ -124,14 +124,6 @@ private:
     return UPNP::GetInstance()->GetSSDP()->Search();
 }
 
--(int)searchForBelkinDevice{
-    return UPNP::GetInstance()->GetSSDP()->SearchForBelkinDevice();
-}
-
--(int)searchForRootDevice{
-    return UPNP::GetInstance()->GetSSDP()->SearchForRootDevice();
-}
-
 -(int)searchForMediaServer{
     return UPNP::GetInstance()->GetSSDP()->SearchForMediaServer();
 }

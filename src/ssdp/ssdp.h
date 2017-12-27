@@ -62,8 +62,6 @@ public:
     int RemoveObserver(SSDPObserver* observer);
     int Advertise();
     int Search();
-    int SearchForBelkinDevice();
-    int SearchForRootDevice();
     int SearchForMediaServer();
     int SearchForMediaRenderer();
     int SearchForContentDirectory();
