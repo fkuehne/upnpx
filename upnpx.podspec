@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   }
   s.requires_arc = false
   s.libraries = 'c++'
+  s.static_framework = true
 end
