@@ -217,12 +217,14 @@
     }
 
     //load icon if any
+#if TARGET_OS_IPHONE
     if(ret == 0 && iconURL != nil){
         NSURL *u = [NSURL URLWithString:iconURL relativeToURL:device.baseURL];
         NSData *imageData = [NSData dataWithContentsOfURL:u];
         UIImage *i = [UIImage imageWithData:imageData];
         [device setSmallIcon:i];
     }
+#endif
 
     return ret;
 }

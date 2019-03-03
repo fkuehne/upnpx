@@ -62,7 +62,9 @@
 @synthesize udn;
 @synthesize usn;
 @synthesize urn;
+#if TARGET_OS_IPHONE
 @synthesize smallIcon;
+#endif
 @synthesize smallIconWidth;
 @synthesize smallIconHeight;
 @synthesize smallIconURL;
@@ -138,7 +140,9 @@
     [udn release];
     [usn release];
     [urn release];
+#if TARGET_OS_IPHONE
     [smallIcon release];
+#endif
     [type release];
     [smallIconURL release];
 

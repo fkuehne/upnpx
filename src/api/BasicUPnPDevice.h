@@ -36,8 +36,9 @@
 #import "SSDPDB_ObjC.h"
 #import "BasicUPnPService.h"
 
+#if TARGET_OS_IPHONE
 #import "iphoneport.h"
-
+#endif
 
 @class BasicUPnPDevice;
 
@@ -71,7 +72,9 @@
     NSString *udn;
     NSString *usn;
     NSString *urn;
+#if TARGET_OS_IPHONE
     UIImage *smallIcon;
+#endif
     int smallIconHeight;
     int smallIconWidth;
     int smallIconDepth;
@@ -100,7 +103,9 @@
 @property (readwrite, retain) NSString *udn;
 @property (readwrite, retain) NSString *usn;
 @property (readwrite, retain) NSString *urn;
+#if TARGET_OS_IPHONE
 @property (readwrite, retain) UIImage *smallIcon;
+#endif
 @property (readwrite) int smallIconHeight;
 @property (readwrite) int smallIconWidth;
 @property (readwrite) int smallIconDepth;
