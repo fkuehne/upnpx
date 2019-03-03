@@ -90,10 +90,13 @@ public:
     }
 
     bool Request(char *senderIP, unsigned short senderPort, string *method, string *path, string *version, map<string, string> *headers, char *body, int bodylen) {
-
-        if (strlen(body) != bodylen) {
-            NSLog(@"[UPnP] ERROR: real bodylen is %d, received bodylen is %zu \n Content: %s", bodylen, strlen(body), body);
-            bodylen = (int)strlen(body);
+        if (body == NULL) {
+            bodylen = 0;
+        } else {
+            if (strlen(body) != bodylen) {
+                NSLog(@"[UPnP] ERROR: real bodylen is %d, received bodylen is %zu \n Content: %s", bodylen, strlen(body), body);
+                bodylen = (int)strlen(body);
+            }
         }
 
         @autoreleasepool {
