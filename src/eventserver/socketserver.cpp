@@ -282,12 +282,7 @@ int SocketServer::ReadLoop(){
         timeout.tv_sec = 5;
         timeout.tv_usec = 0;
 
-#ifdef UPNPX_IPHONE 
-        //Not sure why but 1024 seems to be the only one that work on the iPhone device
-        ret = select(8*sizeof(mReadFDS), &mReadFDS, &mWriteFDS, &mExceptionFDS, &timeout);
-#else
         ret = select(highSocket+1, &mReadFDS, &mWriteFDS, &mExceptionFDS, &timeout);
-#endif 
 
         if(ret == SOCKET_ERROR){
             //Error
