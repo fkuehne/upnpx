@@ -257,11 +257,9 @@ int SocketServer::ReadLoop(){
         //(Re)set file descriptor
         FD_ZERO(&mReadFDS);
         FD_ZERO(&mExceptionFDS);
-        FD_ZERO(&mWriteFDS);
 
         //Set the ServerSocket
         FD_SET(mServerSocket, &mReadFDS);
-        FD_SET(mServerSocket, &mWriteFDS);
         FD_SET(mServerSocket, &mExceptionFDS);
 
         //printf("mServerSocket=%d, highSocket=%d, sizeof(mReadFDS)=%d\n", mServerSocket,highSocket,sizeof(mReadFDS));
@@ -273,7 +271,6 @@ int SocketServer::ReadLoop(){
             thisSocket = ((SocketServerConnection*)*it)->GetSocket();
             FD_SET(thisSocket, &mReadFDS);
             FD_SET(thisSocket, &mExceptionFDS);
-            FD_SET(thisSocket, &mWriteFDS);
             if(thisSocket > highSocket){
                 highSocket = thisSocket;
             }
@@ -282,7 +279,7 @@ int SocketServer::ReadLoop(){
         timeout.tv_sec = 5;
         timeout.tv_usec = 0;
 
-        ret = select(highSocket+1, &mReadFDS, &mWriteFDS, &mExceptionFDS, &timeout);
+        ret = select(highSocket+1, &mReadFDS, NULL, &mExceptionFDS, &timeout);
 
         if(ret == SOCKET_ERROR){
             //Error
@@ -293,8 +290,6 @@ int SocketServer::ReadLoop(){
             //Server socket 
             if(FD_ISSET(mServerSocket, &mExceptionFDS)){
                 printf("Error on socket, continue\n");
-            }else if(FD_ISSET(mServerSocket, &mWriteFDS)){
-                //Write
             }else if(FD_ISSET(mServerSocket, &mReadFDS)){
                 //New Connection 
                 if(mConnections.size() <= mMaxConnections){
@@ -341,20 +336,6 @@ int SocketServer::ReadLoop(){
                     //We remove this one from our pool
                     connection->isActive = false;
                 }
-                /* Closing socket if it has no data to read is bad. One reason is because it needs some time before it can be read.
-                   Situation:
-                    - open new socket
-                    - FD_ISSET(thisSocket, &mReadFDS) == 0
-                    - FD_ISSET(thisSocket, &mExceptionFDS) == 1 as socket is ready to be written to
-                    - connection->isActive = false; -> socket closes in code below
-                    - we lose all data from socket
-                   Solution:
-                    - don't close socket if it is not opened for reading, wait for another cycles until it becomes avaialable for it
-                    - it will be closed when no data are to be read
-                 */
-                /*else if(FD_ISSET(thisSocket, &mWriteFDS)){
-                    connection->isActive = false;
-                }*/
             }
 
             //check for closed sockets
