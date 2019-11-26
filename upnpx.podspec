@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'upnpx'
-  s.version  = '1.4.1'
+  s.version  = '1.4.3'
   s.license  = 'BSD'
   s.ios.deployment_target = "6.1"
   s.osx.deployment_target = "10.8"
