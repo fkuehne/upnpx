@@ -295,6 +295,10 @@ int SocketServer::ReadLoop(){
                 if(mConnections.size() <= mMaxConnections){
                     senderlen = sizeof(struct sockaddr);
                     SOCKET newSocket = accept(mServerSocket, (sockaddr*)&sender, &senderlen);
+		    if (newSocket < 0) {
+                        printf("accpet failed %d %d\n", errno, EFAULT);
+                        break;
+                    }
                     SocketServerConnection* newConnection = new SocketServerConnection(newSocket, &sender);
                     mConnections.push_back(newConnection);
                 }else{
