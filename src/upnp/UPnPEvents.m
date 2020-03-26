@@ -78,12 +78,14 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     //Start the subscription timer
     mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(manageSubscriptionTimeouts:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:mTimeoutTimer forMode:NSDefaultRunLoopMode];
+    [server start];
 }
 
 - (void)stop {
     //Stop the subscription timer
     [mTimeoutTimer invalidate];
     mTimeoutTimer = nil;
+    [server stop];
 }
 
 -(void)subscribe:(id<UPnPEvents_Observer>)subscriber completion:(void (^)(NSString * __nullable uuid))completion {
