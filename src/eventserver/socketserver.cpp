@@ -59,7 +59,7 @@
 #define IFF_ALLMULTI    0x200           /* receive all multicast packets*/
 
 
-SocketServer::SocketServer(unsigned short preferredPort):mServerSocket(NULL),mReadLoop(0){
+SocketServer::SocketServer(unsigned short preferredPort):mServerSocket(INVALID_SOCKET),mReadLoop(0){
     mPort = preferredPort;
     mMaxConnections = 20;
     memset(ipAddress, 0, sizeof(ipAddress));
@@ -135,6 +135,10 @@ int SocketServer::Start(){
     u32 optval = 0;
     int cnt = 0;
 
+    if (mServerSocket != INVALID_SOCKET) {
+        ret = -9;
+        goto EXIT;
+    }
     //Get the IP Address
     ret = getLocalIPAddress(ipAddress, 10);
     if(ret != 0){
@@ -200,7 +204,12 @@ EXIT:
 
 
 int SocketServer::Stop(){
-    return -1;
+    if (mServerSocket > 0) {
+        close(mServerSocket);
+        mServerSocket = INVALID_SOCKET;
+        mReadLoop = 0;
+    }
+    return 0;
 }
 
 
@@ -295,6 +304,10 @@ int SocketServer::ReadLoop(){
                 if(mConnections.size() <= mMaxConnections){
                     senderlen = sizeof(struct sockaddr);
                     SOCKET newSocket = accept(mServerSocket, (sockaddr*)&sender, &senderlen);
+		    if (newSocket < 0) {
+                        printf("accpet failed %d %d\n", errno, EFAULT);
+                        break;
+                    }
                     SocketServerConnection* newConnection = new SocketServerConnection(newSocket, &sender);
                     mConnections.push_back(newConnection);
                 }else{
