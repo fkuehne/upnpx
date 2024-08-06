@@ -60,9 +60,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface BufferedEvent : NSObject{
+    double eventTime;
+    NSString* subscriptionID;
+    NSDictionary *events;
+}
+
+@property (readwrite) double eventTime;
+@property (readwrite, strong) NSString* subscriptionID;
+@property (readwrite, strong) NSDictionary *events;
+
+@end
+
+
 
 @interface UPnPEvents : NSObject <BasicHTTPServer_ObjC_Observer> {
     NSMutableDictionary *mEventSubscribers;//uuid, observer
+    NSMutableArray *mArrivedEventsBuffers; //uuid, list of events
     BasicHTTPServer_ObjC *server;
     UPnPEventParser *parser;
     NSRecursiveLock *mMutex;

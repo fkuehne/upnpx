@@ -68,6 +68,7 @@
     NSString *eventUUID;
 
     NSMutableDictionary<NSString *, StateVariable *> *stateVariables;
+    NSMutableDictionary *currentStateVariableValues;
     NSMutableArray<BasicUPnPServiceObserver> *mObservers;
 
     NSRecursiveLock *mMutex;
@@ -81,6 +82,7 @@
 @property (readwrite, retain) NSString *serviceType;
 @property (readonly, retain) SSDPDBDevice_ObjC *ssdpdevice;
 @property (readonly) NSMutableDictionary *stateVariables;
+@property (readonly) NSMutableDictionary *currentStateVariableValues;
 @property (readonly) SoapAction *soap;
 @property (readwrite, retain) NSString *urn;
 @property (readwrite) BOOL isSetUp;

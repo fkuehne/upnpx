@@ -47,6 +47,7 @@
 @synthesize controlURL;
 @synthesize ssdpdevice;
 @synthesize stateVariables;
+@synthesize currentStateVariableValues;
 @synthesize urn;
 @synthesize soap;
 @synthesize isSetUp;
@@ -76,6 +77,8 @@
         isSubscribedForEvents = NO;
 
         stateVariables = [[NSMutableDictionary alloc] init];
+        currentStateVariableValues = [[NSMutableDictionary alloc] init];
+
 
         mObservers = [[NSMutableArray<BasicUPnPServiceObserver> alloc] init];
 
@@ -101,6 +104,7 @@
     [baseURLString release];
 
     [stateVariables release];
+    [currentStateVariableValues release];
 
     [urn release];
     [soap release];
@@ -125,6 +129,11 @@
     [mMutex lock];
     [mObservers addObject:obs];
     ret = [mObservers count];
+    
+    // a new observer should get current state (if we've received some state already)
+    if ([currentStateVariableValues count]>0) {
+        [obs basicUPnPService:self receivedEvents:currentStateVariableValues];
+    }
     [mMutex unlock];
 
     return ret;
@@ -233,6 +242,7 @@
     BasicUPnPServiceObserver *obs = nil;
     
     [mMutex lock];
+    [currentStateVariableValues addEntriesFromDictionary:events];
     NSEnumerator *listeners = [mObservers objectEnumerator];
     while (obs = [listeners nextObject]) {
         [obs basicUPnPService:self receivedEvents:events];

@@ -47,6 +47,15 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 @end
 
 
+@implementation BufferedEvent
+
+@synthesize eventTime;
+@synthesize subscriptionID;
+@synthesize events;
+
+@end
+
+
 @implementation UPnPEvents
 
 - (instancetype)init {
@@ -54,6 +63,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     if (self) {
         mMutex = [[NSRecursiveLock alloc] init];
         mEventSubscribers = [[NSMutableDictionary alloc] init];
+        mArrivedEventsBuffers = [[NSMutableArray alloc] init];
         parser = [[UPnPEventParser alloc] init];
 
         server = [[BasicHTTPServer_ObjC alloc] init];
@@ -68,6 +78,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     [server stop];
     [server release];
     [mEventSubscribers release];
+    [mArrivedEventsBuffers release];
     [parser release];
     [mMutex release];
 
@@ -76,7 +87,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 
 - (void)start {
     //Start the subscription timer
-    mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(manageSubscriptionTimeouts:) userInfo:nil repeats:YES];
+    mTimeoutTimer = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(manageTimeouts:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:mTimeoutTimer forMode:NSDefaultRunLoopMode];
     [server start];
 }
@@ -142,6 +153,9 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
             NSLog(@"[UPnP-GENA] Subscribed successfully < uuid: %@ | timeout: %d >", retUUID, en.timeout);
 
             mEventSubscribers[retUUID] = en;
+            
+            [self processEventsFromBufferForKey: retUUID];
+            
             [en release];
         }
         else {
@@ -189,6 +203,61 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
         }
     });
 }
+
+
+/**
+ * As a race condition, first events can arrive before we have processed the response from an event subscrition,
+ * thus know and have initialized the subscription id.
+ * So each event that arrives, without us knowing a responsible observer already will be written into buffer.
+ * As soon as we know the subscription id, the buffer can be cleared.
+ * Each event in the buffer not consumed within a certain time frame will be discarded, as the race condition is typically
+ * just about some milliseconds.
+ */
+
+- (void)bufferEarlyEventFromCurrentParser:(NSString *)uuid {
+    BufferedEvent *bufferedEvent = [[BufferedEvent alloc] init];
+    [bufferedEvent setEvents:[[[parser events] copy] autorelease]];
+    [bufferedEvent setEventTime:[[NSDate date]timeIntervalSince1970]];
+    [bufferedEvent setSubscriptionID:uuid];
+    [mArrivedEventsBuffers addObject: bufferedEvent];
+    [bufferedEvent release];
+}
+
+-(void) processEventsFromBufferForKey: (NSString *) uuid {
+    
+    id<UPnPEvents_Observer> thisObserver = nil;
+    NSMutableArray *toSend = [[NSMutableArray alloc] init];
+    
+    [mMutex lock];
+    @try {
+        ObserverEntry *entry = [mEventSubscribers objectForKey:uuid];
+        if(entry != nil){
+            thisObserver = entry.observer;
+        }
+        
+        NSMutableArray *eventsToRemove = [NSMutableArray array];
+        
+        for (BufferedEvent *event in mArrivedEventsBuffers) {
+            if ([event.subscriptionID isEqualToString:uuid]) {
+                [toSend addObject:event];
+                [eventsToRemove addObject:event];
+            }
+        }
+        
+        // Remove events that are to be sent from mArrivedEventsBuffers
+        [mArrivedEventsBuffers removeObjectsInArray:eventsToRemove];
+        
+    } @finally {
+        [mMutex unlock];
+    }
+    
+    if (thisObserver) {
+        for (BufferedEvent *bufferedEvent in toSend) {
+            [thisObserver UPnPEvent:bufferedEvent.events];
+        }
+    }
+}
+
 
 /*
  * Incomming HTTP events
@@ -258,6 +327,8 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
         ObserverEntry *entry = mEventSubscribers[uuid];
         if (entry != nil) {
             thisObserver = entry.observer;
+        } else {
+            [self bufferEarlyEventFromCurrentParser:uuid];
         }
         [mMutex unlock];
         if (thisObserver != nil) {
@@ -280,6 +351,11 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     *returnCode = 200;
 
     return result;
+}
+
+-(void)manageTimeouts:(NSTimer*)timer{
+    [self manageSubscriptionTimeouts:timer];
+    [self manageBufferedEventsTimeouts:timer];
 }
 
 
@@ -330,5 +406,21 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
     [notify release];
 }
 
+
+-(void)manageBufferedEventsTimeouts:(NSTimer*)timer{
+    double tm = [[NSDate date]timeIntervalSince1970];
+    NSMutableArray *remove = [[NSMutableArray alloc] init];
+    [mMutex lock];
+
+    for (BufferedEvent *bufferedEvent in mArrivedEventsBuffers) {
+        // Race condition should be resolved after 60seconds latest
+        if (tm - bufferedEvent.eventTime >=60) {
+            [remove addObject:bufferedEvent];
+        }
+    }
+    [mArrivedEventsBuffers removeObjectsInArray:remove];
+    [mMutex unlock];
+
+}
 
 @end
